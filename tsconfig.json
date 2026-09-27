@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
-    "target": "ES2023",
+    "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "lib": ["ES2023", "WebWorker"],
+    "lib": ["ESNext", "WebWorker"],
     "strict": true,
     "noEmit": true,
-    "skipLibCheck": false,
-    "types": ["@cloudflare/vitest-plugin/types", "vitest/globals"]
+    "skipLibCheck": true,
+    "types": ["@cloudflare/vitest-plugin/types", "vitest/globals", "node"]
   },
   "include": ["src/**/*.ts", "tests/**/*.ts", "vitest.config.ts"]
 }

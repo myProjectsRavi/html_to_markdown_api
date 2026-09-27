@@ -31,10 +31,8 @@ jobs:
         with:
           node-version: 22.22.2
 
-      - name: Use npm 12.1.0
-        run: |
-          npm install --global npm@12.1.0
-          test "$(npm --version)" = "12.1.0"
+      - name: Verify bundled npm
+        run: test "$(npm --version)" = "10.9.7"
 
       - name: Generate reproducible npm lock candidate
         run: npm install --package-lock-only --ignore-scripts --audit=false --fund=false

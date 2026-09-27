@@ -35,10 +35,13 @@ jobs:
         run: test "$(npm --version)" = "10.9.7"
 
       - name: Generate reproducible npm lock candidate
-        run: npm install --package-lock-only --ignore-scripts --audit=false --fund=false
+        run: npm install --package-lock-only --ignore-scripts --legacy-peer-deps --audit=false --fund=false
 
       - name: Install exact candidate graph
-        run: npm ci --audit=false --fund=false
+        run: npm ci --legacy-peer-deps --audit=false --fund=false
+
+      - name: Verify installed dependency graph
+        run: npm ls --all
 
       - name: Validate US002 bootstrap
         run: npm run verify:bootstrap

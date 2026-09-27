@@ -21,6 +21,8 @@
     "@cloudflare/vitest-plugin": "1.2.8",
     "typescript": "7.0.2",
     "vitest": "4.1.11",
-    "wrangler": "4.141.0"
+    "wrangler": "4.141.0",
+    "@vitest/runner": "4.1.11",
+    "@vitest/snapshot": "4.1.11"
   }
 }

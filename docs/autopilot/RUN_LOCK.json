@@ -3,10 +3,10 @@
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
   "state": "active",
-  "owner": "html-api-story-runner-20260928T0016+0530",
+  "owner": "html-api-story-runner-20260928T0117+0530",
   "story_id": "US002",
-  "base_head": "029750994aec0733a985964ed2a4b290c11f3f3c",
-  "acquired_at": "2026-09-27T18:46:53Z",
+  "base_head": "0a7cd4d51e43b9f1e0fe5a79b456433343d8b171",
+  "acquired_at": "2026-09-27T19:47:51Z",
   "lease_minutes": 55,
-  "note": "Claimed for the next scheduled primary Story Runner validation of US002. Optimistic update uses the exact released lock blob SHA read immediately before this claim."
+  "note": "Reclaimed the verified-stale prior US002 lease using the exact lock blob SHA read immediately before this claim."
 }

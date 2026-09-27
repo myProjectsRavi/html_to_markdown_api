@@ -4,18 +4,16 @@
 - Target repository: `myProjectsRavi/html_to_markdown_api`
 - Allowed implementation branch: `autopilot/html-markdown-v1`
 - Approved starting revision (`main`): `51497790a365b9465e35bb8dd2b06adb4ac38d4c`
-- Observed remote HEAD at run start: `51497790a365b9465e35bb8dd2b06adb4ac38d4c` (`main`)
+- Observed remote HEAD at run start: `f06b22466a32139e452a5d84c45783774bdfb96d`
 - Current Epic: E01 Foundation
 - Current Feature: F01 Repository and runner
-- Current Story: US001 Establish the repository and checkpoint ledger
-- Phase: DONE
-- Implementation SHA: `51649e95d3ada3264eda5b3dc7916f4fea0d6070`
-- Tested code SHA: `51649e95d3ada3264eda5b3dc7916f4fea0d6070`
-- Completion checkpoint branch HEAD: resolve with `git rev-parse HEAD` or remote branch lookup because a commit cannot embed its own hash.
-- Completed criteria: public repository and writable implementation branch verified; branch created directly from approved `main`; all 44 stories and dependencies recorded; state validator and negative checks pass; exact remote implementation blobs matched the sandbox-tested materialization; branch-vs-main comparison contains only intended US001 seed files.
-- Validation evidence: `docs/autopilot/evidence/US001.md` and `docs/autopilot/VALIDATION.md`.
+- Current Story: US002 Install the hourly execution contract
+- Phase: IN_PROGRESS
+- Implementation SHA: pending this story's implementation commit
+- Tested code SHA: pending
+- Completed criteria: US001 is DONE; external primary runner is enabled hourly at minute 17; external watchdog is enabled hourly at minute 47; repository branch lock protocol, branch guard, startup state reconciliation, interruption-resume fixture, minimal TypeScript Worker scaffold and workerd test harness are being installed.
+- Remaining criteria: obtain reproducible package lock; run runner, typecheck, Worker-runtime test and dry-run build; observe two real scheduler triggers; record exact implementation SHA and evidence.
 - Blocker category: none
 - Blocker: none
-- Exact next action: next scheduled/manual run selects US002 Install the hourly execution contract. Do not start US002 in this US001 run.
-- Uncommitted status: expected clean after checkpoint commit.
-- Runner: manual immediate run in ChatGPT sandbox; hourly story runner and watchdog remain enabled.
+- Exact next action: validate the US002 bootstrap commit in GitHub Actions, retrieve and commit the generated lockfile, rerun the exact locked checks, then retain VALIDATING until a second real scheduler trigger is observed.
+- Uncommitted status: expected clean after implementation commit.

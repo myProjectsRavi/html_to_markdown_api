@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "repository": "myProjectsRavi/html_to_markdown_api",
+  "branch": "autopilot/html-markdown-v1",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "f06b22466a32139e452a5d84c45783774bdfb96d",
+  "acquired_at": null,
+  "lease_minutes": 55,
+  "note": "Remote agents claim this record using an optimistic update against the currently observed blob SHA. Only one concurrent claimant can update the same prior SHA successfully."
+}

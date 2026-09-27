@@ -1,0 +1,47 @@
+name: US002 Bootstrap Validation
+
+on:
+  push:
+    branches:
+      - autopilot/html-markdown-v1
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: html-markdown-us002-bootstrap-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout exact revision
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Use Node 22.16.0
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.16.0
+
+      - name: Generate reproducible npm lock candidate
+        run: npm install --package-lock-only --ignore-scripts --audit=false --fund=false
+
+      - name: Install exact candidate graph
+        run: npm ci --audit=false --fund=false
+
+      - name: Validate US002 bootstrap
+        run: npm run verify:bootstrap
+
+      - name: Upload generated lock candidate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: us002-package-lock-${{ github.sha }}
+          path: package-lock.json
+          if-no-files-found: error
+          retention-days: 3

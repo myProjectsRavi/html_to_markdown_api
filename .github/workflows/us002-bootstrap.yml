@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: html-markdown-us002-bootstrap-${{ github.ref }}
@@ -21,23 +21,18 @@ jobs:
       - name: Checkout exact revision
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
-          persist-credentials: true
+          persist-credentials: false
 
       - name: Use Node 22.22.2
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: 22.22.2
+          cache: npm
 
       - name: Verify bundled npm
         run: test "$(npm --version)" = "10.9.7"
 
-      - name: Generate lock when absent
-        run: |
-          if [ ! -f package-lock.json ]; then
-            npm install --package-lock-only --ignore-scripts
-          fi
-
-      - name: Install exact candidate graph
+      - name: Install reviewed lockfile
         run: npm ci
 
       - name: Verify installed dependency graph
@@ -46,15 +41,5 @@ jobs:
       - name: Validate US002 bootstrap
         run: npm run verify:bootstrap
 
-      - name: Commit reviewed lock candidate
-        if: success() && github.event_name == 'push' && github.ref == 'refs/heads/autopilot/html-markdown-v1'
-        run: |
-          if git ls-files --error-unmatch package-lock.json >/dev/null 2>&1; then
-            echo "package-lock.json is already tracked"
-            exit 0
-          fi
-          git add package-lock.json
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "build: commit US002 dependency lock"
-          git push origin HEAD:autopilot/html-markdown-v1
+      - name: Verify generated files are ignored
+        run: git status --short

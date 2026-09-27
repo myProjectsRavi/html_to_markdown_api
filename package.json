@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "description": "Stateless Cloudflare Worker implementing deterministic HTML to Markdown and clean text conversion",
-  "packageManager": "npm@12.1.0",
+  "packageManager": "npm@10.9.7",
   "scripts": {
     "check:state": "node scripts/check-state.mjs && node scripts/check-state.test.mjs",
     "test:runner": "node scripts/autopilot-runner.test.mjs",
@@ -15,7 +15,7 @@
   },
   "engines": {
     "node": "22.22.2",
-    "npm": "12.1.0"
+    "npm": "10.9.7"
   },
   "devDependencies": {
     "@cloudflare/vitest-plugin": "1.2.8",

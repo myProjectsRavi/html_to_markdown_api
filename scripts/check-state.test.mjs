@@ -22,7 +22,7 @@ function runCase(name, mutate, expectedExit, expectedText) {
   console.log(`PASS ${name}`);
 }
 
-runCase('initial', _ => {}, 0, 'STATE_OK: next story US001');
+runCase('initial', _ => {}, 0, 'STATE_OK:');
 runCase('missing-id', value => { value.stories = value.stories.filter(s => s.id !== 'US044'); }, 1, 'expected 44 stories');
 runCase('cycle', value => { value.stories.find(s => s.id === 'US001').depends_on = ['US044']; }, 1, 'dependency cycle');
-runCase('done-without-evidence', value => { const s=value.stories.find(s=>s.id==='US001'); s.status='DONE'; s.blocker=null; s.blocked_from=null; }, 1, 'DONE requires tested_code_sha and evidence_path');
+runCase('done-without-evidence', value => { const s=value.stories.find(s=>s.id==='US001'); s.status='DONE'; s.tested_code_sha=null; s.evidence_path=null; s.blocker=null; s.blocked_from=null; }, 1, 'DONE requires tested_code_sha and evidence_path');

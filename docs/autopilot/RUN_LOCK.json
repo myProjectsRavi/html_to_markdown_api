@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "manual-us002-run-20260927T1828Z",
-  "story_id": "US002",
-  "base_head": "f51dac153e5cbafc088d99b240a36f867a6b89fc",
-  "acquired_at": "2026-09-27T18:28:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "0b8b71e20866eb39004ea2b805f494924adc06b9",
+  "acquired_at": null,
   "lease_minutes": 55,
-  "note": "Claimed by optimistic update against the exact previously-read RUN_LOCK.json blob SHA. The lock-claim commit itself advances branch HEAD; after claiming, verify that commit descends directly from base_head before further mutation."
+  "note": "Released after the US002 VALIDATING checkpoint. Future claimants must read this exact blob SHA and current branch HEAD before claiming."
 }

@@ -8,9 +8,9 @@
       "feature": "F01",
       "title": "Establish the repository and checkpoint ledger",
       "depends_on": [],
-      "status": "VALIDATING",
+      "status": "DONE",
       "blocked_from": null,
-      "tested_code_sha": null,
+      "tested_code_sha": "51649e95d3ada3264eda5b3dc7916f4fea0d6070",
       "evidence_path": "docs/autopilot/evidence/US001.md",
       "blocker": null
     },

@@ -8,13 +8,14 @@
 - Current Epic: E01 Foundation
 - Current Feature: F01 Repository and runner
 - Current Story: US001 Establish the repository and checkpoint ledger
-- Phase: VALIDATING
-- Implementation SHA: this branch commit; resolve from remote branch HEAD during validation
-- Tested code SHA: pending remote validation
-- Completed criteria: repository verified public and writable; implementation branch created from approved `main`; 44-story durable backlog created; schema validator created; negative tests cover missing ID, dependency cycle, and DONE-without-evidence; deterministic next-story selection implemented.
-- Remaining criteria: push this seed; verify branch contents and exact remote HEAD; run `npm run check:state` from a clean checkout; compare implementation branch against `main` and confirm only US001 seed files changed; record immutable tested SHA and completion evidence.
+- Phase: DONE
+- Implementation SHA: `51649e95d3ada3264eda5b3dc7916f4fea0d6070`
+- Tested code SHA: `51649e95d3ada3264eda5b3dc7916f4fea0d6070`
+- Completion checkpoint branch HEAD: resolve with `git rev-parse HEAD` or remote branch lookup because a commit cannot embed its own hash.
+- Completed criteria: public repository and writable implementation branch verified; branch created directly from approved `main`; all 44 stories and dependencies recorded; state validator and negative checks pass; exact remote implementation blobs matched the sandbox-tested materialization; branch-vs-main comparison contains only intended US001 seed files.
+- Validation evidence: `docs/autopilot/evidence/US001.md` and `docs/autopilot/VALIDATION.md`.
 - Blocker category: none
 - Blocker: none
-- Exact next action: validate the pushed implementation SHA from a clean sandbox checkout and, if all US001 acceptance checks pass, mark US001 DONE in a documentation-only checkpoint commit.
-- Uncommitted status: expected clean after commit.
-- Runner: manual immediate run in ChatGPT sandbox; hourly task remains enabled.
+- Exact next action: next scheduled/manual run selects US002 Install the hourly execution contract. Do not start US002 in this US001 run.
+- Uncommitted status: expected clean after checkpoint commit.
+- Runner: manual immediate run in ChatGPT sandbox; hourly story runner and watchdog remain enabled.

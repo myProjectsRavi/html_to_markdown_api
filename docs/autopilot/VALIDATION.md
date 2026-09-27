@@ -18,3 +18,21 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Remote-content provenance: every intended implementation file was matched to the exact Git blob SHA of remote tree `4051ee75133181f9bb3c7454bbec32309e083549` before the sandbox run.
 - Clean-checkout limitation: direct `git clone` from the sandbox failed because sandbox DNS could not resolve `github.com`. To avoid fabricating a clone result, validation used a fresh clean directory materialized from the exact remote-matched file bytes; the full state command passed there. GitHub connector reads independently verified branch HEAD, ancestry, tree, and diff.
 - Conclusion: US001 acceptance criteria are satisfied for the recorded implementation SHA within the observed scope.
+
+## US002 - Install the hourly execution contract
+
+- Status: VALIDATING.
+- Executable candidate SHA: `f51dac153e5cbafc088d99b240a36f867a6b89fc`.
+- Authoritative run: GitHub Actions `36340561663`, job `108679689891`, push event for the exact candidate SHA, conclusion `success`.
+- Runtime: Node `v22.22.2`, npm `10.9.7`.
+- Dependency provenance: committed lockfile generated from exact package versions; final CI used `npm ci` from that reviewed lockfile and `npm ls --all` succeeded.
+- State checks: `STATE_OK: next story US002 (IN_PROGRESS)`; negative fixtures passed for initial state, missing ID, dependency cycle, and DONE without evidence.
+- Runner checks: wrong-branch-before-mutation PASS; interrupted-run-resumes-same-story PASS; overlapping-run-rejected PASS.
+- Type/build checks: `wrangler types src/worker-configuration.d.ts && tsc --noEmit` passed; Worker runtime types were generated from the pinned Wrangler/configuration.
+- Worker harness: 1 test file passed, 1 test passed inside the Cloudflare Vitest/workerd integration.
+- Bundle dry run: Wrangler completed with total upload 0.32 KiB / gzip 0.22 KiB and exited in dry-run mode.
+- Generated-file cleanliness: final `git status --short` produced no tracked diff after validation.
+- CI hardening at the candidate: final workflow has `contents: read`, checkout credentials are not persisted, action revisions are pinned, concurrency does not cancel an in-progress run, and the job has a 15-minute timeout.
+- Failure history retained for diagnosis: the first bootstrap exposed npm resolver/engine issues and missing Worker/tooling types. They were fixed in US002 by pinning a compatible Node/npm toolchain, making the npm resolver mode explicit in `.npmrc`, committing the resulting lockfile, adding exact peer/tooling packages, and generating Worker types before TypeScript validation. No failed check was reclassified as a pass.
+- Scheduler observations: primary Story Runner observed at `2026-09-27T17:45:34Z`; staggered Development Watchdog observed at `2026-09-27T18:15:39Z`. Both remain enabled. The strict two-successive-primary-trigger gate is intentionally still open until the next primary scheduled invocation.
+- Conclusion: implementation and CI gates are green; US002 remains VALIDATING only for the final temporal trigger observation.

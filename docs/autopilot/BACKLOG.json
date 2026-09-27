@@ -22,7 +22,7 @@
       "depends_on": [
         "US001"
       ],
-      "status": "IN_PROGRESS",
+      "status": "VALIDATING",
       "blocked_from": null,
       "tested_code_sha": null,
       "evidence_path": "docs/autopilot/evidence/US002.md",

@@ -4,16 +4,17 @@
 - Target repository: `myProjectsRavi/html_to_markdown_api`
 - Allowed implementation branch: `autopilot/html-markdown-v1`
 - Approved starting revision (`main`): `51497790a365b9465e35bb8dd2b06adb4ac38d4c`
-- Observed remote HEAD at run start: `f06b22466a32139e452a5d84c45783774bdfb96d`
 - Current Epic: E01 Foundation
 - Current Feature: F01 Repository and runner
 - Current Story: US002 Install the hourly execution contract
-- Phase: IN_PROGRESS
-- Implementation SHA: pending this story's implementation commit
-- Tested code SHA: pending
-- Completed criteria: US001 is DONE; external primary runner is enabled hourly at minute 17; external watchdog is enabled hourly at minute 47; repository branch lock protocol, branch guard, startup state reconciliation, interruption-resume fixture, minimal TypeScript Worker scaffold and workerd test harness are being installed.
-- Remaining criteria: obtain reproducible package lock; run runner, typecheck, Worker-runtime test and dry-run build; observe two real scheduler triggers; record exact implementation SHA and evidence.
-- Blocker category: none
-- Blocker: none
-- Exact next action: validate the US002 bootstrap commit in GitHub Actions, retrieve and commit the generated lockfile, rerun the exact locked checks, then retain VALIDATING until a second real scheduler trigger is observed.
-- Uncommitted status: expected clean after implementation commit.
+- Phase: VALIDATING
+- Executable candidate SHA validated in Actions: `f51dac153e5cbafc088d99b240a36f867a6b89fc`
+- Authoritative validation run: GitHub Actions run `36340561663`, job `108679689891`, conclusion success.
+- Current branch lock owner: `manual-us002-run-20260927T1828Z`; lock claim commit `30fa090652acc315cbc66c7247838fd210c3542c` directly descends from the validated candidate.
+- Completed criteria: exact hourly primary runner is enabled; staggered hourly watchdog is enabled; remote optimistic lock protocol is installed; wrong-branch execution exits before mutation; startup reconciliation resumes the active story; synthetic interruption resumes US002; overlapping local runner fixture is rejected; exact package lock is committed; TypeScript checking passes against generated Worker runtime types; minimal workerd-backed Worker test passes; Wrangler dry-run build passes from the reviewed lockfile.
+- Observed scheduler executions: primary Story Runner at `2026-09-27T17:45:34Z`; Development Watchdog at `2026-09-27T18:15:39Z`.
+- Remaining criterion: observe a second successive scheduled execution of the primary Story Runner before claiming the primary hourly launcher is proven by two successive triggers. The watchdog observation proves the staggered recovery schedule is also firing but is not substituted for that stricter primary-runner criterion.
+- Blocker category: temporal validation gate
+- Blocker: no technical defect is open; US002 waits only for the next primary scheduled invocation required by the blueprint's two-trigger acceptance gate.
+- Exact next action: on the next primary Story Runner invocation, confirm it is the second observed primary trigger; re-read this checkpoint, exact branch HEAD and CI. If no regression is present, mark US002 DONE in a documentation-only checkpoint and leave US003 for the following run.
+- Uncommitted status: expected clean after checkpoint.

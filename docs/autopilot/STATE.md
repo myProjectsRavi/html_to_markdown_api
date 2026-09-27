@@ -7,15 +7,15 @@
 - Current Epic: E01 Foundation
 - Current Feature: F01 Repository and runner
 - Current Story: US002 Install the hourly execution contract
-- Phase: VALIDATING
-- Executable candidate SHA validated in Actions: `f51dac153e5cbafc088d99b240a36f867a6b89fc`
+- Phase: DONE
+- Implementation/tested code SHA: `f51dac153e5cbafc088d99b240a36f867a6b89fc`
 - Authoritative candidate validation: GitHub Actions run `36340561663`, job `108679689891`, conclusion success.
-- Durable validation checkpoint: branch head before this documentation-only checkpoint was `b4eb538262f2905e7a33412a3cf3030a69d413ba`; the preceding released-state checkpoint `327677b602bbcd3fbaa320fbced6e93a8885824a` passed GitHub Actions run `36340887634`, job `108680648366`.
-- Repository/branch lock: released by this final checkpoint; future writers must reacquire through `RUN_LOCK.json` and `LOCK_PROTOCOL.md`.
-- Completed criteria: exact hourly primary runner is enabled; staggered hourly watchdog is enabled; remote optimistic lock protocol is installed and exercised; wrong-branch execution exits before mutation; startup reconciliation resumes the active story; synthetic interruption resumes US002; overlapping local runner fixture is rejected; exact package lock is committed; TypeScript checking passes against generated Worker runtime types; minimal workerd-backed Worker test passes; Wrangler dry-run build passes from the reviewed lockfile.
-- Observed scheduler executions: primary Story Runner at `2026-09-27T17:45:34Z`; Development Watchdog at `2026-09-27T18:15:39Z`.
-- Remaining criterion: observe a second successive scheduled execution of the primary Story Runner before claiming the primary hourly launcher is proven by two successive triggers. The watchdog observation proves the staggered recovery schedule is firing but is not substituted for that stricter primary-runner criterion.
-- Blocker category: temporal validation gate
-- Blocker: no technical defect is open; US002 waits only for the next primary scheduled invocation required by the blueprint's two-trigger acceptance gate.
-- Exact next action: on the next primary Story Runner invocation, confirm it is the second observed primary trigger; re-read this checkpoint, exact branch HEAD and latest CI. If no regression is present, mark US002 DONE in a documentation-only checkpoint and leave US003 for the following run.
-- Uncommitted status: expected clean after this checkpoint.
+- Successive primary scheduler observations: `2026-09-27T17:45:34Z` and `2026-09-27T18:46:53Z`.
+- Watchdog observation: `2026-09-27T18:15:39Z`.
+- Completed criteria: two successive primary triggers observed; overlapping local runner fixture rejected; interrupted fixture resumes US002; wrong-branch execution exits before mutation; canonical optimistic GitHub branch lock installed and exercised; exact package lock committed; TypeScript checks and generated Worker runtime types pass; minimal workerd-backed Worker test passes; Wrangler dry-run build passes for the reviewed executable candidate.
+- Run reconciliation: prior US002 lease had expired; it was reclaimed through the exact lock blob SHA. Claim commit `3dd5af641a1272cbd9462be1449cdfef548ffec7` directly descended from pre-claim HEAD `0a7cd4d51e43b9f1e0fe5a79b456433343d8b171` and changed only `docs/autopilot/RUN_LOCK.json`.
+- Durable completion checkpoint: BACKLOG marks US002 DONE at commit `4734bcfa1b4a8d97eb9ac01a0375d5e5870f8df9`; documentation finalization is in progress in this same story.
+- Remaining criterion: none.
+- Blocker category: transient GitHub connector write safety if documentation/release writes are rejected.
+- Exact next action: finish US002 evidence/validation documentation and release RUN_LOCK.json. On the following scheduled run only, reacquire the lock and begin US003 after full reconciliation.
+- Uncommitted status: no local working tree is used; all durable changes are GitHub commits.

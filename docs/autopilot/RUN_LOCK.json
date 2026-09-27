@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "f06b22466a32139e452a5d84c45783774bdfb96d",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "manual-us002-run-20260927T1828Z",
+  "story_id": "US002",
+  "base_head": "f51dac153e5cbafc088d99b240a36f867a6b89fc",
+  "acquired_at": "2026-09-27T18:28:00Z",
   "lease_minutes": 55,
-  "note": "Remote agents claim this record using an optimistic update against the currently observed blob SHA. Only one concurrent claimant can update the same prior SHA successfully."
+  "note": "Claimed by optimistic update against the exact previously-read RUN_LOCK.json blob SHA. The lock-claim commit itself advances branch HEAD; after claiming, verify that commit descends directly from base_head before further mutation."
 }

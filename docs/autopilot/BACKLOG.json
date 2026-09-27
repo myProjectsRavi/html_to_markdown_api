@@ -22,9 +22,9 @@
       "depends_on": [
         "US001"
       ],
-      "status": "VALIDATING",
+      "status": "DONE",
       "blocked_from": null,
-      "tested_code_sha": null,
+      "tested_code_sha": "f51dac153e5cbafc088d99b240a36f867a6b89fc",
       "evidence_path": "docs/autopilot/evidence/US002.md",
       "blocker": null
     },

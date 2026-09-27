@@ -9,12 +9,13 @@
 - Current Story: US002 Install the hourly execution contract
 - Phase: VALIDATING
 - Executable candidate SHA validated in Actions: `f51dac153e5cbafc088d99b240a36f867a6b89fc`
-- Authoritative validation run: GitHub Actions run `36340561663`, job `108679689891`, conclusion success.
-- Current branch lock owner: `manual-us002-run-20260927T1828Z`; lock claim commit `30fa090652acc315cbc66c7247838fd210c3542c` directly descends from the validated candidate.
-- Completed criteria: exact hourly primary runner is enabled; staggered hourly watchdog is enabled; remote optimistic lock protocol is installed; wrong-branch execution exits before mutation; startup reconciliation resumes the active story; synthetic interruption resumes US002; overlapping local runner fixture is rejected; exact package lock is committed; TypeScript checking passes against generated Worker runtime types; minimal workerd-backed Worker test passes; Wrangler dry-run build passes from the reviewed lockfile.
+- Authoritative candidate validation: GitHub Actions run `36340561663`, job `108679689891`, conclusion success.
+- Durable validation checkpoint: branch head before this documentation-only checkpoint was `b4eb538262f2905e7a33412a3cf3030a69d413ba`; the preceding released-state checkpoint `327677b602bbcd3fbaa320fbced6e93a8885824a` passed GitHub Actions run `36340887634`, job `108680648366`.
+- Repository/branch lock: released by this final checkpoint; future writers must reacquire through `RUN_LOCK.json` and `LOCK_PROTOCOL.md`.
+- Completed criteria: exact hourly primary runner is enabled; staggered hourly watchdog is enabled; remote optimistic lock protocol is installed and exercised; wrong-branch execution exits before mutation; startup reconciliation resumes the active story; synthetic interruption resumes US002; overlapping local runner fixture is rejected; exact package lock is committed; TypeScript checking passes against generated Worker runtime types; minimal workerd-backed Worker test passes; Wrangler dry-run build passes from the reviewed lockfile.
 - Observed scheduler executions: primary Story Runner at `2026-09-27T17:45:34Z`; Development Watchdog at `2026-09-27T18:15:39Z`.
-- Remaining criterion: observe a second successive scheduled execution of the primary Story Runner before claiming the primary hourly launcher is proven by two successive triggers. The watchdog observation proves the staggered recovery schedule is also firing but is not substituted for that stricter primary-runner criterion.
+- Remaining criterion: observe a second successive scheduled execution of the primary Story Runner before claiming the primary hourly launcher is proven by two successive triggers. The watchdog observation proves the staggered recovery schedule is firing but is not substituted for that stricter primary-runner criterion.
 - Blocker category: temporal validation gate
 - Blocker: no technical defect is open; US002 waits only for the next primary scheduled invocation required by the blueprint's two-trigger acceptance gate.
-- Exact next action: on the next primary Story Runner invocation, confirm it is the second observed primary trigger; re-read this checkpoint, exact branch HEAD and CI. If no regression is present, mark US002 DONE in a documentation-only checkpoint and leave US003 for the following run.
-- Uncommitted status: expected clean after checkpoint.
+- Exact next action: on the next primary Story Runner invocation, confirm it is the second observed primary trigger; re-read this checkpoint, exact branch HEAD and latest CI. If no regression is present, mark US002 DONE in a documentation-only checkpoint and leave US003 for the following run.
+- Uncommitted status: expected clean after this checkpoint.

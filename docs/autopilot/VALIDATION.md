@@ -36,3 +36,10 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Failure history retained for diagnosis: the first bootstrap exposed npm resolver/engine issues and missing Worker/tooling types. They were fixed in US002 by pinning a compatible Node/npm toolchain, making the npm resolver mode explicit in `.npmrc`, committing the resulting lockfile, adding exact peer/tooling packages, and generating Worker types before TypeScript validation. No failed check was reclassified as a pass.
 - Scheduler observations: primary Story Runner observed at `2026-09-27T17:45:34Z`; staggered Development Watchdog observed at `2026-09-27T18:15:39Z`. Both remain enabled. The strict two-successive-primary-trigger gate is intentionally still open until the next primary scheduled invocation.
 - Conclusion: implementation and CI gates are green; US002 remains VALIDATING only for the final temporal trigger observation.
+
+### US002 checkpoint confirmation
+
+- Released-state checkpoint `327677b602bbcd3fbaa320fbced6e93a8885824a` was independently rebuilt by GitHub Actions run `36340887634`, job `108680648366`; every required step concluded success.
+- That run installed the committed lockfile, verified the dependency graph, reran the full US002 bootstrap validation, and confirmed generated Worker types/build outputs did not leave tracked changes.
+- The subsequent lock claim `b4eb538262f2905e7a33412a3cf3030a69d413ba` directly descended from `327677b602bbcd3fbaa320fbced6e93a8885824a`, proving the corrected lock protocol's parent check for this run.
+- No executable source or dependency input changed after the green candidate validation; remaining work is only the blueprint-required second successive primary scheduler observation.

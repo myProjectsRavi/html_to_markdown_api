@@ -26,10 +26,10 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Use Node 22.16.0
+      - name: Use Node 22.22.2
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
-          node-version: 22.16.0
+          node-version: 22.22.2
 
       - name: Use npm 12.1.0
         run: |

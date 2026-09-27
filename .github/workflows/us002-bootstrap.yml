@@ -51,6 +51,8 @@ jobs:
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: us002-package-lock-${{ github.sha }}
-          path: package-lock.json
+          path: |
+            package-lock.json
+            src/worker-configuration.d.ts
           if-no-files-found: error
           retention-days: 3

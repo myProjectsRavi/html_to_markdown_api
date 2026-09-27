@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "0b8b71e20866eb39004ea2b805f494924adc06b9",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "manual-us002-run-20260927T1831Z",
+  "story_id": "US002",
+  "base_head": "327677b602bbcd3fbaa320fbced6e93a8885824a",
+  "acquired_at": "2026-09-27T18:31:00Z",
   "lease_minutes": 55,
-  "note": "Released after the US002 VALIDATING checkpoint. Future claimants must read this exact blob SHA and current branch HEAD before claiming."
+  "note": "Second US002 checkpoint claim. Claim commit must directly descend from base_head; release is written atomically with the final durable checkpoint."
 }

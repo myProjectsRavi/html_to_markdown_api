@@ -1,0 +1,12 @@
+{
+  "name": "html-to-markdown-clean-text-api",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Greenfield Cloudflare Worker implementation tracked by the production blueprint",
+  "scripts": {
+    "check:state": "node scripts/check-state.mjs && node scripts/check-state.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

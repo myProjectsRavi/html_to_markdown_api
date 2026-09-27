@@ -1,0 +1,620 @@
+{
+  "schema_version": 1,
+  "blueprint_version": "1.0-2026-09-27",
+  "stories": [
+    {
+      "id": "US001",
+      "epic": "E01",
+      "feature": "F01",
+      "title": "Establish the repository and checkpoint ledger",
+      "depends_on": [],
+      "status": "VALIDATING",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": "docs/autopilot/evidence/US001.md",
+      "blocker": null
+    },
+    {
+      "id": "US002",
+      "epic": "E01",
+      "feature": "F01",
+      "title": "Install the hourly execution contract",
+      "depends_on": [
+        "US001"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US003",
+      "epic": "E01",
+      "feature": "F02",
+      "title": "Freeze the machine readable API contract",
+      "depends_on": [
+        "US002"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US004",
+      "epic": "E01",
+      "feature": "F02",
+      "title": "Create the canonical synthetic fixture corpus",
+      "depends_on": [
+        "US003"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US005",
+      "epic": "E02",
+      "feature": "F03",
+      "title": "Implement exact routing and response headers",
+      "depends_on": [
+        "US004"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US006",
+      "epic": "E02",
+      "feature": "F03",
+      "title": "Authenticate RapidAPI origin requests",
+      "depends_on": [
+        "US005"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US007",
+      "epic": "E02",
+      "feature": "F04",
+      "title": "Read request bodies within a hard bound",
+      "depends_on": [
+        "US006"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US008",
+      "epic": "E02",
+      "feature": "F04",
+      "title": "Validate JSON and decoded HTML precisely",
+      "depends_on": [
+        "US007"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US009",
+      "epic": "E03",
+      "feature": "F05",
+      "title": "Select a parser with measured evidence",
+      "depends_on": [
+        "US008"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US010",
+      "epic": "E03",
+      "feature": "F05",
+      "title": "Build the bounded parser adapter",
+      "depends_on": [
+        "US009"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US011",
+      "epic": "E03",
+      "feature": "F06",
+      "title": "Normalize safe content into a shared tree",
+      "depends_on": [
+        "US010"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US012",
+      "epic": "E03",
+      "feature": "F06",
+      "title": "Preserve Unicode and normalize whitespace",
+      "depends_on": [
+        "US011"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US013",
+      "epic": "E04",
+      "feature": "F07",
+      "title": "Render Markdown blocks",
+      "depends_on": [
+        "US012"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US014",
+      "epic": "E04",
+      "feature": "F07",
+      "title": "Render inline formatting and literal text",
+      "depends_on": [
+        "US013"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US015",
+      "epic": "E04",
+      "feature": "F08",
+      "title": "Render ordered and nested lists",
+      "depends_on": [
+        "US014"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US016",
+      "epic": "E04",
+      "feature": "F08",
+      "title": "Render quotes and disclosure fallback",
+      "depends_on": [
+        "US015"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US017",
+      "epic": "E04",
+      "feature": "F09",
+      "title": "Render safe inline code spans",
+      "depends_on": [
+        "US016"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US018",
+      "epic": "E04",
+      "feature": "F09",
+      "title": "Render fenced preformatted blocks",
+      "depends_on": [
+        "US017"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US019",
+      "epic": "E05",
+      "feature": "F10",
+      "title": "Classify link and image targets",
+      "depends_on": [
+        "US018"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US020",
+      "epic": "E05",
+      "feature": "F10",
+      "title": "Serialize Markdown links safely",
+      "depends_on": [
+        "US019"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US021",
+      "epic": "E05",
+      "feature": "F11",
+      "title": "Render images without resource access",
+      "depends_on": [
+        "US020"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US022",
+      "epic": "E05",
+      "feature": "F11",
+      "title": "Render simple rectangular tables",
+      "depends_on": [
+        "US021"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US023",
+      "epic": "E05",
+      "feature": "F12",
+      "title": "Degrade complex tables predictably",
+      "depends_on": [
+        "US022"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US024",
+      "epic": "E05",
+      "feature": "F12",
+      "title": "Close Markdown fallback and composition gaps",
+      "depends_on": [
+        "US023"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US025",
+      "epic": "E06",
+      "feature": "F13",
+      "title": "Render clean text blocks and inline content",
+      "depends_on": [
+        "US024"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US026",
+      "epic": "E06",
+      "feature": "F13",
+      "title": "Render structured content as clean text",
+      "depends_on": [
+        "US025"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US027",
+      "epic": "E06",
+      "feature": "F14",
+      "title": "Enforce bounded output and factual statistics",
+      "depends_on": [
+        "US026"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US028",
+      "epic": "E06",
+      "feature": "F14",
+      "title": "Finalize error precedence and stateless requests",
+      "depends_on": [
+        "US027"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US029",
+      "epic": "E07",
+      "feature": "F15",
+      "title": "Complete the supported behavior regression suite",
+      "depends_on": [
+        "US028"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US030",
+      "epic": "E07",
+      "feature": "F15",
+      "title": "Add reproducible property and fuzz tests",
+      "depends_on": [
+        "US029"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US031",
+      "epic": "E07",
+      "feature": "F16",
+      "title": "Audit security and privacy behavior",
+      "depends_on": [
+        "US030"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US032",
+      "epic": "E07",
+      "feature": "F16",
+      "title": "Harden dependencies and CI permissions",
+      "depends_on": [
+        "US031"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US033",
+      "epic": "E08",
+      "feature": "F17",
+      "title": "Measure the complete conversion pipeline",
+      "depends_on": [
+        "US032"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US034",
+      "epic": "E08",
+      "feature": "F17",
+      "title": "Remove measured performance bottlenecks",
+      "depends_on": [
+        "US033"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US035",
+      "epic": "E08",
+      "feature": "F18",
+      "title": "Define the free account capacity envelope",
+      "depends_on": [
+        "US034"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US036",
+      "epic": "E08",
+      "feature": "F18",
+      "title": "Configure privacy safe operational visibility",
+      "depends_on": [
+        "US035"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US037",
+      "epic": "E09",
+      "feature": "F19",
+      "title": "Complete and validate OpenAPI",
+      "depends_on": [
+        "US036"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US038",
+      "epic": "E09",
+      "feature": "F19",
+      "title": "Write and execute integration examples",
+      "depends_on": [
+        "US037"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US039",
+      "epic": "E09",
+      "feature": "F20",
+      "title": "Prepare the RapidAPI product draft",
+      "depends_on": [
+        "US038"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US040",
+      "epic": "E09",
+      "feature": "F20",
+      "title": "Prepare staging ingress and secret configuration",
+      "depends_on": [
+        "US039"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US041",
+      "epic": "E10",
+      "feature": "F21",
+      "title": "Assemble exact revision release validation",
+      "depends_on": [
+        "US040"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US042",
+      "epic": "E10",
+      "feature": "F21",
+      "title": "Rehearse deployment and rollback",
+      "depends_on": [
+        "US041"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US043",
+      "epic": "E10",
+      "feature": "F22",
+      "title": "Review the production readiness packet",
+      "depends_on": [
+        "US042"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    },
+    {
+      "id": "US044",
+      "epic": "E10",
+      "feature": "F22",
+      "title": "Publish the approved candidate and close delivery",
+      "depends_on": [
+        "US043"
+      ],
+      "status": "TODO",
+      "blocked_from": null,
+      "tested_code_sha": null,
+      "evidence_path": null,
+      "blocker": null
+    }
+  ]
+}

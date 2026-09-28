@@ -148,10 +148,10 @@
       "depends_on": [
         "US010"
       ],
-      "status": "TODO",
+      "status": "VALIDATING",
       "blocked_from": null,
       "tested_code_sha": null,
-      "evidence_path": null,
+      "evidence_path": "docs/autopilot/evidence/US011.md",
       "blocker": null
     },
     {

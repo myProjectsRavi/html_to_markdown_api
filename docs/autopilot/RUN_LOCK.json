@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "355671d6e0636eccb9932c1e3b0f05e9985e88ed",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "watchdog-run-11",
+  "story_id": "US010",
+  "base_head": "098ff43a2c42cc8bc5dc299a3c312e6400b67050",
+  "acquired_at": "2026-09-28T11:18:55Z",
   "lease_minutes": 20,
-  "note": "US009 completed with dedicated workerd/bundle/measurement/audit evidence. Lock released; next distinct run may claim US010."
+  "note": "Claim US010 for bounded parser adapter implementation."
 }

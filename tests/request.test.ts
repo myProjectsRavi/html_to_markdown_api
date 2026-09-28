@@ -55,7 +55,7 @@ describe("US008 precise JSON and decoded HTML validation", () => {
     for (const text of [
       "null",
       "[]",
-      ""text"",
+      '"text"',
       '{"html":null}',
       '{"html":123}',
       '{"html":"ok","extra":true}',

@@ -17,109 +17,30 @@ type RouteCase = {
 };
 
 const cases: readonly RouteCase[] = [
-  {
-    name: "public health",
-    method: "GET",
-    path: "/health",
-    status: 200,
-    body: { status: "ok" },
-  },
-  {
-    name: "health rejects POST",
-    method: "POST",
-    path: "/health",
-    status: 405,
-    allow: "GET",
-  },
-  {
-    name: "health rejects HEAD",
-    method: "HEAD",
-    path: "/health",
-    status: 405,
-    allow: "GET",
-  },
-  {
-    name: "health rejects OPTIONS",
-    method: "OPTIONS",
-    path: "/health",
-    status: 405,
-    allow: "GET",
-  },
-  {
-    name: "markdown route accepts only POST and uses non-success placeholder",
-    method: "POST",
-    path: "/v1/html/markdown",
-    status: 503,
-  },
-  {
-    name: "text route accepts only POST and uses non-success placeholder",
-    method: "POST",
-    path: "/v1/html/text",
-    status: 503,
-  },
-  {
-    name: "markdown rejects GET",
-    method: "GET",
-    path: "/v1/html/markdown",
-    status: 405,
-    allow: "POST",
-  },
-  {
-    name: "markdown rejects HEAD",
-    method: "HEAD",
-    path: "/v1/html/markdown",
-    status: 405,
-    allow: "POST",
-  },
-  {
-    name: "markdown rejects OPTIONS",
-    method: "OPTIONS",
-    path: "/v1/html/markdown",
-    status: 405,
-    allow: "POST",
-  },
-  {
-    name: "text rejects GET",
-    method: "GET",
-    path: "/v1/html/text",
-    status: 405,
-    allow: "POST",
-  },
-  {
-    name: "wrong case is unknown",
-    method: "GET",
-    path: "/Health",
-    status: 404,
-  },
-  {
-    name: "health trailing slash is unknown",
-    method: "GET",
-    path: "/health/",
-    status: 404,
-  },
-  {
-    name: "conversion trailing slash is unknown",
-    method: "POST",
-    path: "/v1/html/markdown/",
-    status: 404,
-  },
-  {
-    name: "unknown path GET",
-    method: "GET",
-    path: "/unknown",
-    status: 404,
-  },
-  {
-    name: "unknown path POST",
-    method: "POST",
-    path: "/unknown",
-    status: 404,
-  },
+  { name: "public health", method: "GET", path: "/health", status: 200, body: { status: "ok" } },
+  { name: "health rejects POST", method: "POST", path: "/health", status: 405, allow: "GET" },
+  { name: "health rejects HEAD", method: "HEAD", path: "/health", status: 405, allow: "GET" },
+  { name: "health rejects OPTIONS", method: "OPTIONS", path: "/health", status: 405, allow: "GET" },
+  { name: "markdown route accepts only POST and uses non-success placeholder", method: "POST", path: "/v1/html/markdown", status: 503 },
+  { name: "text route accepts only POST and uses non-success placeholder", method: "POST", path: "/v1/html/text", status: 503 },
+  { name: "markdown rejects GET", method: "GET", path: "/v1/html/markdown", status: 405, allow: "POST" },
+  { name: "markdown rejects HEAD", method: "HEAD", path: "/v1/html/markdown", status: 405, allow: "POST" },
+  { name: "markdown rejects OPTIONS", method: "OPTIONS", path: "/v1/html/markdown", status: 405, allow: "POST" },
+  { name: "text rejects GET", method: "GET", path: "/v1/html/text", status: 405, allow: "POST" },
+  { name: "wrong case is unknown", method: "GET", path: "/Health", status: 404 },
+  { name: "health trailing slash is unknown", method: "GET", path: "/health/", status: 404 },
+  { name: "conversion trailing slash is unknown", method: "POST", path: "/v1/html/markdown/", status: 404 },
+  { name: "unknown path GET", method: "GET", path: "/unknown", status: 404 },
+  { name: "unknown path POST", method: "POST", path: "/unknown", status: 404 },
 ];
 
-async function call(method: string, path: string): Promise<Response> {
+async function call(
+  method: string,
+  path: string,
+  headers?: HeadersInit,
+): Promise<Response> {
   return exports.default.fetch(
-    new Request(`https://example.test${path}`, { method }),
+    new Request(`https://example.test${path}`, { method, headers }),
   );
 }
 
@@ -148,18 +69,22 @@ describe("US005 exact route and method matrix", () => {
   it("uses fixed 404 and 405 JSON envelopes", async () => {
     const missing = await call("GET", "/not-here");
     expect(await missing.json()).toEqual({
-      error: {
-        code: "not_found",
-        message: "Resource not found.",
-      },
+      error: { code: "not_found", message: "Resource not found." },
     });
 
     const wrongMethod = await call("OPTIONS", "/v1/html/text");
     expect(await wrongMethod.json()).toEqual({
-      error: {
-        code: "method_not_allowed",
-        message: "Method not allowed.",
-      },
+      error: { code: "method_not_allowed", message: "Method not allowed." },
+    });
+  });
+
+  it("keeps unknown paths at 404 even when a gateway-secret-looking header is present", async () => {
+    const response = await call("POST", "/unknown", {
+      "X-RapidAPI-Proxy-Secret": "synthetic-valid-looking-secret",
+    });
+    expect(response.status).toBe(404);
+    expect(await response.json()).toEqual({
+      error: { code: "not_found", message: "Resource not found." },
     });
   });
 
@@ -178,19 +103,13 @@ describe("US005 exact route and method matrix", () => {
 
   it("ignores query parameters for routing and never echoes query values", async () => {
     const secretNeedle = "query-value-must-not-leak";
-    const health = await call(
-      "GET",
-      `/health?debug=${encodeURIComponent(secretNeedle)}`,
-    );
+    const health = await call("GET", `/health?debug=${encodeURIComponent(secretNeedle)}`);
     expect(health.status).toBe(200);
     const healthBody = await health.text();
     expect(healthBody).toBe('{"status":"ok"}');
     expect(healthBody).not.toContain(secretNeedle);
 
-    const missing = await call(
-      "GET",
-      `/unknown?debug=${encodeURIComponent(secretNeedle)}`,
-    );
+    const missing = await call("GET", `/unknown?debug=${encodeURIComponent(secretNeedle)}`);
     expect(missing.status).toBe(404);
     const missingBody = await missing.text();
     expect(missingBody).not.toContain(secretNeedle);

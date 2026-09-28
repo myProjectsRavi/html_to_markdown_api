@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "watchdog-run-11",
-  "story_id": "US010",
-  "base_head": "098ff43a2c42cc8bc5dc299a3c312e6400b67050",
-  "acquired_at": "2026-09-28T11:18:55Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "c1f237c2607a47db38a274390081d4b4375b3632",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Claim US010 for bounded parser adapter implementation."
+  "note": "US010 recovery checkpoint: structural parser budget implementation added. Durable ledger update was blocked by a transient connector safety check; resume US010 and reconcile STATE/BACKLOG before further implementation."
 }

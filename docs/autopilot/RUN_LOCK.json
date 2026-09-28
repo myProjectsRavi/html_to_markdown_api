@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "9be9096ee3aa05853cb8618192f624319d59d440",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "manual-us004-recovery-20260928T0439Z",
+  "story_id": "US004",
+  "base_head": "d031e178c53c41cd904d3846e7122b85f49915e2",
+  "acquired_at": "2026-09-28T04:39:00Z",
   "lease_minutes": 55,
-  "note": "US003 completed with exact-head GitHub Actions success. Lock released; next distinct run may reconcile and claim US004."
+  "note": "Manual recovery run after schedule drift diagnosis. Claiming released lock for US004 using exact RUN_LOCK.json blob SHA."
 }

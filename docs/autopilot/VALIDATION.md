@@ -124,3 +124,18 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Regression evidence at the tested SHA: state/negative checks PASS; runner branch/resume/overlap PASS for US007; Worker bootstrap 1/1; contract 4/4; fixtures/boundaries PASS; routing 19/19; auth 8/8; body 9/9; TypeScript/Worker types PASS; Wrangler dry-run PASS at 8.92 KiB / 2.76 KiB gzip.
 - Conclusion: all US007 acceptance and evidence requirements pass for `364f952bd93dd2ac42d40aef7c53e6870f32e643`. US008 is next and must begin only in a distinct run.
 
+## US008 - Validate JSON and decoded HTML precisely
+
+- Status: DONE.
+- Tested SHA: `0a7aa1367484809cdfedece2475427d71da1a052`.
+- Authoritative validation: GitHub Actions run `36396483763`, job `108843975949`, conclusion `success`.
+- Native JSON parsing: `src/http/request.ts` uses `JSON.parse` directly; no secondary JSON parser was introduced. Duplicate `html` keys therefore follow native last-value-wins semantics and are covered by a fixture.
+- Shape validation: missing `html` returns `missing_html`; null, arrays, top-level primitives, non-string html and extra fields return `invalid_request`.
+- Unicode safety: unpaired high and low UTF-16 surrogates are rejected; a valid surrogate pair is accepted. Emoji and combining-mark content is preserved unchanged.
+- Decoded HTML accounting: `TextEncoder` measures the decoded `html` value before normalization. ASCII 131072 bytes passes and plus one returns 413; a multibyte 131072-byte value also passes and plus one returns 413. Escaped JSON is measured after JSON decoding.
+- Empty/whitespace behavior: empty and whitespace-only html pass this layer and proceed to the existing controlled downstream placeholder; this does not fabricate parser/rendering success.
+- Independent limits: US007 raw-body tests remain in the same validation command (9/9), while US008 request tests independently exercise the decoded HTML ceiling (10/10).
+- Failure history retained: run `36396112409` failed a TypeScript syntax error in an invalid-shape fixture; run `36396243196` then exposed a malformed whitespace JSON fixture; run `36396370423` exposed that the repaired fixture represented literal backslash sequences and therefore had 6 bytes rather than the intended 4 whitespace bytes. Each defect was fixed in the same story. Exact-head run `36396483763` passed.
+- Regression evidence at the tested SHA: state/negative checks pass; runner branch/resume/overlap checks pass for US008; Worker bootstrap 1/1; contract 4/4; fixture checks/boundaries pass; routing 19/19; auth 8/8; body 9/9; request validation 10/10; Worker/TypeScript checks pass; Wrangler dry-run passes at 10.71 KiB / 3.16 KiB gzip.
+- Conclusion: all US008 acceptance/evidence criteria pass for `0a7aa1367484809cdfedece2475427d71da1a052`. US009 is next and must begin only in a distinct run.
+

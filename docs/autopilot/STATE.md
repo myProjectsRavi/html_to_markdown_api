@@ -7,13 +7,18 @@
 - Current Epic: E02 HTTP boundary
 - Current Feature: F04 Bounded request validation
 - Current Story: US008 Validate JSON and decoded HTML precisely
-- Phase: IN_PROGRESS
+- Phase: DONE
 - Pre-story checkpoint: `b1b261fdfc37cf2db8ecc4739933253a58c72ba4`
 - Lock claim: `fd4ef598f345d6d762c9b2e583e8e7cdeed17e3c`, verified direct child of the pre-story checkpoint and lock-only diff.
-- Implementation/tested code SHA: pending exact-head validation.
-- Completed work: direct native JSON.parse; exact object shape with only string html; missing_html versus invalid_request split; unpaired-surrogate rejection; decoded HTML UTF-8 byte ceiling; empty/whitespace acceptance; duplicate-key last-value behavior documented; request validation integrated after US007 bounded body and before parser/rendering.
-- Remaining criteria: obtain exact-head GitHub Actions success; diagnose/fix any US008 failure; record immutable evidence and release the 20-minute lock.
+- Tested code SHA: `0a7aa1367484809cdfedece2475427d71da1a052`
+- Authoritative validation: GitHub Actions run `36396483763`, job `108843975949`, conclusion success.
+- Failures repaired within story: run `36396112409` failed fixture syntax; run `36396243196` failed malformed whitespace JSON; run `36396370423` failed because the fixture encoded literal backslashes rather than four whitespace bytes. All were diagnosed and repaired before exact-head success.
+- Completed criteria: native JSON.parse; exact object shape with only string html; missing_html versus invalid_request split; unpaired-surrogate rejection; empty/whitespace accepted; decoded HTML measured with TextEncoder; ASCII and multibyte 131072-byte boundaries pass and plus-one fails; escaped JSON measured after decoding; emoji/combining marks preserved; duplicate html key documented/tested as native last-value-wins.
+- Regression evidence: Worker bootstrap 1/1; contract 4/4; fixtures/boundaries pass; routing 19/19; auth 8/8; body 9/9; request 10/10; TypeScript/Worker types pass; Wrangler dry-run 10.71 KiB / 3.16 KiB gzip.
+- Remaining criterion: none.
 - Blocker category: none.
 - Blocker: none.
-- Exact next action: inspect the US008 Actions run, fix the same story until all request-validation and regression tests pass, then complete durable evidence and release the lock.
+- Autopilot controls: repository-local `STORY_SPECS.md`; 20-minute canonical lock lease; primary :15 IST and watchdog :45 IST; owning runs release the lock as their final repository mutation.
+- Lock state: released by this completion checkpoint.
+- Exact next action: on the next distinct run, acquire the released lock and implement only `US009 Select a parser with measured evidence` from `docs/autopilot/STORY_SPECS.md`.
 - Uncommitted status: no local working tree is used; all durable changes are GitHub commits.

@@ -48,7 +48,7 @@ function chunkStream(
     cancel() {
       options.onCancel?.();
     },
-  });
+  }, { highWaterMark: 0 });
 }
 
 async function expectError(

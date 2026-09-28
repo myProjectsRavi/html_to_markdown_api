@@ -158,14 +158,16 @@ describe("US007 bounded request bodies", () => {
       expect(result.ok).toBe(true);
     }
 
-    for (const headers of [
+    const unsupportedHeaders: readonly HeadersInit[] = [
       { "Content-Type": "text/plain" },
       { "Content-Type": "application/json; charset=iso-8859-1" },
       {
         "Content-Type": "application/json",
         "Content-Encoding": "gzip",
       },
-    ]) {
+    ];
+
+    for (const headers of unsupportedHeaders) {
       const result = await readBoundedJsonBody(
         requestFromStream(chunkStream([bytes("{}")]), headers),
       );

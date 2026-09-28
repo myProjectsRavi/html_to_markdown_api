@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "manual-autopilot-hardening-20260928T0750Z",
-  "story_id": "AUTOPILOT_MAINTENANCE",
-  "base_head": "57903210e0745f05c6b1b6ddb1498ba21150607e",
-  "acquired_at": "2026-09-28T07:50:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "f25c0cd38399abc1ad6040ac866f82a8037fac14",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Autopilot maintenance only: shorten stale-lock recovery window, make story specs repository-local, and align handoff with actual :15/:45 schedules. No numbered story implementation in this maintenance run."
+  "note": "Autopilot hardening complete: durable STORY_SPECS added, lock protocol shortened to 20 minutes, :15/:45 handoff aligned. Lock released; next distinct run may claim US007."
 }

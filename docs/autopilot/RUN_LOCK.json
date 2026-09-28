@@ -5,8 +5,8 @@
   "state": "active",
   "owner": "story-runner",
   "story_id": "US009",
-  "base_head": "c5f0b37adae998af24e67cedc0c1023a93b6addb",
-  "acquired_at": "2026-09-28T08:48:07Z",
+  "base_head": "520faccc162f892364114d50fa38c8e7d66f0037",
+  "acquired_at": "2026-09-28T09:41:52Z",
   "lease_minutes": 20,
-  "note": "US009 parser selection spike in progress."
+  "note": "Reclaiming expired US009 lease."
 }

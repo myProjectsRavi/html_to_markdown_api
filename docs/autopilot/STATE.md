@@ -4,21 +4,16 @@
 - Target repository: `myProjectsRavi/html_to_markdown_api`
 - Allowed implementation branch: `autopilot/html-markdown-v1`
 - Approved starting revision (`main`): `51497790a365b9465e35bb8dd2b06adb4ac38d4c`
-- Current Epic: E02 HTTP boundary
-- Current Feature: F04 Bounded request validation
-- Current Story: US008 Validate JSON and decoded HTML precisely
-- Phase: DONE
-- Pre-story checkpoint: `b1b261fdfc37cf2db8ecc4739933253a58c72ba4`
-- Lock claim: `fd4ef598f345d6d762c9b2e583e8e7cdeed17e3c`, verified direct child of the pre-story checkpoint and lock-only diff.
-- Tested code SHA: `0a7aa1367484809cdfedece2475427d71da1a052`
-- Authoritative validation: GitHub Actions run `36396483763`, job `108843975949`, conclusion success.
-- Failures repaired within story: run `36396112409` failed fixture syntax; run `36396243196` failed malformed whitespace JSON; run `36396370423` failed because the fixture encoded literal backslashes rather than four whitespace bytes. All were diagnosed and repaired before exact-head success.
-- Completed criteria: native JSON.parse; exact object shape with only string html; missing_html versus invalid_request split; unpaired-surrogate rejection; empty/whitespace accepted; decoded HTML measured with TextEncoder; ASCII and multibyte 131072-byte boundaries pass and plus-one fails; escaped JSON measured after decoding; emoji/combining marks preserved; duplicate html key documented/tested as native last-value-wins.
-- Regression evidence: Worker bootstrap 1/1; contract 4/4; fixtures/boundaries pass; routing 19/19; auth 8/8; body 9/9; request 10/10; TypeScript/Worker types pass; Wrangler dry-run 10.71 KiB / 3.16 KiB gzip.
-- Remaining criterion: none.
+- Current Epic: E03 Parser and normalization
+- Current Feature: F05 Parser selection and bounded adapter
+- Current Story: US009 Select a parser with measured evidence
+- Phase: IN_PROGRESS
+- Pre-story checkpoint: `c5f0b37adae998af24e67cedc0c1023a93b6addb`
+- Earlier automation work: claim/reclaim commits `520faccc162f892364114d50fa38c8e7d66f0037` and `85674a637d1c35f3f2010af91ec4dbe8bf2a63b3`; preliminary Node-only spike `e9b1bd9504f90036dc84283312707cafba87d816` passed generic CI but did not yet satisfy the workerd, bundle-size, license/advisory, decision-record, or durable-state requirements.
+- Recovery lock claim: `25d1a34642245a4c330ab1062352d4922e6c4102`.
+- Implementation/tested code SHA: pending authoritative US009 evidence run.
+- Completed recovery work: upgraded parse5 candidate measurement to 8.0.1; expanded 1/16/64/128 KiB Node measurements; preserved entity/malformed/deep/huge-attribute/early-stop probes; added a workerd candidate test; added independent Worker dry-run bundles; added exact-version license output and an npm audit over the exact candidate graphs.
+- Remaining criteria: obtain authoritative US009 workflow output; review performance/bundle/semantics/security evidence; select one parser in `docs/decisions/parser.md`; preserve measured results; update evidence/backlog; release lock.
 - Blocker category: none.
 - Blocker: none.
-- Autopilot controls: repository-local `STORY_SPECS.md`; 20-minute canonical lock lease; primary :15 IST and watchdog :45 IST; owning runs release the lock as their final repository mutation.
-- Lock state: released by this completion checkpoint.
-- Exact next action: on the next distinct run, acquire the released lock and implement only `US009 Select a parser with measured evidence` from `docs/autopilot/STORY_SPECS.md`.
-- Uncommitted status: no local working tree is used; all durable changes are GitHub commits.
+- Exact next action: inspect the US009 Parser Selection Evidence workflow for this checkpoint and fix any same-story failure. If green, record the actual measurements and select the candidate with enforceable early stop and acceptable Worker bundle/runtime behavior.

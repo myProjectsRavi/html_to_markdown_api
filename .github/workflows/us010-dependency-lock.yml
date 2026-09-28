@@ -1,0 +1,52 @@
+name: US010 Dependency Lock
+
+on:
+  push:
+    branches:
+      - autopilot/html-markdown-v1
+    paths:
+      - package.json
+      - .github/workflows/us010-dependency-lock.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: html-markdown-us010-lock-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  lock:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout exact revision
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: true
+
+      - name: Use Node 22.22.2
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22.22.2
+
+      - name: Verify bundled npm
+        run: test "$(npm --version)" = "10.9.7"
+
+      - name: Generate exact lockfile
+        run: npm install --package-lock-only --ignore-scripts --audit=false --fund=false
+
+      - name: Commit only lockfile when changed
+        run: |
+          git diff -- package-lock.json
+          if git diff --quiet -- package-lock.json; then
+            echo "package-lock.json already matches package.json"
+            exit 0
+          fi
+          test -z "$(git status --short | grep -v '^ M package-lock.json$')"
+          git add package-lock.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "build: lock US010 htmlparser2 dependency"
+          git push origin HEAD:autopilot/html-markdown-v1

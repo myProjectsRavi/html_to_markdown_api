@@ -3,6 +3,8 @@ import { ENDPOINTS } from "./config";
 import { readBoundedJsonBody } from "./http/body";
 import { errorResponse } from "./http/response";
 import { validateConversionRequest } from "./http/request";
+import { parseHtml } from "./html/parse";
+import { ParserLimitError } from "./html/limits";
 import { conversionPlaceholderResponse } from "./routes/conversion";
 import { healthResponse } from "./routes/health";
 
@@ -55,9 +57,17 @@ export default {
       return validated.response;
     }
 
-    // Parser/rendering stories own the next stage. Reaching the controlled
-    // placeholder proves the bounded JSON envelope and HTML byte checks passed.
-    void validated.request;
+    try {
+      parseHtml(validated.request.html);
+    } catch (error) {
+      if (error instanceof ParserLimitError) {
+        return errorResponse("input_too_complex");
+      }
+      return errorResponse("internal_error");
+    }
+
+    // Normalization/rendering stories own the next stage. Reaching the
+    // controlled placeholder proves the bounded parser accepted the input.
     void validated.inputBytes;
     return conversionPlaceholderResponse();
   },

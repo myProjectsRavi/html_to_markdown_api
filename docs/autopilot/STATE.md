@@ -7,13 +7,17 @@
 - Current Epic: E01 Foundation
 - Current Feature: F02 Contract and fixtures
 - Current Story: US004 Create the canonical synthetic fixture corpus
-- Phase: IN_PROGRESS
+- Phase: DONE
 - Pre-story checkpoint: `d031e178c53c41cd904d3846e7122b85f49915e2`
 - Lock claim: `ac6524c3cfa80a37254d64c030eebcb5f109687f`, verified direct parent of the pre-story checkpoint and lock-only diff.
-- Implementation/tested code SHA: pending this story's implementation checkpoint and CI.
-- Completed work: US004 source requirements reviewed; synthetic corpus, schema validator, negative validator tests and runtime boundary generators prepared; renderer acceptance is intentionally not claimed before renderer stories exist.
-- Remaining criteria: push US004 implementation checkpoint; obtain exact-head GitHub Actions success; record category coverage and negative-test evidence; review diff; mark US004 DONE and release the lock.
+- Implementation/tested code SHA: `a47d87e7666e28ad41804d1acc8ecfff2903e2ac`
+- Authoritative validation: GitHub Actions run `36378870175`, job `108790252001`, conclusion success.
+- Failure repaired within story: run `36378816899` exposed invalid JavaScript syntax in the fixture validator; commit `a47d87e7666e28ad41804d1acc8ecfff2903e2ac` fixed it and exact-head CI passed.
+- Completed criteria: 62 literal synthetic fixtures; required block/inline/URL/code/table/whitespace/entity/removed categories; reviewed nesting, adjacent-block, Unicode, unsafe-target and malformed-HTML coverage; missing expected-field rejection; duplicate-ID rejection; synthetic provenance guard; runtime exact/plus-one boundary generation without committed megabyte fixtures.
+- Validation evidence: category counts and review tags emitted by the validator; negative fixture-schema tests passed; boundary generator self-test passed; all prior state/runner/type/Worker/contract/build checks remained green.
+- Remaining criterion: none.
 - Blocker category: none.
 - Blocker: none.
-- Exact next action: validate the US004 fixture checkpoint in GitHub Actions; diagnose any failure within US004; if green, atomically mark US004 DONE, append VALIDATION/evidence, and release RUN_LOCK.json.
+- Lock state: released by this final durable checkpoint.
+- Exact next action: on the next distinct run, reconcile released state, acquire the lock for US005, read the blueprint acceptance criteria for `US005 Implement exact routing and response headers`, and implement only US005.
 - Uncommitted status: no local working tree is used; all durable changes are GitHub commits.

@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "f25c0cd38399abc1ad6040ac866f82a8037fac14",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "manual-us007-run-20260928T075645Z",
+  "story_id": "US007",
+  "base_head": "66240fca2e384808458d74436420f03f26941efd",
+  "acquired_at": "2026-09-28T07:56:45Z",
   "lease_minutes": 20,
-  "note": "Autopilot hardening complete: durable STORY_SPECS added, lock protocol shortened to 20 minutes, :15/:45 handoff aligned. Lock released; next distinct run may claim US007."
+  "note": "Distinct US007 run after US006 and autopilot hardening. Implement bounded raw-body collection and strict UTF-8 only."
 }

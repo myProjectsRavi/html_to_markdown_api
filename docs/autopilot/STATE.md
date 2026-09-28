@@ -7,13 +7,18 @@
 - Current Epic: E02 HTTP boundary
 - Current Feature: F04 Bounded request validation
 - Current Story: US007 Read request bodies within a hard bound
-- Phase: IN_PROGRESS
+- Phase: DONE
 - Pre-story checkpoint: `66240fca2e384808458d74436420f03f26941efd`
 - Lock claim: `6cf7d9e6cdd9278db5a5d4239520db6bfde47a50`, verified direct child of the pre-story checkpoint and lock-only diff.
-- Implementation/tested code SHA: pending exact-head validation.
-- Completed work: added bounded stream collector with Content-Type/Content-Encoding checks, numeric Content-Length early rejection, actual byte counting, overflow cancellation before chunk retention, bounded copied chunks, strict fatal UTF-8 decode and fixed malformed-body errors; integrated it after US006 auth and before US008 JSON validation; added boundary/chunk/disconnect/cancellation/logging tests.
-- Remaining criteria: run authoritative exact-head Actions, repair any US007 failure, review the final diff, record tested SHA, mark DONE and release the 20-minute lock.
+- Tested code SHA: `364f952bd93dd2ac42d40aef7c53e6870f32e643`
+- Authoritative validation: GitHub Actions run `36394951628`, job `108839034367`, conclusion success.
+- Failures repaired within story: run `36394744467` failed TypeScript on the unsupported-header fixture; run `36394825309` failed the cancellation callback observation because the synthetic stream pre-closed. Both were diagnosed and fixed before the exact-head green run.
+- Completed criteria: exactly 800000 raw bytes admitted; 800001 rejected with 413; missing/false/malformed Content-Length cannot bypass actual counting; over-limit declared length rejected early; unsupported media/encoding 415; split four-byte UTF-8 scalar decodes correctly; invalid UTF-8 400; early disconnect 400; overflow invokes reader cancellation; retained raw buffers remain bounded; body canary never enters console logs.
+- Regression evidence: state/runner checks pass for US007; Worker bootstrap 1/1; contract 4/4; fixtures/boundaries pass; routing 19/19; auth 8/8; body 9/9; Worker/TypeScript checks pass; Wrangler dry-run 8.92 KiB / 2.76 KiB gzip.
+- Remaining criterion: none.
 - Blocker category: none.
 - Blocker: none.
-- Exact next action: inspect the Actions run produced by this implementation checkpoint and repair only US007 until the full current suite is green.
-- Autopilot invariant: repository-local `STORY_SPECS.md` is authoritative for scheduled recovery; a task timestamp without repo/CI movement is not progress.
+- Autopilot controls: repository-local `STORY_SPECS.md`; 20-minute canonical lock lease; primary :15 IST and watchdog :45 IST; owning runs release the lock as their final repository mutation.
+- Lock state: released by this completion checkpoint.
+- Exact next action: on the next distinct run, acquire the released lock and implement only `US008 Validate JSON and decoded HTML precisely` from `docs/autopilot/STORY_SPECS.md`.
+- Uncommitted status: no local working tree is used; all durable changes are GitHub commits.

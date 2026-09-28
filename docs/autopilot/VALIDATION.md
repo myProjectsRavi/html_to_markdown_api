@@ -106,3 +106,21 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Regression evidence from the same run: state and runner tests passed for US006; Worker bootstrap 1/1; contract 4/4; fixture checks and generated boundaries passed; routing 19/19; auth 8/8; Worker/TypeScript checks passed; Wrangler dry-run passed at 4.98 KiB / 1.66 KiB gzip.
 - Conclusion: all US006 acceptance criteria and requested evidence pass for `9c899fe2444b54dc541c5cf600e9787b8e8f4da0`. US007 is next and must start in a distinct run.
 
+## US007 - Read request bodies within a hard bound
+
+- Status: DONE.
+- Tested SHA: `364f952bd93dd2ac42d40aef7c53e6870f32e643`.
+- Authoritative validation: GitHub Actions run `36394951628`, job `108839034367`, conclusion `success`.
+- Request-body implementation: `src/http/body.ts` validates JSON media type/optional UTF-8 charset and Content-Encoding before reading, uses numeric Content-Length only as an early rejection, then counts every ReadableStream chunk against the 800000-byte raw-body limit.
+- Bounded allocation: a chunk is cap-checked before it is copied/retained; retained raw chunk bytes cannot exceed 800000. A single retained chunk is decoded directly; multi-chunk input is combined into an allocation exactly equal to observed bounded bytes.
+- Overflow: actual byte count of 800001 returns 413 whether Content-Length is absent, false-small, or malformed. Overflow calls `reader.cancel()`; the test stream is configured with zero high-water prefetch so the underlying cancellation callback remains observable.
+- Exact boundary: exactly 800000 raw bytes returns an admitted bounded-body result for the later JSON-validation stage.
+- Media/encoding: `application/json`, optional case-insensitive `charset=utf-8`, and identity/no Content-Encoding are accepted. Unsupported media, charset, or content encoding returns 415.
+- UTF-8: decoding occurs after bounded collection with `TextDecoder(..., { fatal: true })`. A four-byte emoji split into one-byte chunks decodes correctly; an invalid UTF-8 sequence returns the fixed 400 `invalid_json` envelope.
+- Malformed transport evidence: a synthetic early stream disconnect maps to fixed 400 without including the transport exception.
+- Logging evidence: console log/info/warn/error capture remained empty while a synthetic body canary was read.
+- Integration order: route/method resolution -> server auth configuration/authentication -> media/encoding/body bound/strict UTF-8 -> future US008 JSON validation. No unbounded `request.text()` or `request.json()` call was added.
+- Failure history retained: run `36394744467` exposed a TypeScript header-fixture union issue; run `36394825309` then exposed that a test stream could pre-close before its cancellation callback was observed. Both were fixed within US007; neither failing run was reclassified as passing.
+- Regression evidence at the tested SHA: state/negative checks PASS; runner branch/resume/overlap PASS for US007; Worker bootstrap 1/1; contract 4/4; fixtures/boundaries PASS; routing 19/19; auth 8/8; body 9/9; TypeScript/Worker types PASS; Wrangler dry-run PASS at 8.92 KiB / 2.76 KiB gzip.
+- Conclusion: all US007 acceptance and evidence requirements pass for `364f952bd93dd2ac42d40aef7c53e6870f32e643`. US008 is next and must begin only in a distinct run.
+

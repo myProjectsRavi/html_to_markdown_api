@@ -92,9 +92,9 @@
       "depends_on": [
         "US006"
       ],
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "blocked_from": null,
-      "tested_code_sha": null,
+      "tested_code_sha": "364f952bd93dd2ac42d40aef7c53e6870f32e643",
       "evidence_path": "docs/autopilot/evidence/US007.md",
       "blocker": null
     },

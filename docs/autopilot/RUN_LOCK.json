@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "0a7aa1367484809cdfedece2475427d71da1a052",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "story-runner",
+  "story_id": "US009",
+  "base_head": "c5f0b37adae998af24e67cedc0c1023a93b6addb",
+  "acquired_at": "2026-09-28T08:48:07Z",
   "lease_minutes": 20,
-  "note": "US008 completed with exact-head GitHub Actions success. Lock released; next distinct run may claim US009."
+  "note": "US009 parser selection spike in progress."
 }

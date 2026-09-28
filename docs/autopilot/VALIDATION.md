@@ -90,3 +90,19 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Autopilot recovery: the primary scheduler fired at `2026-09-28T05:45:37Z` without repository/CI movement. The task prompts were hardened to define progress only as durable repo/CI/blocker movement and require immediate recovery of eligible no-op runs. This manual recovery then completed US005.
 - Conclusion: all US005 acceptance and evidence criteria are satisfied for `9c756c2eec62dd10103863e05c8e26608a588a8f`. US006 is the next eligible story and must begin only in a distinct run.
 
+## US006 - Authenticate RapidAPI origin requests
+
+- Status: DONE.
+- Tested SHA: `9c899fe2444b54dc541c5cf600e9787b8e8f4da0`.
+- Authoritative validation: GitHub Actions run `36393433386`, job `108834180976`, conclusion `success`.
+- Recovery history: an earlier watchdog claimed US006 and committed only `src/auth/rapidapi.ts` at `fd9b1e873a12dc90d314ab6f8e085f0f586fe940`. Generic CI passed, but authentication was not wired into routing, no US006 acceptance suite existed, durable state still said US005/US006 TODO, and the lock was left active. The expired lease was reclaimed and the story was completed rather than treating that green run as acceptance evidence.
+- First recovery candidate `60a48ae50362ac79847fef22094e6eca2587ff93` failed run `36393347301` at TypeScript narrowing in `src/auth/rapidapi.ts`; commit `9c899fe2444b54dc541c5cf600e9787b8e8f4da0` repaired the type predicate and the exact-head rerun passed.
+- Integration order: exact path/method resolution occurs first; public health returns before authentication; both conversion routes authenticate before any body/parser work.
+- Credential cases: missing, incorrect, prefix-only, suffix-only, oversized (>512 characters), and duplicate/coalesced proxy-secret values return 403. Missing/invalid server proxy-secret configuration returns 503. A customer `X-RapidAPI-Key` without the proxy secret returns 403.
+- Correct-secret evidence: direct auth returns `null`, and the Worker proceeds to US005's controlled non-success conversion placeholder rather than being rejected by authentication.
+- Body-read evidence: a Request subclass spy covering `body`, `text`, `json`, `arrayBuffer`, `blob`, and `formData` remained at zero reads for a rejected credential.
+- Secret-log evidence: console log/info/warn/error capture remained empty after both rejected and accepted synthetic-secret requests; neither configured nor supplied synthetic secret pattern appeared.
+- Comparison approach: supplied/configured secrets are SHA-256 digested with WebCrypto and compared by a full scan over the fixed 32-byte digests. The implementation explicitly does not claim JavaScript/runtime constant-time guarantees.
+- Regression evidence from the same run: state and runner tests passed for US006; Worker bootstrap 1/1; contract 4/4; fixture checks and generated boundaries passed; routing 19/19; auth 8/8; Worker/TypeScript checks passed; Wrangler dry-run passed at 4.98 KiB / 1.66 KiB gzip.
+- Conclusion: all US006 acceptance criteria and requested evidence pass for `9c899fe2444b54dc541c5cf600e9787b8e8f4da0`. US007 is next and must start in a distinct run.
+

@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "manual-us006-recovery-20260928T0740Z",
-  "story_id": "US006",
-  "base_head": "fd9b1e873a12dc90d314ab6f8e085f0f586fe940",
-  "acquired_at": "2026-09-28T07:40:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "9c899fe2444b54dc541c5cf600e9787b8e8f4da0",
+  "acquired_at": null,
   "lease_minutes": 55,
-  "note": "Recovered expired watchdog lease. Resume unfinished US006; prior implementation commit passed generic CI but durable story state/tests/integration were incomplete."
+  "note": "US006 completed with exact-head GitHub Actions success. Lock released; next distinct run may claim US007."
 }

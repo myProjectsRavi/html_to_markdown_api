@@ -11,9 +11,14 @@ function request(
   headers: HeadersInit = {},
   body: BodyInit | null = "{\"html\":\"<p>x</p>\"}",
 ): Request {
+  const normalized = new Headers(headers);
+  if (!normalized.has("Content-Type")) {
+    normalized.set("Content-Type", "application/json");
+  }
+
   return new Request(`https://example.test${path}`, {
     method: "POST",
-    headers,
+    headers: normalized,
     body,
   });
 }

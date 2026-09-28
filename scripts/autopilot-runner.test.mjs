@@ -6,6 +6,23 @@ import { spawn, spawnSync } from "node:child_process";
 
 const script = path.resolve("scripts/autopilot-run.mjs");
 const root = fs.mkdtempSync(path.join(os.tmpdir(), "html-md-runner-"));
+const backlog = JSON.parse(fs.readFileSync("docs/autopilot/BACKLOG.json", "utf8"));
+const active = backlog.stories.find((story) =>
+  ["IN_PROGRESS", "VALIDATING", "BLOCKED"].includes(story.status),
+);
+const byId = new Map(backlog.stories.map((story) => [story.id, story]));
+const expectedStory =
+  active ??
+  backlog.stories.find(
+    (story) =>
+      story.status === "TODO" &&
+      story.depends_on.every((dependency) => byId.get(dependency)?.status === "DONE"),
+  );
+
+if (!expectedStory) {
+  console.error("runner fixture requires one active or eligible story");
+  process.exit(1);
+}
 
 function run(args, env = {}) {
   return spawnSync(process.execPath, [script, ...args], {
@@ -35,11 +52,16 @@ if (interrupted.status !== 130) {
 const resume = run(["--branch=autopilot/html-markdown-v1"], {
   AUTOPILOT_RUNTIME_DIR: resumeDir,
 });
-if (resume.status !== 0 || !resume.stdout.includes("RESUME US002")) {
-  console.error("interrupted run did not resume US002", resume.stdout, resume.stderr);
+const expectedResume = `RESUME ${expectedStory.id}`;
+if (resume.status !== 0 || !resume.stdout.includes(expectedResume)) {
+  console.error(
+    `interrupted run did not resume ${expectedStory.id}`,
+    resume.stdout,
+    resume.stderr,
+  );
   process.exit(1);
 }
-console.log("PASS interrupted-run-resumes-same-story");
+console.log(`PASS interrupted-run-resumes-same-story (${expectedStory.id})`);
 
 const overlapDir = path.join(root, "overlap");
 fs.mkdirSync(overlapDir, { recursive: true });
@@ -71,4 +93,4 @@ if (firstExit !== 0) {
   console.error("lock holder did not exit cleanly", firstExit);
   process.exit(1);
 }
-console.log("PASS overlapping-run-rejected");
+console.log(`PASS overlapping-run-rejected (${expectedStory.id})`);

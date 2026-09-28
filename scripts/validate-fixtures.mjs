@@ -12,7 +12,7 @@ export const REQUIRED_CATEGORIES = [
   "whitespace",
   "entities",
   "removed",
-] as const;
+];
 
 export const REQUIRED_REVIEW_TAGS = [
   "nesting",
@@ -20,7 +20,7 @@ export const REQUIRED_REVIEW_TAGS = [
   "unicode",
   "unsafe-target",
   "malformed-html",
-] as const;
+];
 
 const REQUIRED_FIELDS = [
   "id",
@@ -28,7 +28,7 @@ const REQUIRED_FIELDS = [
   "html",
   "expected_markdown",
   "expected_text",
-] as const;
+];
 
 function fail(message) {
   throw new Error(message);

@@ -7,13 +7,16 @@
 - Current Epic: E01 Foundation
 - Current Feature: F02 Contract and fixtures
 - Current Story: US003 Freeze the machine readable API contract
-- Phase: IN_PROGRESS
+- Phase: DONE
 - Pre-story checkpoint: `a0afdcee769e4ebf7113a0ad234a6336db9a68d0`
 - Lock claim: `d0dc312499fa3da407bdb76a4244a468661602cd`, verified direct parent of the pre-story checkpoint and lock-only diff.
-- Implementation/tested code SHA: pending this story's implementation checkpoint and CI.
-- Completed work: blueprint pages 2-4 and US003 story requirements reviewed; exact endpoints, counting rules, validation precedence, response headers, error status meanings and numeric ceilings transcribed; unspecified fixed error message wording is recorded as an explicit US003 decision rather than source wording.
-- Remaining criteria: push typed contract/openapi/decision/test checkpoint; obtain exact-head Actions success; review diff; mark US003 DONE with evidence and release lock.
+- Implementation/tested code SHA: `9be9096ee3aa05853cb8618192f624319d59d440`
+- Authoritative validation: GitHub Actions run `36371305905`, job `108768080396`, conclusion success.
+- Completed criteria: typed request/success/error models; exact endpoints, response headers, validation precedence and numeric ceilings; explicit contract decision record; initial OpenAPI; type-level Markdown/Text separation; Hello 45-byte / 14-scalar / 12-scalar counts; zero-count empty input; four-byte/one-scalar emoji evidence; every documented error mapped to one status and one fixed message.
+- Validation evidence: state and runner regression checks passed; TypeScript and generated Worker types passed; Cloudflare workerd bootstrap passed 1/1; US003 contract tests passed 4/4; Wrangler dry-run build passed; generated-file cleanliness passed.
+- Remaining criterion: none.
 - Blocker category: none.
 - Blocker: none.
-- Exact next action: validate the US003 implementation checkpoint with GitHub Actions; diagnose any failure inside US003; if green, atomically update BACKLOG/STATE/VALIDATION/US003 evidence and release RUN_LOCK.json.
+- Lock state: released by this final durable checkpoint.
+- Exact next action: on the next distinct run, reconcile released state, acquire the lock for US004, read the blueprint acceptance criteria for `US004 Create the canonical synthetic fixture corpus`, and implement only US004.
 - Uncommitted status: no local working tree is used; all durable changes are GitHub commits.

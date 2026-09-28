@@ -39,3 +39,21 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Failure history retained: initial bootstrap failures exposed incompatible npm/Node pairing, npm peer-resolution behavior, and missing Worker/tooling types. Later, after US002 became DONE, runs `36345718801`, `36345733919`, `36367181400`, and `36370758300` exposed a different deterministic regression: the interruption test expected literal `RESUME US002` even though the ledger correctly selected US003 next. The failures were not reclassified. Commit `0d93ea0a6a3c3e102691426da17dcf68e7e8ad5c` repaired the fixture to derive the current active/eligible story from BACKLOG, and exact-head run `36370812410` passed.
 - Lock recovery: the stale lease acquired at `2026-09-28T01:44:27Z` expired after its declared 55-minute lease. It was reclaimed optimistically against the exact lock blob in commit `6094b6c8ac56cc9fa27faf8b6df0aba703d8cd9d`, whose sole parent is the recorded pre-claim HEAD `9e4c4340a32119e79a693ae06aa09bdc2dfd0504`; the claim changed only `RUN_LOCK.json`.
 - Conclusion: all US002 acceptance criteria and post-completion runner-integrity checks are satisfied. US002 is DONE. US003 is the next eligible story and must begin only in a distinct subsequent run.
+
+## US003 - Freeze the machine readable API contract
+
+- Status: DONE.
+- Tested implementation SHA: `9be9096ee3aa05853cb8618192f624319d59d440`.
+- Authoritative validation: GitHub Actions run `36371305905`, job `108768080396`, exact SHA `9be9096ee3aa05853cb8618192f624319d59d440`, conclusion `success`.
+- State/runner checks: state validator selected `US003 (IN_PROGRESS)`; negative state fixtures passed; wrong-branch-before-mutation passed; interrupted-run-resumes-same-story passed for US003; overlapping-run-rejected passed for US003.
+- Typed contract: `src/config.ts` defines the exact three V1 endpoints, application response headers, validation precedence, numeric launch ceilings, conversion request/stats types, and distinct Markdown/Text success types.
+- Error contract: `src/errors.ts` defines all documented application error codes, exactly one HTTP status per code, and one fixed message per code. The blueprint-provided `input_too_large` message is preserved verbatim; other fixed messages are explicitly recorded as US003 decisions rather than misattributed to the source.
+- Canonical counts: contract test independently verified the Hello HTML as 45 UTF-8 bytes, Markdown output as 14 Unicode scalars, clean-text output as 12 Unicode scalars, and empty input/output counts as zero.
+- Unicode evidence: the contract test independently verified `😀` as four UTF-8 bytes and one Unicode scalar.
+- Type-level evidence: compile-time assertions distinguish `SuccessFor<"/v1/html/markdown">` from `SuccessFor<"/v1/html/text">` and prove the endpoint-specific result keys do not leak into each other.
+- OpenAPI: initial `openapi.yaml` contains only `GET /health`, `POST /v1/html/markdown`, and `POST /v1/html/text`; it declares the exact request/success shapes, canonical examples, application errors, response headers, and supported limits without adding a URL-fetch or hidden option.
+- Decision record: `docs/decisions/0001-api-contract.md` freezes counting rules, validation precedence, endpoint names, response headers, fixed errors, numeric ceilings and later-change control.
+- Test results in the authoritative run: TypeScript/Worker types passed; Cloudflare workerd bootstrap test passed (1/1); US003 contract test passed (4/4); Wrangler dry-run build passed at 0.32 KiB total / 0.22 KiB gzip; generated-file cleanliness passed.
+- Boundary review: the implementation uses the corrected 45-byte Hello count and does not copy the source brief's earlier incorrect count. No production conversion success was fabricated.
+- Conclusion: all US003 acceptance and evidence criteria are satisfied for `9be9096ee3aa05853cb8618192f624319d59d440`. US004 is next and may begin only in a distinct subsequent run.
+

@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "manual-us003-run-20260928T024603Z",
-  "story_id": "US003",
-  "base_head": "a0afdcee769e4ebf7113a0ad234a6336db9a68d0",
-  "acquired_at": "2026-09-28T02:46:03Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "9be9096ee3aa05853cb8618192f624319d59d440",
+  "acquired_at": null,
   "lease_minutes": 55,
-  "note": "Distinct run after US002 completion. Claiming US003 from released state using exact RUN_LOCK.json blob SHA."
+  "note": "US003 completed with exact-head GitHub Actions success. Lock released; next distinct run may reconcile and claim US004."
 }

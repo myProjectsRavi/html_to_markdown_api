@@ -156,3 +156,21 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Dependency boundary: candidate installs were ephemeral in US009; no rejected parser was added to production. US010 owns adding/locking htmlparser2 as the direct production dependency.
 - Conclusion: US009 acceptance/evidence is satisfied for `355671d6e0636eccb9932c1e3b0f05e9985e88ed`. US010 is next and must begin only in a distinct run.
 
+## US010 - Build the bounded parser adapter
+
+- Status: DONE.
+- Tested SHA: `03f4886b9456e4b11ae6537a3b904ca69a31908b`.
+- Authoritative exact-head validation: GitHub Actions run `36427410547`, job `108944669880`, conclusion `success`.
+- Selected production parser: `htmlparser2@12.0.0`, locked in `package.json` and `package-lock.json`. Lock generation commit `310b4f852281b1c84cf807e7d8d8bd81780eda27` changed only `package-lock.json`; the one-shot write workflow was removed before authoritative validation.
+- Parser budget coverage: exact and plus-one tests exist for tokenizer events (20000/20001), retained nodes (10000/10001), open-element depth (64/65), attributes per element (64/65), attribute-name Unicode scalars (256/257), and attribute-value UTF-8 bytes (8192/8193).
+- Parser implementation: callback-based `htmlparser2.Parser`; attributes are validated from `onattribute` before an application node is retained; application traversal uses an explicit bounded frame stack; skipped subtrees retain null frames while their parser callbacks continue to consume structural budgets.
+- Skipped-content evidence: a template-subtree test with a reduced synthetic event ceiling proves discarded nested content still consumes parser budgets; the limit observer fires exactly once and no skipped descendants are retained.
+- Malformed/long-tag evidence: an overlong attribute name in an unterminated opening tag is rejected as `attributeNameScalars`, demonstrating that the application does not retain a partial element before validation completes.
+- Error behavior: parser limit failures are typed `ParserLimitError` and map to fixed `input_too_complex`; unexpected parser failures are wrapped as `ParserInternalError` and map to `internal_error`. The Worker never emits partial success after a parser exception.
+- CPU boundary: no timer or `Promise.race` is used or claimed as synchronous parser preemption.
+- Allocation reasoning: raw JSON and decoded HTML are already bounded by US007/US008; each application-retained node consumes the retained-node budget; attributes are checked before application retention; skipped subtrees allocate only bounded parser/internal input state plus one bounded frame per currently open element; open depth is capped at 64.
+- Smallest limit reproducers recorded in evidence: 20001st event after 10000 `<i></i>` pairs; 10001st empty comment node; 65th nested `<div>`; 65th unique attribute; 257-scalar attribute name; 8193-byte attribute value.
+- Exact-head regression: state/negative checks PASS; runner branch/resume/overlap PASS for US010; Worker bootstrap 1/1; contract 4/4; fixture validation/boundaries PASS; routing 19/19; auth 8/8; body 9/9; request 10/10; parser budget + parser integration 15/15; Worker/TypeScript checks PASS; Wrangler dry-run PASS at 106.07 KiB / 32.74 KiB gzip.
+- Failure history: the initial implementation run `36427202959` failed at `npm ci` because the dependency lock had not yet been generated; this expected bootstrap failure was not reclassified as passing. The one-shot lock workflow `36427203043` generated the exact lock, after which authoritative run `36427410547` passed.
+- Conclusion: all US010 acceptance/evidence criteria pass for `03f4886b9456e4b11ae6537a3b904ca69a31908b`. US011 is next and must begin only in a distinct run.
+

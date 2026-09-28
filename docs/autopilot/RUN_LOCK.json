@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "manual-us010-recovery-20260928T1307Z",
-  "story_id": "US010",
-  "base_head": "82a12a81b98bfeb1c739a6d6bfeac4f48e1f0b14",
-  "acquired_at": "2026-09-28T13:07:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "03f4886b9456e4b11ae6537a3b904ca69a31908b",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Recovered expired US010 story-runner lease. Resume the same bounded parser adapter story from the durable recovery checkpoint."
+  "note": "US010 completed with locked exact-head GitHub Actions success. Lock released; next distinct run may claim US011."
 }

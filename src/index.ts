@@ -2,6 +2,7 @@ import { authenticateRapidApi, type AuthEnv } from "./auth/rapidapi";
 import { ENDPOINTS } from "./config";
 import { readBoundedJsonBody } from "./http/body";
 import { errorResponse } from "./http/response";
+import { validateConversionRequest } from "./http/request";
 import { conversionPlaceholderResponse } from "./routes/conversion";
 import { healthResponse } from "./routes/health";
 
@@ -49,8 +50,15 @@ export default {
       return body.response;
     }
 
-    // US008 owns JSON parsing and request-shape validation. Reaching this
-    // placeholder proves US007 admitted a bounded, strictly decoded body.
+    const validated = validateConversionRequest(body.text);
+    if (!validated.ok) {
+      return validated.response;
+    }
+
+    // Parser/rendering stories own the next stage. Reaching the controlled
+    // placeholder proves the bounded JSON envelope and HTML byte checks passed.
+    void validated.request;
+    void validated.inputBytes;
     return conversionPlaceholderResponse();
   },
 };

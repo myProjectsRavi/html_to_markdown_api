@@ -6,19 +6,14 @@
 - Approved starting revision (`main`): `51497790a365b9465e35bb8dd2b06adb4ac38d4c`
 - Current Epic: E02 HTTP boundary
 - Current Feature: F04 Bounded request validation
-- Current Story: US007 Read request bodies within a hard bound
-- Phase: DONE
-- Pre-story checkpoint: `66240fca2e384808458d74436420f03f26941efd`
-- Lock claim: `6cf7d9e6cdd9278db5a5d4239520db6bfde47a50`, verified direct child of the pre-story checkpoint and lock-only diff.
-- Tested code SHA: `364f952bd93dd2ac42d40aef7c53e6870f32e643`
-- Authoritative validation: GitHub Actions run `36394951628`, job `108839034367`, conclusion success.
-- Failures repaired within story: run `36394744467` failed TypeScript on the unsupported-header fixture; run `36394825309` failed the cancellation callback observation because the synthetic stream pre-closed. Both were diagnosed and fixed before the exact-head green run.
-- Completed criteria: exactly 800000 raw bytes admitted; 800001 rejected with 413; missing/false/malformed Content-Length cannot bypass actual counting; over-limit declared length rejected early; unsupported media/encoding 415; split four-byte UTF-8 scalar decodes correctly; invalid UTF-8 400; early disconnect 400; overflow invokes reader cancellation; retained raw buffers remain bounded; body canary never enters console logs.
-- Regression evidence: state/runner checks pass for US007; Worker bootstrap 1/1; contract 4/4; fixtures/boundaries pass; routing 19/19; auth 8/8; body 9/9; Worker/TypeScript checks pass; Wrangler dry-run 8.92 KiB / 2.76 KiB gzip.
-- Remaining criterion: none.
+- Current Story: US008 Validate JSON and decoded HTML precisely
+- Phase: IN_PROGRESS
+- Pre-story checkpoint: `b1b261fdfc37cf2db8ecc4739933253a58c72ba4`
+- Lock claim: `fd4ef598f345d6d762c9b2e583e8e7cdeed17e3c`, verified direct child of the pre-story checkpoint and lock-only diff.
+- Implementation/tested code SHA: pending exact-head validation.
+- Completed work: direct native JSON.parse; exact object shape with only string html; missing_html versus invalid_request split; unpaired-surrogate rejection; decoded HTML UTF-8 byte ceiling; empty/whitespace acceptance; duplicate-key last-value behavior documented; request validation integrated after US007 bounded body and before parser/rendering.
+- Remaining criteria: obtain exact-head GitHub Actions success; diagnose/fix any US008 failure; record immutable evidence and release the 20-minute lock.
 - Blocker category: none.
 - Blocker: none.
-- Autopilot controls: repository-local `STORY_SPECS.md`; 20-minute canonical lock lease; primary :15 IST and watchdog :45 IST; owning runs release the lock as their final repository mutation.
-- Lock state: released by this completion checkpoint.
-- Exact next action: on the next distinct run, acquire the released lock and implement only `US008 Validate JSON and decoded HTML precisely` from `docs/autopilot/STORY_SPECS.md`.
+- Exact next action: inspect the US008 Actions run, fix the same story until all request-validation and regression tests pass, then complete durable evidence and release the lock.
 - Uncommitted status: no local working tree is used; all durable changes are GitHub commits.

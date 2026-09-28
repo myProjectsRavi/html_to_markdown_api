@@ -78,10 +78,10 @@
       "depends_on": [
         "US005"
       ],
-      "status": "TODO",
+      "status": "IN_PROGRESS",
       "blocked_from": null,
       "tested_code_sha": null,
-      "evidence_path": null,
+      "evidence_path": "docs/autopilot/evidence/US006.md",
       "blocker": null
     },
     {

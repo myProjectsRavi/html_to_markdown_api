@@ -1,3 +1,4 @@
+import { authenticateRapidApi, type AuthEnv } from "./auth/rapidapi";
 import { ENDPOINTS } from "./config";
 import { errorResponse } from "./http/response";
 import { conversionPlaceholderResponse } from "./routes/conversion";
@@ -21,7 +22,7 @@ function isKnownPath(path: string): path is KnownPath {
 }
 
 export default {
-  fetch(request: Request): Response {
+  async fetch(request: Request, env: AuthEnv): Promise<Response> {
     const path = new URL(request.url).pathname;
 
     if (!isKnownPath(path)) {
@@ -35,6 +36,11 @@ export default {
 
     if (path === ENDPOINTS.health) {
       return healthResponse();
+    }
+
+    const authFailure = await authenticateRapidApi(request, env);
+    if (authFailure !== null) {
+      return authFailure;
     }
 
     return conversionPlaceholderResponse();

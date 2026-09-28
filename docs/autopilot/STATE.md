@@ -6,19 +6,15 @@
 - Approved starting revision (`main`): `51497790a365b9465e35bb8dd2b06adb4ac38d4c`
 - Current Epic: E02 HTTP boundary
 - Current Feature: F03 Routing and authentication
-- Current Story: US005 Implement exact routing and response headers
-- Phase: DONE
-- Pre-story checkpoint: `244aabd019a9e20870b884ed6a37c8ebb16a02c0`
-- Lock claim: `9d4094c2ebd2346faf1b5a1ada90825374bf7b9f`, verified direct parent of the pre-story checkpoint and lock-only diff.
-- Implementation source commit: `60671f4d7219b35ba2a4a76f5275d38a79a289f2`
-- Tested code SHA: `9c756c2eec62dd10103863e05c8e26608a588a8f`
-- Authoritative validation: GitHub Actions run `36385013819`, job `108808468707`, conclusion success.
-- Completed criteria: exact case-sensitive route matching; exact method handling; public `GET /health`; 404 for wrong case, trailing slash and unknown paths; 405 plus correct Allow header on known-path wrong methods including HEAD/OPTIONS; central JSON/no-store/nosniff response headers; query strings ignored for routing and absent from response bodies; no production logging calls; unknown paths remain 404 with a gateway-secret-looking header; conversion POST routes use a controlled non-success placeholder instead of fabricated success.
-- Regression evidence: state/runner checks pass for US005; TypeScript/Worker types pass; Worker bootstrap passes 1/1; US003 contract suite passes 4/4; US004 fixture validation remains green; US005 routing suite passes 19/19; Wrangler dry-run passes at 3.33 KiB / 1.16 KiB gzip.
-- Remaining criterion: none.
+- Current Story: US006 Authenticate RapidAPI origin requests
+- Phase: IN_PROGRESS
+- Pre-story checkpoint: `8f602cf1f3c4f3cb3064e8532d4e7d7fd1e7522e`
+- Abandoned/expired watchdog claim: acquired at `2026-09-28T06:24:11Z`; implementation commit `fd9b1e873a12dc90d314ab6f8e085f0f586fe940` passed generic CI but the runner did not integrate auth, add acceptance tests, update durable state, or release its lock.
+- Recovery lock claim: `d6be38c50c1b99f5b90fb1516fbf8385fefb867e`, direct child of the unfinished implementation HEAD.
+- Implementation/tested code SHA: pending exact-head validation.
+- Completed work in recovery: wire proxy-secret authentication into both conversion routes after route/method resolution and before body use; keep health public; validate missing/bad/oversized/coalesced credentials; use SHA-256 digest comparison with a fixed full-byte scan without claiming constant-time behavior; add Worker-runtime acceptance tests including customer-key-only rejection, body-read spy, and secret log-capture checks.
+- Remaining criteria: obtain exact-head GitHub Actions success for the full US006 suite; diagnose/fix any failure in US006; review the final diff; mark US006 DONE and release the lock.
 - Blocker category: none.
 - Blocker: none.
-- Lock state: released by this completion checkpoint.
-- Autopilot recovery note: the scheduled primary task fired at 2026-09-28T05:45:37Z but produced no repository/CI progress while US005 was eligible. Primary and watchdog prompts were tightened so task timestamps are never treated as progress; an eligible released story with no live CI/blocker must produce a durable checkpoint, and the watchdog immediately recovers a no-op run.
-- Exact next action: on the next distinct run, reconcile released state, acquire the lock for `US006 Authenticate RapidAPI origin requests`, read its blueprint acceptance criteria, and implement only US006.
+- Exact next action: inspect the GitHub Actions run created by the US006 recovery checkpoint and fix the same story until every acceptance test passes.
 - Uncommitted status: no local working tree is used; all durable changes are GitHub commits.

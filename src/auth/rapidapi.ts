@@ -6,21 +6,21 @@ export interface AuthEnv {
 
 const MAX_PROXY_SECRET_CHARS = 512;
 
-function invalidConfiguredSecret(value: string | undefined): boolean {
+function isValidConfiguredSecret(value: string | undefined): value is string {
   return (
-    typeof value !== "string" ||
-    value.length === 0 ||
-    value.length > MAX_PROXY_SECRET_CHARS ||
-    value.includes(",")
+    typeof value === "string" &&
+    value.length > 0 &&
+    value.length <= MAX_PROXY_SECRET_CHARS &&
+    !value.includes(",")
   );
 }
 
-function invalidSuppliedSecret(value: string | null): boolean {
+function isValidSuppliedSecret(value: string | null): value is string {
   return (
-    value === null ||
-    value.length === 0 ||
-    value.length > MAX_PROXY_SECRET_CHARS ||
-    value.includes(",")
+    value !== null &&
+    value.length > 0 &&
+    value.length <= MAX_PROXY_SECRET_CHARS &&
+    !value.includes(",")
   );
 }
 
@@ -51,12 +51,12 @@ export async function authenticateRapidApi(
   env: AuthEnv,
 ): Promise<Response | null> {
   const expected = env.RAPIDAPI_PROXY_SECRET;
-  if (invalidConfiguredSecret(expected)) {
+  if (!isValidConfiguredSecret(expected)) {
     return errorResponse("service_unavailable");
   }
 
   const supplied = request.headers.get("X-RapidAPI-Proxy-Secret");
-  if (invalidSuppliedSecret(supplied)) {
+  if (!isValidSuppliedSecret(supplied)) {
     return errorResponse("forbidden");
   }
 

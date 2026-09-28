@@ -6,19 +6,13 @@
 - Approved starting revision (`main`): `51497790a365b9465e35bb8dd2b06adb4ac38d4c`
 - Current Epic: E03 Parser and normalization
 - Current Feature: F05 Parser selection and bounded adapter
-- Current Story: US009 Select a parser with measured evidence
-- Phase: DONE
-- Pre-story checkpoint: `c5f0b37adae998af24e67cedc0c1023a93b6addb`
-- Preliminary automation commits: `520faccc162f892364114d50fa38c8e7d66f0037`, `85674a637d1c35f3f2010af91ec4dbe8bf2a63b3`, `e9b1bd9504f90036dc84283312707cafba87d816`.
-- Recovery lock claim: `25d1a34642245a4c330ab1062352d4922e6c4102`.
-- Tested code/evidence SHA: `355671d6e0636eccb9932c1e3b0f05e9985e88ed`
-- Authoritative parser-selection validation: run `36410050709`, job `108887864514`, success.
-- Generic regression validation: run `36410050672`, job `108887864751`, success.
-- Selected parser for US010: `htmlparser2@12.0.0`.
-- Completed criteria: two established candidates compared; exact versions/licenses recorded; 1-128 KiB and adversarial measurements preserved; entity/malformed probes preserved; both candidates proven importable/executable in pinned workerd; independent Worker bundle sizes measured; htmlparser2 early-stop boundary proven; exact candidate graph audit found zero vulnerabilities; malformed-tree compliance and memory risks documented; selection is not based solely on microbenchmark speed.
-- Dependency boundary: parser candidates were installed ephemerally for evidence. No parser was added to the production dependency graph in US009; US010 must add and lock only the selected htmlparser2 dependency.
-- Remaining criterion: none.
-- Blocker category: none.
-- Blocker: none.
-- Lock state: released by this completion checkpoint.
-- Exact next action: on the next distinct run, acquire the released lock and implement only `US010 Build the bounded parser adapter`, adding/locking `htmlparser2@12.0.0` as the direct production parser dependency.
+- Current Story: US010 Build the bounded parser adapter
+- Phase: IN_PROGRESS
+- Pre-story checkpoint: `098ff43a2c42cc8bc5dc299a3c312e6400b67050`
+- Recovered implementation commit: `c1f237c2607a47db38a274390081d4b4375b3632` adds `src/html/limits.ts` with structural parser budgets.
+- Selected parser: `htmlparser2@12.0.0`, from completed US009 evidence.
+- Completed work: parser budget constants are wired to the frozen contract limits; typed `ParserLimitError` and counters exist for tokenizer events, retained nodes, open depth, attribute count, attribute-name Unicode scalars, and attribute-value UTF-8 bytes.
+- Validation evidence: no US010 acceptance run is claimed yet.
+- Blocker category: transient connector mutation safety check.
+- Blocker: this run successfully claimed and verified the canonical US010 lock, but the attempted parser-budget boundary test file write was rejected by the connector safety layer. No test result is fabricated.
+- Exact next action: reacquire the released US010 lock; add exact-boundary and plus-one tests for every existing `ParserBudget` limit; then add and lock only `htmlparser2@12.0.0`, implement `src/html/parse.ts` with event/depth/node/attribute enforcement and parser-stop behavior, add adversarial Workers tests, run authoritative Actions, and remain on US010 until all acceptance/evidence criteria pass.

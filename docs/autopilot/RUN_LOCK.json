@@ -3,10 +3,10 @@
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
   "state": "active",
-  "owner": "story-runner",
+  "owner": "watchdog-recovery",
   "story_id": "US011",
-  "base_head": "6041f9416db0d057368ea591cc675d3afa5aea0c",
-  "acquired_at": "2026-09-28T17:43:51Z",
+  "base_head": "00cbc4b1eee1ce4d520b5a45a9f8f087700db511",
+  "acquired_at": "2026-09-28T19:11:12Z",
   "lease_minutes": 20,
   "note": "Reclaim expired US011 lease."
 }

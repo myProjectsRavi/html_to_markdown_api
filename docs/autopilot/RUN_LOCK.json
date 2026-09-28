@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "manual-us009-recovery-20260928T1024Z",
-  "story_id": "US009",
-  "base_head": "e9b1bd9504f90036dc84283312707cafba87d816",
-  "acquired_at": "2026-09-28T10:24:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "355671d6e0636eccb9932c1e3b0f05e9985e88ed",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Recovered expired US009 lease. Resume the same parser-selection story and finish measured evidence, decision, and durable state."
+  "note": "US009 completed with dedicated workerd/bundle/measurement/audit evidence. Lock released; next distinct run may claim US010."
 }

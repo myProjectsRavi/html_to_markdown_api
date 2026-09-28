@@ -139,3 +139,20 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Regression evidence at the tested SHA: state/negative checks pass; runner branch/resume/overlap checks pass for US008; Worker bootstrap 1/1; contract 4/4; fixture checks/boundaries pass; routing 19/19; auth 8/8; body 9/9; request validation 10/10; Worker/TypeScript checks pass; Wrangler dry-run passes at 10.71 KiB / 3.16 KiB gzip.
 - Conclusion: all US008 acceptance/evidence criteria pass for `0a7aa1367484809cdfedece2475427d71da1a052`. US009 is next and must begin only in a distinct run.
 
+## US009 - Select a parser with measured evidence
+
+- Status: DONE.
+- Tested SHA: `355671d6e0636eccb9932c1e3b0f05e9985e88ed`.
+- Dedicated evidence: GitHub Actions run `36410050709`, job `108887864514`, conclusion `success`.
+- Generic regression validation: GitHub Actions run `36410050672`, job `108887864751`, conclusion `success`.
+- Compared exact candidates: `htmlparser2@12.0.0` and `parse5@8.0.1`; installed metadata reported MIT for both.
+- Pinned workerd evidence: both candidates imported/parsed with no browser DOM and no observed network call; parser-selection Worker tests passed 3/3.
+- Enforceable limit evidence: htmlparser2 callback parser stopped at event 101 for limit 100. The compared parse5 high-level `parse()` API constructs its tree before returning and did not expose an equivalent callback boundary in the adapter.
+- Worker bundle comparison: htmlparser2 90.70 KiB / 28.31 KiB gzip / 92,878 JS bytes; parse5 274.74 KiB / 54.38 KiB gzip / 281,329 JS bytes.
+- Representative medians in ms at 1/16/64/128 KiB: htmlparser2 0.494/3.958/4.575/8.441; parse5 1.099/3.981/3.753/6.966. parse5 being faster at 64/128 KiB is retained to show selection was not based on a blanket performance claim.
+- Adversarial probes: 2000-level nesting 3.802 ms vs 19.274 ms; 65,536-byte attribute 0.458 ms vs 1.373 ms. Both candidates decoded the entity probe identically; the malformed text probe yielded `abc` for both.
+- Security snapshot: exact candidate graph npm audit reported 0 vulnerabilities. This is dated evidence, not a future-security guarantee.
+- Decision: `htmlparser2@12.0.0` selected for US010 because its public event callbacks permit early bounded rejection and its compared Worker bundle is smaller. `docs/decisions/parser.md` records malformed-HTML compliance trade-offs and memory/retention risks.
+- Dependency boundary: candidate installs were ephemeral in US009; no rejected parser was added to production. US010 owns adding/locking htmlparser2 as the direct production dependency.
+- Conclusion: US009 acceptance/evidence is satisfied for `355671d6e0636eccb9932c1e3b0f05e9985e88ed`. US010 is next and must begin only in a distinct run.
+

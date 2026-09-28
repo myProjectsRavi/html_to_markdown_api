@@ -4,20 +4,16 @@
 - Target repository: `myProjectsRavi/html_to_markdown_api`
 - Allowed implementation branch: `autopilot/html-markdown-v1`
 - Approved starting revision (`main`): `51497790a365b9465e35bb8dd2b06adb4ac38d4c`
-- Current Epic: E01 Foundation
-- Current Feature: F02 Contract and fixtures
-- Current Story: US004 Create the canonical synthetic fixture corpus
-- Phase: DONE
-- Pre-story checkpoint: `d031e178c53c41cd904d3846e7122b85f49915e2`
-- Lock claim: `ac6524c3cfa80a37254d64c030eebcb5f109687f`, verified direct parent of the pre-story checkpoint and lock-only diff.
-- Implementation/tested code SHA: `a47d87e7666e28ad41804d1acc8ecfff2903e2ac`
-- Authoritative validation: GitHub Actions run `36378870175`, job `108790252001`, conclusion success.
-- Failure repaired within story: run `36378816899` exposed invalid JavaScript syntax in the fixture validator; commit `a47d87e7666e28ad41804d1acc8ecfff2903e2ac` fixed it and exact-head CI passed.
-- Completed criteria: 62 literal synthetic fixtures; required block/inline/URL/code/table/whitespace/entity/removed categories; reviewed nesting, adjacent-block, Unicode, unsafe-target and malformed-HTML coverage; missing expected-field rejection; duplicate-ID rejection; synthetic provenance guard; runtime exact/plus-one boundary generation without committed megabyte fixtures.
-- Validation evidence: category counts and review tags emitted by the validator; negative fixture-schema tests passed; boundary generator self-test passed; all prior state/runner/type/Worker/contract/build checks remained green.
-- Remaining criterion: none.
+- Current Epic: E02 HTTP boundary
+- Current Feature: F03 Routing and authentication
+- Current Story: US005 Implement exact routing and response headers
+- Phase: IN_PROGRESS
+- Pre-story checkpoint: `244aabd019a9e20870b884ed6a37c8ebb16a02c0`
+- Lock claim: `9d4094c2ebd2346faf1b5a1ada90825374bf7b9f`, verified direct parent of the pre-story checkpoint and lock-only diff.
+- Implementation/tested code SHA: pending implementation checkpoint and CI.
+- Completed work: US005 blueprint requirements reviewed; exact manual path/method routing, central JSON/security response helper, thin health/conversion routes, non-success conversion placeholder, and table-driven workerd routing tests prepared in this checkpoint.
+- Remaining criteria: push implementation checkpoint; obtain exact-head Actions result; diagnose/fix any failure inside US005; review exact diff; if green, mark US005 DONE with immutable evidence and release RUN_LOCK.json.
 - Blocker category: none.
 - Blocker: none.
-- Lock state: released by this final durable checkpoint.
-- Exact next action: on the next distinct run, reconcile released state, acquire the lock for US005, read the blueprint acceptance criteria for `US005 Implement exact routing and response headers`, and implement only US005.
+- Exact next action: validate the US005 implementation checkpoint in GitHub Actions and repair any failing routing/header/type/build assertion without changing the contract merely to obtain green.
 - Uncommitted status: no local working tree is used; all durable changes are GitHub commits.

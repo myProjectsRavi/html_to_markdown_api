@@ -1,18 +1,13 @@
 import { exports } from "cloudflare:workers";
 import { describe, expect, it } from "vitest";
 
-describe("US002 Worker bootstrap", () => {
+describe("Worker bootstrap", () => {
   it("executes the module Worker inside workerd", async () => {
     const response = await exports.default.fetch(
-      new Request("https://example.test/bootstrap"),
+      new Request("https://example.test/health"),
     );
 
-    expect(response.status).toBe(501);
-    expect(await response.json()).toEqual({
-      error: {
-        code: "not_implemented",
-        message: "Conversion routes are not implemented yet.",
-      },
-    });
+    expect(response.status).toBe(200);
+    expect(await response.json()).toEqual({ status: "ok" });
   });
 });

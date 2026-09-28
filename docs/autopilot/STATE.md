@@ -5,23 +5,17 @@
 - Allowed implementation branch: `autopilot/html-markdown-v1`
 - Approved starting revision (`main`): `51497790a365b9465e35bb8dd2b06adb4ac38d4c`
 - Current Epic: E03 Parser and normalization
-- Current Feature: F05 Parser selection and bounded adapter
-- Current Story: US010 Build the bounded parser adapter
-- Phase: DONE
-- Pre-story checkpoint: `098ff43a2c42cc8bc5dc299a3c312e6400b67050`
-- Recovered budget commit: `c1f237c2607a47db38a274390081d4b4375b3632`.
-- Recovery checkpoint: `82a12a81b98bfeb1c739a6d6bfeac4f48e1f0b14`.
-- Final recovery lock claim: `1e230cde20273ee982b84c20328421692660ca68`.
-- Locked dependency commit: `310b4f852281b1c84cf807e7d8d8bd81780eda27`.
-- Tested code SHA: `03f4886b9456e4b11ae6537a3b904ca69a31908b`
-- Authoritative validation: GitHub Actions run `36427410547`, job `108944669880`, success.
-- Selected parser: `htmlparser2@12.0.0`, locked as the only direct production parser dependency.
-- Completed criteria: parser-event, retained-node, depth, attribute-count, attribute-name and attribute-value budgets; exact-boundary/plus-one tests for every limit; callback-based early abort; attribute validation before application retention; bounded iterative frame stack; skipped subtrees consume budgets without constructing retained descendants; long malformed tag reproduction; typed limit/internal parser failures; Worker integration maps exceptions to non-success envelopes; no timer/Promise.race cutoff claim.
-- Regression evidence: parser suites 15/15 plus all prior Worker, contract, fixture, routing, auth, body and request suites; TypeScript/Worker types pass; Wrangler dry-run 106.07 KiB / 32.74 KiB gzip.
-- Failure retained: run `36427202959` failed because the new parser dependency was not yet in the lockfile. One-shot workflow `36427203043` generated only the lockfile; authoritative locked run then passed.
-- Remaining criterion: none.
+- Current Feature: F06 Shared normalization
+- Current Story: US011 Normalize safe content into a shared tree
+- Phase: VALIDATING
+- Prerequisite US010 tested SHA: `03f4886b9456e4b11ae6537a3b904ca69a31908b`
+- US011 implementation checkpoint: `aec42733b39236d92a291f3cfb049098e85b6499`
+- Durable evidence: `docs/autopilot/evidence/US011.md`
+- Implemented scope: iterative shared-tree normalization; explicit active/non-content/form subtree drops; comment/instruction removal; transparent custom/unsupported wrappers; renderer-required structural elements; tag-specific retained-attribute allowlists; one-time entity decoding behavior; targeted normalized-tree and temporary text-extraction fixtures.
+- Validation wiring: `npm run verify:current` includes `npm run test:clean`.
+- Authoritative validation: pending exact-SHA GitHub Actions evidence. No pass is claimed yet.
 - Blocker category: none.
 - Blocker: none.
-- Lock state: released by this completion checkpoint.
-- Exact next action: on the next distinct run, acquire the released lock and implement only `US011 Normalize safe content into a shared tree` from `docs/autopilot/STORY_SPECS.md`.
+- Lock state: release is required as this run's final repository mutation.
+- Exact next action: inspect terminal GitHub Actions for the US011 checkpoint. On failure, reacquire the lock and fix only US011. On success, reacquire the lock if needed, record exact run/job/tested SHA in evidence, STATE and BACKLOG, mark US011 DONE, then release the lock as the final mutation. Do not start US012 in that run.
 - Uncommitted status: no local working tree is used; all durable changes are GitHub commits.

@@ -22,3 +22,6 @@
 - Lock state: released by this final US006 checkpoint.
 - Exact next action: on the next distinct run, acquire the released lock and implement only `US007 Read request bodies within a hard bound` from its durable blueprint specification.
 - Uncommitted status: no local working tree is used; all durable changes are GitHub commits.
+
+- Autopilot hardening after US006: `docs/autopilot/STORY_SPECS.md` now persists the complete US001-US044 source-derived story sections; the canonical branch-lock lease is 20 minutes so an abandoned run can be recovered by the approximately 30-minute staggered watchdog; owning runs must checkpoint/release before minute 15 rather than holding a stale 55-minute lease.
+- Scheduler contract: primary hourly at :15 Asia/Kolkata; watchdog hourly at :45 Asia/Kolkata. A task timestamp without repository/CI/blocker movement is explicitly a no-op failure, not progress.

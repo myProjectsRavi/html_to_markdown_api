@@ -3,10 +3,10 @@
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
   "state": "active",
-  "owner": "html-api-story-runner-20260928T0117+0530",
+  "owner": "html-api-story-runner-20260928T0714+0530",
   "story_id": "US002",
-  "base_head": "0a7cd4d51e43b9f1e0fe5a79b456433343d8b171",
-  "acquired_at": "2026-09-27T19:47:51Z",
+  "base_head": "93a97aa57476b4bdd76007a054f15f3d8fa3e1fa",
+  "acquired_at": "2026-09-28T01:44:27Z",
   "lease_minutes": 55,
-  "note": "Reclaimed the verified-stale prior US002 lease using the exact lock blob SHA read immediately before this claim."
+  "note": "Reclaimed verified-stale US002 lease using the exact RUN_LOCK.json blob SHA read immediately before this claim; continuing same-story reconciliation after post-completion CI exposed a runner-fixture regression."
 }

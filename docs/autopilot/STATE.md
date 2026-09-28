@@ -5,18 +5,15 @@
 - Allowed implementation branch: `autopilot/html-markdown-v1`
 - Approved starting revision (`main`): `51497790a365b9465e35bb8dd2b06adb4ac38d4c`
 - Current Epic: E01 Foundation
-- Current Feature: F01 Repository and runner
-- Current Story: US002 Install the hourly execution contract
-- Phase: DONE
-- Implementation/tested code SHA: `0d93ea0a6a3c3e102691426da17dcf68e7e8ad5c`
-- Authoritative final US002 validation: GitHub Actions run `36370812410`, job `108766582093`, conclusion success.
-- Successive primary scheduler observations: `2026-09-27T17:45:34Z` and `2026-09-27T18:46:53Z`.
-- Watchdog observations include `2026-09-27T18:15:39Z` and `2026-09-28T02:15:46Z`; both scheduler tasks remain enabled.
-- Completed criteria: two successive primary triggers observed; wrong-branch execution exits before mutation; interrupted execution resumes the dynamically selected same story; overlapping local runner fixture is rejected; canonical optimistic GitHub branch lock installed and exercised; exact dependency lock committed; TypeScript and generated Worker runtime types pass; minimal workerd-backed Worker test passes; Wrangler dry-run build passes.
-- Recovery note: later DONE-state CI exposed a fixture bug because `autopilot-runner.test.mjs` hard-coded `US002`. Runs `36345718801`, `36345733919`, `36367181400`, and `36370758300` correctly failed rather than being ignored. Commit `0d93ea0a6a3c3e102691426da17dcf68e7e8ad5c` changed the fixture to derive the active/eligible story from BACKLOG; exact-head run `36370812410` passed all US002 bootstrap checks.
-- Durable completion: BACKLOG and evidence mark US002 DONE; the repository/branch lock is released by the final checkpoint commit.
-- Remaining criterion: none.
+- Current Feature: F02 Contract and fixtures
+- Current Story: US003 Freeze the machine readable API contract
+- Phase: IN_PROGRESS
+- Pre-story checkpoint: `a0afdcee769e4ebf7113a0ad234a6336db9a68d0`
+- Lock claim: `d0dc312499fa3da407bdb76a4244a468661602cd`, verified direct parent of the pre-story checkpoint and lock-only diff.
+- Implementation/tested code SHA: pending this story's implementation checkpoint and CI.
+- Completed work: blueprint pages 2-4 and US003 story requirements reviewed; exact endpoints, counting rules, validation precedence, response headers, error status meanings and numeric ceilings transcribed; unspecified fixed error message wording is recorded as an explicit US003 decision rather than source wording.
+- Remaining criteria: push typed contract/openapi/decision/test checkpoint; obtain exact-head Actions success; review diff; mark US003 DONE with evidence and release lock.
 - Blocker category: none.
 - Blocker: none.
-- Exact next action: on the next distinct run, reconcile released state, acquire the lock for US003, read the blueprint acceptance criteria for US003, and begin `US003 Freeze the machine readable API contract`. Do not redo US002.
+- Exact next action: validate the US003 implementation checkpoint with GitHub Actions; diagnose any failure inside US003; if green, atomically update BACKLOG/STATE/VALIDATION/US003 evidence and release RUN_LOCK.json.
 - Uncommitted status: no local working tree is used; all durable changes are GitHub commits.

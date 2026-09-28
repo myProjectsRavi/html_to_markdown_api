@@ -1,4 +1,4 @@
-name: US002 Bootstrap Validation
+name: Autopilot Validation
 
 on:
   push:
@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: html-markdown-us002-bootstrap-${{ github.ref }}
+  group: html-markdown-autopilot-validation-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -38,8 +38,8 @@ jobs:
       - name: Verify installed dependency graph
         run: npm ls --all
 
-      - name: Validate US002 bootstrap
-        run: npm run verify:bootstrap
+      - name: Validate current checkpoint
+        run: npm run verify:current
 
       - name: Verify generated files are ignored
         run: git status --short

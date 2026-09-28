@@ -3,10 +3,10 @@
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
   "state": "active",
-  "owner": "story-runner",
+  "owner": "manual-us009-recovery-20260928T1024Z",
   "story_id": "US009",
-  "base_head": "520faccc162f892364114d50fa38c8e7d66f0037",
-  "acquired_at": "2026-09-28T09:41:52Z",
+  "base_head": "e9b1bd9504f90036dc84283312707cafba87d816",
+  "acquired_at": "2026-09-28T10:24:00Z",
   "lease_minutes": 20,
-  "note": "Reclaiming expired US009 lease."
+  "note": "Recovered expired US009 lease. Resume the same parser-selection story and finish measured evidence, decision, and durable state."
 }

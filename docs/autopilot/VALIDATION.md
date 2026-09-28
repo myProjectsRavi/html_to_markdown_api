@@ -73,3 +73,20 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Scope boundary: renderer stories have not been implemented yet. US004 completion proves fixture schema, literal expectations, coverage and provenance only; it does not claim that future renderers already satisfy every expected output.
 - Conclusion: all US004 acceptance and evidence criteria are satisfied for `a47d87e7666e28ad41804d1acc8ecfff2903e2ac`. US005 is next and may begin only in a distinct subsequent run.
 
+## US005 - Implement exact routing and response headers
+
+- Status: DONE.
+- Source implementation commit: `60671f4d7219b35ba2a4a76f5275d38a79a289f2`.
+- Tested SHA: `9c756c2eec62dd10103863e05c8e26608a588a8f`.
+- Authoritative validation: GitHub Actions run `36385013819`, job `108808468707`, conclusion `success`.
+- Routing: exact case-sensitive path matching for `/health`, `/v1/html/markdown`, and `/v1/html/text`; wrong case and trailing slashes are 404; unknown paths are 404; known-path wrong methods including HEAD and OPTIONS are 405 with exact Allow headers.
+- Health: `GET /health` returns exactly `{"status":"ok"}`.
+- Headers: every application-controlled response is serialized as JSON and centrally receives `Content-Type: application/json; charset=utf-8`, `Cache-Control: no-store`, and `X-Content-Type-Options: nosniff`.
+- Conversion boundary: valid conversion POST paths deliberately return a controlled 503 `service_unavailable` placeholder until later stories integrate authentication/body parsing/conversion. No conversion success is fabricated.
+- Auth-order precursor: an unknown path carrying a synthetic `X-RapidAPI-Proxy-Secret` header remains 404, preserving the route-before-auth precedence required by the contract.
+- Query privacy: query parameters do not change routing; route tests prove query values are absent from response bodies. Repository source search for `console.` returned no production logging calls.
+- Route suite: 19/19 tests passed inside the Cloudflare Worker harness.
+- Regression suite: state/runner checks passed for US005; Worker bootstrap 1/1; contract 4/4; fixture validation and boundary generation passed; TypeScript/Worker types passed; Wrangler dry-run passed at 3.33 KiB / 1.16 KiB gzip.
+- Autopilot recovery: the primary scheduler fired at `2026-09-28T05:45:37Z` without repository/CI movement. The task prompts were hardened to define progress only as durable repo/CI/blocker movement and require immediate recovery of eligible no-op runs. This manual recovery then completed US005.
+- Conclusion: all US005 acceptance and evidence criteria are satisfied for `9c756c2eec62dd10103863e05c8e26608a588a8f`. US006 is the next eligible story and must begin only in a distinct run.
+

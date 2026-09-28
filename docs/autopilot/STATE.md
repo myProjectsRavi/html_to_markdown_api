@@ -7,13 +7,18 @@
 - Current Epic: E02 HTTP boundary
 - Current Feature: F03 Routing and authentication
 - Current Story: US005 Implement exact routing and response headers
-- Phase: IN_PROGRESS
+- Phase: DONE
 - Pre-story checkpoint: `244aabd019a9e20870b884ed6a37c8ebb16a02c0`
 - Lock claim: `9d4094c2ebd2346faf1b5a1ada90825374bf7b9f`, verified direct parent of the pre-story checkpoint and lock-only diff.
-- Implementation/tested code SHA: pending implementation checkpoint and CI.
-- Completed work: US005 blueprint requirements reviewed; exact manual path/method routing, central JSON/security response helper, thin health/conversion routes, non-success conversion placeholder, and table-driven workerd routing tests prepared in this checkpoint.
-- Remaining criteria: push implementation checkpoint; obtain exact-head Actions result; diagnose/fix any failure inside US005; review exact diff; if green, mark US005 DONE with immutable evidence and release RUN_LOCK.json.
+- Implementation source commit: `60671f4d7219b35ba2a4a76f5275d38a79a289f2`
+- Tested code SHA: `9c756c2eec62dd10103863e05c8e26608a588a8f`
+- Authoritative validation: GitHub Actions run `36385013819`, job `108808468707`, conclusion success.
+- Completed criteria: exact case-sensitive route matching; exact method handling; public `GET /health`; 404 for wrong case, trailing slash and unknown paths; 405 plus correct Allow header on known-path wrong methods including HEAD/OPTIONS; central JSON/no-store/nosniff response headers; query strings ignored for routing and absent from response bodies; no production logging calls; unknown paths remain 404 with a gateway-secret-looking header; conversion POST routes use a controlled non-success placeholder instead of fabricated success.
+- Regression evidence: state/runner checks pass for US005; TypeScript/Worker types pass; Worker bootstrap passes 1/1; US003 contract suite passes 4/4; US004 fixture validation remains green; US005 routing suite passes 19/19; Wrangler dry-run passes at 3.33 KiB / 1.16 KiB gzip.
+- Remaining criterion: none.
 - Blocker category: none.
 - Blocker: none.
-- Exact next action: validate the US005 implementation checkpoint in GitHub Actions and repair any failing routing/header/type/build assertion without changing the contract merely to obtain green.
+- Lock state: released by this completion checkpoint.
+- Autopilot recovery note: the scheduled primary task fired at 2026-09-28T05:45:37Z but produced no repository/CI progress while US005 was eligible. Primary and watchdog prompts were tightened so task timestamps are never treated as progress; an eligible released story with no live CI/blocker must produce a durable checkpoint, and the watchdog immediately recovers a no-op run.
+- Exact next action: on the next distinct run, reconcile released state, acquire the lock for `US006 Authenticate RapidAPI origin requests`, read its blueprint acceptance criteria, and implement only US006.
 - Uncommitted status: no local working tree is used; all durable changes are GitHub commits.

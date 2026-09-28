@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "manual-us005-recovery-20260928T060530Z",
-  "story_id": "US005",
-  "base_head": "244aabd019a9e20870b884ed6a37c8ebb16a02c0",
-  "acquired_at": "2026-09-28T06:05:30Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "9c756c2eec62dd10103863e05c8e26608a588a8f",
+  "acquired_at": null,
   "lease_minutes": 55,
-  "note": "Manual recovery run after a scheduled no-op. US004 is DONE; claiming released lock for US005 exact-routing implementation."
+  "note": "US005 completed with exact-head GitHub Actions success. Lock released; next distinct run may reconcile and claim US006."
 }

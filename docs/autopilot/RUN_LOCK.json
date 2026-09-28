@@ -3,10 +3,10 @@
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
   "state": "active",
-  "owner": "html-api-development-watchdog",
+  "owner": "manual-us006-recovery-20260928T0740Z",
   "story_id": "US006",
-  "base_head": "8f602cf1f3c4f3cb3064e8532d4e7d7fd1e7522e",
-  "acquired_at": "2026-09-28T06:24:11Z",
+  "base_head": "fd9b1e873a12dc90d314ab6f8e085f0f586fe940",
+  "acquired_at": "2026-09-28T07:40:00Z",
   "lease_minutes": 55,
-  "note": "Watchdog recovery claim for eligible US006."
+  "note": "Recovered expired watchdog lease. Resume unfinished US006; prior implementation commit passed generic CI but durable story state/tests/integration were incomplete."
 }

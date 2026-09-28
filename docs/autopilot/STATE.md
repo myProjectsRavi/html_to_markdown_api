@@ -13,9 +13,9 @@
 - Durable evidence: `docs/autopilot/evidence/US011.md`
 - Implemented scope: iterative shared-tree normalization; explicit active/non-content/form subtree drops; comment/instruction removal; transparent custom/unsupported wrappers; renderer-required structural elements; tag-specific retained-attribute allowlists; one-time entity decoding behavior; targeted normalized-tree and temporary text-extraction fixtures.
 - Validation wiring: `npm run verify:current` includes `npm run test:clean`.
-- Authoritative validation: pending exact-SHA GitHub Actions evidence. No pass is claimed yet.
-- Blocker category: none.
-- Blocker: none.
+- Authoritative validation: run `36470587188`, job `109091708714`, tested SHA `3a7efd7e5bd39773ba6543c3666e2ee33b714ed4`, conclusion `success`; compare from implementation checkpoint shows only autopilot documentation/lock changes.
+- Blocker category: connector-safety.
+- Blocker: authoritative validation is proven and US011 evidence is updated, but the BACKLOG.json DONE mutation was rejected by connector safety. Resume US011 finalization; do not start US012 until backlog/state are reconciled.
 - Lock state: release is required as this run's final repository mutation.
-- Exact next action: inspect terminal GitHub Actions for the US011 checkpoint. On failure, reacquire the lock and fix only US011. On success, reacquire the lock if needed, record exact run/job/tested SHA in evidence, STATE and BACKLOG, mark US011 DONE, then release the lock as the final mutation. Do not start US012 in that run.
+- Exact next action: reacquire US011 after this run releases the lock; update BACKLOG.json to DONE with tested SHA `3a7efd7e5bd39773ba6543c3666e2ee33b714ed4`, reconcile STATE.md to US011 DONE, then release. Do not start US012 in that run.
 - Uncommitted status: no local working tree is used; all durable changes are GitHub commits.

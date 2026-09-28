@@ -69,7 +69,7 @@ describe("US008 precise JSON and decoded HTML validation", () => {
     expect(empty.request.html).toBe("");
     expect(empty.inputBytes).toBe(0);
 
-    const whitespaceHtml = "  \\n\\t";
+    const whitespaceHtml = "  \n\t";
     const whitespace = ok(JSON.stringify({ html: whitespaceHtml }));
     expect(whitespace.request.html).toBe(whitespaceHtml);
     expect(whitespace.inputBytes).toBe(4);

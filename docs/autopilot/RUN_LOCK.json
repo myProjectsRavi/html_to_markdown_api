@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "manual-recovery-run-20260928T0240Z",
-  "story_id": "US002",
-  "base_head": "9e4c4340a32119e79a693ae06aa09bdc2dfd0504",
-  "acquired_at": "2026-09-28T02:40:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "0d93ea0a6a3c3e102691426da17dcf68e7e8ad5c",
+  "acquired_at": null,
   "lease_minutes": 55,
-  "note": "Verified prior lease expired after 55 minutes. Reclaimed using the exact RUN_LOCK.json blob SHA to finish US002 documentation/release before starting the next numbered story in a separate run."
+  "note": "US002 final documentation and DONE-state runner fixture repair completed. Lock released; next distinct run may reconcile and claim US003."
 }

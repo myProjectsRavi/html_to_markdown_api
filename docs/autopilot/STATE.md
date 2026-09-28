@@ -8,14 +8,15 @@
 - Current Feature: F01 Repository and runner
 - Current Story: US002 Install the hourly execution contract
 - Phase: DONE
-- Implementation/tested code SHA: `f51dac153e5cbafc088d99b240a36f867a6b89fc`
-- Authoritative candidate validation: GitHub Actions run `36340561663`, job `108679689891`, conclusion success.
+- Implementation/tested code SHA: `0d93ea0a6a3c3e102691426da17dcf68e7e8ad5c`
+- Authoritative final US002 validation: GitHub Actions run `36370812410`, job `108766582093`, conclusion success.
 - Successive primary scheduler observations: `2026-09-27T17:45:34Z` and `2026-09-27T18:46:53Z`.
-- Watchdog observation: `2026-09-27T18:15:39Z`.
-- Completed criteria: two successive primary triggers observed; overlapping local runner fixture rejected; interrupted fixture resumes US002; wrong-branch execution exits before mutation; canonical optimistic GitHub branch lock installed and exercised; exact package lock committed; TypeScript checks and generated Worker runtime types pass; minimal workerd-backed Worker test passes; Wrangler dry-run build passes for the reviewed executable candidate.
-- Run reconciliation: prior US002 lease had expired; it was reclaimed through the exact lock blob SHA. Claim commit `3dd5af641a1272cbd9462be1449cdfef548ffec7` directly descended from pre-claim HEAD `0a7cd4d51e43b9f1e0fe5a79b456433343d8b171` and changed only `docs/autopilot/RUN_LOCK.json`.
-- Durable completion checkpoint: BACKLOG marks US002 DONE at commit `4734bcfa1b4a8d97eb9ac01a0375d5e5870f8df9`; documentation finalization is in progress in this same story.
+- Watchdog observations include `2026-09-27T18:15:39Z` and `2026-09-28T02:15:46Z`; both scheduler tasks remain enabled.
+- Completed criteria: two successive primary triggers observed; wrong-branch execution exits before mutation; interrupted execution resumes the dynamically selected same story; overlapping local runner fixture is rejected; canonical optimistic GitHub branch lock installed and exercised; exact dependency lock committed; TypeScript and generated Worker runtime types pass; minimal workerd-backed Worker test passes; Wrangler dry-run build passes.
+- Recovery note: later DONE-state CI exposed a fixture bug because `autopilot-runner.test.mjs` hard-coded `US002`. Runs `36345718801`, `36345733919`, `36367181400`, and `36370758300` correctly failed rather than being ignored. Commit `0d93ea0a6a3c3e102691426da17dcf68e7e8ad5c` changed the fixture to derive the active/eligible story from BACKLOG; exact-head run `36370812410` passed all US002 bootstrap checks.
+- Durable completion: BACKLOG and evidence mark US002 DONE; the repository/branch lock is released by the final checkpoint commit.
 - Remaining criterion: none.
-- Blocker category: transient GitHub connector write safety if documentation/release writes are rejected.
-- Exact next action: finish US002 evidence/validation documentation and release RUN_LOCK.json. On the following scheduled run only, reacquire the lock and begin US003 after full reconciliation.
+- Blocker category: none.
+- Blocker: none.
+- Exact next action: on the next distinct run, reconcile released state, acquire the lock for US003, read the blueprint acceptance criteria for US003, and begin `US003 Freeze the machine readable API contract`. Do not redo US002.
 - Uncommitted status: no local working tree is used; all durable changes are GitHub commits.

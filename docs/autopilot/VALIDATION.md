@@ -21,25 +21,21 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 
 ## US002 - Install the hourly execution contract
 
-- Status: VALIDATING.
-- Executable candidate SHA: `f51dac153e5cbafc088d99b240a36f867a6b89fc`.
-- Authoritative run: GitHub Actions `36340561663`, job `108679689891`, push event for the exact candidate SHA, conclusion `success`.
+- Status: DONE.
+- Final tested story SHA: `0d93ea0a6a3c3e102691426da17dcf68e7e8ad5c`.
+- Original executable Worker/bootstrap candidate: `f51dac153e5cbafc088d99b240a36f867a6b89fc`.
+- Original authoritative candidate run: GitHub Actions `36340561663`, job `108679689891`, conclusion `success`.
+- Final authoritative US002 run after DONE-state fixture repair: GitHub Actions `36370812410`, job `108766582093`, exact SHA `0d93ea0a6a3c3e102691426da17dcf68e7e8ad5c`, conclusion `success`.
 - Runtime: Node `v22.22.2`, npm `10.9.7`.
-- Dependency provenance: committed lockfile generated from exact package versions; final CI used `npm ci` from that reviewed lockfile and `npm ls --all` succeeded.
-- State checks: `STATE_OK: next story US002 (IN_PROGRESS)`; negative fixtures passed for initial state, missing ID, dependency cycle, and DONE without evidence.
-- Runner checks: wrong-branch-before-mutation PASS; interrupted-run-resumes-same-story PASS; overlapping-run-rejected PASS.
-- Type/build checks: `wrangler types src/worker-configuration.d.ts && tsc --noEmit` passed; Worker runtime types were generated from the pinned Wrangler/configuration.
+- Dependency provenance: committed lockfile generated from exact package versions; CI uses `npm ci` from that reviewed lockfile and `npm ls --all`.
+- State checks: current ledger selects `US003 (TODO)` after US002 completion; negative fixtures pass for initial state, missing ID, dependency cycle, and DONE without evidence.
+- Runner checks at final SHA: wrong-branch-before-mutation PASS; interrupted-run-resumes-same-story PASS using the dynamically selected eligible story; overlapping-run-rejected PASS.
+- Type/build checks: `wrangler types src/worker-configuration.d.ts && tsc --noEmit` passed.
 - Worker harness: 1 test file passed, 1 test passed inside the Cloudflare Vitest/workerd integration.
 - Bundle dry run: Wrangler completed with total upload 0.32 KiB / gzip 0.22 KiB and exited in dry-run mode.
-- Generated-file cleanliness: final `git status --short` produced no tracked diff after validation.
-- CI hardening at the candidate: final workflow has `contents: read`, checkout credentials are not persisted, action revisions are pinned, concurrency does not cancel an in-progress run, and the job has a 15-minute timeout.
-- Failure history retained for diagnosis: the first bootstrap exposed npm resolver/engine issues and missing Worker/tooling types. They were fixed in US002 by pinning a compatible Node/npm toolchain, making the npm resolver mode explicit in `.npmrc`, committing the resulting lockfile, adding exact peer/tooling packages, and generating Worker types before TypeScript validation. No failed check was reclassified as a pass.
-- Scheduler observations: primary Story Runner observed at `2026-09-27T17:45:34Z`; staggered Development Watchdog observed at `2026-09-27T18:15:39Z`. Both remain enabled. The strict two-successive-primary-trigger gate is intentionally still open until the next primary scheduled invocation.
-- Conclusion: implementation and CI gates are green; US002 remains VALIDATING only for the final temporal trigger observation.
-
-### US002 checkpoint confirmation
-
-- Released-state checkpoint `327677b602bbcd3fbaa320fbced6e93a8885824a` was independently rebuilt by GitHub Actions run `36340887634`, job `108680648366`; every required step concluded success.
-- That run installed the committed lockfile, verified the dependency graph, reran the full US002 bootstrap validation, and confirmed generated Worker types/build outputs did not leave tracked changes.
-- The subsequent lock claim `b4eb538262f2905e7a33412a3cf3030a69d413ba` directly descended from `327677b602bbcd3fbaa320fbced6e93a8885824a`, proving the corrected lock protocol's parent check for this run.
-- No executable source or dependency input changed after the green candidate validation; remaining work is only the blueprint-required second successive primary scheduler observation.
+- Generated-file cleanliness: `git status --short` passed with no tracked generated-file diff.
+- CI hardening: workflow has `contents: read`, checkout credentials are not persisted, action revisions are pinned, concurrency does not cancel an in-progress run, and the job has a 15-minute timeout.
+- Scheduler evidence: primary Story Runner observed at `2026-09-27T17:45:34Z` and again at `2026-09-27T18:46:53Z`; watchdog observed independently. The two-successive-primary-trigger gate is satisfied.
+- Failure history retained: initial bootstrap failures exposed incompatible npm/Node pairing, npm peer-resolution behavior, and missing Worker/tooling types. Later, after US002 became DONE, runs `36345718801`, `36345733919`, `36367181400`, and `36370758300` exposed a different deterministic regression: the interruption test expected literal `RESUME US002` even though the ledger correctly selected US003 next. The failures were not reclassified. Commit `0d93ea0a6a3c3e102691426da17dcf68e7e8ad5c` repaired the fixture to derive the current active/eligible story from BACKLOG, and exact-head run `36370812410` passed.
+- Lock recovery: the stale lease acquired at `2026-09-28T01:44:27Z` expired after its declared 55-minute lease. It was reclaimed optimistically against the exact lock blob in commit `6094b6c8ac56cc9fa27faf8b6df0aba703d8cd9d`, whose sole parent is the recorded pre-claim HEAD `9e4c4340a32119e79a693ae06aa09bdc2dfd0504`; the claim changed only `RUN_LOCK.json`.
+- Conclusion: all US002 acceptance criteria and post-completion runner-integrity checks are satisfied. US002 is DONE. US003 is the next eligible story and must begin only in a distinct subsequent run.

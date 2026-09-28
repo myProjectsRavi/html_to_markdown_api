@@ -24,7 +24,7 @@
       ],
       "status": "DONE",
       "blocked_from": null,
-      "tested_code_sha": "f51dac153e5cbafc088d99b240a36f867a6b89fc",
+      "tested_code_sha": "0d93ea0a6a3c3e102691426da17dcf68e7e8ad5c",
       "evidence_path": "docs/autopilot/evidence/US002.md",
       "blocker": null
     },

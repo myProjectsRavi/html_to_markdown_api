@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "39179182d36b6fcd74a6a8f664a0bd35f60a6e85",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-hourly-github",
+  "story_id": "US012",
+  "base_head": "bcbd3ebe29c8244bbf6673dd3f8da5b936f0729c",
+  "acquired_at": "2026-09-29T15:15:00Z",
   "lease_minutes": 20,
-  "note": "US012 remains TODO."
+  "note": "Implement US012 Preserve Unicode and normalize whitespace."
 }

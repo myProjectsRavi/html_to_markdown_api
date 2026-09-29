@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-manual-github-retry",
-  "story_id": "US011",
-  "base_head": "0b14e230526818d72fd693e0f796ca86554f6f7f",
-  "acquired_at": "2026-09-29T15:04:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "975359678c5fce9dce8ceca4017caa24f9341ed9",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Finalize validated US011 backlog/state reconciliation."
+  "note": "US011 finalized; US012 is next eligible story in a distinct run."
 }

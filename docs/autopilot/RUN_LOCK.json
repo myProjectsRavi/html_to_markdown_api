@@ -5,8 +5,8 @@
   "state": "active",
   "owner": "html-api-development-watchdog",
   "story_id": "US011",
-  "base_head": "b7f181fc4a8f65d09432f19f0eeb1d1de740b05b",
-  "acquired_at": "2026-09-29T09:16:40Z",
+  "base_head": "3eafc285e43ae96db29b793707eb91ad091222e1",
+  "acquired_at": "2026-09-29T12:10:11Z",
   "lease_minutes": 20,
   "note": "Reclaim expired US011 finalization lease."
 }

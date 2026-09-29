@@ -5,8 +5,8 @@
   "state": "active",
   "owner": "chatgpt-hourly-github",
   "story_id": "US012",
-  "base_head": "bcbd3ebe29c8244bbf6673dd3f8da5b936f0729c",
-  "acquired_at": "2026-09-29T15:15:00Z",
+  "base_head": "67abf95c983c56dba966425508cd9a558983a872",
+  "acquired_at": "2026-09-29T17:44:37Z",
   "lease_minutes": 20,
   "note": "Implement US012 Preserve Unicode and normalize whitespace."
 }

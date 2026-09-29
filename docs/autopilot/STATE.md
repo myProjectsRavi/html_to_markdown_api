@@ -15,7 +15,7 @@
 - Validation wiring: `npm run verify:current` includes `npm run test:clean`.
 - Authoritative validation: run `36470587188`, job `109091708714`, tested SHA `3a7efd7e5bd39773ba6543c3666e2ee33b714ed4`, conclusion `success`; compare from implementation checkpoint shows only autopilot documentation/lock changes.
 - Blocker category: connector-safety.
-- Blocker: authoritative validation is proven and US011 evidence is updated. The latest finalization run successfully claimed and verified the lock, but the BACKLOG.json DONE mutation was rejected by connector safety. Resume US011 finalization; do not start US012 until backlog/state are reconciled.
-- Lock state: release is required as this run's final repository mutation after this checkpoint.
+- Blocker: authoritative validation is proven and US011 evidence is updated. This run claimed the released lock and verified the claim is lock-only relative to the observed history, but the BACKLOG.json DONE mutation was rejected again by connector safety. Resume US011 finalization; do not start US012 until backlog/state are reconciled.
+- Lock state: this run must immediately release the lock as its final repository mutation after this checkpoint.
 - Exact next action: after lock release, reacquire US011; update BACKLOG.json to DONE with tested SHA `3a7efd7e5bd39773ba6543c3666e2ee33b714ed4`, reconcile STATE.md to US011 DONE, then release. Do not start US012 in that run.
 - Uncommitted status: no local working tree is used; all durable changes are GitHub commits.

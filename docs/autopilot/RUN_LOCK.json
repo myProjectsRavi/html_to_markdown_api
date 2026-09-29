@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "html-api-development-watchdog",
+  "state": "released",
+  "owner": null,
   "story_id": "US012",
-  "base_head": "5872b268214df60f7d4140fe9eea739940dd1c9d",
-  "acquired_at": "2026-09-29T22:13:00Z",
+  "base_head": "ce25e15ac2f0e7227862d668d1f6b22849dadf7c",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Recovery watchdog reclaimed expired US012 lease."
+  "note": "Released after blocked mutation."
 }

@@ -3,10 +3,10 @@
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
   "state": "active",
-  "owner": "html-api-story-runner-us011-finalize",
+  "owner": "html-api-development-watchdog",
   "story_id": "US011",
-  "base_head": "9962c282407c9f4a64e2a6a6590008f282506d57",
-  "acquired_at": "2026-09-29T06:45:35Z",
+  "base_head": "b7f181fc4a8f65d09432f19f0eeb1d1de740b05b",
+  "acquired_at": "2026-09-29T09:16:40Z",
   "lease_minutes": 20,
-  "note": "Finalize already-validated US011 backlog/state reconciliation only."
+  "note": "Reclaim expired US011 finalization lease."
 }

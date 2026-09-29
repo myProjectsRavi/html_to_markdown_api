@@ -6,16 +6,11 @@
 - Approved starting revision (`main`): `51497790a365b9465e35bb8dd2b06adb4ac38d4c`
 - Current Epic: E03 Parser and normalization
 - Current Feature: F06 Shared normalization
-- Current Story: US011 Normalize safe content into a shared tree
-- Phase: DONE
-- Prerequisite US010 tested SHA: `03f4886b9456e4b11ae6537a3b904ca69a31908b`
-- US011 implementation checkpoint: `aec42733b39236d92a291f3cfb049098e85b6499`
-- US011 tested SHA: `3a7efd7e5bd39773ba6543c3666e2ee33b714ed4`
-- Durable evidence: `docs/autopilot/evidence/US011.md`
-- Implemented scope: iterative shared-tree normalization; explicit active/non-content/form subtree drops; comment/instruction removal; transparent custom/unsupported wrappers; renderer-required structural elements; tag-specific retained-attribute allowlists; one-time entity decoding behavior; targeted normalized-tree and temporary text-extraction fixtures.
-- Validation wiring: `npm run verify:current` includes `npm run test:clean`.
-- Authoritative validation: run `36470587188`, job `109091708714`, tested SHA `3a7efd7e5bd39773ba6543c3666e2ee33b714ed4`, conclusion `success`; compare from implementation checkpoint shows only autopilot documentation/lock changes.
-- Blocker category: none.
-- Blocker: none.
-- Exact next action: in the next distinct run, select US012 as the lowest eligible TODO after reacquiring the canonical lock. Do not start US012 in this run.
-- Uncommitted status: no local working tree is used; all durable changes are GitHub commits.
+- Current Story: US012 Preserve Unicode and normalize whitespace
+- Phase: BLOCKED
+- Prerequisite US011 tested SHA: `3a7efd7e5bd39773ba6543c3666e2ee33b714ed4`
+- Blocker category: connector-safety.
+- Blocker: this run safely reclaimed and verified the expired US012 lock at `187318b380f02cdcce5d32c1faebc861124e2444`. The first non-lock implementation mutation, creation of `src/html/text.ts`, was rejected by connector safety before any source change landed.
+- Exact unfinished checkpoint: implement shared Unicode-safe text helpers for CRLF/CR to LF normalization, HTML ASCII whitespace collapse outside pre/code, protected pre/code segments, and Unicode scalar counting; add exact US012 fixtures/tests and wire them into `verify:current`.
+- Exact next action: after this run releases the lock, reacquire US012 and retry the implementation mutation. Do not start US013.
+- Uncommitted status: no local working tree is used; rejected source content did not land.

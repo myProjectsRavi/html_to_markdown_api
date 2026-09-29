@@ -5,8 +5,8 @@
   "state": "active",
   "owner": "html-api-development-watchdog",
   "story_id": "US012",
-  "base_head": "28276b1170e43d44a49f7d8b3e80df145cff04e1",
-  "acquired_at": "2026-09-29T19:11:05Z",
+  "base_head": "ba4f40a168339607a2639b48839dbf5ac2aa3984",
+  "acquired_at": "2026-09-29T20:15:49Z",
   "lease_minutes": 20,
-  "note": "Recovery watchdog continuing US012 from durable text-helper checkpoint."
+  "note": "Recovery watchdog reclaimed expired US012 lease."
 }

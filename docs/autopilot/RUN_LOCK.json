@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "html-api-development-watchdog",
-  "story_id": "US012",
-  "base_head": "7c7cb44db0eb23c09ce95506711869f3c7e5078c",
-  "acquired_at": "2026-09-29T18:16:54Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": null,
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Recover US012 from connector-safety checkpoint."
+  "note": "Released after connector-safety cleanup."
 }

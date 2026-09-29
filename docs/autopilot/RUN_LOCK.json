@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "1580008e590c34b237e317e80cbee08de9915453",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-hourly-github",
+  "story_id": "US011",
+  "base_head": "3eafc285e43ae96db29b793707eb91ad091222e1",
+  "acquired_at": "2026-09-29T09:14:00Z",
   "lease_minutes": 20,
-  "note": "Released after connector-safety blocked US011 finalization."
+  "note": "Finalize validated US011 backlog/state reconciliation."
 }

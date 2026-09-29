@@ -7,10 +7,12 @@
 - Current Epic: E03 Parser and normalization
 - Current Feature: F06 Shared normalization
 - Current Story: US012 Preserve Unicode and normalize whitespace
-- Phase: BLOCKED
+- Phase: IN_PROGRESS
 - Prerequisite US011 tested SHA: `3a7efd7e5bd39773ba6543c3666e2ee33b714ed4`
+- Durable implementation checkpoint: `src/html/text.ts` landed at `2fb92d1118e627dd681d71cbfcef7b06818c2558`; exact US012 text-helper tests landed at `098c2595e7daa9ea85091f24ca9e0a731eb9f1b8`.
+- Validation status: not yet authoritative. No passing result is claimed for the new US012 tests.
 - Blocker category: connector-safety.
-- Blocker: this run safely reclaimed and verified the expired US012 lock at `187318b380f02cdcce5d32c1faebc861124e2444`. The first non-lock implementation mutation, creation of `src/html/text.ts`, was rejected by connector safety before any source change landed.
-- Exact unfinished checkpoint: implement shared Unicode-safe text helpers for CRLF/CR to LF normalization, HTML ASCII whitespace collapse outside pre/code, protected pre/code segments, and Unicode scalar counting; add exact US012 fixtures/tests and wire them into `verify:current`.
-- Exact next action: after this run releases the lock, reacquire US012 and retry the implementation mutation. Do not start US013.
-- Uncommitted status: no local working tree is used; rejected source content did not land.
+- Blocker: after the test checkpoint landed, the attempted package.json mutation to add `test:text` and wire it into `verify:current` was rejected by connector safety.
+- Exact unfinished checkpoint: wire `tests/text.test.ts` into `verify:current`, run authoritative validation, diagnose/fix any US012 failures, then create US012 evidence and reconcile BACKLOG/STATE.
+- Exact next action: reacquire US012 after lock release and retry only the pending validation wiring; do not start US013.
+- Uncommitted status: no local working tree is used; rejected package.json content did not land.

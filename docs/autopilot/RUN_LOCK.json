@@ -3,10 +3,10 @@
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
   "state": "active",
-  "owner": "chatgpt-hourly-github",
+  "owner": "chatgpt-manual-github-retry",
   "story_id": "US011",
-  "base_head": "3eafc285e43ae96db29b793707eb91ad091222e1",
-  "acquired_at": "2026-09-29T09:14:00Z",
+  "base_head": "0b14e230526818d72fd693e0f796ca86554f6f7f",
+  "acquired_at": "2026-09-29T15:04:00Z",
   "lease_minutes": 20,
   "note": "Finalize validated US011 backlog/state reconciliation."
 }

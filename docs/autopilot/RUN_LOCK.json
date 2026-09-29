@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "html-api-development-watchdog",
-  "story_id": "US012",
-  "base_head": "fab2ef69bc1d1b12325a4fb93f9e30d3af0815b7",
-  "acquired_at": "2026-09-29T16:14:41Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "39179182d36b6fcd74a6a8f664a0bd35f60a6e85",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "US012 recovery lease."
+  "note": "US012 remains TODO."
 }

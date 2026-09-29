@@ -7,15 +7,15 @@
 - Current Epic: E03 Parser and normalization
 - Current Feature: F06 Shared normalization
 - Current Story: US011 Normalize safe content into a shared tree
-- Phase: VALIDATING
+- Phase: DONE
 - Prerequisite US010 tested SHA: `03f4886b9456e4b11ae6537a3b904ca69a31908b`
 - US011 implementation checkpoint: `aec42733b39236d92a291f3cfb049098e85b6499`
+- US011 tested SHA: `3a7efd7e5bd39773ba6543c3666e2ee33b714ed4`
 - Durable evidence: `docs/autopilot/evidence/US011.md`
 - Implemented scope: iterative shared-tree normalization; explicit active/non-content/form subtree drops; comment/instruction removal; transparent custom/unsupported wrappers; renderer-required structural elements; tag-specific retained-attribute allowlists; one-time entity decoding behavior; targeted normalized-tree and temporary text-extraction fixtures.
 - Validation wiring: `npm run verify:current` includes `npm run test:clean`.
 - Authoritative validation: run `36470587188`, job `109091708714`, tested SHA `3a7efd7e5bd39773ba6543c3666e2ee33b714ed4`, conclusion `success`; compare from implementation checkpoint shows only autopilot documentation/lock changes.
-- Blocker category: connector-safety.
-- Blocker: authoritative validation is proven and US011 evidence is updated. This run claimed the released lock and verified the claim is lock-only relative to the observed history, but the BACKLOG.json DONE mutation was rejected again by connector safety. Resume US011 finalization; do not start US012 until backlog/state are reconciled.
-- Lock state: this run must immediately release the lock as its final repository mutation after this checkpoint.
-- Exact next action: after lock release, reacquire US011; update BACKLOG.json to DONE with tested SHA `3a7efd7e5bd39773ba6543c3666e2ee33b714ed4`, reconcile STATE.md to US011 DONE, then release. Do not start US012 in that run.
+- Blocker category: none.
+- Blocker: none.
+- Exact next action: in the next distinct run, select US012 as the lowest eligible TODO after reacquiring the canonical lock. Do not start US012 in this run.
 - Uncommitted status: no local working tree is used; all durable changes are GitHub commits.

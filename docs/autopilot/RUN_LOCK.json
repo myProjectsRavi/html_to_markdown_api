@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
+  "state": "active",
+  "owner": "automation-html-api-story-runner-11",
   "story_id": "US011",
-  "base_head": "71217f3a1261efade8387f6f3e8617c1e3174a38",
-  "acquired_at": null,
+  "base_head": "16e64afcf4fe79599acb637cfb7799f7da281956",
+  "acquired_at": "2026-09-29T05:42:27Z",
   "lease_minutes": 20,
-  "note": "Released after connector safety blocked US011 ledger finalization."
+  "note": "Reclaimed US011 for validated ledger finalization only."
 }

@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "html-api-watchdog-recovery-us011",
+  "state": "released",
+  "owner": null,
   "story_id": "US011",
-  "base_head": "e6fc11ac2421686e51860c5e0b44439e06cfa752",
-  "acquired_at": "2026-09-29T03:19:00Z",
+  "base_head": "71217f3a1261efade8387f6f3e8617c1e3174a38",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Watchdog reclaimed expired US011 lease to finalize already-green authoritative validation."
+  "note": "Released after connector safety blocked US011 ledger finalization."
 }

@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
+  "state": "active",
+  "owner": "chatgpt-watchdog",
   "story_id": "US012",
-  "base_head": "d8e503c01b6d7d3af8a2dbd046902e74030762eb",
-  "acquired_at": null,
+  "base_head": "23cb27a0dfb0e33a2b0a71fa49b173cdb6b2f123",
+  "acquired_at": "2026-09-30T02:15:26Z",
   "lease_minutes": 20,
-  "note": "Released after connector-blocked US012 validation wiring; durable blocker recorded in STATE.md."
+  "note": "Watchdog recovery lease for pending US012 validation wiring."
 }

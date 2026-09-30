@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-hourly-github",
+  "state": "released",
+  "owner": null,
   "story_id": "US012",
-  "base_head": "fd8f58a4c5ee47a65261e538b7f511cc4ee3dbb6",
-  "acquired_at": "2026-09-30T01:40:00Z",
+  "base_head": "d8e503c01b6d7d3af8a2dbd046902e74030762eb",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Resume US012 validation wiring and authoritative validation."
+  "note": "Released after connector-blocked US012 validation wiring; durable blocker recorded in STATE.md."
 }

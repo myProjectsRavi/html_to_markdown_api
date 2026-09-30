@@ -5,8 +5,8 @@
   "state": "active",
   "owner": "html-api-story-runner",
   "story_id": "US012",
-  "base_head": "49e489ec554b49f839e7695b2d74e81478628fc3",
-  "acquired_at": "2026-09-30T06:48:16Z",
+  "base_head": "a9ec34af3a2cb989e7e69c4cb56b8df98daf2763",
+  "acquired_at": "2026-09-30T07:41:05Z",
   "lease_minutes": 20,
-  "note": "Reclaim expired US012 lease to fix authoritative text-helper validation failure."
+  "note": "Reclaim expired US012 lease to correct entity no-second-decode assertion and revalidate."
 }

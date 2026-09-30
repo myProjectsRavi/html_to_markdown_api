@@ -5,8 +5,8 @@
   "state": "active",
   "owner": "html-api-story-runner",
   "story_id": "US012",
-  "base_head": "a9ec34af3a2cb989e7e69c4cb56b8df98daf2763",
-  "acquired_at": "2026-09-30T07:41:05Z",
+  "base_head": "c68271e6ae2f1c41b26386ca9c68699bc13a0eab",
+  "acquired_at": "2026-09-30T08:40:36Z",
   "lease_minutes": 20,
-  "note": "Reclaim expired US012 lease to correct entity no-second-decode assertion and revalidate."
+  "note": "Reclaim expired US012 lease to apply diagnosed no-second-decode assertion correction and revalidate."
 }

@@ -5,8 +5,8 @@
   "state": "active",
   "owner": "chatgpt-watchdog",
   "story_id": "US012",
-  "base_head": "23cb27a0dfb0e33a2b0a71fa49b173cdb6b2f123",
-  "acquired_at": "2026-09-30T02:15:26Z",
+  "base_head": "b21be6c17b58a60a149c87722d5aa8621845f3a1",
+  "acquired_at": "2026-09-30T03:14:41Z",
   "lease_minutes": 20,
-  "note": "Watchdog recovery lease for pending US012 validation wiring."
+  "note": "Watchdog reclaimed expired US012 lease for authoritative validation."
 }

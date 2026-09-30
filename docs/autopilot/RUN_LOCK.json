@@ -5,8 +5,8 @@
   "state": "active",
   "owner": "html-api-story-runner",
   "story_id": "US012",
-  "base_head": "5541c2f1df8fe123a0c5c8490719fce0f8ee4f52",
-  "acquired_at": "2026-09-30T03:41:37Z",
+  "base_head": "34cd9e3b6ccf975fff2de0dda2c5b31d85b927e1",
+  "acquired_at": "2026-09-30T04:42:12Z",
   "lease_minutes": 20,
   "note": "Reclaim expired US012 lease to advance authoritative validation."
 }

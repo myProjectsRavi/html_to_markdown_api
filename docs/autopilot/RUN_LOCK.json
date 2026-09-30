@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "html-api-story-runner",
-  "story_id": "US012",
-  "base_head": "2d4bc1fd54894f9165808e7de59ed4875d447046",
-  "acquired_at": "2026-09-30T10:43:37Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "fe1a13db9ee5a0b1796b7a8616c1176366eb6180",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Reclaim expired US012 lease to apply diagnosed no-second-decode assertion correction and revalidate."
+  "note": "Released stale US012 lease before manual GitHub retry."
 }

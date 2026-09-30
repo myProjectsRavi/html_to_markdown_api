@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-manual-github-retry",
-  "story_id": "US012",
-  "base_head": "c3ca9f93dd7e9d8e7beef8f1b62cd62088ce9b59",
-  "acquired_at": "2026-09-30T14:27:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "d3251667d0eba59208223224253dee01707b0399",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Apply diagnosed US012 no-second-decode assertion correction and revalidate."
+  "note": "US012 test correction committed; authoritative CI pending."
 }

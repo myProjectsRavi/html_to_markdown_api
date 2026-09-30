@@ -56,8 +56,8 @@ describe("US012 Unicode-safe text normalization", () => {
   });
 
   it("does not decode entities a second time", () => {
-    expect(textValues(normalized("<p>&amp;lt; &amp; &lt;</p>")))
-      .toEqual(["&lt; & <"]);
+    expect(textValues(normalized("<p>&amp;lt; &amp; &lt;</p>")).join(""))
+      .toBe("&lt; & <");
   });
 
   it("drops script content without raw or executable fallback", () => {

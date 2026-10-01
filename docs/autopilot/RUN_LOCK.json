@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "3df22d7f2a3dbadbc02020028967dffa68b453af",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "html-api-story-runner",
+  "story_id": "US013",
+  "base_head": "faf5f000b82c42002bee7d81db90d56b8ee99219",
+  "acquired_at": "2026-10-01T13:42:37Z",
   "lease_minutes": 20,
-  "note": "US012 finalized DONE; US013 is next eligible story in a distinct run."
+  "note": "Implement US013 Markdown block renderer and acceptance tests."
 }

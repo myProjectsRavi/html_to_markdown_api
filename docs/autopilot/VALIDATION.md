@@ -174,3 +174,15 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Failure history: the initial implementation run `36427202959` failed at `npm ci` because the dependency lock had not yet been generated; this expected bootstrap failure was not reclassified as passing. The one-shot lock workflow `36427203043` generated the exact lock, after which authoritative run `36427410547` passed.
 - Conclusion: all US010 acceptance/evidence criteria pass for `03f4886b9456e4b11ae6537a3b904ca69a31908b`. US011 is next and must begin only in a distinct run.
 
+## US012 - Preserve Unicode and normalize whitespace
+
+- Status: DONE.
+- Tested SHA: `6deb6997945b5cf5c2e2dfabc8a5dcfe8bd42cd3`.
+- Authoritative validation: GitHub Actions run `36729200912`, job `109933975411`, conclusion `success`.
+- Shared text helpers normalize CRLF/CR and HTML ASCII whitespace outside protected pre/code content while preserving Unicode content including Hindi, Telugu, Arabic, emoji, combining marks and non-breaking spaces.
+- Exact US012 tests cover tabs, mixed line endings, adjacent inline boundaries, Unicode scalar behavior and protected segments.
+- The `&amp;lt;` fixture verifies there is no second entity decode. The repaired assertion validates the concatenated text stream rather than requiring htmlparser2 to coalesce adjacent text nodes.
+- Failure history is retained: runs `36670074467` and `36680192891` failed the over-specific node-boundary assertion; commit `d3251667d0eba59208223224253dee01707b0399` corrected only that test boundary.
+- Final exact-head validation passed at `6deb6997945b5cf5c2e2dfabc8a5dcfe8bd42cd3`.
+- Conclusion: US012 acceptance/evidence is satisfied. US013 is next and must begin only in a distinct run.
+

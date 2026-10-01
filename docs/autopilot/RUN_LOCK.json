@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-manual-github-retry",
-  "story_id": "US013",
-  "base_head": "5420a9ce5a402f7cd8002c5a7a142629adee08c2",
-  "acquired_at": "2026-10-01T15:45:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "2ff3bd390d4101870644d3424f05e5e5b46b913b",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Resume US013 acceptance tests and validation wiring from renderer checkpoint."
+  "note": "US013 acceptance tests and validation wiring committed; STATE checkpoint write was blocked by connector safety. Resume US013 validation next run."
 }

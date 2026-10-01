@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-us013-validation",
-  "story_id": "US013",
-  "base_head": "870c7e43510695fa82b572735eccf7864147c37d",
-  "acquired_at": "2026-10-01T15:53:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "f5d8d138b2a5be59874c8bbe6440bcc806d6d082",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Checkpoint US013 VALIDATING and advance authoritative validation."
+  "note": "US013 is durably VALIDATING; authoritative GitHub Actions has not yet appeared for the wired checkpoint."
 }

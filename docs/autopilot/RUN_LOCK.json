@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "html-api-manual-run",
-  "story_id": "US012",
-  "base_head": "6deb6997945b5cf5c2e2dfabc8a5dcfe8bd42cd3",
-  "acquired_at": "2026-10-01T13:07:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "3df22d7f2a3dbadbc02020028967dffa68b453af",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Finalize US012 after authoritative GitHub Actions success run 36729200912."
+  "note": "US012 finalized DONE; US013 is next eligible story in a distinct run."
 }

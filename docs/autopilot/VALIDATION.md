@@ -196,3 +196,12 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Exact block fixtures cover h1-h6, adjacent/nested blocks, empty wrappers, br/hr behavior, block-leading punctuation, source-tag absence, and retained pre/code placeholders.
 - Failure history retained: run `36970137580` exposed pre-placeholder leading whitespace loss; commit `720112f22dfed0eeba063c8bd68223b652489bef` repaired it and the later authoritative run passed.
 - Conclusion: US013 acceptance/regression validation passes. US014 is next.
+
+
+## US014 - Render inline formatting and literal text
+
+- Status: DONE.
+- Tested SHA: `40bd403c806e5377c488acbbf84c9ad33e826f9b`.
+- Authoritative validation: PR run `37028182339` and push run `37028176389`, conclusion `success`.
+- Exact inline fixtures cover nested formatting, aliases, edge whitespace, empty wrappers, literal Markdown-sensitive text, Unicode text, and entity-derived script syntax.
+- Conclusion: US014 passes and US015 is next.

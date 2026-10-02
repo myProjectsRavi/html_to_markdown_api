@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-five-story-batch-us014",
-  "story_id": "US014",
-  "base_head": "d7997d8e13c369c0a7bac23b2515cc6c1aac4c77",
-  "acquired_at": "2026-10-02T15:38:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "5805be7db0688b0602c0b7f15605459affa33ef3",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Implement US014 inline formatting and literal escaping."
+  "note": "US014 implementation and acceptance suite checkpointed; lock released before authoritative CI."
 }

@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "28ddaac508612be05ce207b3887b386967261853",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-five-story-batch-us013",
+  "story_id": "US013",
+  "base_head": "dc2d77eb4c5c07ddd8e76c026b1200b85716240c",
+  "acquired_at": "2026-10-02T15:30:00Z",
   "lease_minutes": 20,
-  "note": "US013 pre whitespace repair committed and checkpointed; lock released before awaiting authoritative CI."
+  "note": "Finalize US013 after authoritative Actions run 37025693574 passed."
 }

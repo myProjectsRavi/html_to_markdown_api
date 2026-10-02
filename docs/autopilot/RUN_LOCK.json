@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-github-retry",
-  "story_id": "US013",
-  "base_head": "ce95de8035591d87597d5a19887fe1ae1f528a4b",
-  "acquired_at": "2026-10-02T03:58:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "8b341456acf708a9162add4da236c7345731f80e",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Advance authoritative US013 validation after manual GitHub connector retry."
+  "note": "Manual GitHub retry restored mutation access. US013 remains VALIDATING; no authoritative Actions workflow run is currently discoverable for this checkpoint."
 }

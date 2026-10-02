@@ -5,7 +5,7 @@ import { normalizeSharedText } from "../src/html/text";
 import { renderMarkdownBlocks } from "../src/markdown/blocks";
 const render=(html:string)=>renderMarkdownBlocks(normalizeSharedText(cleanParsedTree(parseHtml(html))));
 describe("US015 lists",()=>{
-  it("renders ordered start and continuation",()=>expect(render("<ol start=\"10\"><li>ten</li><li><p>eleven</p><p>more</p></li></ol>")).toBe("10. ten\\n11. eleven\\n\\n    more"));
+  it("renders ordered start and continuation",()=>expect(render("<ol start=\"10\"><li>ten</li><li><p>eleven</p><p>more</p></li></ol>")).toBe("10. ten\n11. eleven\n\n    more"));
   it("renders three nested levels",()=>expect(render("<ul><li>a<ul><li>b<ol><li>c</li></ol></li></ul></li></ul>")).toBe("- a\n  - b\n    1. c"));
   it("renders mixed lists",()=>expect(render("<ol><li>a<ul><li>b</li></ul></li><li>c</li></ol>")).toBe("1. a\n   - b\n2. c"));
   it("falls invalid start back to one",()=>expect(render("<ol start=\"nope\"><li>a</li></ol>")).toBe("1. a"));

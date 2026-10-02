@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-batch-us015-testfix",
-  "story_id": "US015",
-  "base_head": "af8b7feeb3b53effd6026b532c71526a8d863faf",
-  "acquired_at": "2026-10-02T15:52:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "437bc9dc1a8e5de92331839e4401ad7277fedc3b",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Correct US015 fixture expectation to canonical empty separator line after run 37029658491."
+  "note": "US015 canonical blank-separator fixture corrected; lock released before authoritative CI."
 }

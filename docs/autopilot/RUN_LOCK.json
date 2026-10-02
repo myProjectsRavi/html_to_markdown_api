@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "2a6858fe9a0cc71e27cbdf3f740da0d07bcbeea1",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-batch-us017",
+  "story_id": "US017",
+  "base_head": "95a50f29ec9acd2839383ad1236e5264aef8abe6",
+  "acquired_at": "2026-10-02T16:12:00Z",
   "lease_minutes": 20,
-  "note": "US016 finalized DONE after authoritative CI pass."
+  "note": "Implement US017 safe inline code spans."
 }

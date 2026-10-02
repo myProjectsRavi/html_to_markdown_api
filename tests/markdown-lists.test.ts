@@ -10,6 +10,6 @@ describe("US015 lists",()=>{
   it("renders mixed lists",()=>expect(render("<ol><li>a<ul><li>b</li></ul></li><li>c</li></ol>")).toBe("1. a\n   - b\n2. c"));
   it("falls invalid start back to one",()=>expect(render("<ol start=\"nope\"><li>a</li></ol>")).toBe("1. a"));
   it("keeps sibling content outside list",()=>expect(render("<ul><li>a</li></ul><p>after</p>")).toBe("- a\n\nafter"));
-  it("keeps code placeholder readable inside list",()=>expect(render("<ul><li><code>x()</code></li></ul>")).toBe("- x()"));
+  it("keeps code placeholder readable inside list",()=>expect(render("<ul><li><code>x()</code></li></ul>")).toBe("- ` x() `"));
   it("renders orphan li as readable block fallback",()=>expect(render("<li>orphan</li>")).toBe("orphan"));
 });

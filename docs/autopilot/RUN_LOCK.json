@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "html-api-story-run-now",
-  "story_id": "US013",
-  "base_head": "6de06d3778ef86ddf343b7999c6b5f90ae4b2abd",
-  "acquired_at": "2026-10-02T05:12:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "882b2c1110f4aa5ee533dd1c4a4e7c5075559800",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Create authoritative US013 validation trigger after confirming no active/current Actions run."
+  "note": "US013 authoritative validation workflow added and state checkpointed. Lock released before waiting for Actions."
 }

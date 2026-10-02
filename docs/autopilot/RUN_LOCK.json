@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "437bc9dc1a8e5de92331839e4401ad7277fedc3b",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-batch-us015-escape-fix",
+  "story_id": "US015",
+  "base_head": "0965802ee302e24c9256f147a59880a051a4125b",
+  "acquired_at": "2026-10-02T15:55:00Z",
   "lease_minutes": 20,
-  "note": "US015 canonical blank-separator fixture corrected; lock released before authoritative CI."
+  "note": "Fix accidental double-escaped newline literals in US015 fixture from run 37029942687."
 }

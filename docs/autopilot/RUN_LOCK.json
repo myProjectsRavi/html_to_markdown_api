@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-batch-us016-repair",
-  "story_id": "US016",
-  "base_head": "55f83e47955376a2f6830f3bc6b8fe5dc5239e63",
-  "acquired_at": "2026-10-02T16:05:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "19179c4f54be526bafa1c288540b565208690f31",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Repair accidental self-recursive renderContainer exposed by Actions run 37030973941."
+  "note": "US016 container traversal repaired; lock released before authoritative CI."
 }

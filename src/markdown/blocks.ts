@@ -26,7 +26,7 @@ function renderCodeSpan(node: CleanElement): string {
   let longest = 0;
   for (const match of normalized.matchAll(/`+/gu)) longest = Math.max(longest, match[0].length);
   const fence = "`".repeat(Math.max(1, longest + 1));
-  if (normalized.length === 0) return fence + fence;
+  if (normalized.length === 0) return "";
   if (/^ +$/u.test(normalized)) return fence + normalized + fence;
   return fence + " " + normalized + " " + fence;
 }

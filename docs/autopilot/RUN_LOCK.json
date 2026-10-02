@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-batch-us016-final",
-  "story_id": "US016",
-  "base_head": "78a0135c045bfe7e392d8162182d6ec08cb72b4b",
-  "acquired_at": "2026-10-02T16:09:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "2a6858fe9a0cc71e27cbdf3f740da0d07bcbeea1",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Finalize US016 after exact-head Actions success."
+  "note": "US016 finalized DONE after authoritative CI pass."
 }

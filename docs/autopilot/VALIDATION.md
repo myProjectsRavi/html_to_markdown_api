@@ -205,3 +205,12 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Authoritative validation: PR run `37028182339` and push run `37028176389`, conclusion `success`.
 - Exact inline fixtures cover nested formatting, aliases, edge whitespace, empty wrappers, literal Markdown-sensitive text, Unicode text, and entity-derived script syntax.
 - Conclusion: US014 passes and US015 is next.
+
+
+## US015 - Render ordered and nested lists
+
+- Status: DONE.
+- Tested SHA: `26781953f86242aa06dab5f7f6ad1b63dc6d7ed4`.
+- Authoritative validation: push runs `37030377041` and `37030377142`, conclusion `success`.
+- Exact fixtures cover ordered starts, nested/mixed lists, continuation indentation, multi-paragraph items, code placeholders, invalid starts, sibling isolation and orphan fallback.
+- Conclusion: US015 passes; US016 is next.

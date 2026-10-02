@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-batch-us016",
-  "story_id": "US016",
-  "base_head": "b8dae6f169c52178319099fa1cb5c5b33ef85b1d",
-  "acquired_at": "2026-10-02T16:03:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "d8e10245350415450538ccd386fa754cbaa961eb",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Implement US016 quotes and disclosure fallback."
+  "note": "US016 implementation and acceptance suite checkpointed; lock released before authoritative CI."
 }

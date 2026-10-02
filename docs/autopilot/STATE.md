@@ -5,10 +5,12 @@
 - Allowed implementation branch: `autopilot/html-markdown-v1`
 - Approved starting revision (`main`): `51497790a365b9465e35bb8dd2b06adb4ac38d4c`
 - Current Epic: E04 Markdown renderer
-- Current Feature: F08 Lists, quotes and disclosure fallback
-- Current Story: US016 Render quotes and disclosure fallback
-- Phase: DONE
-- Tested SHA: `78a0135c045bfe7e392d8162182d6ec08cb72b4b`
-- Authoritative validation: project run `37031353163` and PR checkpoint run `37031361206`, conclusion `success`.
-- Evidence: `docs/autopilot/evidence/US016.md`.
-- Exact next action: begin US017 in a distinct run after releasing the US016 lock.
+- Current Feature: F09 Code rendering
+- Current Story: US017 Render safe inline code spans
+- Phase: VALIDATING
+- Prerequisite US016: DONE, tested SHA `78a0135c045bfe7e392d8162182d6ec08cb72b4b`.
+- Implementation checkpoint: `12f7f7f08d4a24397de98c4a42247b1def4dbdc2`.
+- Acceptance-suite checkpoint: `f54fed388c26c86b28917dda676528170bd7bf92`.
+- Validation wiring checkpoint: `703552fa9b8eb4508a25125d7f946bc07207b9c4`.
+- Validation status: authoritative Actions pending; no PASS claimed.
+- Exact next action: inspect exact-head Actions; diagnose failures within US017 or finalize only after PASS.

@@ -5,16 +5,34 @@ const BLOCK_ELEMENTS = new Set([
   "h1", "h2", "h3", "h4", "h5", "h6", "hr", "pre",
 ]);
 
+function escapeLiteralText(value: string): string {
+  return value
+    .replace(/\\/gu, "\\\\")
+    .replace(/([\[\]<>])/gu, "\\$1");
+}
+
 function escapeBlockLeadingText(value: string): string {
-  return value.replace(/^(\s*)(#{1,6}|>|[-+*](?=\s)|\d+[.)](?=\s))/u, "$1\\$2");
+  return escapeLiteralText(value).replace(/^(\s*)(#{1,6}(?=\s|$)|>|[-+*](?=\s)|\d+[.)](?=\s))/u, "$1\\$2");
+}
+
+function formatted(node: CleanElement, marker: string): string {
+  const body = node.children.map(inlineText).join("");
+  const leading = body.match(/^\s*/u)?.[0] ?? "";
+  const trailing = body.match(/\s*$/u)?.[0] ?? "";
+  const core = body.slice(leading.length, body.length - trailing.length);
+  if (!core) return body;
+  return `${leading}${marker}${core}${marker}${trailing}`;
 }
 
 function inlineText(node: CleanNode): string {
   if (node.kind === "text") return escapeBlockLeadingText(node.value);
   if (node.name === "br") return "  \n";
   if (node.name === "pre" || node.name === "code") {
-    return node.children.map(inlineText).join("");
+    return node.children.map((child) => child.kind === "text" ? child.value : inlineText(child)).join("");
   }
+  if (node.name === "strong" || node.name === "b") return formatted(node, "**");
+  if (node.name === "em" || node.name === "i") return formatted(node, "*");
+  if (node.name === "s" || node.name === "del") return formatted(node, "~~");
   return node.children.map(inlineText).join("");
 }
 

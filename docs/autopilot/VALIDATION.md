@@ -214,3 +214,12 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Authoritative validation: push runs `37030377041` and `37030377142`, conclusion `success`.
 - Exact fixtures cover ordered starts, nested/mixed lists, continuation indentation, multi-paragraph items, code placeholders, invalid starts, sibling isolation and orphan fallback.
 - Conclusion: US015 passes; US016 is next.
+
+
+## US016 - Render quotes and disclosure fallback
+
+- Status: DONE.
+- Tested SHA: `78a0135c045bfe7e392d8162182d6ec08cb72b4b`.
+- Authoritative validation: project run `37031353163` and PR checkpoint run `37031361206`, conclusion `success`.
+- Quote/disclosure fixtures cover nesting, containment, source order and no invented labels.
+- Conclusion: US016 passes; US017 is next.

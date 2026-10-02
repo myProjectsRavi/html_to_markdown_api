@@ -76,7 +76,7 @@ function renderList(root: CleanElement): string {
       let inline = "";
       const flushInline = () => {
         const value = inline.trim();
-        if (value || blocks.length === 0) blocks.push(value);
+        if (value) blocks.push(value);
         inline = "";
       };
       for (const child of contentNodes) {
@@ -94,7 +94,7 @@ function renderList(root: CleanElement): string {
         stack.push({ list: nested[n]!, indent: continuation });
       }
 
-      const normalized = blocks.filter((value, i) => value.length > 0 || i === 0);
+      const normalized = blocks.length > 0 ? blocks : [""];
       for (let b = normalized.length - 1; b >= 0; b -= 1) {
         const blockLines = normalized[b]!.split("\n");
         for (let l = blockLines.length - 1; l >= 0; l -= 1) {

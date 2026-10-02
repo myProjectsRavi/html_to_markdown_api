@@ -6,11 +6,11 @@
 - Approved starting revision (`main`): `51497790a365b9465e35bb8dd2b06adb4ac38d4c`
 - Current Epic: E04 Markdown renderer
 - Current Feature: F07 Block and inline rendering
-- Current Story: US013 Render Markdown blocks
-- Phase: DONE
-- Tested SHA: `dc2d77eb4c5c07ddd8e76c026b1200b85716240c`
-- Authoritative validation: GitHub Actions run `37025693574`, conclusion `success`.
-- Evidence: `docs/autopilot/evidence/US013.md`.
-- Failure history: run `36970137580` exposed pre-placeholder leading-whitespace loss; repaired at `720112f22dfed0eeba063c8bd68223b652489bef`.
-- Exact next action: begin US014 in a distinct run after releasing the US013 lock.
-- Uncommitted status: no local working tree is used; all durable changes are GitHub commits.
+- Current Story: US014 Render inline formatting and literal text
+- Phase: VALIDATING
+- Prerequisite US013: DONE, tested SHA `dc2d77eb4c5c07ddd8e76c026b1200b85716240c`.
+- Implementation checkpoint: `8f6be8df6bb82cb736a03422ee21c81e464322eb`.
+- Acceptance-suite checkpoint: `346eda3e11fbf85ea245ef7bcbe1909f98c8cf7c`.
+- Validation wiring checkpoint: `9edba0f68366e262887973d6b882ab76d90b94a8`.
+- Validation status: authoritative Actions pending; no PASS claimed.
+- Exact next action: inspect Actions for the US014 checkpoint; diagnose failures within US014 or finalize only after PASS.

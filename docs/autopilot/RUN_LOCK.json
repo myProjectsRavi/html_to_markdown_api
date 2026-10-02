@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-batch-us017-regression",
-  "story_id": "US017",
-  "base_head": "d033a4e5dea365c2338b3017b8267a03bfda7c2c",
-  "acquired_at": "2026-10-02T16:15:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "2fe84b417ccf1f47e2737499b7ae1e96295a9f77",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Update US015 code-placeholder regression expectation for dedicated US017 inline-code serialization."
+  "note": "US017 list/code composition regression updated; lock released before authoritative CI."
 }

@@ -2,7 +2,7 @@ import type { CleanElement, CleanNode, CleanRoot } from "../html/clean";
 
 const BLOCK_ELEMENTS = new Set([
   "article", "aside", "div", "footer", "header", "main", "nav", "section", "p",
-  "h1", "h2", "h3", "h4", "h5", "h6", "hr",
+  "h1", "h2", "h3", "h4", "h5", "h6", "hr", "pre",
 ]);
 
 function escapeBlockLeadingText(value: string): string {
@@ -25,6 +25,7 @@ function elementBlock(node: CleanElement): string {
     return body ? `${"#".repeat(level)} ${body}` : "";
   }
   if (node.name === "hr") return "---";
+  if (node.name === "pre") return node.children.map((child) => child.kind === "text" ? child.value : inlineText(child)).join("").replace(/[ \t]+$/u, "");
   if (node.name === "p") return node.children.map(inlineText).join("").trim();
 
   const parts: string[] = [];

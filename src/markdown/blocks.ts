@@ -2,7 +2,7 @@ import type { CleanElement, CleanNode, CleanRoot } from "../html/clean";
 
 const BLOCK_ELEMENTS = new Set([
   "article", "aside", "div", "footer", "header", "main", "nav", "section", "p",
-  "h1", "h2", "h3", "h4", "h5", "h6", "hr", "pre",
+  "h1", "h2", "h3", "h4", "h5", "h6", "hr", "pre", "ul", "ol", "li",
 ]);
 
 function escapeLiteralText(value: string): string {
@@ -36,6 +36,78 @@ function inlineText(node: CleanNode): string {
   return node.children.map(inlineText).join("");
 }
 
+
+function attribute(node: CleanElement, name: string): string | undefined {
+  return node.attributes.find(([key]) => key === name)?.[1];
+}
+
+function renderList(root: CleanElement): string {
+  type ListTask = { readonly list: CleanElement; readonly indent: string };
+  const lines: string[] = [];
+  const stack: Array<ListTask | { readonly line: string }> = [{ list: root, indent: "" }];
+
+  while (stack.length > 0) {
+    const task = stack.pop()!;
+    if ("line" in task) {
+      lines.push(task.line);
+      continue;
+    }
+
+    const items = task.list.children.filter(
+      (child): child is CleanElement => child.kind === "element" && child.name === "li",
+    );
+    const rawStart = attribute(task.list, "start");
+    const parsedStart = rawStart !== undefined && /^-?\d+$/u.test(rawStart) ? Number(rawStart) : 1;
+    const start = Number.isSafeInteger(parsedStart) && parsedStart >= -999999 && parsedStart <= 999999 ? parsedStart : 1;
+
+    for (let index = items.length - 1; index >= 0; index -= 1) {
+      const item = items[index]!;
+      const marker = task.list.name === "ol" ? `${start + index}. ` : "- ";
+      const continuation = task.indent + " ".repeat(marker.length);
+      const nested = item.children.filter(
+        (child): child is CleanElement =>
+          child.kind === "element" && (child.name === "ul" || child.name === "ol"),
+      );
+      const contentNodes = item.children.filter(
+        (child) => !(child.kind === "element" && (child.name === "ul" || child.name === "ol")),
+      );
+
+      const blocks: string[] = [];
+      let inline = "";
+      const flushInline = () => {
+        const value = inline.trim();
+        if (value || blocks.length === 0) blocks.push(value);
+        inline = "";
+      };
+      for (const child of contentNodes) {
+        if (child.kind === "element" && BLOCK_ELEMENTS.has(child.name) && child.name !== "li") {
+          flushInline();
+          const rendered = elementBlock(child);
+          if (rendered) blocks.push(rendered);
+        } else {
+          inline += inlineText(child);
+        }
+      }
+      flushInline();
+
+      for (let n = nested.length - 1; n >= 0; n -= 1) {
+        stack.push({ list: nested[n]!, indent: continuation });
+      }
+
+      const normalized = blocks.filter((value, i) => value.length > 0 || i === 0);
+      for (let b = normalized.length - 1; b >= 0; b -= 1) {
+        const blockLines = normalized[b]!.split("\n");
+        for (let l = blockLines.length - 1; l >= 0; l -= 1) {
+          const prefix = b === 0 && l === 0 ? task.indent + marker : continuation;
+          stack.push({ line: prefix + blockLines[l]! });
+        }
+        if (b > 0) stack.push({ line: continuation.trimEnd() });
+      }
+    }
+  }
+  return lines.join("\n");
+}
+
 function elementBlock(node: CleanElement): string {
   if (/^h[1-6]$/.test(node.name)) {
     const level = Number(node.name[1]);
@@ -43,6 +115,8 @@ function elementBlock(node: CleanElement): string {
     return body ? `${"#".repeat(level)} ${body}` : "";
   }
   if (node.name === "hr") return "---";
+  if (node.name === "ul" || node.name === "ol") return renderList(node);
+  if (node.name === "li") return node.children.map((child) => child.kind === "element" && BLOCK_ELEMENTS.has(child.name) ? elementBlock(child) : inlineText(child)).filter(Boolean).join("\n\n");
   if (node.name === "pre") return node.children.map((child) => child.kind === "text" ? child.value : inlineText(child)).join("").replace(/[ \t]+$/u, "");
   if (node.name === "p") return node.children.map(inlineText).join("").trim();
 

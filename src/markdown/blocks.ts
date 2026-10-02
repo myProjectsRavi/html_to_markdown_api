@@ -2,7 +2,7 @@ import type { CleanElement, CleanNode, CleanRoot } from "../html/clean";
 
 const BLOCK_ELEMENTS = new Set([
   "article", "aside", "div", "footer", "header", "main", "nav", "section", "p",
-  "h1", "h2", "h3", "h4", "h5", "h6", "hr", "pre", "ul", "ol", "li",
+  "h1", "h2", "h3", "h4", "h5", "h6", "hr", "pre", "ul", "ol", "li", "blockquote", "details", "summary",
 ]);
 
 function escapeLiteralText(value: string): string {
@@ -108,6 +108,16 @@ function renderList(root: CleanElement): string {
   return lines.join("\n");
 }
 
+function renderContainer(node: CleanElement): string {
+  return renderContainer(node);
+}
+
+function renderBlockquote(node: CleanElement): string {
+  const body = renderContainer(node);
+  if (!body) return "";
+  return body.split("\n").map((line) => line.length > 0 ? `> ${line}` : ">").join("\n");
+}
+
 function elementBlock(node: CleanElement): string {
   if (/^h[1-6]$/.test(node.name)) {
     const level = Number(node.name[1]);
@@ -115,6 +125,9 @@ function elementBlock(node: CleanElement): string {
     return body ? `${"#".repeat(level)} ${body}` : "";
   }
   if (node.name === "hr") return "---";
+  if (node.name === "blockquote") return renderBlockquote(node);
+  if (node.name === "details") return renderContainer(node);
+  if (node.name === "summary") return node.children.map(inlineText).join("").trim();
   if (node.name === "ul" || node.name === "ol") return renderList(node);
   if (node.name === "li") return node.children.map((child) => child.kind === "element" && BLOCK_ELEMENTS.has(child.name) ? elementBlock(child) : inlineText(child)).filter(Boolean).join("\n\n");
   if (node.name === "pre") return node.children.map((child) => child.kind === "text" ? child.value : inlineText(child)).join("").replace(/[ \t]+$/u, "");

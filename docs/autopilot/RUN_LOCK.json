@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "5ce0c86b155343d2272e994defbc1d6e40b68715",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-batch-us015",
+  "story_id": "US015",
+  "base_head": "7c18d4ffa214c3c1056604f99a587999c4439ada",
+  "acquired_at": "2026-10-02T15:46:00Z",
   "lease_minutes": 20,
-  "note": "US014 finalized DONE after authoritative CI pass."
+  "note": "Implement US015 ordered and nested lists."
 }

@@ -109,7 +109,24 @@ function renderList(root: CleanElement): string {
 }
 
 function renderContainer(node: CleanElement): string {
-  return renderContainer(node);
+  const parts: string[] = [];
+  let inline = "";
+  const flush = () => {
+    const value = inline.trim();
+    if (value) parts.push(value);
+    inline = "";
+  };
+  for (const child of node.children) {
+    if (child.kind === "element" && BLOCK_ELEMENTS.has(child.name)) {
+      flush();
+      const rendered = elementBlock(child);
+      if (rendered) parts.push(rendered);
+    } else {
+      inline += inlineText(child);
+    }
+  }
+  flush();
+  return parts.join("\n\n");
 }
 
 function renderBlockquote(node: CleanElement): string {

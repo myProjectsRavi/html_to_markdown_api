@@ -15,6 +15,22 @@ function escapeBlockLeadingText(value: string): string {
   return escapeLiteralText(value).replace(/^(\s*)(#{1,6}(?=\s|$)|>|[-+*](?=\s)|\d+[.)](?=\s))/u, "$1\\$2");
 }
 
+function rawProtectedText(node: CleanNode): string {
+  if (node.kind === "text") return node.value;
+  if (node.name === "br") return "\n";
+  return node.children.map(rawProtectedText).join("");
+}
+
+function renderCodeSpan(node: CleanElement): string {
+  const normalized = rawProtectedText(node).replace(/\n/gu, " ");
+  let longest = 0;
+  for (const match of normalized.matchAll(/`+/gu)) longest = Math.max(longest, match[0].length);
+  const fence = "`".repeat(Math.max(1, longest + 1));
+  if (normalized.length === 0) return fence + fence;
+  if (/^ +$/u.test(normalized)) return fence + normalized + fence;
+  return fence + " " + normalized + " " + fence;
+}
+
 function formatted(node: CleanElement, marker: string): string {
   const body = node.children.map(inlineText).join("");
   const leading = body.match(/^\s*/u)?.[0] ?? "";
@@ -27,9 +43,8 @@ function formatted(node: CleanElement, marker: string): string {
 function inlineText(node: CleanNode): string {
   if (node.kind === "text") return escapeBlockLeadingText(node.value);
   if (node.name === "br") return "  \n";
-  if (node.name === "pre" || node.name === "code") {
-    return node.children.map((child) => child.kind === "text" ? child.value : inlineText(child)).join("");
-  }
+  if (node.name === "pre") return rawProtectedText(node);
+  if (node.name === "code") return renderCodeSpan(node);
   if (node.name === "strong" || node.name === "b") return formatted(node, "**");
   if (node.name === "em" || node.name === "i") return formatted(node, "*");
   if (node.name === "s" || node.name === "del") return formatted(node, "~~");
@@ -147,7 +162,7 @@ function elementBlock(node: CleanElement): string {
   if (node.name === "summary") return node.children.map(inlineText).join("").trim();
   if (node.name === "ul" || node.name === "ol") return renderList(node);
   if (node.name === "li") return node.children.map((child) => child.kind === "element" && BLOCK_ELEMENTS.has(child.name) ? elementBlock(child) : inlineText(child)).filter(Boolean).join("\n\n");
-  if (node.name === "pre") return node.children.map((child) => child.kind === "text" ? child.value : inlineText(child)).join("").replace(/[ \t]+$/u, "");
+  if (node.name === "pre") return rawProtectedText(node).replace(/[ \t]+$/u, "");
   if (node.name === "p") return node.children.map(inlineText).join("").trim();
 
   const parts: string[] = [];

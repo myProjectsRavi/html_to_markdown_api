@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-batch-us015-repair",
-  "story_id": "US015",
-  "base_head": "63fedc5303a2f3a666fc3f39aed5462162baebee",
-  "acquired_at": "2026-10-02T15:49:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "361aba977edd60a6e195008b9685428bdbfe3979",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Repair US015 paragraph-in-list failure from Actions run 37029358564."
+  "note": "US015 paragraph-list repair checkpointed; lock released before CI."
 }

@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "8b341456acf708a9162add4da236c7345731f80e",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "html-api-story-run-now",
+  "story_id": "US013",
+  "base_head": "6de06d3778ef86ddf343b7999c6b5f90ae4b2abd",
+  "acquired_at": "2026-10-02T05:12:00Z",
   "lease_minutes": 20,
-  "note": "Manual GitHub retry restored mutation access. US013 remains VALIDATING; no authoritative Actions workflow run is currently discoverable for this checkpoint."
+  "note": "Create authoritative US013 validation trigger after confirming no active/current Actions run."
 }

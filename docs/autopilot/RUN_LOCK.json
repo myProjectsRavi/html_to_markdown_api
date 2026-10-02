@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-manual-continue",
-  "story_id": "US013",
-  "base_head": "5c1903f0c638660ae0b043bb7e747145f80da19c",
-  "acquired_at": "2026-10-02T15:15:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "28ddaac508612be05ce207b3887b386967261853",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Reclaim expired US013 lock and fix pre placeholder leading whitespace after failed authoritative CI."
+  "note": "US013 pre whitespace repair committed and checkpointed; lock released before awaiting authoritative CI."
 }

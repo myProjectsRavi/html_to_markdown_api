@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "b011bb761c18b3e989530f7c1beda6a59969c2d0",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-batch-us015-final",
+  "story_id": "US015",
+  "base_head": "26781953f86242aa06dab5f7f6ad1b63dc6d7ed4",
+  "acquired_at": "2026-10-02T15:59:00Z",
   "lease_minutes": 20,
-  "note": "US015 newline fixture repaired; lock released before authoritative CI."
+  "note": "Finalize US015 after exact-head push validation runs 37030377041 and 37030377142 succeeded."
 }

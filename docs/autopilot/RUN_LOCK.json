@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "882b2c1110f4aa5ee533dd1c4a4e7c5075559800",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "html-api-story-runner",
+  "story_id": "US013",
+  "base_head": "2628061729bbd34d6a4206fddce05a12769db58e",
+  "acquired_at": "2026-10-02T05:45:00Z",
   "lease_minutes": 20,
-  "note": "US013 authoritative validation workflow added and state checkpointed. Lock released before waiting for Actions."
+  "note": "Fix authoritative US013 failure: preserve pre placeholder leading whitespace."
 }

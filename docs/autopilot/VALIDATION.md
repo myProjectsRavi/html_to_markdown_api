@@ -186,3 +186,13 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Final exact-head validation passed at `6deb6997945b5cf5c2e2dfabc8a5dcfe8bd42cd3`.
 - Conclusion: US012 acceptance/evidence is satisfied. US013 is next and must begin only in a distinct run.
 
+
+
+## US013 - Render Markdown blocks
+
+- Status: DONE.
+- Tested SHA: `dc2d77eb4c5c07ddd8e76c026b1200b85716240c`.
+- Authoritative validation: GitHub Actions run `37025693574`, conclusion `success`.
+- Exact block fixtures cover h1-h6, adjacent/nested blocks, empty wrappers, br/hr behavior, block-leading punctuation, source-tag absence, and retained pre/code placeholders.
+- Failure history retained: run `36970137580` exposed pre-placeholder leading whitespace loss; commit `720112f22dfed0eeba063c8bd68223b652489bef` repaired it and the later authoritative run passed.
+- Conclusion: US013 acceptance/regression validation passes. US014 is next.

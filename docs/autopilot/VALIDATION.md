@@ -302,3 +302,15 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Nested-table canaries and block-boundary fixtures preserve visible text exactly once in source order.
 - Initial validation exposed and repaired only table-limit error precedence; final exact head is green.
 - Evidence: `docs/autopilot/evidence/US023.md`.
+
+
+## US024 - Close Markdown fallback and composition gaps
+
+- Tested exact branch SHA: `ae8a4242ac1eddce0a78542134f84b474fffba26`.
+- Authoritative PASS: push validation run `37139569178` / job `111251168794`.
+- Mixed Markdown composition suite: 9/9 passed.
+- Full `verify:current` regression gate and Worker dry-run build passed.
+- Structural separator normalization is limited to block joins, preserving protected code whitespace.
+- Unknown/custom tags remain transparent and no unsupported source tag becomes raw HTML.
+- Initial validation failure was a test-only regex syntax error; repaired exact head is green.
+- Evidence: `docs/autopilot/evidence/US024.md`.

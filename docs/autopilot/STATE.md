@@ -13,5 +13,5 @@
 - Renderer integration checkpoint: `8305da676ad4c41c37ea7b83f918329e91a8e990`.
 - Acceptance-suite checkpoint: `4bda585eb44ff5dbfb408483d3920021d7aaf226`.
 - Validation wiring checkpoint: `dc8bd6f41e812314d859596a6960aa992307baa2`.
-- Validation status: authoritative exact-head GitHub Actions pending.
-- Exact next action: inspect released-head CI, diagnose any failure inside US020, and finalize only after PASS.
+- Validation status: initial exact-head run `37109079516` failed at TypeScript checking because three legacy `.map(inlineText)` callbacks became incompatible after US020 added a boolean context parameter. Those call sites are now explicit lambdas; authoritative revalidation pending.
+- Exact next action: inspect repaired released-head CI, diagnose any remaining failure inside US020, and finalize only after PASS.

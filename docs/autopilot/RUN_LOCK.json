@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-us020-fixture-repair-2",
-  "story_id": "US020",
-  "base_head": "201541b8c12e076c6c1927f6fbd3170362e19f51",
-  "acquired_at": "2026-10-03T08:22:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "c79a181b47aceb43cefcd2fafa6b59efbfd1b29d",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Apply US020 idempotence fixture correction from exact repository text."
+  "note": "US020 exact renderer-escape fixture corrected; released before authoritative revalidation."
 }

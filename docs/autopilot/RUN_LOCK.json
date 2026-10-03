@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-us019",
-  "story_id": "US019",
-  "base_head": "34e477439bae21460f35ca43139429e56a373739",
-  "acquired_at": "2026-10-03T08:06:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "0ac0d1a0a5a6a394b204050a80f6bca392b89a72",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Implement US019 pure URL classifier and 60+ reason-code fixtures."
+  "note": "US019 implementation and 60+ fixture suite checkpointed; released before authoritative CI."
 }

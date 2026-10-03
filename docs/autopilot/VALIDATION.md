@@ -253,3 +253,13 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - URL classifier suite: 5/5 tests passed, including a 60+ reason-coded fixture table, exact UTF-8 byte boundary, long percent sequences, one-pass decoding, and egress trap.
 - Full current regression gate and Worker dry-run build passed.
 - Evidence: `docs/autopilot/evidence/US019.md`.
+
+
+## US020 - Serialize Markdown links safely
+
+- Tested exact branch SHA: `7f2fdf58c234f7b02eeb547980d98c11f13235c6`.
+- Authoritative PASS: run `37109487379`, job `111164498493`.
+- Link serialization suite: 9/9 passed; URL classifier regression suite: 5/5 passed.
+- Full current regression gate and Worker dry-run build passed.
+- Failure history: TypeScript callback-context repair, then correction of a malformed doubled-backslash helper fixture; no production-safety assertion was weakened.
+- Evidence: `docs/autopilot/evidence/US020.md`.

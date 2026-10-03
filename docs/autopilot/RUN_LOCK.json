@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "59619c5efd4257eee47a46b39bec49b836d01085",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-us026",
+  "story_id": "US026",
+  "base_head": "0dac26e72949679434ad23f18b35bf92e1de11ee",
+  "acquired_at": "2026-10-03T17:22:00Z",
   "lease_minutes": 20,
-  "note": "US025 finalized DONE from authoritative exact-head PASS. US026 is next and untouched."
+  "note": "Implement deterministic structured clean-text policies for lists, quotes, links, images, details, code and tables."
 }

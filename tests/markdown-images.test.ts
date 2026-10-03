@@ -96,6 +96,6 @@ describe("US021 image rendering", () => {
   it("never converts an invalid image source into an active link", () => {
     const md = render('<p><img src="javascript:bad" alt="[click](https://evil.example)"></p>');
     expect(md).toBe("\\[click\\](https://evil.example)");
-    expect(md).not.toContain("](");
+    expect(md.startsWith("[")).toBe(false);
   });
 });

@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-us021-repair",
-  "story_id": "US021",
-  "base_head": "3c2be27166c002fc82d15742c7b920a573a08fad",
-  "acquired_at": "2026-10-03T16:10:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "10141232ee114885804f49c98e52c150cacec092",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Repair US021 inert-alt assertion after exact-head CI isolated an escaped Markdown false positive."
+  "note": "US021 escaped-alt assertion repaired and checkpointed; released before authoritative revalidation."
 }

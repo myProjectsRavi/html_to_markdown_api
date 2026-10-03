@@ -7,11 +7,10 @@
 - Current Epic: E05 Links, images and tables
 - Current Feature: F10 Link and image target safety
 - Current Story: US020 Serialize Markdown links safely
-- Phase: VALIDATING
+- Phase: DONE
 - Prerequisite US019: DONE, tested SHA `97b1101bcd2dc4ec9c23f67e054e680ad5134bdd`.
-- Serializer checkpoint: `65839438fb9f44403447d147553a29fd744200fa`.
-- Renderer integration checkpoint: `8305da676ad4c41c37ea7b83f918329e91a8e990`.
-- Acceptance-suite checkpoint: `4bda585eb44ff5dbfb408483d3920021d7aaf226`.
-- Validation wiring checkpoint: `dc8bd6f41e812314d859596a6960aa992307baa2`.
-- Validation status: initial exact-head run `37109079516` failed at TypeScript checking because three legacy `.map(inlineText)` callbacks became incompatible after US020 added a boolean context parameter. Those call sites are now explicit lambdas. The next exact-head run reached the US020 suite and passed 8/9 assertions; only the direct idempotence helper fixture had doubled backslashes compared with the renderer's real escaped form. That fixture is corrected; authoritative revalidation pending.
-- Exact next action: inspect repaired released-head CI, diagnose any remaining failure inside US020, and finalize only after PASS.
+- US020 tested exact branch SHA: `7f2fdf58c234f7b02eeb547980d98c11f13235c6`.
+- Authoritative validation: PASS in run `37109487379`, job `111164498493`.
+- Evidence: `docs/autopilot/evidence/US020.md`.
+- Next eligible story: US021 Render images without resource access.
+- Exact next action: start US021 after re-reading STORY_SPECS.md and claiming the released lock.

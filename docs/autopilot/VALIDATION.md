@@ -263,3 +263,15 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Full current regression gate and Worker dry-run build passed.
 - Failure history: TypeScript callback-context repair, then correction of a malformed doubled-backslash helper fixture; no production-safety assertion was weakened.
 - Evidence: `docs/autopilot/evidence/US020.md`.
+
+
+## US021 - Render images without resource access
+
+- Tested exact branch SHA: `3856e3d312cdec2fda1969ad94f419d7b12f1c4f`.
+- Authoritative PASS: push run `37135929270` / job `111240343507`; push validation run `37135929292`.
+- `tests/markdown-images.test.ts`: 9/9 passed.
+- Full `verify:current` regression gate passed.
+- Worker dry-run build passed: 106.07 KiB total upload, 32.74 KiB gzip, no bindings.
+- Egress-trap coverage proves image rendering performs no fetch for src/srcset.
+- Initial validation failure was isolated to an over-broad test assertion for already-escaped inert alt text and repaired without changing safe renderer behavior.
+- Evidence: `docs/autopilot/evidence/US021.md`.

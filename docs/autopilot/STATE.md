@@ -7,11 +7,10 @@
 - Current Epic: E06 Clean text and output accounting
 - Current Feature: F13 Clean text rendering
 - Current Story: US025 Render clean text blocks and inline content
-- Phase: VALIDATING
+- Phase: DONE
 - Prerequisite US024: DONE, tested SHA `ae8a4242ac1eddce0a78542134f84b474fffba26`.
-- Direct clean-text renderer checkpoint: `f0e60bad3a11465d4182f64e9413e65d377c0676`.
-- Acceptance-suite checkpoint: `ec1451357d9d63e176b411e090dece787c5d7ff7`.
-- Clean-text policy checkpoint: `d46241ed9a7a6cab62211a209a15fb0769f517f8`.
-- Validation wiring checkpoint: `aa576c1f8ea3420c5e3f9a83962b601f777e30b9`.
-- Validation status: authoritative exact-head GitHub Actions pending.
-- Exact next action: inspect released-head CI, diagnose failures within US025, and finalize only after PASS. Do not start US026.
+- US025 tested exact branch SHA: `1ac81e25406bcc0d8dd831de47d898880ceffbf1`.
+- Authoritative validation: PASS in run `37139931922`, job `111252130483`.
+- Evidence: `docs/autopilot/evidence/US025.md`.
+- Next eligible story: US026 Render structured content as clean text.
+- Exact next action: re-read STORY_SPECS.md first and select US026. Do not start US027 before US026 is DONE.

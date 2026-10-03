@@ -289,3 +289,16 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Initial populated-boundary fixtures were preempted by the earlier parser node ceiling; empty-cell fixtures preserved the end-to-end pipeline and isolated the table limits without changing production behavior.
 - Policy: `docs/decisions/markdown-tables.md`.
 - Evidence: `docs/autopilot/evidence/US022.md`.
+
+
+## US023 - Degrade complex tables predictably
+
+- Tested exact branch SHA: `cec09a3838699f7b40396d0586c571d5ef4d6eef`.
+- Authoritative PASS: push Autopilot Validation run `37139031455`; push validation run `37139031420` / job `111249550549`; PR validation run `37139032778`.
+- Existing simple-table suite: 9/9 passed.
+- Complex-table fallback suite: 7/7 passed.
+- Full `verify:current` regression gate and Worker dry-run build passed.
+- Unsupported shape uses a documented typed text-row fallback; complexity-limit violations remain errors.
+- Nested-table canaries and block-boundary fixtures preserve visible text exactly once in source order.
+- Initial validation exposed and repaired only table-limit error precedence; final exact head is green.
+- Evidence: `docs/autopilot/evidence/US023.md`.

@@ -7,12 +7,10 @@
 - Current Epic: E05 Links, images and tables
 - Current Feature: F12 Complex table fallback and composition
 - Current Story: US023 Degrade complex tables predictably
-- Phase: VALIDATING
+- Phase: DONE
 - Prerequisite US022: DONE, tested SHA `39cfbb7986a656cc8a4ba4322493585847bcad27`.
-- Typed fallback checkpoint: `d64f645e10de34bd47c53b315fa613abc8bbe3e1`.
-- Renderer integration checkpoint: `2e9428a690d604029174db39995f953c8d3843ec`.
-- Acceptance-suite checkpoint: `ca33fcea93fcc060eb439d0b5dee392a45cd90f6`.
-- Separator-policy checkpoint: `9301c5b810b9653ea4a8b36cae18cfaf30e45f3a`.
-- Validation wiring checkpoint: `11ca241fa8d4f7616dac082a6abab579a6868e40`.
-- Validation status: exact-head run `37138833385` reached the existing US022 table suite and exposed a limit-error precedence regression: the 6,401-cell fixture was reported as `columns` because US023 prevalidation checked row width first. Prevalidation now restores the established total-cell-before-column order. Authoritative revalidation pending.
-- Exact next action: inspect repaired released-head CI, diagnose any remaining failure within US023, and finalize only after PASS. Do not start US024.
+- US023 tested exact branch SHA: `cec09a3838699f7b40396d0586c571d5ef4d6eef`.
+- Authoritative validation: PASS in runs `37139031455`, `37139031420` (job `111249550549`), and `37139032778`.
+- Evidence: `docs/autopilot/evidence/US023.md`.
+- Next eligible story: US024 Close Markdown fallback and composition gaps.
+- Exact next action: re-read STORY_SPECS.md first and select US024. Do not start US025 before US024 is DONE.

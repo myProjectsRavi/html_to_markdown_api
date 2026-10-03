@@ -223,3 +223,14 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Authoritative validation: project run `37031353163` and PR checkpoint run `37031361206`, conclusion `success`.
 - Quote/disclosure fixtures cover nesting, containment, source order and no invented labels.
 - Conclusion: US016 passes; US017 is next.
+
+
+## US017 - Render safe inline code spans
+
+- Tested exact branch SHA: `596d53efaf0aa88fb1c5169980c8075cf53485be`.
+- Authoritative GitHub Actions PASS: push run `37032357485` / job `110922181773`; push run `37032357461` / job `110922131229`; PR run `37032365450` / job `110922146901`.
+- `tests/markdown-code-inline.test.ts`: 8/8 passed on the tested SHA.
+- Renderer regressions passed on the same validation: blocks 8/8, inline 7/7, lists 7/7, quotes 6/6.
+- Worker dry-run build passed: 106.07 KiB total upload, 32.74 KiB gzip, no bindings.
+- The earlier US015 list/code expectation failure was repaired without weakening the dedicated US017 assertions.
+- Evidence: `docs/autopilot/evidence/US017.md`.

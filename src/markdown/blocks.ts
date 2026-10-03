@@ -207,17 +207,17 @@ function renderBlockquote(node: CleanElement): string {
 function elementBlock(node: CleanElement): string {
   if (/^h[1-6]$/.test(node.name)) {
     const level = Number(node.name[1]);
-    const body = node.children.map(inlineText).join("").trim();
+    const body = node.children.map((child) => inlineText(child)).join("").trim();
     return body ? `${"#".repeat(level)} ${body}` : "";
   }
   if (node.name === "hr") return "---";
   if (node.name === "blockquote") return renderBlockquote(node);
   if (node.name === "details") return renderContainer(node);
-  if (node.name === "summary") return node.children.map(inlineText).join("").trim();
+  if (node.name === "summary") return node.children.map((child) => inlineText(child)).join("").trim();
   if (node.name === "ul" || node.name === "ol") return renderList(node);
   if (node.name === "li") return node.children.map((child) => child.kind === "element" && BLOCK_ELEMENTS.has(child.name) ? elementBlock(child) : inlineText(child)).filter(Boolean).join("\n\n");
   if (node.name === "pre") return renderFencedPre(node);
-  if (node.name === "p") return node.children.map(inlineText).join("").trim();
+  if (node.name === "p") return node.children.map((child) => inlineText(child)).join("").trim();
 
   const parts: string[] = [];
   let inline = "";

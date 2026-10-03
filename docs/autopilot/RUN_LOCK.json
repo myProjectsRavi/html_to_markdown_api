@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "b005a350e589c022061fb93c48ac1646f22b6ca1",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-us021",
+  "story_id": "US021",
+  "base_head": "e66a62b51985a1d2c377cb2582b62fcc2e56352d",
+  "acquired_at": "2026-10-03T08:28:00Z",
   "lease_minutes": 20,
-  "note": "US020 finalized DONE from authoritative exact-head PASS; US021 is next eligible."
+  "note": "Implement US021 safe image rendering with no resource access."
 }

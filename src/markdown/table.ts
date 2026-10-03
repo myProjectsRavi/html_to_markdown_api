@@ -118,6 +118,59 @@ function escapeCell(value: string): string {
     .replace(/\|/gu, "\\|");
 }
 
+function validateTopLevelLimits(table: CleanElement): void {
+  const rows = collectRows(table);
+  if (!rows) return;
+  if (rows.length > LIMITS.tableRows) throw new MarkdownTableLimitError("rows");
+
+  let totalCells = 0;
+  for (const row of rows) {
+    const cells = collectCells(row);
+    if (!cells) continue;
+    if (cells.length > LIMITS.tableCellsPerRow) throw new MarkdownTableLimitError("columns");
+    totalCells += cells.length;
+    if (totalCells > LIMITS.tableCellsPerTable) throw new MarkdownTableLimitError("cells");
+  }
+}
+
+function fallbackNestedTableText(table: CleanElement): string {
+  validateTopLevelLimits(table);
+  const rows = collectRows(table);
+  if (!rows || rows.length === 0) return flattenFallbackChildren(table.children);
+
+  return rows.map((row) => {
+    const cells = collectCells(row);
+    if (!cells || cells.length === 0) return flattenFallbackChildren(row.children);
+    return cells.map((cell) => flattenFallbackChildren(cell.children)).join(" / ");
+  }).join(" ; ");
+}
+
+function flattenFallbackNode(node: CleanNode): string {
+  if (node.kind === "text") return node.value;
+  if (node.name === "br") return " ";
+  if (node.name === "img") return attribute(node, "alt") ?? "";
+  if (node.name === "table") return fallbackNestedTableText(node);
+
+  const body = flattenFallbackChildren(node.children);
+  return BLOCKISH_CELL_ELEMENTS.has(node.name) ? ` / ${body} / ` : body;
+}
+
+function flattenFallbackChildren(children: readonly CleanNode[]): string {
+  return children
+    .map(flattenFallbackNode)
+    .join("")
+    .replace(/[\t\n\f\r ]+/gu, " ")
+    .replace(/\s*\/\s*\/\s*/gu, " / ")
+    .replace(/^\s*\/\s*|\s*\/\s*$/gu, "")
+    .trim();
+}
+
+function escapeFallbackText(value: string): string {
+  return escapeCell(value)
+    .replace(/([\[\]<>])/gu, "\\$1")
+    .replace(/^(\s*)(#{1,6}(?=\s|$)|>|[-+*](?=\s)|\d+[.)](?=\s))/u, "$1\\$2");
+}
+
 function rowMarkdown(cells: readonly string[]): string {
   return `| ${cells.join(" | ")} |`;
 }
@@ -127,6 +180,7 @@ function rowMarkdown(cells: readonly string[]): string {
  * Unsupported/complex shape returns null so US023 can own the fallback policy.
  */
 export function renderSimpleGfmTable(table: CleanElement): string | null {
+  validateTopLevelLimits(table);
   const rows = collectRows(table);
   if (!rows || rows.length === 0) return null;
   if (rows.length > LIMITS.tableRows) throw new MarkdownTableLimitError("rows");
@@ -167,4 +221,37 @@ export function renderSimpleGfmTable(table: CleanElement): string | null {
     rowMarkdown(separator),
     ...dataRows.map(rowMarkdown),
   ].join("\n");
+}
+
+export type MarkdownTableRender =
+  | { readonly kind: "gfm"; readonly value: string }
+  | { readonly kind: "fallback"; readonly value: string };
+
+/**
+ * US023 complex-table fallback.
+ * Top-level rows use LF separators and cells use " | ". Nested table rows use
+ * " ; " and nested cells use " / " so visible text remains ordered exactly once.
+ * Table complexity violations still throw and never enter fallback.
+ */
+export function renderMarkdownTable(table: CleanElement): MarkdownTableRender {
+  validateTopLevelLimits(table);
+  const simple = renderSimpleGfmTable(table);
+  if (simple !== null) return { kind: "gfm", value: simple };
+
+  const rows = collectRows(table);
+  if (!rows || rows.length === 0) {
+    return { kind: "fallback", value: escapeFallbackText(flattenFallbackChildren(table.children)) };
+  }
+
+  const lines = rows.map((row) => {
+    const cells = collectCells(row);
+    if (!cells || cells.length === 0) {
+      return escapeFallbackText(flattenFallbackChildren(row.children));
+    }
+    return cells
+      .map((cell) => escapeFallbackText(flattenFallbackChildren(cell.children)))
+      .join(" | ");
+  });
+
+  return { kind: "fallback", value: lines.join("\n") };
 }

@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "bbf28e3320e39e84ea4396a8b2958b6a89463083",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-us018",
+  "story_id": "US018",
+  "base_head": "933fab3328199d9ec3b55512d5257549aa7fe560",
+  "acquired_at": "2026-10-03T07:56:00Z",
   "lease_minutes": 20,
-  "note": "US017 reconciliation complete; US013-US017 batch is DONE. US018 remains next and untouched."
+  "note": "Implement and checkpoint US018 fenced preformatted blocks."
 }

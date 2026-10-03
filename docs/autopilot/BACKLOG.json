@@ -344,10 +344,10 @@
       "depends_on": [
         "US024"
       ],
-      "status": "TODO",
+      "status": "DONE",
       "blocked_from": null,
-      "tested_code_sha": null,
-      "evidence_path": null,
+      "tested_code_sha": "1ac81e25406bcc0d8dd831de47d898880ceffbf1",
+      "evidence_path": "docs/autopilot/evidence/US025.md",
       "blocker": null
     },
     {

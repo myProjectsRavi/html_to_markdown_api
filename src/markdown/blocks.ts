@@ -2,7 +2,7 @@ import { LIMITS } from "../config";
 import type { CleanElement, CleanNode, CleanRoot } from "../html/clean";
 import { serializeLinkDestination, serializeLinkLabel } from "./link";
 import { classifyTarget } from "./url";
-import { renderSimpleGfmTable } from "./table";
+import { renderMarkdownTable } from "./table";
 
 const BLOCK_ELEMENTS = new Set([
   "article", "aside", "div", "footer", "header", "main", "nav", "section", "p",
@@ -241,8 +241,8 @@ function elementBlock(node: CleanElement): string {
   if (node.name === "details") return renderContainer(node);
   if (node.name === "summary") return node.children.map((child) => inlineText(child)).join("").trim();
   if (node.name === "table") {
-    const rendered = renderSimpleGfmTable(node);
-    return rendered === null ? renderContainer(node) : assertMarkdownFragmentBudget(rendered);
+    const rendered = renderMarkdownTable(node);
+    return assertMarkdownFragmentBudget(rendered.value);
   }
   if (node.name === "ul" || node.name === "ol") return renderList(node);
   if (node.name === "li") return node.children.map((child) => child.kind === "element" && BLOCK_ELEMENTS.has(child.name) ? elementBlock(child) : inlineText(child)).filter(Boolean).join("\n\n");

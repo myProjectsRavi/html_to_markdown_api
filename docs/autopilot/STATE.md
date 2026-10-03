@@ -17,3 +17,6 @@
 - Evidence: `docs/autopilot/evidence/US021.md`.
 - Next eligible story: US022 Render simple rectangular tables.
 - Exact next action: on the next story run, re-read STORY_SPECS.md first and select US022. Do not start US023 before US022 is DONE.
+
+- Recovery blocker: US022 mutation failed after lock acquisition: ReferenceError: LIMITS_PLACEHOLDER is not defined
+- Exact next action: resume US022 from the current branch HEAD; do not start US023.

@@ -275,3 +275,17 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Egress-trap coverage proves image rendering performs no fetch for src/srcset.
 - Initial validation failure was isolated to an over-broad test assertion for already-escaped inert alt text and repaired without changing safe renderer behavior.
 - Evidence: `docs/autopilot/evidence/US021.md`.
+
+
+## US022 - Render simple rectangular tables
+
+- Tested exact branch SHA: `39cfbb7986a656cc8a4ba4322493585847bcad27`.
+- Authoritative PASS: push run `37136751404` / job `111242831824`; push validation run `37136751232`; PR validation run `37136752423`.
+- `tests/markdown-tables.test.ts`: 9/9 passed.
+- Full `verify:current` regression gate passed.
+- Worker dry-run build passed: 106.07 KiB total upload, 32.74 KiB gzip, no bindings.
+- Headerless tables preserve all source rows by inserting an empty header; all-`th` first rows become structural headers.
+- Exact table boundaries pass at 200 rows, 32 cells per row and 6,400 total cells; plus-one cases reject.
+- Initial populated-boundary fixtures were preempted by the earlier parser node ceiling; empty-cell fixtures preserved the end-to-end pipeline and isolated the table limits without changing production behavior.
+- Policy: `docs/decisions/markdown-tables.md`.
+- Evidence: `docs/autopilot/evidence/US022.md`.

@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-us022-resume",
-  "story_id": "US022",
-  "base_head": "29007c464b12a20be5a330193433af3c70308d47",
-  "acquired_at": "2026-10-03T16:18:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "ee0e9dba40dec330edabeda6de60ff5e395c3629",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Resume US022 from durable code/test checkpoints after documentation template error."
+  "note": "US022 renderer, acceptance fixtures, header policy and validation wiring checkpointed; released before authoritative CI."
 }

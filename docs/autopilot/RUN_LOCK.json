@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-us022",
-  "story_id": "US022",
-  "base_head": "0ff927bfdb8ce577a03bb931135acbdca14e147b",
-  "acquired_at": "2026-10-03T16:16:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "fbbe3aecb3e68f9a89bf638d3415b9c062bb890b",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Implement US022 simple rectangular GFM tables only; US023 complex fallback remains out of scope."
+  "note": "US022 mutation encountered an error; lock released per recovery protocol."
 }

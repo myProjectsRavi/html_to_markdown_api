@@ -19,6 +19,13 @@ export class MarkdownOutputLimitError extends Error {
   }
 }
 
+function assertMarkdownFragmentBudget(value: string): string {
+  if (Array.from(value).length > LIMITS.outputScalars || UTF8.encode(value).byteLength > LIMITS.outputBytes) {
+    throw new MarkdownOutputLimitError();
+  }
+  return value;
+}
+
 function escapeLiteralText(value: string): string {
   return value
     .replace(/\\/gu, "\\\\")
@@ -27,6 +34,12 @@ function escapeLiteralText(value: string): string {
 
 function escapeBlockLeadingText(value: string): string {
   return escapeLiteralText(value).replace(/^(\s*)(#{1,6}(?=\s|$)|>|[-+*](?=\s)|\d+[.)](?=\s))/u, "$1\\$2");
+}
+
+function escapeImageAlt(value: string): string {
+  return value
+    .replace(/\\/gu, "\\\\")
+    .replace(/([\[\]<>])/gu, "\\$1");
 }
 
 function rawProtectedText(node: CleanNode): string {
@@ -91,6 +104,7 @@ function inlineText(node: CleanNode, allowLinks = true): string {
     if (!allowLinks) return node.children.map((child) => inlineText(child, false)).join("");
     return renderLink(node);
   }
+  if (node.name === "img") return renderImage(node);
   if (node.name === "strong" || node.name === "b") return formatted(node, "**", allowLinks);
   if (node.name === "em" || node.name === "i") return formatted(node, "*", allowLinks);
   if (node.name === "s" || node.name === "del") return formatted(node, "~~", allowLinks);
@@ -108,6 +122,17 @@ function renderLink(node: CleanElement): string {
   const href = attribute(node, "href");
   if (!href || !classifyTarget(href, "link").safe) return label;
   return `[${label}](<${serializeLinkDestination(href)}>)`;
+}
+
+function renderImage(node: CleanElement): string {
+  const alt = attribute(node, "alt") ?? "";
+  const src = attribute(node, "src");
+  if (!src || !classifyTarget(src, "image").safe) {
+    return alt.length > 0 ? escapeBlockLeadingText(alt) : "";
+  }
+
+  const markdown = `![${escapeImageAlt(alt)}](<${serializeLinkDestination(src)}>)`;
+  return assertMarkdownFragmentBudget(markdown);
 }
 
 function renderList(root: CleanElement): string {

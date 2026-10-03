@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "a9361ff2b7243f7ceb2303d69d0e5eb5a2be3550",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-us025",
+  "story_id": "US025",
+  "base_head": "f3e37517920f53ea5b146b4347c0305e00df646b",
+  "acquired_at": "2026-10-03T17:15:00Z",
   "lease_minutes": 20,
-  "note": "US024 finalized DONE from authoritative exact-head PASS. US025 is next and untouched."
+  "note": "Implement US025 clean-text block and inline renderer directly over the normalized shared tree."
 }

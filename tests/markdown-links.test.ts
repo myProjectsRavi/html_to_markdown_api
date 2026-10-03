@@ -92,6 +92,6 @@ describe("US020 Markdown link serialization", () => {
   });
 
   it("keeps label serialization idempotent for existing renderer escapes", () => {
-    expect(serializeLinkLabel(String.raw`a\\]b\\\\c`)).toBe(String.raw`a\\]b\\\\c`);
+    expect(serializeLinkLabel(String.raw`a\]b\\c`)).toBe(String.raw`a\]b\\c`);
   });
 });

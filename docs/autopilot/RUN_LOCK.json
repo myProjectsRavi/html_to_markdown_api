@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "c9c2ae040bdf8e3fe5d3e09312deed35bbd7153c",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-us017-reconcile",
+  "story_id": "US017",
+  "base_head": "56e95e5e0a97cf70a59ef91a63b5094b48129d95",
+  "acquired_at": "2026-10-03T02:35:00Z",
   "lease_minutes": 20,
-  "note": "US017 finalization interrupted at preflight; lock released for recovery."
+  "note": "Reconcile stale concurrent US017 recovery note after verified DONE finalization."
 }

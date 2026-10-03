@@ -5,8 +5,8 @@
   "state": "released",
   "owner": null,
   "story_id": null,
-  "base_head": "7a82f9cb9c00845573576ab0ed050b37c65fcfdb",
+  "base_head": "c9c2ae040bdf8e3fe5d3e09312deed35bbd7153c",
   "acquired_at": null,
   "lease_minutes": 20,
-  "note": "US017 finalized DONE with authoritative exact-head PASS; US013-US017 batch complete. US018 remains untouched for the next run."
+  "note": "US017 finalization interrupted at preflight; lock released for recovery."
 }

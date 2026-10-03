@@ -314,3 +314,15 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Unknown/custom tags remain transparent and no unsupported source tag becomes raw HTML.
 - Initial validation failure was a test-only regex syntax error; repaired exact head is green.
 - Evidence: `docs/autopilot/evidence/US024.md`.
+
+
+## US025 - Render clean text blocks and inline content
+
+- Tested exact branch SHA: `1ac81e25406bcc0d8dd831de47d898880ceffbf1`.
+- Authoritative PASS: push Autopilot Validation run `37139931922` / job `111252130483`.
+- Direct clean-text block/inline suite: 9/9 passed.
+- Full `verify:current` regression gate and Worker dry-run build passed.
+- Clean text is rendered directly from the normalized shared tree; literal Markdown-like punctuation remains user data.
+- Protected code whitespace is retained, removed subtrees stay absent, and empty HTML produces empty text.
+- Safe browser insertion guidance uses `textContent`, not `innerHTML`.
+- Evidence: `docs/autopilot/evidence/US025.md`.

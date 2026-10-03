@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-us017-reconcile",
-  "story_id": "US017",
-  "base_head": "56e95e5e0a97cf70a59ef91a63b5094b48129d95",
-  "acquired_at": "2026-10-03T02:35:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "bbf28e3320e39e84ea4396a8b2958b6a89463083",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Reconcile stale concurrent US017 recovery note after verified DONE finalization."
+  "note": "US017 reconciliation complete; US013-US017 batch is DONE. US018 remains next and untouched."
 }

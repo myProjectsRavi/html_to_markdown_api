@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-us020",
-  "story_id": "US020",
-  "base_head": "8cfdc5c39a8958a6d8039b58c8dd1121122da1da",
-  "acquired_at": "2026-10-03T08:12:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "2a1c453a88a0eac7f2e67f0b810fa8a8d8a16847",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Implement US020 safe Markdown link serialization."
+  "note": "US020 link serializers, renderer integration and acceptance suite checkpointed; released before authoritative CI."
 }

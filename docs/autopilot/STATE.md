@@ -12,5 +12,5 @@
 - Implementation checkpoint: `41e478050fb060674cc70cd5c62aecce469bfa56`.
 - Acceptance-suite checkpoint: `0ffa966335518d7fd71738d6d338849cce9a1441`.
 - Validation wiring checkpoint: `678395e68a0f19acfd3a4c653afa47eebf825374`.
-- Validation status: authoritative exact-head GitHub Actions pending.
-- Exact next action: inspect the released-head Actions run; diagnose any failure within US018, otherwise finalize US018 DONE with evidence before starting US019.
+- Validation status: initial exact-head run `37108176012` failed only on the obsolete US013 raw-pre placeholder expectation. The regression now expects US018 fenced output with preserved trailing source space; authoritative revalidation pending.
+- Exact next action: inspect the repaired released-head Actions run; diagnose any remaining failure within US018, otherwise finalize US018 DONE with evidence before starting US019.

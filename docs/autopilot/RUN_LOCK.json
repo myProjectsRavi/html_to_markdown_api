@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "b5c78a6130cb4914c624c99ac6696129dbd7141d",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-us020-fixture-repair",
+  "story_id": "US020",
+  "base_head": "583f342c13ab4bff364d6c35866ddd8ad74d6836",
+  "acquired_at": "2026-10-03T08:20:00Z",
   "lease_minutes": 20,
-  "note": "US020 typecheck callback repair checkpointed; released before authoritative revalidation."
+  "note": "Repair malformed US020 idempotence fixture; production end-to-end escaping already passes."
 }

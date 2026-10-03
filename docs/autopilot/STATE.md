@@ -15,5 +15,5 @@
 - Header-policy checkpoint: `fab5b06daa317bfa065dd3263e705559f856073d`.
 - Validation wiring checkpoint: `0fc83114e055d9823a9ea1816f2911a8d141c7b9`.
 - Recovery note: the first US022 mutation attempt stopped after code/tests because a documentation-template variable was undefined; the lock was released and this run resumed from that durable checkpoint without restarting completed work.
-- Validation status: authoritative exact-head GitHub Actions pending.
-- Exact next action: inspect released-head CI, diagnose any failure within US022, and finalize only after PASS. Do not start US023.
+- Validation status: exact-head run `37136582405` reached the US022 suite; 7/9 tests passed. The two boundary fixtures were preempted by the earlier parser `retainedNodes` limit because every one of 6,400 cells also contained a text node. Boundary fixtures now use empty cells, preserving the real HTML→parse→clean→render pipeline while keeping parser nodes below 10,000 and exercising the table writer at exactly 6,400 and 6,401 cells. Authoritative revalidation pending.
+- Exact next action: inspect repaired released-head CI, diagnose any remaining failure within US022, and finalize only after PASS. Do not start US023.

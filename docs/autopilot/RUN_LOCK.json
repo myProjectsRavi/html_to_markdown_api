@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-us022-boundary-repair",
-  "story_id": "US022",
-  "base_head": "ff849e862d21322e92869cd56cd715dc2571e36a",
-  "acquired_at": "2026-10-03T16:25:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "769b480a27c53e31ec062ee07639959c71464a70",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Repair US022 table-limit fixtures so parser bounds do not preempt table-boundary coverage."
+  "note": "US022 table-limit fixtures repaired to avoid preemption by parser retained-node bounds; released before revalidation."
 }

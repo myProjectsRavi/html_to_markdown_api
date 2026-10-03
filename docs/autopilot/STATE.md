@@ -7,13 +7,16 @@
 - Current Epic: E05 Links, images and tables
 - Current Feature: F11 Images and simple tables
 - Current Story: US022 Render simple rectangular tables
-- Phase: VALIDATING
+- Phase: DONE
 - Prerequisite US021: DONE, tested SHA `3856e3d312cdec2fda1969ad94f419d7b12f1c4f`.
-- Table renderer checkpoint: `69b123eea8691bdbce474e5a0239d315b0a0fe46`.
-- Renderer integration checkpoint: `5b3b42e461296c825a2d4bce1c602f5d315937a8`.
-- Acceptance-suite checkpoint: `db8b65a6aeb05d258338de0692a12c5410c95809`.
-- Header-policy checkpoint: `fab5b06daa317bfa065dd3263e705559f856073d`.
-- Validation wiring checkpoint: `0fc83114e055d9823a9ea1816f2911a8d141c7b9`.
-- Recovery note: the first US022 mutation attempt stopped after code/tests because a documentation-template variable was undefined; the lock was released and this run resumed from that durable checkpoint without restarting completed work.
-- Validation status: exact-head run `37136582405` reached the US022 suite; 7/9 tests passed. The two boundary fixtures were preempted by the earlier parser `retainedNodes` limit because every one of 6,400 cells also contained a text node. Boundary fixtures now use empty cells, preserving the real HTML→parse→clean→render pipeline while keeping parser nodes below 10,000 and exercising the table writer at exactly 6,400 and 6,401 cells. Authoritative revalidation pending.
-- Exact next action: inspect repaired released-head CI, diagnose any remaining failure within US022, and finalize only after PASS. Do not start US023.
+- US022 table renderer checkpoint: `69b123eea8691bdbce474e5a0239d315b0a0fe46`.
+- US022 renderer integration checkpoint: `5b3b42e461296c825a2d4bce1c602f5d315937a8`.
+- US022 acceptance-suite checkpoint: `db8b65a6aeb05d258338de0692a12c5410c95809`; boundary fixture repair `6df4a8f5bae6cfc0930db83819cef291ed61d4af`.
+- US022 header-policy checkpoint: `fab5b06daa317bfa065dd3263e705559f856073d`.
+- US022 validation wiring checkpoint: `0fc83114e055d9823a9ea1816f2911a8d141c7b9`.
+- US022 tested exact branch SHA: `39cfbb7986a656cc8a4ba4322493585847bcad27`.
+- Authoritative validation: PASS in push run `37136751404` job `111242831824`, push run `37136751232`, and PR run `37136752423`.
+- Evidence: `docs/autopilot/evidence/US022.md`.
+- Batch status: US018, US019, US020, US021 and US022 are all DONE.
+- Next eligible story: US023 Degrade complex tables predictably.
+- Exact next action: on the next story run, re-read STORY_SPECS.md first and select US023. US023 was not started in this run.

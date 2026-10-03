@@ -2,10 +2,11 @@ import { LIMITS } from "../config";
 import type { CleanElement, CleanNode, CleanRoot } from "../html/clean";
 import { serializeLinkDestination, serializeLinkLabel } from "./link";
 import { classifyTarget } from "./url";
+import { renderSimpleGfmTable } from "./table";
 
 const BLOCK_ELEMENTS = new Set([
   "article", "aside", "div", "footer", "header", "main", "nav", "section", "p",
-  "h1", "h2", "h3", "h4", "h5", "h6", "hr", "pre", "ul", "ol", "li", "blockquote", "details", "summary",
+  "h1", "h2", "h3", "h4", "h5", "h6", "hr", "pre", "ul", "ol", "li", "blockquote", "details", "summary", "table",
 ]);
 
 const UTF8 = new TextEncoder();
@@ -239,6 +240,10 @@ function elementBlock(node: CleanElement): string {
   if (node.name === "blockquote") return renderBlockquote(node);
   if (node.name === "details") return renderContainer(node);
   if (node.name === "summary") return node.children.map((child) => inlineText(child)).join("").trim();
+  if (node.name === "table") {
+    const rendered = renderSimpleGfmTable(node);
+    return rendered === null ? renderContainer(node) : assertMarkdownFragmentBudget(rendered);
+  }
   if (node.name === "ul" || node.name === "ol") return renderList(node);
   if (node.name === "li") return node.children.map((child) => child.kind === "element" && BLOCK_ELEMENTS.has(child.name) ? elementBlock(child) : inlineText(child)).filter(Boolean).join("\n\n");
   if (node.name === "pre") return renderFencedPre(node);

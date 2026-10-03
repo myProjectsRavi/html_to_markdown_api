@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "9fd2f48987330c384c9feeb83ac7885e85953e4a",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-us024",
+  "story_id": "US024",
+  "base_head": "ddcc8659efcbc8b80f46c284c941565c90053fb4",
+  "acquired_at": "2026-10-03T17:07:00Z",
   "lease_minutes": 20,
-  "note": "US023 finalized DONE from authoritative exact-head PASS. US024 is next and untouched."
+  "note": "Close deterministic Markdown composition gaps and validate mixed real-world fragments."
 }

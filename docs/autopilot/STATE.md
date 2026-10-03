@@ -7,10 +7,13 @@
 - Current Epic: E05 Links, images and tables
 - Current Feature: F11 Images and simple tables
 - Current Story: US021 Render images without resource access
-- Phase: VALIDATING
+- Phase: DONE
 - Prerequisite US020: DONE, tested SHA `7f2fdf58c234f7b02eeb547980d98c11f13235c6`.
-- Renderer checkpoint: `16fb988a4deb5e8cbdc4a47a3b328d5e8114dc7b`.
-- Acceptance-suite checkpoint: `e8aeb93d7f7a0f92088edc8012afc4bcf883fbf4`.
-- Validation wiring checkpoint: `791b048f5c9fef9bc1a48e0de1c43dea4ed8de59`.
-- Validation status: exact-head run `37109912259` failed only because the final image test rejected an escaped literal `](` substring even though the exact rendered output was inert (`\\[click\\](...)`). The assertion now checks the exact escaped output and that it does not begin as an active link; authoritative revalidation pending.
-- Exact next action: inspect repaired released-head CI, diagnose any remaining failure inside US021, and finalize only after PASS.
+- US021 renderer checkpoint: `16fb988a4deb5e8cbdc4a47a3b328d5e8114dc7b`.
+- US021 acceptance-suite checkpoint: `e8aeb93d7f7a0f92088edc8012afc4bcf883fbf4`.
+- US021 validation wiring checkpoint: `791b048f5c9fef9bc1a48e0de1c43dea4ed8de59`.
+- US021 tested exact branch SHA: `3856e3d312cdec2fda1969ad94f419d7b12f1c4f`.
+- Authoritative validation: PASS in push run `37135929270` job `111240343507` and push run `37135929292`.
+- Evidence: `docs/autopilot/evidence/US021.md`.
+- Next eligible story: US022 Render simple rectangular tables.
+- Exact next action: on the next story run, re-read STORY_SPECS.md first and select US022. Do not start US023 before US022 is DONE.

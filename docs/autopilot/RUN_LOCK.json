@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-us023-repair",
-  "story_id": "US023",
-  "base_head": "3ed96716e6fda932ee8ec2c2d4f63c93420a06ea",
-  "acquired_at": "2026-10-03T17:02:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "05388ed96a69770c432ca488ce8a77116280c510",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Restore US022 total-cell-before-column error precedence exposed by US023 validation."
+  "note": "US023 table-limit precedence repaired; released before authoritative revalidation."
 }

@@ -13,5 +13,5 @@
 - Mixed-fixture checkpoint: `f6fad223651a3bf28dccd99042ef37a471061462`.
 - Composition-policy checkpoint: `416a93e245bf999cc51f83ef30532b39bc5e6c51`.
 - Validation wiring checkpoint: `12cb00499ac296313c61c44f10be026ef45b283f`.
-- Validation status: authoritative exact-head GitHub Actions pending.
-- Exact next action: inspect released-head CI, diagnose failures within US024, and finalize only after PASS. Do not start US025.
+- Validation status: PR run `37139415024` stopped in TypeScript before runtime tests because the custom-tag assertion double-escaped the regex slash. The exact test source is repaired; production renderer code is unchanged. Authoritative revalidation pending.
+- Exact next action: inspect repaired released-head CI, diagnose any remaining failure within US024, and finalize only after PASS. Do not start US025.

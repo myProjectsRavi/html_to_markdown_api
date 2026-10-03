@@ -32,7 +32,7 @@ describe("US024 Markdown composition", () => {
   it("keeps unknown custom tags transparent around block children", () => {
     const md = render("<x-shell><p>A</p><x-inner><h2>B</h2></x-inner></x-shell><footer>C</footer>");
     expect(md).toBe("A\n\n## B\n\nC");
-    expect(md).not.toMatch(/<\\/?x-/u);
+    expect(md).not.toMatch(/<\/?x-/u);
   });
 
   it("keeps ordinary header nav main and footer content in source order once", () => {

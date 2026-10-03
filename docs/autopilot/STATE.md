@@ -18,3 +18,6 @@
 - Batch status: US013, US014, US015, US016 and US017 are all DONE.
 - Next eligible story: US018 Render fenced preformatted blocks.
 - Exact next action: on the next run, re-read STORY_SPECS.md first and select US018. US018 was not started in this run.
+
+- Finalization recovery note: mutation failed at stage `preflight`: Error: lock ownership mismatch: released/null/null.
+- Exact next action: resume US017 finalization from the durable repository state; do not start US018.

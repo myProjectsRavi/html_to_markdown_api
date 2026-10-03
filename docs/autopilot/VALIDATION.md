@@ -244,3 +244,12 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Full current regression gate and Worker dry-run build passed on the same SHA.
 - Initial failure was an obsolete US013 raw-pre placeholder expectation; it was updated to the dedicated US018 fenced representation and revalidated successfully.
 - Evidence: `docs/autopilot/evidence/US018.md`.
+
+
+## US019 - Classify link and image targets
+
+- Tested exact branch SHA: `97b1101bcd2dc4ec9c23f67e054e680ad5134bdd`.
+- Authoritative PASS: runs `37108687144` (job `111162288919`), `37108687216`, and `37108688236`.
+- URL classifier suite: 5/5 tests passed, including a 60+ reason-coded fixture table, exact UTF-8 byte boundary, long percent sequences, one-pass decoding, and egress trap.
+- Full current regression gate and Worker dry-run build passed.
+- Evidence: `docs/autopilot/evidence/US019.md`.

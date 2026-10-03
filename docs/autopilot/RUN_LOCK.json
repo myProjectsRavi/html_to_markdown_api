@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "769b480a27c53e31ec062ee07639959c71464a70",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-us022-finalize",
+  "story_id": "US022",
+  "base_head": "39cfbb7986a656cc8a4ba4322493585847bcad27",
+  "acquired_at": "2026-10-03T16:28:00Z",
   "lease_minutes": 20,
-  "note": "US022 table-limit fixtures repaired to avoid preemption by parser retained-node bounds; released before revalidation."
+  "note": "Finalize US022 from authoritative exact-head PASS; US023 remains untouched."
 }

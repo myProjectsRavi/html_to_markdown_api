@@ -1,9 +1,21 @@
+import { LIMITS } from "../config";
 import type { CleanElement, CleanNode, CleanRoot } from "../html/clean";
 
 const BLOCK_ELEMENTS = new Set([
   "article", "aside", "div", "footer", "header", "main", "nav", "section", "p",
   "h1", "h2", "h3", "h4", "h5", "h6", "hr", "pre", "ul", "ol", "li", "blockquote", "details", "summary",
 ]);
+
+const UTF8 = new TextEncoder();
+
+export class MarkdownOutputLimitError extends Error {
+  readonly code = "output_too_large" as const;
+
+  constructor() {
+    super("Generated Markdown exceeds the configured output limit.");
+    this.name = "MarkdownOutputLimitError";
+  }
+}
 
 function escapeLiteralText(value: string): string {
   return value
@@ -19,6 +31,34 @@ function rawProtectedText(node: CleanNode): string {
   if (node.kind === "text") return node.value;
   if (node.name === "br") return "\n";
   return node.children.map(rawProtectedText).join("");
+}
+
+function fencedLanguage(node: CleanElement): string {
+  if (node.children.length !== 1) return "";
+  const child = node.children[0];
+  if (!child || child.kind !== "element" || child.name !== "code") return "";
+  const className = attribute(child, "class");
+  const match = className?.match(/^language-([A-Za-z0-9][A-Za-z0-9_+.-]{0,31})$/u);
+  return match?.[1] ?? "";
+}
+
+function renderFencedPre(node: CleanElement): string {
+  const content = rawProtectedText(node);
+  let longest = 0;
+  for (const match of content.matchAll(/`+/gu)) longest = Math.max(longest, match[0].length);
+
+  const fenceLength = Math.max(3, longest + 1);
+  const language = fencedLanguage(node);
+  const syntheticSeparator = content.length > 0 && !content.endsWith("\n") ? "\n" : "";
+  const generatedAscii = (2 * fenceLength) + language.length + 1 + syntheticSeparator.length;
+  const scalarCount = generatedAscii + Array.from(content).length;
+  const byteCount = generatedAscii + UTF8.encode(content).byteLength;
+  if (scalarCount > LIMITS.outputScalars || byteCount > LIMITS.outputBytes) {
+    throw new MarkdownOutputLimitError();
+  }
+
+  const fence = "`".repeat(fenceLength);
+  return `${fence}${language}\n${content}${syntheticSeparator}${fence}`;
 }
 
 function renderCodeSpan(node: CleanElement): string {
@@ -43,7 +83,7 @@ function formatted(node: CleanElement, marker: string): string {
 function inlineText(node: CleanNode): string {
   if (node.kind === "text") return escapeBlockLeadingText(node.value);
   if (node.name === "br") return "  \n";
-  if (node.name === "pre") return rawProtectedText(node);
+  if (node.name === "pre") return renderFencedPre(node);
   if (node.name === "code") return renderCodeSpan(node);
   if (node.name === "strong" || node.name === "b") return formatted(node, "**");
   if (node.name === "em" || node.name === "i") return formatted(node, "*");
@@ -162,7 +202,7 @@ function elementBlock(node: CleanElement): string {
   if (node.name === "summary") return node.children.map(inlineText).join("").trim();
   if (node.name === "ul" || node.name === "ol") return renderList(node);
   if (node.name === "li") return node.children.map((child) => child.kind === "element" && BLOCK_ELEMENTS.has(child.name) ? elementBlock(child) : inlineText(child)).filter(Boolean).join("\n\n");
-  if (node.name === "pre") return rawProtectedText(node).replace(/[ \t]+$/u, "");
+  if (node.name === "pre") return renderFencedPre(node);
   if (node.name === "p") return node.children.map(inlineText).join("").trim();
 
   const parts: string[] = [];

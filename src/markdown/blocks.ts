@@ -27,6 +27,10 @@ function assertMarkdownFragmentBudget(value: string): string {
   return value;
 }
 
+function joinStructuralBlocks(parts: readonly string[]): string {
+  return parts.filter((part) => part.length > 0).join("\n\n");
+}
+
 function escapeLiteralText(value: string): string {
   return value
     .replace(/\\/gu, "\\\\")
@@ -221,7 +225,7 @@ function renderContainer(node: CleanElement): string {
     }
   }
   flush();
-  return parts.join("\n\n");
+  return joinStructuralBlocks(parts);
 }
 
 function renderBlockquote(node: CleanElement): string {
@@ -245,7 +249,9 @@ function elementBlock(node: CleanElement): string {
     return assertMarkdownFragmentBudget(rendered.value);
   }
   if (node.name === "ul" || node.name === "ol") return renderList(node);
-  if (node.name === "li") return node.children.map((child) => child.kind === "element" && BLOCK_ELEMENTS.has(child.name) ? elementBlock(child) : inlineText(child)).filter(Boolean).join("\n\n");
+  if (node.name === "li") return joinStructuralBlocks(node.children.map((child) =>
+    child.kind === "element" && BLOCK_ELEMENTS.has(child.name) ? elementBlock(child) : inlineText(child),
+  ).filter(Boolean));
   if (node.name === "pre") return renderFencedPre(node);
   if (node.name === "p") return node.children.map((child) => inlineText(child)).join("").trim();
 
@@ -266,7 +272,7 @@ function elementBlock(node: CleanElement): string {
     }
   }
   flush();
-  return parts.join("\n\n");
+  return joinStructuralBlocks(parts);
 }
 
 /**
@@ -292,5 +298,5 @@ export function renderMarkdownBlocks(root: CleanRoot): string {
     }
   }
   flush();
-  return parts.join("\n\n");
+  return joinStructuralBlocks(parts);
 }

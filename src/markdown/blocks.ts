@@ -1,5 +1,7 @@
 import { LIMITS } from "../config";
 import type { CleanElement, CleanNode, CleanRoot } from "../html/clean";
+import { serializeLinkDestination, serializeLinkLabel } from "./link";
+import { classifyTarget } from "./url";
 
 const BLOCK_ELEMENTS = new Set([
   "article", "aside", "div", "footer", "header", "main", "nav", "section", "p",
@@ -71,8 +73,8 @@ function renderCodeSpan(node: CleanElement): string {
   return fence + " " + normalized + " " + fence;
 }
 
-function formatted(node: CleanElement, marker: string): string {
-  const body = node.children.map(inlineText).join("");
+function formatted(node: CleanElement, marker: string, allowLinks = true): string {
+  const body = node.children.map((child) => inlineText(child, allowLinks)).join("");
   const leading = body.match(/^\s*/u)?.[0] ?? "";
   const trailing = body.match(/\s*$/u)?.[0] ?? "";
   const core = body.slice(leading.length, body.length - trailing.length);
@@ -80,20 +82,32 @@ function formatted(node: CleanElement, marker: string): string {
   return `${leading}${marker}${core}${marker}${trailing}`;
 }
 
-function inlineText(node: CleanNode): string {
+function inlineText(node: CleanNode, allowLinks = true): string {
   if (node.kind === "text") return escapeBlockLeadingText(node.value);
   if (node.name === "br") return "  \n";
   if (node.name === "pre") return renderFencedPre(node);
   if (node.name === "code") return renderCodeSpan(node);
-  if (node.name === "strong" || node.name === "b") return formatted(node, "**");
-  if (node.name === "em" || node.name === "i") return formatted(node, "*");
-  if (node.name === "s" || node.name === "del") return formatted(node, "~~");
-  return node.children.map(inlineText).join("");
+  if (node.name === "a") {
+    if (!allowLinks) return node.children.map((child) => inlineText(child, false)).join("");
+    return renderLink(node);
+  }
+  if (node.name === "strong" || node.name === "b") return formatted(node, "**", allowLinks);
+  if (node.name === "em" || node.name === "i") return formatted(node, "*", allowLinks);
+  if (node.name === "s" || node.name === "del") return formatted(node, "~~", allowLinks);
+  return node.children.map((child) => inlineText(child, allowLinks)).join("");
 }
 
 
 function attribute(node: CleanElement, name: string): string | undefined {
   return node.attributes.find(([key]) => key === name)?.[1];
+}
+
+function renderLink(node: CleanElement): string {
+  const renderedChildren = node.children.map((child) => inlineText(child, false)).join("");
+  const label = serializeLinkLabel(renderedChildren);
+  const href = attribute(node, "href");
+  if (!href || !classifyTarget(href, "link").safe) return label;
+  return `[${label}](<${serializeLinkDestination(href)}>)`;
 }
 
 function renderList(root: CleanElement): string {

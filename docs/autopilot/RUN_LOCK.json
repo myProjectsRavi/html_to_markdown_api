@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-us020-repair",
-  "story_id": "US020",
-  "base_head": "3cf3acff5b20ea2281469e1b4e4b7c39eb866ea2",
-  "acquired_at": "2026-10-03T08:17:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "b5c78a6130cb4914c624c99ac6696129dbd7141d",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Repair US020 TypeScript callback sites exposed by authoritative CI."
+  "note": "US020 typecheck callback repair checkpointed; released before authoritative revalidation."
 }

@@ -89,7 +89,9 @@ describe("US022 simple rectangular tables", () => {
   });
 
   it("accepts the exact row and total-cell boundaries", () => {
-    const cellRow = "<tr>" + "<td>x</td>".repeat(LIMITS.tableCellsPerRow) + "</tr>";
+    // Empty cells keep this fixture below the earlier parser retained-node
+    // ceiling while still exercising all 6,400 table cells.
+    const cellRow = "<tr>" + "<td></td>".repeat(LIMITS.tableCellsPerRow) + "</tr>";
     const html = "<table>" + cellRow.repeat(LIMITS.tableRows) + "</table>";
     const md = render(html);
     expect(renderGfmStructure(md)).toEqual({
@@ -107,8 +109,8 @@ describe("US022 simple rectangular tables", () => {
   });
 
   it("rejects one cell beyond the total-cell limit", () => {
-    const fullRow = "<tr>" + "<td>x</td>".repeat(LIMITS.tableCellsPerRow) + "</tr>";
-    const lastRow = "<tr>" + "<td>x</td>".repeat(LIMITS.tableCellsPerRow + 1) + "</tr>";
+    const fullRow = "<tr>" + "<td></td>".repeat(LIMITS.tableCellsPerRow) + "</tr>";
+    const lastRow = "<tr>" + "<td></td>".repeat(LIMITS.tableCellsPerRow + 1) + "</tr>";
     const html = "<table>" + fullRow.repeat(LIMITS.tableRows - 1) + lastRow + "</table>";
     expect(() => render(html)).toThrowError(
       expect.objectContaining({ name: "MarkdownTableLimitError", limit: "cells" }),

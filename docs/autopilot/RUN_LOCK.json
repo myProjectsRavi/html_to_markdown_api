@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-us024-repair2",
-  "story_id": "US024",
-  "base_head": "ad1a1e0ead08fe2e4f88a9748ca678e83fa34f95",
-  "acquired_at": "2026-10-03T17:11:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "393bce259f96aa305db7c8febda357f1579727cd",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Patch exact US024 custom-tag regex bytes after safe recovery release."
+  "note": "US024 custom-tag regex syntax repaired; released before authoritative revalidation."
 }

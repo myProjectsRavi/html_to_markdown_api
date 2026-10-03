@@ -43,8 +43,8 @@ describe("US013 Markdown block rendering", () => {
     expect(out).not.toMatch(/<\/?[a-z]/i);
   });
 
-  it("keeps pre/code as typed text placeholders for later stories", () => {
+  it("composes dedicated fenced pre rendering without regressing surrounding blocks", () => {
     expect(render("<p>before</p><pre>  x\n y </pre><p>after</p>"))
-      .toBe("before\n\n  x\n y\n\nafter");
+      .toBe("before\n\n```\n  x\n y \n```\n\nafter");
   });
 });

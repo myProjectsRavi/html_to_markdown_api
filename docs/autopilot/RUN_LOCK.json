@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-us018-repair",
-  "story_id": "US018",
-  "base_head": "0123794ad2bf10219c4ebf62459342e80e6797bc",
-  "acquired_at": "2026-10-03T08:02:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "cf50dcc0fb283dbf64847fe54588841e4859171e",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Repair US013 pre-placeholder regression expectation for dedicated US018 fenced rendering."
+  "note": "US018 regression expectation repaired; released before authoritative revalidation."
 }

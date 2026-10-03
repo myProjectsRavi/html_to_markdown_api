@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "19be06bdf0f5e6fc6cdc5e6f3a577ba0f12fdafb",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-us024-repair",
+  "story_id": "US024",
+  "base_head": "57fb94f7cd23422dc98793272abe071f2e8bd573",
+  "acquired_at": "2026-10-03T17:10:00Z",
   "lease_minutes": 20,
-  "note": "US024 structural normalization, mixed fixtures and composition policy checkpointed; released before authoritative CI."
+  "note": "Repair US024 test-only regex syntax caught by TypeScript before runtime fixtures."
 }

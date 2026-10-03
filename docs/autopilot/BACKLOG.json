@@ -232,10 +232,10 @@
       "depends_on": [
         "US016"
       ],
-      "status": "TODO",
+      "status": "DONE",
       "blocked_from": null,
-      "tested_code_sha": null,
-      "evidence_path": null,
+      "tested_code_sha": "596d53efaf0aa88fb1c5169980c8075cf53485be",
+      "evidence_path": "docs/autopilot/evidence/US017.md",
       "blocker": null
     },
     {

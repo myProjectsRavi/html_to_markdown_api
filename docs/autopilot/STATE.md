@@ -5,12 +5,12 @@
 - Allowed implementation branch: `autopilot/html-markdown-v1`
 - Approved starting revision (`main`): `51497790a365b9465e35bb8dd2b06adb4ac38d4c`
 - Current Epic: E05 Links, images and tables
-- Current Feature: F10 Link and image target safety
-- Current Story: US020 Serialize Markdown links safely
-- Phase: DONE
-- Prerequisite US019: DONE, tested SHA `97b1101bcd2dc4ec9c23f67e054e680ad5134bdd`.
-- US020 tested exact branch SHA: `7f2fdf58c234f7b02eeb547980d98c11f13235c6`.
-- Authoritative validation: PASS in run `37109487379`, job `111164498493`.
-- Evidence: `docs/autopilot/evidence/US020.md`.
-- Next eligible story: US021 Render images without resource access.
-- Exact next action: start US021 after re-reading STORY_SPECS.md and claiming the released lock.
+- Current Feature: F11 Images and simple tables
+- Current Story: US021 Render images without resource access
+- Phase: VALIDATING
+- Prerequisite US020: DONE, tested SHA `7f2fdf58c234f7b02eeb547980d98c11f13235c6`.
+- Renderer checkpoint: `16fb988a4deb5e8cbdc4a47a3b328d5e8114dc7b`.
+- Acceptance-suite checkpoint: `e8aeb93d7f7a0f92088edc8012afc4bcf883fbf4`.
+- Validation wiring checkpoint: `791b048f5c9fef9bc1a48e0de1c43dea4ed8de59`.
+- Validation status: authoritative exact-head GitHub Actions pending.
+- Exact next action: inspect released-head CI, diagnose any failure inside US021, and finalize only after PASS.

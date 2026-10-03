@@ -234,3 +234,13 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Worker dry-run build passed: 106.07 KiB total upload, 32.74 KiB gzip, no bindings.
 - The earlier US015 list/code expectation failure was repaired without weakening the dedicated US017 assertions.
 - Evidence: `docs/autopilot/evidence/US017.md`.
+
+
+## US018 - Render fenced preformatted blocks
+
+- Tested exact branch SHA: `1750173ba01459433230a16069c9328d4171a0c0`.
+- Authoritative PASS: PR run `37108345903`, job `111161181583`; push run `37108343332` also passed.
+- Fenced-code acceptance suite: 8/8 passed.
+- Full current regression gate and Worker dry-run build passed on the same SHA.
+- Initial failure was an obsolete US013 raw-pre placeholder expectation; it was updated to the dedicated US018 fenced representation and revalidated successfully.
+- Evidence: `docs/autopilot/evidence/US018.md`.

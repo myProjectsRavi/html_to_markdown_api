@@ -127,9 +127,9 @@ function validateTopLevelLimits(table: CleanElement): void {
   for (const row of rows) {
     const cells = collectCells(row);
     if (!cells) continue;
-    if (cells.length > LIMITS.tableCellsPerRow) throw new MarkdownTableLimitError("columns");
     totalCells += cells.length;
     if (totalCells > LIMITS.tableCellsPerTable) throw new MarkdownTableLimitError("cells");
+    if (cells.length > LIMITS.tableCellsPerRow) throw new MarkdownTableLimitError("columns");
   }
 }
 

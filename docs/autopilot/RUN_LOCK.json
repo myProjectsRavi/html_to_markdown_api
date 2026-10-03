@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "f706bb5fa37f6d47ed7d44dc504809b6bbc3ee8c",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-us023-repair",
+  "story_id": "US023",
+  "base_head": "3ed96716e6fda932ee8ec2c2d4f63c93420a06ea",
+  "acquired_at": "2026-10-03T17:02:00Z",
   "lease_minutes": 20,
-  "note": "US023 typed complex-table fallback, fixtures and separator policy checkpointed; released before authoritative CI."
+  "note": "Restore US022 total-cell-before-column error precedence exposed by US023 validation."
 }

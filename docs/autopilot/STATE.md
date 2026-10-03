@@ -12,5 +12,5 @@
 - Renderer checkpoint: `16fb988a4deb5e8cbdc4a47a3b328d5e8114dc7b`.
 - Acceptance-suite checkpoint: `e8aeb93d7f7a0f92088edc8012afc4bcf883fbf4`.
 - Validation wiring checkpoint: `791b048f5c9fef9bc1a48e0de1c43dea4ed8de59`.
-- Validation status: authoritative exact-head GitHub Actions pending.
-- Exact next action: inspect released-head CI, diagnose any failure inside US021, and finalize only after PASS.
+- Validation status: exact-head run `37109912259` failed only because the final image test rejected an escaped literal `](` substring even though the exact rendered output was inert (`\\[click\\](...)`). The assertion now checks the exact escaped output and that it does not begin as an active link; authoritative revalidation pending.
+- Exact next action: inspect repaired released-head CI, diagnose any remaining failure inside US021, and finalize only after PASS.

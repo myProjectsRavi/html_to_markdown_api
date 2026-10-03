@@ -14,5 +14,5 @@
 - Acceptance-suite checkpoint: `ca33fcea93fcc060eb439d0b5dee392a45cd90f6`.
 - Separator-policy checkpoint: `9301c5b810b9653ea4a8b36cae18cfaf30e45f3a`.
 - Validation wiring checkpoint: `11ca241fa8d4f7616dac082a6abab579a6868e40`.
-- Validation status: authoritative exact-head GitHub Actions pending.
-- Exact next action: inspect released-head CI, diagnose failures within US023, and finalize only after PASS. Do not start US024.
+- Validation status: exact-head run `37138833385` reached the existing US022 table suite and exposed a limit-error precedence regression: the 6,401-cell fixture was reported as `columns` because US023 prevalidation checked row width first. Prevalidation now restores the established total-cell-before-column order. Authoritative revalidation pending.
+- Exact next action: inspect repaired released-head CI, diagnose any remaining failure within US023, and finalize only after PASS. Do not start US024.

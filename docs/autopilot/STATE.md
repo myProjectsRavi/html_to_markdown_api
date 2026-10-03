@@ -6,11 +6,12 @@
 - Approved starting revision (`main`): `51497790a365b9465e35bb8dd2b06adb4ac38d4c`
 - Current Epic: E05 Links, images and tables
 - Current Feature: F10 Link and image target safety
-- Current Story: US019 Classify link and image targets
-- Phase: DONE
-- Prerequisite US018: DONE, tested SHA `1750173ba01459433230a16069c9328d4171a0c0`.
-- US019 tested exact branch SHA: `97b1101bcd2dc4ec9c23f67e054e680ad5134bdd`.
-- Authoritative validation: PASS in runs `37108687144`, `37108687216`, and `37108688236`.
-- Evidence: `docs/autopilot/evidence/US019.md`.
-- Next eligible story: US020 Serialize Markdown links safely.
-- Exact next action: start US020 after re-reading STORY_SPECS.md and claiming the released lock.
+- Current Story: US020 Serialize Markdown links safely
+- Phase: VALIDATING
+- Prerequisite US019: DONE, tested SHA `97b1101bcd2dc4ec9c23f67e054e680ad5134bdd`.
+- Serializer checkpoint: `65839438fb9f44403447d147553a29fd744200fa`.
+- Renderer integration checkpoint: `8305da676ad4c41c37ea7b83f918329e91a8e990`.
+- Acceptance-suite checkpoint: `4bda585eb44ff5dbfb408483d3920021d7aaf226`.
+- Validation wiring checkpoint: `dc8bd6f41e812314d859596a6960aa992307baa2`.
+- Validation status: authoritative exact-head GitHub Actions pending.
+- Exact next action: inspect released-head CI, diagnose any failure inside US020, and finalize only after PASS.

@@ -3,10 +3,10 @@
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
   "state": "active",
-  "owner": "chatgpt-us026",
+  "owner": "chatgpt-us026-recovery",
   "story_id": "US026",
-  "base_head": "0dac26e72949679434ad23f18b35bf92e1de11ee",
-  "acquired_at": "2026-10-03T17:22:00Z",
+  "base_head": "3441edacf5533d825db30379e88a2e3456174a1f",
+  "acquired_at": "2026-10-03T17:42:20Z",
   "lease_minutes": 20,
-  "note": "Implement deterministic structured clean-text policies for lists, quotes, links, images, details, code and tables."
+  "note": "Reclaim expired US026 lock after prior claimant produced no implementation checkpoint."
 }

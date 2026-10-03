@@ -274,10 +274,10 @@
       "depends_on": [
         "US019"
       ],
-      "status": "TODO",
+      "status": "DONE",
       "blocked_from": null,
-      "tested_code_sha": null,
-      "evidence_path": null,
+      "tested_code_sha": "7f2fdf58c234f7b02eeb547980d98c11f13235c6",
+      "evidence_path": "docs/autopilot/evidence/US020.md",
       "blocker": null
     },
     {

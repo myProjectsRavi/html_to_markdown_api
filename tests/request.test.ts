@@ -156,11 +156,12 @@ describe("US008 precise JSON and decoded HTML validation", () => {
 
     for (const html of ["", "   "]) {
       const response = await call(JSON.stringify({ html }));
-      expect(response.status).toBe(503);
+      expect(response.status).toBe(200);
       expect(await response.json()).toEqual({
-        error: {
-          code: "service_unavailable",
-          message: "Service configuration is unavailable.",
+        markdown: "",
+        stats: {
+          input_bytes: new TextEncoder().encode(html).byteLength,
+          output_chars: 0,
         },
       });
     }

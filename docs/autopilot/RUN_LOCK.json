@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-us026-ci-fix",
-  "story_id": "US026",
-  "base_head": "933d4ac6246407c46ed1011586089fe24fb2f9eb",
-  "acquired_at": "2026-10-04T00:57:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "2c8f74f5bcdb483f65f3433ed0b3bde597c99fb1",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Fix the two authoritative US026 CI failures without weakening acceptance."
+  "note": "US026 CI repair checkpointed in VALIDATING; lock released while authoritative Actions runs."
 }

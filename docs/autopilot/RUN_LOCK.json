@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "184feb2305fc1d78e74a76eca93d1bc650859eca",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-five-story-us028",
+  "story_id": "US028",
+  "base_head": "ad0ea62af2fca94cd163b8bb74c355a8bbf5a85f",
+  "acquired_at": "2026-10-04T01:15:00Z",
   "lease_minutes": 20,
-  "note": "US027 DONE; finalization complete. US028 may start under a fresh lock."
+  "note": "Implement fixed error precedence, route-boundary failure handling, and stateless request-isolation evidence."
 }

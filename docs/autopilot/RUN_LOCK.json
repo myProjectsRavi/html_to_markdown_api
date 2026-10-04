@@ -3,10 +3,10 @@
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
   "state": "active",
-  "owner": "chatgpt-five-story-us026",
+  "owner": "chatgpt-us026-five-story-run",
   "story_id": "US026",
-  "base_head": "f458d3f28bbc5be0f87b675fb91c65d8193b9f3f",
-  "acquired_at": "2026-10-04T00:51:00Z",
+  "base_head": "fb6b046836aebdd57f76db12c339ae3b120f7806",
+  "acquired_at": "2026-10-04T00:52:00Z",
   "lease_minutes": 20,
-  "note": "Recover expired US026 lease and implement structured clean-text rendering."
+  "note": "Reclaim expired US026 lease and implement structured clean-text rendering."
 }

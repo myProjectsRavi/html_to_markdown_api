@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "5643ac94a112ea53996f24458ac34296704151d4",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-five-story-us027-resume",
+  "story_id": "US027",
+  "base_head": "480720db552f8a6af22aee75b0697980b6d8d6fe",
+  "acquired_at": "2026-10-04T01:08:00Z",
   "lease_minutes": 20,
-  "note": "Released after US027 feature-write collision; concurrent same-story writer checkpoint exists at current HEAD. Reconcile before further mutation."
+  "note": "Resume US027 after collision recovery; integrate routes/tests from preserved writer checkpoint."
 }

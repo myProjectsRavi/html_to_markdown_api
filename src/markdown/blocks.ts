@@ -3,6 +3,7 @@ import type { CleanElement, CleanNode, CleanRoot } from "../html/clean";
 import { serializeLinkDestination, serializeLinkLabel } from "./link";
 import { classifyTarget } from "./url";
 import { renderMarkdownTable } from "./table";
+import { writeJoinedBounded, type BoundedOutput } from "../output/writer";
 
 const BLOCK_ELEMENTS = new Set([
   "article", "aside", "div", "footer", "header", "main", "nav", "section", "p",
@@ -280,7 +281,7 @@ function elementBlock(node: CleanElement): string {
  * and this writer traverses only retained nodes. Later stories replace inline
  * placeholders with dedicated formatting/list/code/link renderers.
  */
-export function renderMarkdownBlocks(root: CleanRoot): string {
+export function renderMarkdownOutput(root: CleanRoot): BoundedOutput {
   const parts: string[] = [];
   let inline = "";
   const flush = () => {
@@ -298,5 +299,9 @@ export function renderMarkdownBlocks(root: CleanRoot): string {
     }
   }
   flush();
-  return joinStructuralBlocks(parts);
+  return writeJoinedBounded(parts, "\n\n");
+}
+
+export function renderMarkdownBlocks(root: CleanRoot): string {
+  return renderMarkdownOutput(root).value;
 }

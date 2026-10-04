@@ -118,7 +118,8 @@ function cellText(nodes: readonly CleanNode[]): string {
       continue;
     }
     if (node.name === "table") {
-      pieces.push(renderCleanTable(node).replace(/[\t\n]+/gu, " "));
+      const nested = renderCleanTable(node).replace(/[\t\n]+/gu, " ").trim();
+      if (nested) pieces.push(" " + nested + " ");
       continue;
     }
     if (node.name === "pre" || node.name === "code") {
@@ -190,17 +191,40 @@ function renderList(list: CleanElement, depth = 0): string {
   return lines.join("\n");
 }
 
+function edgeIsProtected(node: CleanNode, side: "start" | "end"): boolean {
+  if (node.kind === "text") return false;
+  if (node.name === "code" || node.name === "pre") return true;
+  const ordered = side === "start" ? node.children : [...node.children].reverse();
+  for (const child of ordered) {
+    if (cleanInlineText(child).length === 0) continue;
+    return edgeIsProtected(child, side);
+  }
+  return false;
+}
+
+function renderInlineBlock(children: readonly CleanNode[]): string {
+  const rendered = children.map(cleanInlineText);
+  let first = rendered.findIndex((value) => value.length > 0);
+  if (first < 0) return "";
+  let last = rendered.length - 1;
+  while (last >= first && rendered[last]!.length === 0) last -= 1;
+
+  if (!edgeIsProtected(children[first]!, "start")) rendered[first] = rendered[first]!.trimStart();
+  if (!edgeIsProtected(children[last]!, "end")) rendered[last] = rendered[last]!.trimEnd();
+  return rendered.slice(first, last + 1).join("");
+}
+
 function cleanTextBlock(node: CleanElement): string {
   if (node.name === "hr") return "";
   if (node.name === "pre") return protectedText(node);
   if (node.name === "ul" || node.name === "ol") return renderList(node);
   if (node.name === "table") return renderCleanTable(node);
   if (node.name === "blockquote" || node.name === "details") return cleanTextContainer(node.children);
-  if (node.name === "summary") return node.children.map(cleanInlineText).join("").trim();
+  if (node.name === "summary") return renderInlineBlock(node.children);
   if (node.name === "li") return cleanTextContainer(node.children);
 
   if (node.name === "p" || /^h[1-6]$/u.test(node.name)) {
-    return node.children.map(cleanInlineText).join("").trim();
+    return renderInlineBlock(node.children);
   }
 
   return cleanTextContainer(node.children);

@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-five-story-us026-fix",
-  "story_id": "US026",
-  "base_head": "0e82bbf588a2174cf0a1f889137604a345320544",
-  "acquired_at": "2026-10-04T01:00:30.085Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "f6d18ce0ad8da24a2bc1eb6cb94e81e6d4dbca20",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Fix remaining US026 protected inline-code trailing-boundary behavior after authoritative CI failure."
+  "note": "US026 final CI repair checkpointed in VALIDATING; lock released while authoritative Actions runs."
 }

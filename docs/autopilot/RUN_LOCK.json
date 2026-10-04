@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "5a703aa7d7fb7067556d307f792a3ff15177b56a",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-five-story-finalize-us027",
+  "story_id": "US027",
+  "base_head": "485df10c19b25ddeefaf46ea66bb631a5b167046",
+  "acquired_at": "2026-10-04T01:14:00Z",
   "lease_minutes": 20,
-  "note": "US027 candidate checkpointed in VALIDATING; lock released while authoritative Actions runs."
+  "note": "Finalize US027 after authoritative output-accounting validation pass."
 }

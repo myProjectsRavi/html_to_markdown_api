@@ -3,10 +3,10 @@
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
   "state": "active",
-  "owner": "chatgpt-us026-recovery",
+  "owner": "chatgpt-five-story-run-us026",
   "story_id": "US026",
-  "base_head": "3441edacf5533d825db30379e88a2e3456174a1f",
-  "acquired_at": "2026-10-03T17:42:20Z",
+  "base_head": "7b43e6680127ac92ea8a39ae7121d17aef2cace0",
+  "acquired_at": "2026-10-04T00:51:00Z",
   "lease_minutes": 20,
-  "note": "Reclaim expired US026 lock after prior claimant produced no implementation checkpoint."
+  "note": "Reclaim expired US026 lease and complete structured clean-text rendering."
 }

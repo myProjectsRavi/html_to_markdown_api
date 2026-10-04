@@ -1,11 +1,9 @@
 import { authenticateRapidApi, type AuthEnv } from "./auth/rapidapi";
-import { ENDPOINTS } from "./config";
+import { ENDPOINTS, type ConversionPath } from "./config";
 import { readBoundedJsonBody } from "./http/body";
 import { errorResponse } from "./http/response";
 import { validateConversionRequest } from "./http/request";
-import { parseHtml } from "./html/parse";
-import { ParserLimitError } from "./html/limits";
-import { conversionPlaceholderResponse } from "./routes/conversion";
+import { conversionResponse } from "./routes/conversion";
 import { healthResponse } from "./routes/health";
 
 type KnownPath =
@@ -57,18 +55,10 @@ export default {
       return validated.response;
     }
 
-    try {
-      parseHtml(validated.request.html);
-    } catch (error) {
-      if (error instanceof ParserLimitError) {
-        return errorResponse("input_too_complex");
-      }
-      return errorResponse("internal_error");
-    }
-
-    // Normalization/rendering stories own the next stage. Reaching the
-    // controlled placeholder proves the bounded parser accepted the input.
-    void validated.inputBytes;
-    return conversionPlaceholderResponse();
+    return conversionResponse(
+      path as ConversionPath,
+      validated.request.html,
+      validated.inputBytes,
+    );
   },
 };

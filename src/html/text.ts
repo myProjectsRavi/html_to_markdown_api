@@ -1,4 +1,5 @@
 import type { CleanElement, CleanNode, CleanRoot } from "./clean";
+import { BoundedOutputWriter, type BoundedOutput } from "../output/writer";
 
 const HTML_ASCII_WHITESPACE = /[\t\n\f\r ]+/g;
 
@@ -262,6 +263,12 @@ function cleanTextContainer(children: readonly CleanNode[]): string {
  * This path deliberately does not render Markdown first and strip syntax.
  * Literal user punctuation is data and therefore survives unchanged.
  */
+export function renderCleanTextOutput(root: CleanRoot): BoundedOutput {
+  const writer = new BoundedOutputWriter();
+  writer.append(cleanTextContainer(root.children));
+  return writer.snapshot();
+}
+
 export function renderCleanText(root: CleanRoot): string {
-  return cleanTextContainer(root.children);
+  return renderCleanTextOutput(root).value;
 }

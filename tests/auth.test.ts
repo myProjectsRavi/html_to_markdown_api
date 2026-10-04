@@ -150,9 +150,11 @@ describe("US006 RapidAPI proxy authentication", () => {
       { RAPIDAPI_PROXY_SECRET: TEST_SECRET },
     );
 
-    // US005's controlled non-success placeholder proves routing continued
-    // beyond authentication without fabricating a conversion result.
-    await expectError(response, 503, "service_unavailable");
+    expect(response.status).toBe(200);
+    expect(await response.json()).toEqual({
+      markdown: "x",
+      stats: { input_bytes: 8, output_chars: 1 },
+    });
   });
 
   it("rejects authentication before any request-body consumption", async () => {

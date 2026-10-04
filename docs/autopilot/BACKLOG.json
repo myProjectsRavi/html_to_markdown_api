@@ -358,10 +358,10 @@
       "depends_on": [
         "US025"
       ],
-      "status": "TODO",
+      "status": "DONE",
       "blocked_from": null,
-      "tested_code_sha": null,
-      "evidence_path": null,
+      "tested_code_sha": "96de63916af13b4dbd489f7665202c59808f65bb",
+      "evidence_path": "docs/autopilot/evidence/US026.md",
       "blocker": null
     },
     {

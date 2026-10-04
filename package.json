@@ -13,7 +13,7 @@
     "build": "wrangler deploy --dry-run --outdir dist",
     "verify:bootstrap": "npm run check:state && npm run test:runner && npm run typecheck && npm run test:worker && npm run build",
     "test:contract": "vitest run tests/contract.test.ts",
-    "verify:current": "npm run check:state && npm run test:runner && npm run typecheck && npm run test:worker && npm run test:contract && npm run test:fixtures && npm run test:routing && npm run test:auth && npm run test:body && npm run test:request && npm run test:parser && npm run test:clean && npm run test:text && npm run test:markdown-blocks && npm run test:markdown-inline && npm run test:markdown-lists && npm run test:markdown-quotes && npm run test:markdown-code-inline && npm run test:markdown-code-blocks && npm run test:markdown-url-classifier && npm run test:markdown-links && npm run test:markdown-images && npm run test:markdown-tables && npm run test:markdown-table-fallback && npm run test:markdown-composition && npm run test:clean-text-blocks && npm run test:clean-text-structured && npm run test:output && npm run build",
+    "verify:current": "npm run check:state && npm run test:runner && npm run typecheck && npm run test:worker && npm run test:contract && npm run test:fixtures && npm run test:routing && npm run test:auth && npm run test:body && npm run test:request && npm run test:parser && npm run test:clean && npm run test:text && npm run test:markdown-blocks && npm run test:markdown-inline && npm run test:markdown-lists && npm run test:markdown-quotes && npm run test:markdown-code-inline && npm run test:markdown-code-blocks && npm run test:markdown-url-classifier && npm run test:markdown-links && npm run test:markdown-images && npm run test:markdown-tables && npm run test:markdown-table-fallback && npm run test:markdown-composition && npm run test:clean-text-blocks && npm run test:clean-text-structured && npm run test:output && npm run test:errors && npm run build",
     "test:fixtures": "node scripts/validate-fixtures.mjs && node scripts/validate-fixtures.test.mjs && node scripts/generate-boundary-fixtures.mjs --self-test",
     "test:routing": "vitest run tests/routing.test.ts",
     "test:auth": "vitest run tests/auth.test.ts",
@@ -36,7 +36,8 @@
     "test:markdown-composition": "vitest run tests/markdown-composition.test.ts",
     "test:clean-text-blocks": "vitest run tests/clean-text-blocks.test.ts",
     "test:clean-text-structured": "vitest run tests/clean-text-structured.test.ts",
-    "test:output": "vitest run tests/output-writer.test.ts tests/conversion-integration.test.ts"
+    "test:output": "vitest run tests/output-writer.test.ts tests/conversion-integration.test.ts",
+    "test:errors": "vitest run tests/error-isolation.test.ts"
   },
   "engines": {
     "node": "22.22.2",

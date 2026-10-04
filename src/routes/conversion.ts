@@ -1,12 +1,47 @@
-import { errorResponse } from "../http/response";
+import { ENDPOINTS, type ConversionPath } from "../config";
+import { cleanParsedTree } from "../html/clean";
+import { ParserLimitError } from "../html/limits";
+import { parseHtml } from "../html/parse";
+import { normalizeSharedText, renderCleanTextOutput } from "../html/text";
+import { errorResponse, jsonResponse } from "../http/response";
+import { renderMarkdownOutput } from "../markdown/blocks";
+import { MarkdownTableLimitError } from "../markdown/table";
+import { OutputLimitError } from "../output/writer";
 
-/**
- * US005 route placeholder.
- *
- * Conversion success is deliberately unavailable until authentication,
- * body validation, parsing and rendering stories are integrated. Returning
- * a controlled error prevents this routing story from fabricating success.
- */
-export function conversionPlaceholderResponse(): Response {
-  return errorResponse("service_unavailable");
+export function conversionResponse(
+  path: ConversionPath,
+  html: string,
+  inputBytes: number,
+): Response {
+  try {
+    const normalized = normalizeSharedText(cleanParsedTree(parseHtml(html)));
+
+    if (path === ENDPOINTS.markdown) {
+      const output = renderMarkdownOutput(normalized);
+      return jsonResponse({
+        markdown: output.value,
+        stats: {
+          input_bytes: inputBytes,
+          output_chars: output.scalars,
+        },
+      });
+    }
+
+    const output = renderCleanTextOutput(normalized);
+    return jsonResponse({
+      text: output.value,
+      stats: {
+        input_bytes: inputBytes,
+        output_chars: output.scalars,
+      },
+    });
+  } catch (error) {
+    if (error instanceof ParserLimitError || error instanceof MarkdownTableLimitError) {
+      return errorResponse("input_too_complex");
+    }
+    if (error instanceof OutputLimitError) {
+      return errorResponse("output_too_large");
+    }
+    return errorResponse("internal_error");
+  }
 }

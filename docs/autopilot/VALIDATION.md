@@ -337,3 +337,16 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Failure history: run `37166440515` exposed inline-code boundary trimming and nested-table separator defects; run `37166566990` retained only trailing protected-code block-boundary whitespace. Both were fixed in US026 without weakening tests.
 - Final repair commit: `29d974c77dac52f09c2dc487d25bb5a821f5fe3c`.
 - Conclusion: US026 acceptance criteria pass; US027 is next.
+
+
+## US027 - Enforce bounded output and factual statistics
+
+- Status: DONE.
+- Tested branch SHA: `485df10c19b25ddeefaf46ea66bb631a5b167046`.
+- Authoritative validation: GitHub Actions run `37167248508`, job `111332646253`, conclusion `success`.
+- Shared bounded writer accounts Unicode scalars and UTF-8 bytes before retaining chunks; generated separators consume the same budget and rejected appends do not partially mutate output.
+- Exact-limit tests cover the configured scalar/byte ceilings, one-scalar overflow, an independent byte-only boundary, emoji accounting, and generated separators.
+- Both endpoints now return integrated conversion success with factual input-byte and scalar-based output-character statistics.
+- Deep nesting/list expansion is bounded and returns fixed 422 `output_too_large` with no partial success payload.
+- Failure history includes expected legacy placeholder-test failures after routes became live; those tests were updated to assert successful conversion rather than weakening security/auth behavior.
+- Conclusion: all US027 acceptance/evidence requirements pass. US028 is next.

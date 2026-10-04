@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-us026-five-story-run",
-  "story_id": "US026",
-  "base_head": "fb6b046836aebdd57f76db12c339ae3b120f7806",
-  "acquired_at": "2026-10-04T00:52:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "7ed4a31c058ff7136246c4b7eee3a35d8ef488bd",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Reclaim expired US026 lease and implement structured clean-text rendering."
+  "note": "US026 candidate checkpointed in VALIDATING; lock released while Actions runs."
 }

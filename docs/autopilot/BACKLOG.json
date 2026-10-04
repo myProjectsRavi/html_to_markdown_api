@@ -372,10 +372,10 @@
       "depends_on": [
         "US026"
       ],
-      "status": "TODO",
+      "status": "DONE",
       "blocked_from": null,
-      "tested_code_sha": null,
-      "evidence_path": null,
+      "tested_code_sha": "485df10c19b25ddeefaf46ea66bb631a5b167046",
+      "evidence_path": "docs/autopilot/evidence/US027.md",
       "blocker": null
     },
     {

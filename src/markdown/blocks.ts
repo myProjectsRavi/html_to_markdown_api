@@ -3,7 +3,11 @@ import type { CleanElement, CleanNode, CleanRoot } from "../html/clean";
 import { serializeLinkDestination, serializeLinkLabel } from "./link";
 import { classifyTarget } from "./url";
 import { renderMarkdownTable } from "./table";
-import { writeJoinedBounded, type BoundedOutput } from "../output/writer";
+import {
+  OutputLimitError,
+  writeJoinedBounded,
+  type BoundedOutput,
+} from "../output/writer";
 
 const BLOCK_ELEMENTS = new Set([
   "article", "aside", "div", "footer", "header", "main", "nav", "section", "p",
@@ -12,11 +16,9 @@ const BLOCK_ELEMENTS = new Set([
 
 const UTF8 = new TextEncoder();
 
-export class MarkdownOutputLimitError extends Error {
-  readonly code = "output_too_large" as const;
-
+export class MarkdownOutputLimitError extends OutputLimitError {
   constructor() {
-    super("Generated Markdown exceeds the configured output limit.");
+    super();
     this.name = "MarkdownOutputLimitError";
   }
 }

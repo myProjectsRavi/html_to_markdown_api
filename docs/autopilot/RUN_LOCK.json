@@ -5,8 +5,8 @@
   "state": "active",
   "owner": "chatgpt-five-story-us027",
   "story_id": "US027",
-  "base_head": "0d24273269737a853ef249cb13f09fed37671867",
-  "acquired_at": "2026-10-04T01:05:30Z",
+  "base_head": "b34d3e09b3e22cd13bc7f081bc9c932992b119af",
+  "acquired_at": "2026-10-04T01:05:00Z",
   "lease_minutes": 20,
-  "note": "Implement US027 bounded output accounting, route integration, and factual stats."
+  "note": "Implement shared bounded output accounting, route integration, factual stats and US027 boundary tests."
 }

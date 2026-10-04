@@ -1,0 +1,36 @@
+name: Validate current checkpoint
+
+on:
+  push:
+    branches:
+      - autopilot/html-markdown-v1
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-current-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout exact revision
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22.22.2
+          cache: npm
+      - name: Install reviewed lockfile
+        run: npm ci
+      - name: Validate current checkpoint
+        run: npm run verify:current

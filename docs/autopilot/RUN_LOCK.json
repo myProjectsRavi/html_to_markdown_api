@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "repository": "myProjectsRavi/html_to_markdown_api",
+  "branch": "autopilot/html-markdown-v1",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "6517c2e95c9f6147a4346f2781631d31cbb5a298",
+  "acquired_at": null,
+  "lease_minutes": 20,
+  "note": "US028 candidate checkpointed in VALIDATING; lock released while authoritative Actions runs."
+}

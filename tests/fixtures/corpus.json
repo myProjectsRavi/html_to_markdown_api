@@ -1,0 +1,660 @@
+{
+  "schema_version": 1,
+  "provenance": "synthetic-only",
+  "records": [
+    {
+      "id": "F001",
+      "category": "blocks",
+      "tags": [
+        "heading"
+      ],
+      "html": "<h1>Hello</h1>",
+      "expected_markdown": "# Hello",
+      "expected_text": "Hello"
+    },
+    {
+      "id": "F002",
+      "category": "blocks",
+      "tags": [
+        "heading"
+      ],
+      "html": "<h6>Deep</h6>",
+      "expected_markdown": "###### Deep",
+      "expected_text": "Deep"
+    },
+    {
+      "id": "F003",
+      "category": "blocks",
+      "tags": [
+        "adjacent-blocks"
+      ],
+      "html": "<p>One</p><p>Two</p>",
+      "expected_markdown": "One\n\nTwo",
+      "expected_text": "One\n\nTwo"
+    },
+    {
+      "id": "F004",
+      "category": "blocks",
+      "tags": [
+        "adjacent-blocks"
+      ],
+      "html": "<div>One</div><div>Two</div>",
+      "expected_markdown": "One\n\nTwo",
+      "expected_text": "One\n\nTwo"
+    },
+    {
+      "id": "F005",
+      "category": "blocks",
+      "tags": [
+        "break"
+      ],
+      "html": "<p>A<br>B</p>",
+      "expected_markdown": "A\\\nB",
+      "expected_text": "A\nB"
+    },
+    {
+      "id": "F006",
+      "category": "blocks",
+      "tags": [
+        "horizontal-rule"
+      ],
+      "html": "<p>A</p><hr><p>B</p>",
+      "expected_markdown": "A\n\n---\n\nB",
+      "expected_text": "A\n\nB"
+    },
+    {
+      "id": "F007",
+      "category": "blocks",
+      "tags": [
+        "quote",
+        "adjacent-blocks"
+      ],
+      "html": "<blockquote><p>Hi</p><p>There</p></blockquote>",
+      "expected_markdown": "> Hi\n> \n> There",
+      "expected_text": "Hi\n\nThere"
+    },
+    {
+      "id": "F008",
+      "category": "blocks",
+      "tags": [
+        "nesting",
+        "adjacent-blocks"
+      ],
+      "html": "<section><p>A</p><div><p>B</p></div></section>",
+      "expected_markdown": "A\n\nB",
+      "expected_text": "A\n\nB"
+    },
+    {
+      "id": "F009",
+      "category": "blocks",
+      "tags": [
+        "details"
+      ],
+      "html": "<details><summary>More</summary><p>Body</p></details>",
+      "expected_markdown": "More\n\nBody",
+      "expected_text": "More\n\nBody"
+    },
+    {
+      "id": "F010",
+      "category": "blocks",
+      "tags": [
+        "ordinary-container"
+      ],
+      "html": "<header>Head</header><nav>Nav</nav>",
+      "expected_markdown": "Head\n\nNav",
+      "expected_text": "Head\n\nNav"
+    },
+    {
+      "id": "F011",
+      "category": "inline",
+      "tags": [
+        "strong"
+      ],
+      "html": "<p><strong>Bold</strong></p>",
+      "expected_markdown": "**Bold**",
+      "expected_text": "Bold"
+    },
+    {
+      "id": "F012",
+      "category": "inline",
+      "tags": [
+        "emphasis"
+      ],
+      "html": "<p><em>Italic</em></p>",
+      "expected_markdown": "*Italic*",
+      "expected_text": "Italic"
+    },
+    {
+      "id": "F013",
+      "category": "inline",
+      "tags": [
+        "strike"
+      ],
+      "html": "<p><del>Gone</del></p>",
+      "expected_markdown": "~~Gone~~",
+      "expected_text": "Gone"
+    },
+    {
+      "id": "F014",
+      "category": "inline",
+      "tags": [
+        "empty-wrapper"
+      ],
+      "html": "<p>A<strong></strong>B</p>",
+      "expected_markdown": "AB",
+      "expected_text": "AB"
+    },
+    {
+      "id": "F015",
+      "category": "inline",
+      "tags": [
+        "strong",
+        "emphasis",
+        "nesting"
+      ],
+      "html": "<p><strong>A <em>B</em></strong></p>",
+      "expected_markdown": "**A *B***",
+      "expected_text": "A B"
+    },
+    {
+      "id": "F016",
+      "category": "inline",
+      "tags": [
+        "literal-text"
+      ],
+      "html": "<p>plain_text</p>",
+      "expected_markdown": "plain_text",
+      "expected_text": "plain_text"
+    },
+    {
+      "id": "F017",
+      "category": "urls",
+      "tags": [
+        "safe-target"
+      ],
+      "html": "<p><a href=\"https://example.com/a\">Example</a></p>",
+      "expected_markdown": "[Example](https://example.com/a)",
+      "expected_text": "Example"
+    },
+    {
+      "id": "F018",
+      "category": "urls",
+      "tags": [
+        "safe-target",
+        "relative-target"
+      ],
+      "html": "<p><a href=\"/docs\">Docs</a></p>",
+      "expected_markdown": "[Docs](/docs)",
+      "expected_text": "Docs"
+    },
+    {
+      "id": "F019",
+      "category": "urls",
+      "tags": [
+        "safe-target",
+        "fragment-target"
+      ],
+      "html": "<p><a href=\"#part\">Part</a></p>",
+      "expected_markdown": "[Part](#part)",
+      "expected_text": "Part"
+    },
+    {
+      "id": "F020",
+      "category": "urls",
+      "tags": [
+        "safe-target",
+        "mailto-target"
+      ],
+      "html": "<p><a href=\"mailto:hello@example.com\">Mail</a></p>",
+      "expected_markdown": "[Mail](mailto:hello@example.com)",
+      "expected_text": "Mail"
+    },
+    {
+      "id": "F021",
+      "category": "urls",
+      "tags": [
+        "unsafe-target"
+      ],
+      "html": "<p><a href=\"javascript:alert(1)\">Bad</a></p>",
+      "expected_markdown": "Bad",
+      "expected_text": "Bad"
+    },
+    {
+      "id": "F022",
+      "category": "urls",
+      "tags": [
+        "unsafe-target"
+      ],
+      "html": "<p><a href=\"//example.com/x\">Bad</a></p>",
+      "expected_markdown": "Bad",
+      "expected_text": "Bad"
+    },
+    {
+      "id": "F023",
+      "category": "urls",
+      "tags": [
+        "image",
+        "safe-target"
+      ],
+      "html": "<p><img src=\"https://example.com/a.png\" alt=\"Cat\"></p>",
+      "expected_markdown": "![Cat](https://example.com/a.png)",
+      "expected_text": "Cat"
+    },
+    {
+      "id": "F024",
+      "category": "urls",
+      "tags": [
+        "image",
+        "unsafe-target"
+      ],
+      "html": "<p><img src=\"javascript:alert(1)\" alt=\"Cat\"></p>",
+      "expected_markdown": "Cat",
+      "expected_text": "Cat"
+    },
+    {
+      "id": "F025",
+      "category": "urls",
+      "tags": [
+        "image",
+        "unsafe-target"
+      ],
+      "html": "<p><img alt=\"Cat\"></p>",
+      "expected_markdown": "Cat",
+      "expected_text": "Cat"
+    },
+    {
+      "id": "F026",
+      "category": "urls",
+      "tags": [
+        "safe-target",
+        "encoded-destination"
+      ],
+      "html": "<p><a href=\"https://example.com/a b(c)\">X</a></p>",
+      "expected_markdown": "[X](https://example.com/a%20b%28c%29)",
+      "expected_text": "X"
+    },
+    {
+      "id": "F027",
+      "category": "urls",
+      "tags": [
+        "unsafe-target"
+      ],
+      "html": "<p><a href=\"https://user:pass@example.com/a\">Nope</a></p>",
+      "expected_markdown": "Nope",
+      "expected_text": "Nope"
+    },
+    {
+      "id": "F028",
+      "category": "urls",
+      "tags": [
+        "unsafe-target",
+        "obfuscated-target"
+      ],
+      "html": "<p><a href=\"java%73cript%3Aalert(1)\">Bad</a></p>",
+      "expected_markdown": "Bad",
+      "expected_text": "Bad"
+    },
+    {
+      "id": "F029",
+      "category": "code",
+      "tags": [
+        "inline-code"
+      ],
+      "html": "<p><code>x</code></p>",
+      "expected_markdown": "`x`",
+      "expected_text": "x"
+    },
+    {
+      "id": "F030",
+      "category": "code",
+      "tags": [
+        "inline-code",
+        "newline"
+      ],
+      "html": "<p><code>a\nb</code></p>",
+      "expected_markdown": "`a b`",
+      "expected_text": "a\nb"
+    },
+    {
+      "id": "F031",
+      "category": "code",
+      "tags": [
+        "inline-code",
+        "backticks"
+      ],
+      "html": "<p><code>a`b</code></p>",
+      "expected_markdown": "``a`b``",
+      "expected_text": "a`b"
+    },
+    {
+      "id": "F032",
+      "category": "code",
+      "tags": [
+        "inline-code",
+        "all-space"
+      ],
+      "html": "<p><code>   </code></p>",
+      "expected_markdown": "`   `",
+      "expected_text": "   "
+    },
+    {
+      "id": "F033",
+      "category": "code",
+      "tags": [
+        "pre"
+      ],
+      "html": "<pre>line1\n  line2</pre>",
+      "expected_markdown": "```\nline1\n  line2\n```",
+      "expected_text": "line1\n  line2"
+    },
+    {
+      "id": "F034",
+      "category": "code",
+      "tags": [
+        "pre",
+        "trailing-newline"
+      ],
+      "html": "<pre>x\n</pre>",
+      "expected_markdown": "```\nx\n```",
+      "expected_text": "x\n"
+    },
+    {
+      "id": "F035",
+      "category": "code",
+      "tags": [
+        "pre",
+        "backticks"
+      ],
+      "html": "<pre>a```b</pre>",
+      "expected_markdown": "````\na```b\n````",
+      "expected_text": "a```b"
+    },
+    {
+      "id": "F036",
+      "category": "code",
+      "tags": [
+        "pre",
+        "language"
+      ],
+      "html": "<pre><code class=\"language-js\">let x=1;</code></pre>",
+      "expected_markdown": "```js\nlet x=1;\n```",
+      "expected_text": "let x=1;"
+    },
+    {
+      "id": "F037",
+      "category": "tables",
+      "tags": [
+        "simple-table",
+        "header-row"
+      ],
+      "html": "<table><tr><th>A</th><th>B</th></tr><tr><td>1</td><td>2</td></tr></table>",
+      "expected_markdown": "| A | B |\n| --- | --- |\n| 1 | 2 |",
+      "expected_text": "A\tB\n1\t2"
+    },
+    {
+      "id": "F038",
+      "category": "tables",
+      "tags": [
+        "simple-table",
+        "headerless"
+      ],
+      "html": "<table><tr><td>1</td><td>2</td></tr></table>",
+      "expected_markdown": "|  |  |\n| --- | --- |\n| 1 | 2 |",
+      "expected_text": "1\t2"
+    },
+    {
+      "id": "F039",
+      "category": "tables",
+      "tags": [
+        "simple-table",
+        "pipe"
+      ],
+      "html": "<table><tr><th>A|B</th></tr><tr><td>C|D</td></tr></table>",
+      "expected_markdown": "| A\\|B |\n| --- |\n| C\\|D |",
+      "expected_text": "A|B\nC|D"
+    },
+    {
+      "id": "F040",
+      "category": "tables",
+      "tags": [
+        "complex-table",
+        "malformed-shape"
+      ],
+      "html": "<table><tr><td>A</td><td>B</td></tr><tr><td>C</td></tr></table>",
+      "expected_markdown": "A | B\nC",
+      "expected_text": "A | B\nC"
+    },
+    {
+      "id": "F041",
+      "category": "whitespace",
+      "tags": [
+        "ascii-whitespace"
+      ],
+      "html": "<p>A   B\tC\nD</p>",
+      "expected_markdown": "A B C D",
+      "expected_text": "A B C D"
+    },
+    {
+      "id": "F042",
+      "category": "whitespace",
+      "tags": [
+        "newline-normalization"
+      ],
+      "html": "<p>A\r\nB\rC</p>",
+      "expected_markdown": "A B C",
+      "expected_text": "A B C"
+    },
+    {
+      "id": "F043",
+      "category": "whitespace",
+      "tags": [
+        "nbsp",
+        "unicode"
+      ],
+      "html": "<p>A&nbsp;B</p>",
+      "expected_markdown": "A B",
+      "expected_text": "A B"
+    },
+    {
+      "id": "F044",
+      "category": "entities",
+      "tags": [
+        "entity-decode"
+      ],
+      "html": "<p>A&amp;B</p>",
+      "expected_markdown": "A&B",
+      "expected_text": "A&B"
+    },
+    {
+      "id": "F045",
+      "category": "entities",
+      "tags": [
+        "entity-decode",
+        "unicode"
+      ],
+      "html": "<p>&#x1F600;</p>",
+      "expected_markdown": "😀",
+      "expected_text": "😀"
+    },
+    {
+      "id": "F046",
+      "category": "entities",
+      "tags": [
+        "entity-decode",
+        "ascii-whitespace"
+      ],
+      "html": "<p>A&#32;B</p>",
+      "expected_markdown": "A B",
+      "expected_text": "A B"
+    },
+    {
+      "id": "F047",
+      "category": "removed",
+      "tags": [
+        "removed-subtree"
+      ],
+      "html": "<p>A<script>alert(1)</script>B</p>",
+      "expected_markdown": "AB",
+      "expected_text": "AB"
+    },
+    {
+      "id": "F048",
+      "category": "removed",
+      "tags": [
+        "removed-subtree"
+      ],
+      "html": "<p>A<style>.x{}</style>B</p>",
+      "expected_markdown": "AB",
+      "expected_text": "AB"
+    },
+    {
+      "id": "F049",
+      "category": "removed",
+      "tags": [
+        "comment"
+      ],
+      "html": "<p>A<!-- hidden -->B</p>",
+      "expected_markdown": "AB",
+      "expected_text": "AB"
+    },
+    {
+      "id": "F050",
+      "category": "removed",
+      "tags": [
+        "removed-subtree"
+      ],
+      "html": "<svg><text>X</text></svg><p>Y</p>",
+      "expected_markdown": "Y",
+      "expected_text": "Y"
+    },
+    {
+      "id": "F051",
+      "category": "removed",
+      "tags": [
+        "head"
+      ],
+      "html": "<head><title>X</title></head><body><p>Y</p></body>",
+      "expected_markdown": "Y",
+      "expected_text": "Y"
+    },
+    {
+      "id": "F052",
+      "category": "removed",
+      "tags": [
+        "form-control",
+        "adjacent-blocks"
+      ],
+      "html": "<p>A</p><button>X</button><p>B</p>",
+      "expected_markdown": "A\n\nB",
+      "expected_text": "A\n\nB"
+    },
+    {
+      "id": "F053",
+      "category": "removed",
+      "tags": [
+        "removed-subtree"
+      ],
+      "html": "<p>A<iframe src=\"https://example.com\">X</iframe>B</p>",
+      "expected_markdown": "AB",
+      "expected_text": "AB"
+    },
+    {
+      "id": "F054",
+      "category": "removed",
+      "tags": [
+        "form-control"
+      ],
+      "html": "<p>A<input value=\"X\">B</p>",
+      "expected_markdown": "AB",
+      "expected_text": "AB"
+    },
+    {
+      "id": "F055",
+      "category": "malformed",
+      "tags": [
+        "malformed-html"
+      ],
+      "html": "<p>Hello",
+      "expected_markdown": "Hello",
+      "expected_text": "Hello"
+    },
+    {
+      "id": "F056",
+      "category": "malformed",
+      "tags": [
+        "malformed-html",
+        "strong"
+      ],
+      "html": "<strong>Bold",
+      "expected_markdown": "**Bold**",
+      "expected_text": "Bold"
+    },
+    {
+      "id": "F057",
+      "category": "nesting",
+      "tags": [
+        "nesting",
+        "list"
+      ],
+      "html": "<ul><li>Parent<ul><li>Child</li></ul></li></ul>",
+      "expected_markdown": "- Parent\n  - Child",
+      "expected_text": "Parent\n  Child"
+    },
+    {
+      "id": "F058",
+      "category": "nesting",
+      "tags": [
+        "list",
+        "ordered-start"
+      ],
+      "html": "<ol start=\"3\"><li>A</li><li>B</li></ol>",
+      "expected_markdown": "3. A\n4. B",
+      "expected_text": "A\nB"
+    },
+    {
+      "id": "F059",
+      "category": "unicode",
+      "tags": [
+        "unicode",
+        "combining-mark"
+      ],
+      "html": "<p>Café é</p>",
+      "expected_markdown": "Café é",
+      "expected_text": "Café é"
+    },
+    {
+      "id": "F060",
+      "category": "unicode",
+      "tags": [
+        "unicode",
+        "rtl"
+      ],
+      "html": "<p>مرحبا بالعالم</p>",
+      "expected_markdown": "مرحبا بالعالم",
+      "expected_text": "مرحبا بالعالم"
+    },
+    {
+      "id": "F061",
+      "category": "unicode",
+      "tags": [
+        "unicode",
+        "emoji"
+      ],
+      "html": "<p>Hello 😀</p>",
+      "expected_markdown": "Hello 😀",
+      "expected_text": "Hello 😀"
+    },
+    {
+      "id": "F062",
+      "category": "nesting",
+      "tags": [
+        "nesting",
+        "custom-element",
+        "adjacent-blocks"
+      ],
+      "html": "<x-card><p>A</p><p>B</p></x-card>",
+      "expected_markdown": "A\n\nB",
+      "expected_text": "A\n\nB"
+    }
+  ]
+}

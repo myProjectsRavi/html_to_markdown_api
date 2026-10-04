@@ -1,0 +1,45 @@
+name: Autopilot Validation
+
+on:
+  push:
+    branches:
+      - autopilot/html-markdown-v1
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: html-markdown-autopilot-validation-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout exact revision
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+
+      - name: Use Node 22.22.2
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22.22.2
+          cache: npm
+
+      - name: Verify bundled npm
+        run: test "$(npm --version)" = "10.9.7"
+
+      - name: Install reviewed lockfile
+        run: npm ci
+
+      - name: Verify installed dependency graph
+        run: npm ls --all
+
+      - name: Validate current checkpoint
+        run: npm run verify:current
+
+      - name: Verify generated files are ignored
+        run: git status --short

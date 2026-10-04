@@ -326,3 +326,14 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Protected code whitespace is retained, removed subtrees stay absent, and empty HTML produces empty text.
 - Safe browser insertion guidance uses `textContent`, not `innerHTML`.
 - Evidence: `docs/autopilot/evidence/US025.md`.
+
+
+## US026 - Render structured content as clean text
+
+- Status: DONE.
+- Tested branch SHA: `96de63916af13b4dbd489f7665202c59808f65bb`.
+- Authoritative validation: GitHub Actions run `37166729220`, job `111331110118`, conclusion `success`.
+- Focused structured clean-text suite covers nested lists with two-space indentation/no bullet syntax, visible link text, image alt text, protected pre/code handling, tab/LF table separators, complex/nested table token preservation, quote/details ordering, and prohibited-subtree parity with the Markdown renderer.
+- Failure history: run `37166440515` exposed inline-code boundary trimming and nested-table separator defects; run `37166566990` retained only trailing protected-code block-boundary whitespace. Both were fixed in US026 without weakening tests.
+- Final repair commit: `29d974c77dac52f09c2dc487d25bb5a821f5fe3c`.
+- Conclusion: US026 acceptance criteria pass; US027 is next.

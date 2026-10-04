@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-five-story-us027",
-  "story_id": "US027",
-  "base_head": "b34d3e09b3e22cd13bc7f081bc9c932992b119af",
-  "acquired_at": "2026-10-04T01:05:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "5643ac94a112ea53996f24458ac34296704151d4",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Implement shared bounded output accounting, route integration, factual stats and US027 boundary tests."
+  "note": "Released after US027 feature-write collision; concurrent same-story writer checkpoint exists at current HEAD. Reconcile before further mutation."
 }

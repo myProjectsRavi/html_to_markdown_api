@@ -210,7 +210,10 @@ function renderInlineBlock(children: readonly CleanNode[]): string {
   while (last >= first && rendered[last]!.length === 0) last -= 1;
 
   if (!edgeIsProtected(children[first]!, "start")) rendered[first] = rendered[first]!.trimStart();
-  if (!edgeIsProtected(children[last]!, "end")) rendered[last] = rendered[last]!.trimEnd();
+  // A block container owns trailing structural whitespace even when its last
+  // inline child is protected code. Internal code whitespace remains intact;
+  // only whitespace at the enclosing block boundary is removed.
+  rendered[last] = rendered[last]!.trimEnd();
   return rendered.slice(first, last + 1).join("");
 }
 

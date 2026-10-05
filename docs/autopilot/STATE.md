@@ -7,16 +7,12 @@
 - Current Epic: E07 Verification, security and CI hardening
 - Current Feature: F15 Regression and fuzz verification
 - Current Story: US029 Complete the supported behavior regression suite
-- Phase: VALIDATING
+- Phase: DONE
 - Prerequisite US028: DONE, tested SHA `207c0517c922984f2aa517086cd1779985d49a68`.
-- Corpus checkpoint: 120 reviewed synthetic fixtures in `tests/fixtures/corpus.json`.
-- Coverage map: `docs/testing/US029_REQUIREMENTS_MAP.md`.
-- Integrated regression runner: `tests/regression-corpus.test.ts` exercises both conversion endpoints and validates factual stats.
-- Validation wiring: `npm run test:regression` is part of `verify:current`.
-- Candidate branch HEAD before release: `45954bd6d5b388c45274aaf824801e837f4cf984`.
-- Validation status: authoritative GitHub Actions pending; no PASS is claimed yet.
-- Exact next action: inspect the released-head Actions run, fix any US029-only regression mismatch without weakening assertions, and mark DONE only after all acceptance evidence passes.
-- Failure repair: Actions runs `37296351331` and `37296351283` exposed stale canonical expectations beginning at F005. Approved renderer outputs were reconciled without changing production behavior; regression assertions now report all mismatches in a campaign.
-- Repair checkpoint: `9e72f1c7e5d4b9b65768ae00a7ce92490ef65fce`. Authoritative revalidation pending; no PASS claimed.
-- Second validation repair: Actions runs `37296905919` and `37296905723` exposed F051 document-metadata leakage and F089 all-space clean-text boundary behavior. `head`/`title` are now explicit dropped metadata subtrees with a normalization regression test; F089 expected text is empty at the enclosing paragraph boundary.
-- Repair checkpoint: `65f97c6622fb3ba5e69ec82e5026a91b5b5858a2`. Authoritative revalidation pending; no PASS claimed.
+- Tested SHA: `bddd65015e675d334df50cb988cc55f82b55df90`.
+- Authoritative validation: GitHub Actions run `37297313833`, job `111721631347`, conclusion `success`.
+- Canonical corpus: 120 reviewed synthetic fixtures.
+- Requirements map: `docs/testing/US029_REQUIREMENTS_MAP.md`.
+- Evidence: `docs/autopilot/evidence/US029.md`.
+- Failure repairs: stale fixture expectations were reviewed; document-head metadata leakage was fixed in production normalization and covered by a focused regression test.
+- Exact next action: begin US030 Add reproducible property and fuzz tests as a distinct story run. Do not skip ahead.

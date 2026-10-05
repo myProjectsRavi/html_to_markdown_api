@@ -28,6 +28,7 @@ const RETAINED_ELEMENTS = new Set([
 ]);
 
 const DROP_SUBTREES = new Set([
+  "head", "title",
   "script", "style", "template",
   "svg", "math",
   "iframe", "object", "embed",

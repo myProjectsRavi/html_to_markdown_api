@@ -18,3 +18,5 @@
 - Exact next action: inspect the released-head Actions run, fix any US029-only regression mismatch without weakening assertions, and mark DONE only after all acceptance evidence passes.
 - Failure repair: Actions runs `37296351331` and `37296351283` exposed stale canonical expectations beginning at F005. Approved renderer outputs were reconciled without changing production behavior; regression assertions now report all mismatches in a campaign.
 - Repair checkpoint: `9e72f1c7e5d4b9b65768ae00a7ce92490ef65fce`. Authoritative revalidation pending; no PASS claimed.
+- Second validation repair: Actions runs `37296905919` and `37296905723` exposed F051 document-metadata leakage and F089 all-space clean-text boundary behavior. `head`/`title` are now explicit dropped metadata subtrees with a normalization regression test; F089 expected text is empty at the enclosing paragraph boundary.
+- Repair checkpoint: `65f97c6622fb3ba5e69ec82e5026a91b5b5858a2`. Authoritative revalidation pending; no PASS claimed.

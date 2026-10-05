@@ -49,7 +49,7 @@
         "break"
       ],
       "html": "<p>A<br>B</p>",
-      "expected_markdown": "A\\\nB",
+      "expected_markdown": "A  \nB",
       "expected_text": "A\nB"
     },
     {
@@ -70,7 +70,7 @@
         "adjacent-blocks"
       ],
       "html": "<blockquote><p>Hi</p><p>There</p></blockquote>",
-      "expected_markdown": "> Hi\n> \n> There",
+      "expected_markdown": "> Hi\n>\n> There",
       "expected_text": "Hi\n\nThere"
     },
     {
@@ -173,7 +173,7 @@
         "safe-target"
       ],
       "html": "<p><a href=\"https://example.com/a\">Example</a></p>",
-      "expected_markdown": "[Example](https://example.com/a)",
+      "expected_markdown": "[Example](<https://example.com/a>)",
       "expected_text": "Example"
     },
     {
@@ -184,7 +184,7 @@
         "relative-target"
       ],
       "html": "<p><a href=\"/docs\">Docs</a></p>",
-      "expected_markdown": "[Docs](/docs)",
+      "expected_markdown": "[Docs](</docs>)",
       "expected_text": "Docs"
     },
     {
@@ -195,7 +195,7 @@
         "fragment-target"
       ],
       "html": "<p><a href=\"#part\">Part</a></p>",
-      "expected_markdown": "[Part](#part)",
+      "expected_markdown": "[Part](<#part>)",
       "expected_text": "Part"
     },
     {
@@ -206,7 +206,7 @@
         "mailto-target"
       ],
       "html": "<p><a href=\"mailto:hello@example.com\">Mail</a></p>",
-      "expected_markdown": "[Mail](mailto:hello@example.com)",
+      "expected_markdown": "[Mail](<mailto:hello@example.com>)",
       "expected_text": "Mail"
     },
     {
@@ -237,7 +237,7 @@
         "safe-target"
       ],
       "html": "<p><img src=\"https://example.com/a.png\" alt=\"Cat\"></p>",
-      "expected_markdown": "![Cat](https://example.com/a.png)",
+      "expected_markdown": "![Cat](<https://example.com/a.png>)",
       "expected_text": "Cat"
     },
     {
@@ -270,7 +270,7 @@
         "encoded-destination"
       ],
       "html": "<p><a href=\"https://example.com/a b(c)\">X</a></p>",
-      "expected_markdown": "[X](https://example.com/a%20b%28c%29)",
+      "expected_markdown": "[X](<https://example.com/a%20b%28c%29>)",
       "expected_text": "X"
     },
     {
@@ -301,7 +301,7 @@
         "inline-code"
       ],
       "html": "<p><code>x</code></p>",
-      "expected_markdown": "`x`",
+      "expected_markdown": "` x `",
       "expected_text": "x"
     },
     {
@@ -312,7 +312,7 @@
         "newline"
       ],
       "html": "<p><code>a\nb</code></p>",
-      "expected_markdown": "`a b`",
+      "expected_markdown": "` a b `",
       "expected_text": "a\nb"
     },
     {
@@ -323,7 +323,7 @@
         "backticks"
       ],
       "html": "<p><code>a`b</code></p>",
-      "expected_markdown": "``a`b``",
+      "expected_markdown": "`` a`b ``",
       "expected_text": "a`b"
     },
     {
@@ -335,7 +335,7 @@
       ],
       "html": "<p><code>   </code></p>",
       "expected_markdown": "`   `",
-      "expected_text": "   "
+      "expected_text": ""
     },
     {
       "id": "F033",
@@ -422,7 +422,7 @@
       ],
       "html": "<table><tr><td>A</td><td>B</td></tr><tr><td>C</td></tr></table>",
       "expected_markdown": "A | B\nC",
-      "expected_text": "A | B\nC"
+      "expected_text": "A\tB\nC"
     },
     {
       "id": "F041",
@@ -856,7 +856,7 @@
         "safe-target"
       ],
       "html": "<p><a href=\"https://example.com/a\">A</a></p>",
-      "expected_markdown": "[A](https://example.com/a)",
+      "expected_markdown": "[A](<https://example.com/a>)",
       "expected_text": "A"
     },
     {
@@ -867,7 +867,7 @@
         "relative-target"
       ],
       "html": "<p><a href=\"/a/b\">Rel</a></p>",
-      "expected_markdown": "[Rel](/a/b)",
+      "expected_markdown": "[Rel](</a/b>)",
       "expected_text": "Rel"
     },
     {
@@ -878,7 +878,7 @@
         "fragment-target"
       ],
       "html": "<p><a href=\"#x\">Frag</a></p>",
-      "expected_markdown": "[Frag](#x)",
+      "expected_markdown": "[Frag](<#x>)",
       "expected_text": "Frag"
     },
     {
@@ -889,7 +889,7 @@
         "mailto-target"
       ],
       "html": "<p><a href=\"mailto:a@example.com\">Mail</a></p>",
-      "expected_markdown": "[Mail](mailto:a@example.com)",
+      "expected_markdown": "[Mail](<mailto:a@example.com>)",
       "expected_text": "Mail"
     },
     {

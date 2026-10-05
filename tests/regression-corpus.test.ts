@@ -38,8 +38,8 @@ describe("US029 canonical regression corpus", () => {
       const expectedStatus = fixture.expected_status ?? 200;
       const markdownResponse = await convert(ENDPOINTS.markdown, fixture.html);
       const textResponse = await convert(ENDPOINTS.text, fixture.html);
-      expect(markdownResponse.status, fixture.id + " markdown status").toBe(expectedStatus);
-      expect(textResponse.status, fixture.id + " text status").toBe(expectedStatus);
+      expect.soft(markdownResponse.status, fixture.id + " markdown status").toBe(expectedStatus);
+      expect.soft(textResponse.status, fixture.id + " text status").toBe(expectedStatus);
       if (expectedStatus !== 200) continue;
 
       const markdownPayload = await markdownResponse.json() as {
@@ -51,14 +51,14 @@ describe("US029 canonical regression corpus", () => {
         stats: { input_bytes: number; output_chars: number };
       };
 
-      expect(markdownPayload.markdown, fixture.id + " markdown").toBe(fixture.expected_markdown);
-      expect(textPayload.text, fixture.id + " text").toBe(fixture.expected_text);
+      expect.soft(markdownPayload.markdown, fixture.id + " markdown").toBe(fixture.expected_markdown);
+      expect.soft(textPayload.text, fixture.id + " text").toBe(fixture.expected_text);
       const inputBytes = new TextEncoder().encode(fixture.html).byteLength;
-      expect(markdownPayload.stats.input_bytes, fixture.id + " markdown input bytes").toBe(inputBytes);
-      expect(textPayload.stats.input_bytes, fixture.id + " text input bytes").toBe(inputBytes);
-      expect(markdownPayload.stats.output_chars, fixture.id + " markdown chars")
+      expect.soft(markdownPayload.stats.input_bytes, fixture.id + " markdown input bytes").toBe(inputBytes);
+      expect.soft(textPayload.stats.input_bytes, fixture.id + " text input bytes").toBe(inputBytes);
+      expect.soft(markdownPayload.stats.output_chars, fixture.id + " markdown chars")
         .toBe(Array.from(markdownPayload.markdown).length);
-      expect(textPayload.stats.output_chars, fixture.id + " text chars")
+      expect.soft(textPayload.stats.output_chars, fixture.id + " text chars")
         .toBe(Array.from(textPayload.text).length);
     }
   });

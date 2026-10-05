@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "8bfc4ce99a115b44429b7ca4b386bf33f8387f1c",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-us029-head-leak-fix-2",
+  "story_id": "US029",
+  "base_head": "2f63646118fa4b7cf7e612fe70f98a0b922c3a36",
+  "acquired_at": "2026-10-05T10:34:00Z",
   "lease_minutes": 20,
-  "note": "US029 metadata repair interrupted; resume from durable repository state."
+  "note": "Retry precise US029 document metadata leak repair after safe anchor rejection."
 }

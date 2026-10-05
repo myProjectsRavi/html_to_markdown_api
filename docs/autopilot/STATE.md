@@ -16,3 +16,5 @@
 - Candidate branch HEAD before release: `45954bd6d5b388c45274aaf824801e837f4cf984`.
 - Validation status: authoritative GitHub Actions pending; no PASS is claimed yet.
 - Exact next action: inspect the released-head Actions run, fix any US029-only regression mismatch without weakening assertions, and mark DONE only after all acceptance evidence passes.
+- Failure repair: Actions runs `37296351331` and `37296351283` exposed stale canonical expectations beginning at F005. Approved renderer outputs were reconciled without changing production behavior; regression assertions now report all mismatches in a campaign.
+- Repair checkpoint: `9e72f1c7e5d4b9b65768ae00a7ce92490ef65fce`. Authoritative revalidation pending; no PASS claimed.

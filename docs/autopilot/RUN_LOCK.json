@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "1e442f84d5172e3e46740e18bab7427e81942daa",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-five-story-us030-retry",
+  "story_id": "US030",
+  "base_head": "823e0043788911c3f3c39dc27cf525b4dad54c7e",
+  "acquired_at": "2026-10-05T10:40:00Z",
   "lease_minutes": 20,
-  "note": "US030 mutation interrupted at create-test; resume from durable repository state."
+  "note": "Retry US030 deterministic property campaign after connector runtime decoder limitation."
 }

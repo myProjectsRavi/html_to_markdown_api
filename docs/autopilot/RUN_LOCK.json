@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "016209f46a98e76626e0258286a4c69bc49a55fe",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-us029-regression-repair",
+  "story_id": "US029",
+  "base_head": "473c3f89200e286e843bd113d73d9476628e4d6b",
+  "acquired_at": "2026-10-05T10:28:00Z",
   "lease_minutes": 20,
-  "note": "US029 regression corpus checkpointed in VALIDATING; lock released for authoritative Actions."
+  "note": "Repair authoritative US029 regression fixture mismatch from Actions failure."
 }

@@ -6,13 +6,11 @@
 - Approved starting revision (`main`): `51497790a365b9465e35bb8dd2b06adb4ac38d4c`
 - Current Epic: E07 Verification, security and CI hardening
 - Current Feature: F15 Regression and fuzz verification
-- Current Story: US029 Complete the supported behavior regression suite
-- Phase: DONE
-- Prerequisite US028: DONE, tested SHA `207c0517c922984f2aa517086cd1779985d49a68`.
-- Tested SHA: `bddd65015e675d334df50cb988cc55f82b55df90`.
-- Authoritative validation: GitHub Actions run `37297313833`, job `111721631347`, conclusion `success`.
-- Canonical corpus: 120 reviewed synthetic fixtures.
-- Requirements map: `docs/testing/US029_REQUIREMENTS_MAP.md`.
-- Evidence: `docs/autopilot/evidence/US029.md`.
-- Failure repairs: stale fixture expectations were reviewed; document-head metadata leakage was fixed in production normalization and covered by a focused regression test.
-- Exact next action: begin US030 Add reproducible property and fuzz tests as a distinct story run. Do not skip ahead.
+- Current Story: US030 Add reproducible property and fuzz tests
+- Phase: IN_PROGRESS
+- Prerequisite US029: DONE, tested SHA `bddd65015e675d334df50cb988cc55f82b55df90`.
+- Completed planning: deterministic generator v1 is defined for tags, entities, URLs, whitespace and nesting; target campaign is seeds 1-10000 with per-case HTML <=4096 UTF-8 bytes and grammar depth <=4.
+- Intended acceptance checks: repeat determinism, documented status mapping, factual input/output counters, removed-subtree canaries, saved replay seed 4242, and a runtime network trap.
+- Blocker history: direct large-file composition hit connector-isolate decoder limitations; the subsequent native Git blob/tree write attempt was rejected with InvalidActionArguments before any branch feature file commit was confirmed.
+- Durable branch checkpoint: no US030 feature/test file is claimed committed by this failed write attempt. Branch HEAD at recovery start was `747c15a0e2e12c34570d58214bc27d21d6800ff0`, a lock-only claim commit.
+- Exact next action: release the current lease, reclaim US030 from the released head, and write the property campaign using a validated smaller GitHub contents-API path. Then run authoritative Actions and diagnose any failing seed inside US030.

@@ -942,7 +942,7 @@
       ],
       "html": "<p><code>   </code></p>",
       "expected_markdown": "`   `",
-      "expected_text": "   "
+      "expected_text": ""
     },
     {
       "id": "F090",

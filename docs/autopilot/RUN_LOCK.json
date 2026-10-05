@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "84a56e3e1c81ddd8d2d28926d7f01a2e6d2e4a0a",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-five-story-us029",
+  "story_id": "US029",
+  "base_head": "d3eb18e09a5018eef429efe60a20f2ee33e5131b",
+  "acquired_at": "2026-10-05T10:22:00Z",
   "lease_minutes": 20,
-  "note": "US028 DONE after authoritative Actions run 37167612532."
+  "note": "Implement US029 supported behavior regression suite."
 }

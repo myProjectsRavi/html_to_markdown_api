@@ -350,3 +350,16 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Deep nesting/list expansion is bounded and returns fixed 422 `output_too_large` with no partial success payload.
 - Failure history includes expected legacy placeholder-test failures after routes became live; those tests were updated to assert successful conversion rather than weakening security/auth behavior.
 - Conclusion: all US027 acceptance/evidence requirements pass. US028 is next.
+
+## US028 - Finalize error precedence and stateless requests
+
+- Status: DONE.
+- Tested branch SHA: `207c0517c922984f2aa517086cd1779985d49a68`.
+- Authoritative validation: GitHub Actions run `37167612532`, job `111333955108`, conclusion `success`.
+- Full `npm run verify:current` passed on the tested SHA.
+- Worker harness coverage includes documented error precedence, exact error/header parity across both conversion endpoints, injected 500, controlled 503, 100 concurrent mixed synthetic requests, and failure-then-success isolation.
+- Synthetic canaries did not cross request boundaries; valid requests remained successful after malformed, limit, and injected-failure requests.
+- Unexpected exceptions are caught only at the business route boundary and mapped to the fixed internal-error envelope; infrastructure timeouts/resource-limit responses are not misrepresented as application JSON.
+- Evidence: `docs/autopilot/evidence/US028.md`.
+- Conclusion: US028 acceptance/evidence passes; US029 is next.
+

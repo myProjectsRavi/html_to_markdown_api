@@ -24,6 +24,13 @@ describe("US011 shared safe-content normalization", () => {
     expect(JSON.stringify(tree)).not.toMatch(/secret|script|style|template|svg|math|iframe|object/);
   });
 
+  it("drops head and title metadata instead of exposing it as content", () => {
+    const tree = clean("<head><title>metadata-secret</title></head><body><p>Body</p></body>");
+
+    expect(extractCleanText(tree)).toBe("Body");
+    expect(JSON.stringify(tree)).not.toMatch(/metadata-secret|title|head/);
+  });
+
   it("drops form controls as subtrees", () => {
     const tree = clean(
       "<form>keep" +

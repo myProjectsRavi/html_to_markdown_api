@@ -44,8 +44,8 @@ export function validateFixtureDocument(document) {
   if (document.provenance !== "synthetic-only") {
     fail("fixture provenance must be synthetic-only");
   }
-  if (!Array.isArray(document.records) || document.records.length < 40) {
-    fail("fixture corpus must contain at least 40 records");
+  if (!Array.isArray(document.records) || document.records.length < 120) {
+    fail("fixture corpus must contain at least 120 records");
   }
 
   const ids = new Set();

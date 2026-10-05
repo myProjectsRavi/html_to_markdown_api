@@ -363,3 +363,16 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Evidence: `docs/autopilot/evidence/US028.md`.
 - Conclusion: US028 acceptance/evidence passes; US029 is next.
 
+## US029 - Complete the supported behavior regression suite
+
+- Status: DONE.
+- Tested branch SHA: `bddd65015e675d334df50cb988cc55f82b55df90`.
+- Authoritative validation: GitHub Actions run `37297313833`, job `111721631347`, conclusion `success`.
+- Complete `npm run verify:current` passed from the exact tested SHA.
+- Canonical corpus contains 120 reviewed synthetic fixtures with dual-endpoint expectations where meaningful; the requirements map is `docs/testing/US029_REQUIREMENTS_MAP.md`.
+- Integrated `tests/regression-corpus.test.ts` exercises both Worker conversion routes and validates factual statistics rather than helper-only behavior.
+- Failure history is preserved: run `37296351331` exposed stale canonical expectations; run `37296905919` then exposed a real document-head metadata leak plus the remaining all-space clean-text fixture mismatch.
+- The metadata leak was fixed in production normalization by dropping `head`/`title` subtrees and adding a focused regression test. Fixture expectations were reconciled only where existing approved behavior was authoritative.
+- Evidence: `docs/autopilot/evidence/US029.md`.
+- Conclusion: US029 passes; US030 is next.
+

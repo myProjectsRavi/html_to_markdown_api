@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "67a0acd1c45506b086b65bd4298ad6459a24224f",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-five-story-us030-gitdata",
+  "story_id": "US030",
+  "base_head": "a2cc21616c85d70ae9c0cf0a765e54a4064516a2",
+  "acquired_at": "2026-10-05T10:42:00Z",
   "lease_minutes": 20,
-  "note": "US030 mutation interrupted at create-test; resume from durable repository state."
+  "note": "Implement US030 via native Git blob/tree path after connector decode limitations."
 }

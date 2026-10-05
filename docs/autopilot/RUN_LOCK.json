@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "6517c2e95c9f6147a4346f2781631d31cbb5a298",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-batch-us028-finalize",
+  "story_id": "US028",
+  "base_head": "207c0517c922984f2aa517086cd1779985d49a68",
+  "acquired_at": "2026-10-05T10:17:00Z",
   "lease_minutes": 20,
-  "note": "US028 candidate checkpointed in VALIDATING; lock released while authoritative Actions runs."
+  "note": "Finalize US028 after authoritative Actions success on released branch head."
 }

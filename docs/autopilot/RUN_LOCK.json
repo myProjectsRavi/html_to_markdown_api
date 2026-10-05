@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "chatgpt-five-story-us029-finalize",
-  "story_id": "US029",
-  "base_head": "bddd65015e675d334df50cb988cc55f82b55df90",
-  "acquired_at": "2026-10-05T10:36:00Z",
+  "state": "released",
+  "owner": null,
+  "story_id": null,
+  "base_head": "ff3de3b4b48e3bc279dd095125948ae9009c2db6",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Finalize US029 after authoritative exact-head Actions run 37297313833 passed."
+  "note": "US029 DONE after authoritative Actions run 37297313833 passed."
 }

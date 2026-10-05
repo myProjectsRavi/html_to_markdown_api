@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "747c15a0e2e12c34570d58214bc27d21d6800ff0",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-us030-contents-retry",
+  "story_id": "US030",
+  "base_head": "c4527c1f12d5ebfa6b76dc80595ec3a1ab0d8073",
+  "acquired_at": "2026-10-05T10:45:00Z",
   "lease_minutes": 20,
-  "note": "US030 git-data write rejected; precise IN_PROGRESS checkpoint recorded and lease released for retry."
+  "note": "Resume US030 using validated contents-API writes."
 }

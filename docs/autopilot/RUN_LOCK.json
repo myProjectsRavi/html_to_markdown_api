@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "recovery-watchdog-20261007",
+  "state": "released",
+  "owner": null,
   "story_id": "US033",
   "base_head": "f9bc44749eb0ab78778094cb60c2fdb83765cb38",
-  "acquired_at": "2026-10-07T00:00:00Z",
+  "acquired_at": null,
   "lease_minutes": 20,
-  "note": "Recover US033 after terminal dependency-audit failure."
+  "note": "Released after connector safety rejected US033 checkpoint persistence."
 }

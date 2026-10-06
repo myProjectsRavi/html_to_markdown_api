@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
+  "state": "active",
+  "owner": "recovery-watchdog-us033-20261007",
   "story_id": "US033",
-  "base_head": "f9bc44749eb0ab78778094cb60c2fdb83765cb38",
-  "acquired_at": null,
+  "base_head": "00d136f87394dfc2265c8b31fdfd33ff8955d13a",
+  "acquired_at": "2026-10-06T19:20:00Z",
   "lease_minutes": 20,
-  "note": "Released after connector safety rejected US033 checkpoint persistence."
+  "note": "Recover terminal US033 CI policy failure on benchmark artifact retention."
 }

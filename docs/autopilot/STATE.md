@@ -4,11 +4,10 @@
 - Target repository: `myProjectsRavi/html_to_markdown_api`
 - Allowed implementation branch: `autopilot/html-markdown-v1`
 - Approved starting revision (`main`): `51497790a365b9465e35bb8dd2b06adb4ac38d4c`
-- Current Epic: E07 Verification, security and CI hardening
-- Current Feature: F16 Security and CI hardening
-- Current Story: US032 Harden dependencies and CI permissions
-- Phase: IN_PROGRESS
-- Completed US031: DONE, tested SHA `0142245e9695156a7c20e3c4faabc0ac4c9342ee`, authoritative run `37454487008` / job `112238837688`.
-- US031 evidence: 5 security regressions passed; 118 tracked files and 520 history commits scanned with zero high-confidence secret hits; 18 runtime source files had zero outbound/storage/log findings; no runtime bindings found.
-- US032 implementation: exact dependency/install-script policy, immutable Action refs, read-only PR trust policy, dated high-severity npm advisory checks, built-bundle import audit and one-day artifact retention are committed.
-- Exact next action: run authoritative Actions on the integrated US032 gate; repair any policy/advisory/bundle finding before recording evidence and advancing to US033.
+- Current Epic: E08 Performance and release evidence
+- Current Feature: F17 Measured performance
+- Current Story: US033 Measure end-to-end performance
+- Phase: TODO
+- Completed US032: DONE, tested SHA `11aec7adbf67217880f488e68991207a90563aea`, authoritative run `37455989867` / job `112244172396`.
+- US032 evidence: full and production npm audits both 0 vulnerabilities; 6 runtime transitive packages policy-clean; all retained CI Action refs immutable; PR validation is read-only/no-secrets; built bundle 446,473 bytes with zero forbidden import/egress/storage findings; one-day artifact 11408988630.
+- Exact next action: claim US033, add a fixed multi-family/multi-size benchmark corpus for both endpoints and internal stages, run it in three independent processes, retain machine-readable results, document methodology and validate ordinary 128 KiB acceptance separately from the isolated 256 KiB rejection experiment.

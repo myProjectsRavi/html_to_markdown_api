@@ -376,3 +376,17 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Evidence: `docs/autopilot/evidence/US029.md`.
 - Conclusion: US029 passes; US030 is next.
 
+## US030 - Add reproducible property and fuzz tests
+
+- Status: DONE.
+- Tested branch SHA: `89e87fcfaffd47929e23fc06684c5f55f94a6a0a`.
+- Authoritative validation: Autopilot Validation run `37453553810`, job `112236147904`, conclusion `success`.
+- Corroborating full-gate runs: push `37453553799` and pull request `37453560801`, both successful on the exact SHA.
+- Deterministic generator version `us030-grammar-v1` ran seeds 1-10000 with <=4096-byte cases and grammar depth <=4.
+- Saved replay seed `4242` reproduces exactly.
+- The campaign issued 40,000 integrated conversion requests across both endpoints and exact repeat comparisons.
+- Fuzz test runtime in the authoritative job: 3.906 seconds; no failing seed required minimization.
+- Factual statistics, documented status mapping, removed-subtree canaries and the runtime network trap all passed.
+- Evidence: `docs/autopilot/evidence/US030.md`.
+- Conclusion: US030 acceptance/evidence passes; US031 is next.
+

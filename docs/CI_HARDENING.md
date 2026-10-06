@@ -19,11 +19,13 @@ US032 keeps validation reproducible and prevents untrusted code from receiving d
 - `npm ci` rebuilds strictly from the reviewed lockfile.
 - Runtime transitive packages must retain version, license and integrity metadata.
 - Runtime dependencies may not execute install scripts.
-- The reviewed dev-only install-script packages are `esbuild@0.28.1`, `fsevents@2.3.3`, and `workerd@1.20260925.1`. Any version/package change fails the policy gate until reviewed.
+- The reviewed dev-only install-script packages are `esbuild@0.28.1`, `fsevents@2.3.3`, and `workerd@1.20261001.1`. Any version/package change fails the policy gate until reviewed.
 - CI runs dated npm advisory checks at high severity for the full dependency graph and the production graph. Advisory retrieval is intentionally outside the deterministic conversion test suite.
 
 ## Artifact and bundle policy
 
 The Worker is dry-run built before bundle auditing. The bundle audit fails on Node/system networking or filesystem imports, browser egress primitives, or persistent Cloudflare binding types. The audited dry-run bundle is retained for one day in the branch validation workflow so a specific build can be inspected without creating a long-lived artifact store.
+
+The reviewed Cloudflare test toolchain is `@cloudflare/vitest-plugin@1.3.6` and `wrangler@4.147.0`. The lockfile also pins the advisory fixes `source-map-js@1.2.2` and `undici@7.29.1`.
 
 Security and secret scanning from US031 remains part of `verify:current`.

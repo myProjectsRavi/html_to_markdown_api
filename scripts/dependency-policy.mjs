@@ -23,7 +23,7 @@ if (pkg.packageManager !== "npm@10.9.7") {
 const allowedInstallScripts = new Map([
   ["node_modules/esbuild", "0.28.1"],
   ["node_modules/fsevents", "2.3.3"],
-  ["node_modules/workerd", "1.20260925.1"],
+  ["node_modules/workerd", "1.20261001.1"],
 ]);
 
 const installScripts = [];

@@ -3,10 +3,10 @@
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
   "state": "active",
-  "owner": "chatgpt-five-stories-20261006",
+  "owner": "recovery-watchdog-20261006T1512Z",
   "story_id": "US033",
-  "base_head": "bdf69e65bdf27f97228c86cf030389a41fb98d7a",
-  "acquired_at": "2026-10-06T14:30:00Z",
+  "base_head": "8de72452faa921f481c61ae89978f780133977e8",
+  "acquired_at": "2026-10-06T15:12:39Z",
   "lease_minutes": 20,
-  "note": "Recover US033 benchmark finalization before continuing sequentially."
+  "note": "Recover US033 benchmark evidence after successful checkpoint validation."
 }

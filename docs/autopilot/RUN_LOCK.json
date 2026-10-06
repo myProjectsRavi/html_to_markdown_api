@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
+  "state": "active",
+  "owner": "recovery-watchdog-20261007",
   "story_id": "US033",
-  "base_head": "45ce5796f25a0d0b69c63e41ba58f6a0a7e13da0",
-  "acquired_at": null,
+  "base_head": "49be6a1bcd2b9701afabf0e0e3b96feb5dd60822",
+  "acquired_at": "2026-10-07T00:00:00Z",
   "lease_minutes": 20,
-  "note": "Released after connector safety blocked recovery mutation."
+  "note": "Recover US033 CI policy failure; benchmark artifact retention must satisfy repository policy."
 }

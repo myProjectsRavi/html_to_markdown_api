@@ -44,7 +44,8 @@
     "test:security-audit": "node scripts/security-audit.mjs",
     "test:dependency-policy": "node scripts/dependency-policy.mjs",
     "test:ci-policy": "node scripts/ci-policy.mjs",
-    "test:bundle-audit": "node scripts/bundle-audit.mjs"
+    "test:bundle-audit": "node scripts/bundle-audit.mjs",
+    "benchmark": "vitest run tests/performance-benchmark.test.ts --reporter=default"
   },
   "engines": {
     "node": "22.22.2",

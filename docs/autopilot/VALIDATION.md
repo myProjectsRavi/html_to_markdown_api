@@ -403,3 +403,16 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Evidence: `docs/autopilot/evidence/US031.md`.
 - Conclusion: US031 acceptance/evidence passes; US032 is next.
 
+## US032 - Harden dependencies and CI permissions
+
+- Status: DONE.
+- Tested branch SHA: `11aec7adbf67217880f488e68991207a90563aea`.
+- Authoritative validation: Autopilot Validation run `37455989867`, job `112244172396`, conclusion `success`.
+- Dated 2026-10-06 full and production npm high-severity audits both reported 0 vulnerabilities after toolchain remediation.
+- Runtime dependency policy passed for 6 transitive packages; reviewed dev install scripts are pinned.
+- Workflow policy passed with immutable Action refs, read-only PR permissions, no pull_request_target, no secrets and no production deploy command.
+- Bundle audit reported 446,473 bytes and zero forbidden imports/egress/storage primitives.
+- One-day audited bundle artifact: `11408988630`.
+- Evidence: `docs/autopilot/evidence/US032.md`.
+- Conclusion: US032 acceptance/evidence passes; US033 is next.
+

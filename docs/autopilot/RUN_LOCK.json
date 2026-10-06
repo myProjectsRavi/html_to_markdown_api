@@ -3,10 +3,10 @@
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
   "state": "active",
-  "owner": "recovery-watchdog-20261006T1512Z",
+  "owner": "recovery-watchdog-20261007",
   "story_id": "US033",
-  "base_head": "8de72452faa921f481c61ae89978f780133977e8",
-  "acquired_at": "2026-10-06T15:12:39Z",
+  "base_head": "f9bc44749eb0ab78778094cb60c2fdb83765cb38",
+  "acquired_at": "2026-10-07T00:00:00Z",
   "lease_minutes": 20,
-  "note": "Recover US033 benchmark evidence after successful checkpoint validation."
+  "note": "Recover US033 after terminal dependency-audit failure."
 }

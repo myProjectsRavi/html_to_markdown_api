@@ -39,8 +39,22 @@ jobs:
       - name: Verify installed dependency graph
         run: npm ls --all
 
+      - name: Audit full dependency graph for high severity advisories
+        run: npm audit --audit-level=high
+
+      - name: Audit production dependency graph for high severity advisories
+        run: npm audit --omit=dev --audit-level=high
+
       - name: Validate current checkpoint
         run: npm run verify:current
+
+      - name: Upload audited Worker bundle
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: audited-worker-bundle-${{ github.sha }}
+          path: dist
+          if-no-files-found: error
+          retention-days: 1
 
       - name: Verify generated files are ignored
         run: git status --short

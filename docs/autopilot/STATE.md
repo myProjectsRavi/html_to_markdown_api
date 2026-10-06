@@ -7,7 +7,8 @@
 - Current Epic: E08 Performance and release evidence
 - Current Feature: F17 Measured performance
 - Current Story: US033 Measure end-to-end performance
-- Phase: TODO
+- Phase: VALIDATING
 - Completed US032: DONE, tested SHA `11aec7adbf67217880f488e68991207a90563aea`, authoritative run `37455989867` / job `112244172396`.
-- US032 evidence: full and production npm audits both 0 vulnerabilities; 6 runtime transitive packages policy-clean; all retained CI Action refs immutable; PR validation is read-only/no-secrets; built bundle 446,473 bytes with zero forbidden import/egress/storage findings; one-day artifact 11408988630.
-- Exact next action: claim US033, add a fixed multi-family/multi-size benchmark corpus for both endpoints and internal stages, run it in three independent processes, retain machine-readable results, document methodology and validate ordinary 128 KiB acceptance separately from the isolated 256 KiB rejection experiment.
+- US033 implementation checkpoint: fixed multi-family/multi-size benchmark corpus and methodology are present; checkpoint validation succeeded on `8de72452faa921f481c61ae89978f780133977e8` in run `37479136292`.
+- US033 recovery checkpoint: commit `5f3afd8b56c5f14c2e02176f463e7ac6f1688fee` adds a dedicated pinned, read-only benchmark workflow that runs three independent benchmark processes, validates each JSON result against the exact GitHub SHA/run index, and retains all three machine-readable result files as a 30-day artifact.
+- Exact next action: inspect the US033 benchmark workflow and normal checkpoint validation for `5f3afd8b56c5f14c2e02176f463e7ac6f1688fee`. If terminal green, inspect the three benchmark JSON artifacts for outliers, record exact run/artifact evidence, run/finalize exact-revision validation, then mark US033 DONE. If red, diagnose and fix US033 only.

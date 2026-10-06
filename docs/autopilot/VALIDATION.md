@@ -390,3 +390,16 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Evidence: `docs/autopilot/evidence/US030.md`.
 - Conclusion: US030 acceptance/evidence passes; US031 is next.
 
+## US031 - Audit security and privacy behavior
+
+- Status: DONE.
+- Tested branch SHA: `0142245e9695156a7c20e3c4faabc0ac4c9342ee`.
+- Authoritative validation: pull-request run `37454487008`, job `112238837688`, conclusion `success`.
+- Focused security suite: 5/5 passed.
+- Full-history security audit scanned 118 tracked files and 520 commits with zero high-confidence secret hits.
+- Runtime source audit scanned 18 source files with zero outbound/storage/log findings and zero configured runtime bindings.
+- Raw HTML fallback, URL bypass, bounded recursion, injected parser exception disclosure, runtime egress and logging were covered by executable regressions.
+- Review: `SECURITY_REVIEW.md`.
+- Evidence: `docs/autopilot/evidence/US031.md`.
+- Conclusion: US031 acceptance/evidence passes; US032 is next.
+

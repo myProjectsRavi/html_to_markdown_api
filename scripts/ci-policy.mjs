@@ -31,11 +31,14 @@ for (const path of paths) {
     findings.push(`${path}: additional write/broad top-level permission found`);
   }
 
-  const jobHeaders = [...content.matchAll(/^  ([A-Za-z0-9_-]+):\s*$/gmu)];
+  const jobsStart = content.search(/^jobs:\s*$/mu);
+  const jobsText = jobsStart >= 0 ? content.slice(jobsStart) : "";
+  const jobHeaders = [...jobsText.matchAll(/^  ([A-Za-z0-9_-]+):\s*$/gmu)];
+  if (jobHeaders.length === 0) findings.push(`${path}: no jobs found`);
   for (let index = 0; index < jobHeaders.length; index += 1) {
     const start = jobHeaders[index].index ?? 0;
-    const end = index + 1 < jobHeaders.length ? (jobHeaders[index + 1].index ?? content.length) : content.length;
-    const block = content.slice(start, end);
+    const end = index + 1 < jobHeaders.length ? (jobHeaders[index + 1].index ?? jobsText.length) : jobsText.length;
+    const block = jobsText.slice(start, end);
     const name = jobHeaders[index][1];
     if (!/^\s{4}timeout-minutes:\s*\d+\s*$/mu.test(block)) {
       findings.push(`${path}: job ${name} has no finite timeout-minutes`);

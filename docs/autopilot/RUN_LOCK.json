@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": null,
-  "base_head": "390e9da2d67d8a9997a085b56798b0e84f6223dc",
-  "acquired_at": null,
+  "state": "active",
+  "owner": "chatgpt-us031-five-story-20261006",
+  "story_id": "US031",
+  "base_head": "5a3ee9bc2c605dc022e39b7673f96cf2cf458566",
+  "acquired_at": "2026-10-06T11:05:00Z",
   "lease_minutes": 20,
-  "note": "US030 DONE at tested SHA 89e87fcfaffd47929e23fc06684c5f55f94a6a0a; authoritative run 37453553810 passed. US031 is next."
+  "note": "Audit security/privacy behavior after completed US030."
 }

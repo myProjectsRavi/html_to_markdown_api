@@ -7,7 +7,8 @@
 - Current Epic: E07 Verification, security and CI hardening
 - Current Feature: F16 Security and CI hardening
 - Current Story: US032 Harden dependencies and CI permissions
-- Phase: TODO
+- Phase: IN_PROGRESS
 - Completed US031: DONE, tested SHA `0142245e9695156a7c20e3c4faabc0ac4c9342ee`, authoritative run `37454487008` / job `112238837688`.
 - US031 evidence: 5 security regressions passed; 118 tracked files and 520 history commits scanned with zero high-confidence secret hits; 18 runtime source files had zero outbound/storage/log findings; no runtime bindings found.
-- Exact next action: claim US032, pin remaining mutable Actions revisions, audit dependency licenses/advisories/install scripts/runtime graph, enforce read-only untrusted PR checks, add secret/bundle/import checks, and validate clean install/build under finite timeouts.
+- US032 implementation: exact dependency/install-script policy, immutable Action refs, read-only PR trust policy, dated high-severity npm advisory checks, built-bundle import audit and one-day artifact retention are committed.
+- Exact next action: run authoritative Actions on the integrated US032 gate; repair any policy/advisory/bundle finding before recording evidence and advancing to US033.

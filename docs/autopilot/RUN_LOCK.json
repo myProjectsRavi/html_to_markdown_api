@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
+  "state": "active",
+  "owner": "interactive-us037-peer-recovery-20261007T1554Z",
   "story_id": "US037",
-  "base_head": "22b9f953205ea70a14e2a626eefab712d2993242",
-  "acquired_at": "2026-10-07T15:38:00Z",
+  "base_head": "7e50cb7b8f7afd0d9150990384f459eff06c9b83",
+  "acquired_at": "2026-10-07T15:54:00Z",
   "lease_minutes": 30,
-  "note": "Released after US037 OpenAPI 3.0.3 implementation and executable contract checkpoint; validate before closeout."
+  "note": "Repair strict dependency graph by pinning the OpenAPI validator peer and verifying npm ci/npm ls before adoption."
 }

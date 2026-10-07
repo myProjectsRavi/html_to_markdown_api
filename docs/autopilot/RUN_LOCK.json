@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": "US037",
-  "base_head": "3946aa18dce6769ea04cda915ec697b88976fc89",
-  "acquired_at": "2026-10-07T16:52:00Z",
+  "state": "active",
+  "owner": "recovery-watchdog-20261007T1916Z",
+  "story_id": "US038",
+  "base_head": "f870e14574d4937c59b837cf3c2cd6413a07d029",
+  "acquired_at": "2026-10-07T19:16:35Z",
   "lease_minutes": 20,
-  "note": "Released after US037 DONE checkpoint; US038 is next."
+  "note": "Recover US038: implement and execute integration examples."
 }

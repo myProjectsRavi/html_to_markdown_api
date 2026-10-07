@@ -7,9 +7,9 @@
 - Current Epic: E09 Marketplace integration and documentation
 - Current Feature: F19 Machine-readable contract and examples
 - Current Story: US037 Complete and validate OpenAPI
-- Phase: TODO
-- Completed US035: DONE, tested SHA `e97988e0f584e7a95bfc56141163284128e66a3c`.
-- Completed US036: DONE, tested exact SHA `37f388863799be90103a9fd031015150d7ae4311`; push/PR checkpoint and audited validation all passed.
-- US035 launch gate remains `BLOCKED_PENDING_ACCOUNT_WIDE_USAGE`.
-- Current RapidAPI documentation reviewed for US037: the Requests importer identifies OpenAPI 3.0.3, so the public marketplace-compatible specification must avoid OpenAPI 3.1-only schema keywords.
-- Exact next action: claim US037 separately, validate `openapi.yaml` with a real OpenAPI 3.0 validator, reconcile all limits/errors/examples/auth descriptions with runtime behavior, and add route-to-spec executable checks.
+- Phase: IN_PROGRESS
+- Completed US036: DONE, tested exact SHA `37f388863799be90103a9fd031015150d7ae4311`.
+- US037 compatibility decision: public spec is OpenAPI 3.0.3 because current RapidAPI Requests import guidance identifies an OpenAPI 3.0.3 importer.
+- US037 validator: exact pinned `@apidevtools/swagger-parser@13.1.0`; generated dependency graph passed a high-severity npm audit before adoption.
+- OpenAPI checkpoint records all three paths, all runtime limits, validation precedence, all fixed errors, factual examples, customer-facing RapidAPI auth context, router 404/405 behavior and the no-URL-fetch boundary.
+- Exact next action: run `test:openapi` plus full current/audited validation; repair any validator or route/spec mismatch without weakening runtime behavior, then close US037.

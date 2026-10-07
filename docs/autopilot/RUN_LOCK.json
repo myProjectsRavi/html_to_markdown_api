@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
+  "state": "active",
+  "owner": "interactive-us033-lockfile-20261007T1445Z",
   "story_id": "US033",
-  "base_head": "eef32664253ec47e9d6c4d8b7d379469d903d585",
-  "acquired_at": "2026-10-07T14:40:00Z",
+  "base_head": "4d02a8ab6b9041636915ab0710d4c3311cdccb87",
+  "acquired_at": "2026-10-07T14:45:00Z",
   "lease_minutes": 20,
-  "note": "Released after US033 link-corpus fix, sharp 0.35.5 override, and temporary lock-refresh workflow. Await lock refresh evidence before finalizing US033."
+  "note": "Apply CI-generated audited lockfile and remove temporary refresh workflow."
 }

@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
+  "state": "active",
+  "owner": "interactive-us036-ci-recovery-20261007T1530Z",
   "story_id": "US036",
-  "base_head": "f8306e7983439ddd18afeb27419341ad86031a0c",
-  "acquired_at": "2026-10-07T15:15:00Z",
+  "base_head": "f9b077c116e8edd3254ee8f48f458f1ee902f13c",
+  "acquired_at": "2026-10-07T15:30:00Z",
   "lease_minutes": 20,
-  "note": "Released after US036 privacy-safe observability checkpoint; validate before closeout."
+  "note": "Fix generated-d.ts false positive and make production dry-run environment explicit."
 }

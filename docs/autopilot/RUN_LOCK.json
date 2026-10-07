@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
+  "state": "active",
+  "owner": "recovery-watchdog-20261007T1015Z",
   "story_id": "US033",
-  "base_head": "fac3fff2925f29e2d0ce7c3d04ff0a559063fef3",
-  "acquired_at": "2026-10-07T03:50:00Z",
+  "base_head": "e31fa99b52162a06cf644b73c2521d74f096c6f5",
+  "acquired_at": "2026-10-07T10:15:10Z",
   "lease_minutes": 20,
-  "note": "Released after US033 retention correction; validate the new checkpoint next."
+  "note": "Recover US033 terminal benchmark and dependency-audit failures."
 }

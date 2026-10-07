@@ -18,7 +18,7 @@ function walk(path) {
     const full = join(path, entry);
     const stat = statSync(full);
     if (stat.isDirectory()) files.push(...walk(full));
-    else if (/\.ts$/u.test(entry)) files.push(full);
+    else if (/\.ts$/u.test(entry) && !/\.d\.ts$/u.test(entry)) files.push(full);
   }
   return files;
 }

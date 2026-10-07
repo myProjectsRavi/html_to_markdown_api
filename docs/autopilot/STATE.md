@@ -13,4 +13,5 @@
 - US035 launch gate remains `BLOCKED_PENDING_ACCOUNT_WIDE_USAGE`.
 - US036 checkpoint: production Workers Logs persistence is explicitly disabled; staging observability is enabled only for synthetic platform CPU validation with full head sampling.
 - Runtime canaries cover input/output/secret/query leakage, validation/internal failures and logger-failure isolation; static policy rejects production console logging and external telemetry sinks.
-- Exact next action: run full current validation on this checkpoint, inspect the US036 canary/policy results, and close only if both configuration and privacy regression evidence pass.
+- Recovery: initial US036 CI correctly passed all four runtime privacy canaries but the static policy scanned generated `src/worker-configuration.d.ts`; the recovery excludes generated declaration files and makes the production dry-run environment explicit.
+- Exact next action: run full current validation on this repaired checkpoint and close only if observability policy plus all prior gates pass.

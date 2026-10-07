@@ -6,10 +6,9 @@
 - Approved starting revision (`main`): `51497790a365b9465e35bb8dd2b06adb4ac38d4c`
 - Current Epic: E08 Performance and release evidence
 - Current Feature: F17 Measured performance
-- Current Story: US033 Measure end-to-end performance
-- Phase: VALIDATING
-- Completed US032: DONE, tested SHA `11aec7adbf67217880f488e68991207a90563aea`, authoritative run `37455989867` / job `112244172396`.
-- US033 implementation checkpoint: fixed multi-family/multi-size benchmark corpus and methodology are present; checkpoint validation succeeded on `8de72452faa921f481c61ae89978f780133977e8` in run `37479136292`.
-- US033 benchmark workflow: dedicated pinned, read-only workflow runs three independent benchmark processes, validates each JSON result against the exact GitHub SHA/run index, and retains all three machine-readable result files.
-- Recovery fix: commit `5c85be0071b39f72510329420070bb9c23568cf3` changes benchmark artifact retention from 30 to 7 days to satisfy repository CI policy.
-- Exact next action: inspect exact-revision validation and US033 benchmark workflow for `5c85be0071b39f72510329420070bb9c23568cf3`; if terminal green, inspect all three benchmark JSON artifacts and outliers before closing US033.
+- Current Story: US034 Remove measured performance bottlenecks
+- Phase: TODO
+- Completed US033: DONE, tested SHA `be2405909ddbfec0c6af04d6f698296cfe41336a`, benchmark run `37639809115` / job `112855452677`, artifact `11490769524`.
+- US033 audited regression: run `37639816119` succeeded on lock-only successor `06bda0e160e4264e0e399b89236773db17847bc2`.
+- Measured US034 target: 128 KiB link-heavy Markdown; serialization p95 10.1429/10.2277/10.0969 ms and end-to-end p95 16.6969/17.1757/16.7327 ms across three processes.
+- Exact next action: claim US034 separately, profile the repeated link serialization/classification path, make only evidence-backed safe optimization(s), then rerun the unchanged US033 corpus and full regression gate for comparable before/after evidence.

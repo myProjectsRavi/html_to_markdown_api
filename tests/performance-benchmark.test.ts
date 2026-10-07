@@ -49,13 +49,12 @@ function bytes(value: string): number {
 
 function fillText(prefix: string, token: string, suffix: string, target: number): string {
   const fixed = bytes(prefix) + bytes(suffix);
+  if (fixed > target) return prefix + suffix;
   const tokenBytes = bytes(token);
   const count = Math.max(0, Math.floor((target - fixed) / tokenBytes));
-  let html = prefix + token.repeat(count) + suffix;
-  while (bytes(html) < target && bytes(html + "x") <= target) {
-    html = html.slice(0, -suffix.length) + "x" + suffix;
-  }
-  return html;
+  let body = token.repeat(count);
+  while (bytes(prefix + body + "x" + suffix) <= target) body += "x";
+  return prefix + body + suffix;
 }
 
 function linkCorpus(target: number): string {

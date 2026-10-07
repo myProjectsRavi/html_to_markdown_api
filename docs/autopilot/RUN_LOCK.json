@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
+  "state": "active",
+  "owner": "interactive-us036-closeout-20261007T1534Z",
   "story_id": "US036",
-  "base_head": "f9b077c116e8edd3254ee8f48f458f1ee902f13c",
-  "acquired_at": "2026-10-07T15:30:00Z",
+  "base_head": "37f388863799be90103a9fd031015150d7ae4311",
+  "acquired_at": "2026-10-07T15:34:00Z",
   "lease_minutes": 20,
-  "note": "Released after repairing generated declaration false positive and explicit production dry-run target; validate before closeout."
+  "note": "Finalize US036 after exact-head checkpoint, PR and audited validation all passed."
 }

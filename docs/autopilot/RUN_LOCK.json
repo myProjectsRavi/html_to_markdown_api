@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "interactive-us036-observability-retry-20261007T1515Z",
+  "state": "released",
+  "owner": null,
   "story_id": "US036",
   "base_head": "f8306e7983439ddd18afeb27419341ad86031a0c",
   "acquired_at": "2026-10-07T15:15:00Z",
   "lease_minutes": 20,
-  "note": "Implement production-off/staging-synthetic observability and privacy canary evidence."
+  "note": "Released after US036 privacy-safe observability checkpoint; validate before closeout."
 }

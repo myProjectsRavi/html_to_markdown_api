@@ -45,3 +45,14 @@ The stable hotspot is link-heavy 128 KiB Markdown. Across the three independent 
 All ordinary 128 KiB acceptance checks passed. Complexity-limited 128 KiB entity-heavy and malformed families were labelled 422 rejections rather than mixed into successful conversion timing. The isolated 256 KiB checks returned 413 for both endpoints in every run.
 
 A single 1 KiB Markdown sample in process 3 reached 11.7789 ms while its median stayed 0.5949 ms; repeat processes did not reproduce the spike. It is retained as host scheduling noise and is not discarded or interpreted as production CPU.
+
+
+## US034 optimization delta
+
+Optimized code SHA: `5b0c5bdd1fda6c7c667aa6ee8149638abc214db8`. Benchmark run `37640854298` reused the exact US033 corpus, three-process layout, three warmups and fifteen samples.
+
+For link-heavy 128 KiB Markdown, end-to-end p50 improved from 15.1424/15.1868/15.3049 ms to 13.8379/13.6643/13.9614 ms. End-to-end p95 improved from 16.6969/17.1757/16.7327 ms to 15.1043/16.0542/16.4611 ms.
+
+The dominant Markdown serialization stage improved from p95 10.1429/10.2277/10.0969 ms to 8.2600/9.5775/9.1488 ms, a matched-process reduction of 18.56%/6.36%/9.39%.
+
+The optimization removes repeated regex/slice/TextEncoder allocation work from the hot URL serialization/classification path. It does not change the 128 KiB limit, safety policy, or request semantics. These figures remain local/CI wall-clock evidence, not production CPU guarantees.

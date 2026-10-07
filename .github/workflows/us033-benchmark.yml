@@ -44,15 +44,15 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p .bench
+          mkdir -p bench-results
           for run in 1 2 3; do
-            BENCH_RUN_INDEX="$run" BENCH_OUTPUT=".bench/run-$run.json" GITHUB_SHA="${GITHUB_SHA}" npm run benchmark
+            BENCH_RUN_INDEX="$run" BENCH_OUTPUT="bench-results/run-$run.json" GITHUB_SHA="${GITHUB_SHA}" npm run benchmark
           done
-          node -e 'const fs=require("fs"); for (const n of [1,2,3]) { const p=".bench/run-"+n+".json"; const x=JSON.parse(fs.readFileSync(p,"utf8")); if (x.story!=="US033" || x.revision!==process.env.GITHUB_SHA || x.run_index!==n || !Array.isArray(x.records) || x.records.length===0) process.exit(1); }'
+          node -e 'const fs=require("fs"); for (const n of [1,2,3]) { const p="bench-results/run-"+n+".json"; const x=JSON.parse(fs.readFileSync(p,"utf8")); if (x.story!=="US033" || x.revision!==process.env.GITHUB_SHA || x.run_index!==n || !Array.isArray(x.records) || x.records.length===0) process.exit(1); }'
       - name: Retain machine-readable benchmark evidence
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: us033-benchmark-${{ github.sha }}
-          path: .bench/run-*.json
+          path: bench-results/run-*.json
           if-no-files-found: error
           retention-days: 7

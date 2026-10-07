@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "interactive-us034-closeout-20261007T1459Z",
+  "state": "released",
+  "owner": null,
   "story_id": "US034",
   "base_head": "a6b1450ac947d26ee605b8888fb5f819e62e74ea",
   "acquired_at": "2026-10-07T14:59:00Z",
   "lease_minutes": 20,
-  "note": "Finalize US034 after comparable benchmark improvement and green exact-head regression."
+  "note": "Released after US034 DONE checkpoint; US035 is next."
 }

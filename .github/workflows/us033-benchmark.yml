@@ -54,4 +54,4 @@ jobs:
           name: us033-benchmark-${{ github.sha }}
           path: .bench/run-*.json
           if-no-files-found: error
-          retention-days: 30
+          retention-days: 7

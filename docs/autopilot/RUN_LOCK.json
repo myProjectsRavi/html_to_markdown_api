@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "interactive-us036-observability-20261007T1507Z",
+  "state": "released",
+  "owner": null,
   "story_id": "US036",
   "base_head": "2c446ade30f5e9dc17ed9de4ce447a27f8d2433b",
   "acquired_at": "2026-10-07T15:07:00Z",
   "lease_minutes": 20,
-  "note": "Configure production observability off, staging synthetic-only observability, and privacy canary tests."
+  "note": "Released after connector internal failure; no non-lock US036 mutation landed. Resume US036 from the existing TODO checkpoint."
 }

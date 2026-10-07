@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
+  "state": "active",
+  "owner": "interactive-us033-node-bench-20261007T1448Z",
   "story_id": "US033",
-  "base_head": "4d02a8ab6b9041636915ab0710d4c3311cdccb87",
-  "acquired_at": "2026-10-07T14:45:00Z",
+  "base_head": "7a5fc5f13fcb72fe0598ef3d8f905df26066642c",
+  "acquired_at": "2026-10-07T14:48:00Z",
   "lease_minutes": 20,
-  "note": "Released after applying CI-generated package-lock with sharp 0.35.5 and removing temporary lock refresh workflow. Revalidate US033 benchmark and full CI."
+  "note": "Run US033 benchmark in Node-only Vitest config so machine-readable evidence can be written."
 }

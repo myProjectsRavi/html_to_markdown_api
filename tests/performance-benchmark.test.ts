@@ -60,10 +60,12 @@ function fillText(prefix: string, token: string, suffix: string, target: number)
 function linkCorpus(target: number): string {
   const prefix = "<article>";
   const suffix = "</article>";
+  const fillerOpen = "<span>";
+  const fillerClose = "</span>";
   const chunk = '<a href="https://example.test/resource">link alpha beta gamma delta epsilon</a>';
   let body = "";
-  while (bytes(prefix + body + chunk + suffix) <= target) body += chunk;
-  return fillText(prefix + body + "<span>", "x", "</span>" + suffix, target);
+  while (bytes(prefix + body + chunk + fillerOpen + fillerClose + suffix) <= target) body += chunk;
+  return fillText(prefix + body + fillerOpen, "x", fillerClose + suffix, target);
 }
 
 function tableCorpus(target: number): string {

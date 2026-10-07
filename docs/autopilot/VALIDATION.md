@@ -416,3 +416,16 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Evidence: `docs/autopilot/evidence/US032.md`.
 - Conclusion: US032 acceptance/evidence passes; US033 is next.
 
+
+## US033 - Measure the complete conversion pipeline
+
+- Status: DONE.
+- Tested code SHA: `be2405909ddbfec0c6af04d6f698296cfe41336a`.
+- Dedicated benchmark run `37639809115`, job `112855452677`, conclusion `success`; three independent benchmark processes completed and artifact `11490769524` retained all JSON results.
+- Full audited validation on the subsequent lock-only release SHA `06bda0e160e4264e0e399b89236773db17847bc2`: run `37639816119` success. Push checkpoint run `37639816282` and PR checkpoint run `37639820479` also passed.
+- Stable hotspot: link-heavy 128 KiB Markdown, p50 15.1424/15.1868/15.3049 ms and p95 16.6969/17.1757/16.7327 ms across the three processes. Markdown serialization dominates with p95 10.1429/10.2277/10.0969 ms.
+- Ordinary 128 KiB passes both endpoints; complexity-bound families are labelled 422 rather than mixed with accepted timing; isolated 256 KiB checks return 413.
+- Node memory and local wall time are explicitly not represented as production Worker isolate memory or CPU.
+- Evidence: `docs/autopilot/evidence/US033.md`.
+- Conclusion: US033 passes; US034 is next.
+

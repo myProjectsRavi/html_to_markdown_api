@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": "US034",
-  "base_head": "a6b1450ac947d26ee605b8888fb5f819e62e74ea",
-  "acquired_at": "2026-10-07T14:59:00Z",
+  "state": "active",
+  "owner": "interactive-us035-capacity-20261007T1501Z",
+  "story_id": "US035",
+  "base_head": "1657deb28e120f0e1470d9ffcb3922b7aa2c3cbc",
+  "acquired_at": "2026-10-07T15:01:00Z",
   "lease_minutes": 20,
-  "note": "Released after US034 DONE checkpoint; US035 is next."
+  "note": "Build verified free-account capacity envelope without inventing unavailable account usage."
 }

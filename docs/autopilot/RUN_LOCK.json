@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
+  "state": "active",
+  "owner": "interactive-us033-artifact-20261007T1450Z",
   "story_id": "US033",
-  "base_head": "7a5fc5f13fcb72fe0598ef3d8f905df26066642c",
-  "acquired_at": "2026-10-07T14:48:00Z",
+  "base_head": "750234db8a10c73734f60606631af676e6f2fce8",
+  "acquired_at": "2026-10-07T14:50:00Z",
   "lease_minutes": 20,
-  "note": "Released after moving US033 benchmark to Node-only Vitest config and wiring CI trigger."
+  "note": "Fix US033 machine-readable artifact retention path after three benchmark processes passed."
 }

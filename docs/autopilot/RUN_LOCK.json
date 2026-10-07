@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
+  "state": "active",
+  "owner": "recovery-watchdog-20261007T1611Z",
   "story_id": "US037",
   "base_head": "7e50cb7b8f7afd0d9150990384f459eff06c9b83",
-  "acquired_at": "2026-10-07T15:54:00Z",
-  "lease_minutes": 30,
-  "note": "Released after pinning OpenAPI validator peer; regenerated graph passed npm ci, npm ls --all and high-severity audit. Revalidate US037."
+  "acquired_at": "2026-10-07T16:11:26Z",
+  "lease_minutes": 20,
+  "note": "Finalize US037 after exact-head OpenAPI and full checkpoint validation succeeded."
 }

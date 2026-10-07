@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
+  "state": "active",
+  "owner": "recovery-watchdog-20261007-retention",
   "story_id": "US033",
-  "base_head": "df164731a39174250b934043dc646c832eb13331",
-  "acquired_at": "2026-10-07T03:30:00Z",
+  "base_head": "fac3fff2925f29e2d0ce7c3d04ff0a559063fef3",
+  "acquired_at": "2026-10-07T03:50:00Z",
   "lease_minutes": 20,
-  "note": "Released after connector safety rejected the US033 retention-policy mutation; precise blocker persisted in STATE.md."
+  "note": "Recover US033 CI retention-policy failure."
 }

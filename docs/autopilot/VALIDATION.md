@@ -469,3 +469,17 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Evidence: `docs/autopilot/evidence/US036.md`.
 - Conclusion: US036 passes; US037 is next.
 
+
+## US037 - Complete and validate OpenAPI
+
+- Status: DONE.
+- Tested exact branch SHA: `3946aa18dce6769ea04cda915ec697b88976fc89`.
+- Public specification is OpenAPI 3.0.3 and defines exactly `/health`, `/v1/html/markdown`, and `/v1/html/text`.
+- `@apidevtools/swagger-parser@13.1.0` plus exact `openapi-types@12.1.3` validates the spec; `test:openapi` passed 4/4 tests.
+- Contract tests compare runtime routes, all limits, validation precedence and the complete fixed error catalog, execute factual success examples, and verify router-only 404/405 behavior.
+- Public auth metadata distinguishes `X-RapidAPI-Key`/`X-RapidAPI-Host` from the private origin credential; the proxy-secret header is absent from the public specification.
+- Exact CI: Autopilot Validation run `37650231241`, push checkpoint run `37650231277`, and PR checkpoint run `37650237267` all succeeded.
+- Full and production high-severity dependency audits reported 0 vulnerabilities.
+- Evidence: `docs/autopilot/evidence/US037.md`.
+- Conclusion: US037 passes; US038 is next.
+

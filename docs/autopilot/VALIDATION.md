@@ -455,3 +455,17 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Evidence: `docs/autopilot/evidence/US035.md`.
 - Conclusion: US035 passes; US036 is next.
 
+
+## US036 - Configure privacy safe operational visibility
+
+- Status: DONE.
+- Tested exact branch SHA: `37f388863799be90103a9fd031015150d7ae4311`.
+- Production observability is explicitly disabled; staging observability is synthetic-only with head sampling rate 1.
+- `tests/observability.test.ts`: 4/4 passed.
+- Static observability policy: 18 executable source files scanned, zero production console calls, zero external telemetry sinks.
+- Initial CI failure was a false positive from generated `src/worker-configuration.d.ts`; recovery excludes generated declaration files without weakening runtime privacy canaries.
+- Exact CI: push checkpoint run `37644370649`, PR checkpoint run `37644377751`, and Autopilot Validation run `37644370641` all succeeded.
+- Platform CPU remains intentionally unclaimed until authorized staging telemetry exists.
+- Evidence: `docs/autopilot/evidence/US036.md`.
+- Conclusion: US036 passes; US037 is next.
+

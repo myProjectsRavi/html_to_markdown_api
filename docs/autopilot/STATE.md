@@ -4,14 +4,12 @@
 - Target repository: `myProjectsRavi/html_to_markdown_api`
 - Allowed implementation branch: `autopilot/html-markdown-v1`
 - Approved starting revision (`main`): `51497790a365b9465e35bb8dd2b06adb4ac38d4c`
-- Current Epic: E08 Performance and release evidence
-- Current Feature: F18 Capacity and observability
-- Current Story: US036 Configure privacy safe operational visibility
-- Phase: IN_PROGRESS
-- Completed US034: DONE, tested SHA `5b0c5bdd1fda6c7c667aa6ee8149638abc214db8`.
+- Current Epic: E09 Marketplace integration and documentation
+- Current Feature: F19 Machine-readable contract and examples
+- Current Story: US037 Complete and validate OpenAPI
+- Phase: TODO
 - Completed US035: DONE, tested SHA `e97988e0f584e7a95bfc56141163284128e66a3c`.
+- Completed US036: DONE, tested exact SHA `37f388863799be90103a9fd031015150d7ae4311`; push/PR checkpoint and audited validation all passed.
 - US035 launch gate remains `BLOCKED_PENDING_ACCOUNT_WIDE_USAGE`.
-- US036 checkpoint: production Workers Logs persistence is explicitly disabled; staging observability is enabled only for synthetic platform CPU validation with full head sampling.
-- Runtime canaries cover input/output/secret/query leakage, validation/internal failures and logger-failure isolation; static policy rejects production console logging and external telemetry sinks.
-- Recovery: initial US036 CI correctly passed all four runtime privacy canaries but the static policy scanned generated `src/worker-configuration.d.ts`; the recovery excludes generated declaration files and makes the production dry-run environment explicit.
-- Exact next action: run full current validation on this repaired checkpoint and close only if observability policy plus all prior gates pass.
+- Current RapidAPI documentation reviewed for US037: the Requests importer identifies OpenAPI 3.0.3, so the public marketplace-compatible specification must avoid OpenAPI 3.1-only schema keywords.
+- Exact next action: claim US037 separately, validate `openapi.yaml` with a real OpenAPI 3.0 validator, reconcile all limits/errors/examples/auth descriptions with runtime behavior, and add route-to-spec executable checks.

@@ -429,3 +429,17 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Evidence: `docs/autopilot/evidence/US033.md`.
 - Conclusion: US033 passes; US034 is next.
 
+
+## US034 - Remove measured performance bottlenecks
+
+- Status: DONE.
+- Tested code SHA: `5b0c5bdd1fda6c7c667aa6ee8149638abc214db8`.
+- Before baseline: US033 run `37639809115`, artifact `11490769524`.
+- After benchmark: run `37640854298`, job `112859311843`, artifact `11491772775`, conclusion `success`.
+- 128 KiB link-heavy Markdown serialization p95 improved from 10.1429/10.2277/10.0969 ms to 8.2600/9.5775/9.1488 ms with identical sample counts and corpus.
+- End-to-end p95 improved in all three matched processes: 16.6969→15.1043, 17.1757→16.0542, 16.7327→16.4611 ms.
+- Exact-head regression checkpoint on the lock/state successor: PR run `37640891530`, conclusion `success`.
+- Release ceiling remains 128 KiB; all safety/complexity/output protections remain enabled.
+- Evidence: `docs/autopilot/evidence/US034.md`.
+- Conclusion: US034 passes; US035 is next.
+

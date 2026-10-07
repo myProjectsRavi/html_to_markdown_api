@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
+  "state": "active",
+  "owner": "interactive-us035-closeout-20261007T1505Z",
   "story_id": "US035",
-  "base_head": "1657deb28e120f0e1470d9ffcb3922b7aa2c3cbc",
-  "acquired_at": "2026-10-07T15:01:00Z",
+  "base_head": "4fbb2c4d388a7f688c2eb5020c60c4c0d187076b",
+  "acquired_at": "2026-10-07T15:05:00Z",
   "lease_minutes": 20,
-  "note": "Released after US035 capacity-model checkpoint; validate before closeout."
+  "note": "Finalize US035 after capacity validator and audited CI passed."
 }

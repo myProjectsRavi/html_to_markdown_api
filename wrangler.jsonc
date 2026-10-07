@@ -1,5 +1,17 @@
 {
   "name": "html-to-markdown-clean-text-api",
   "main": "src/index.ts",
-  "compatibility_date": "2026-09-27"
+  "compatibility_date": "2026-09-27",
+  "observability": {
+    "enabled": false
+  },
+  "env": {
+    "staging": {
+      "name": "html-to-markdown-clean-text-api-staging",
+      "observability": {
+        "enabled": true,
+        "head_sampling_rate": 1
+      }
+    }
+  }
 }

@@ -1,6 +1,27 @@
 const UTF8 = new TextEncoder();
-const SAFE_DESTINATION_ASCII = /^[A-Za-z0-9._~:/?#@!$&*+,;=\-]$/u;
-const HEX = /^[0-9A-Fa-f]{2}$/u;
+const SAFE_DESTINATION_PUNCTUATION = "._~:/?#@!$&*+,;=-";
+
+function isAsciiAlphaNumeric(code: number): boolean {
+  return (
+    (code >= 0x30 && code <= 0x39) ||
+    (code >= 0x41 && code <= 0x5a) ||
+    (code >= 0x61 && code <= 0x7a)
+  );
+}
+
+function isHexCodeUnit(code: number): boolean {
+  return (
+    (code >= 0x30 && code <= 0x39) ||
+    (code >= 0x41 && code <= 0x46) ||
+    (code >= 0x61 && code <= 0x66)
+  );
+}
+
+function isSafeDestinationAscii(char: string): boolean {
+  if (char.length !== 1) return false;
+  const code = char.charCodeAt(0);
+  return isAsciiAlphaNumeric(code) || SAFE_DESTINATION_PUNCTUATION.includes(char);
+}
 
 function percentEncode(value: string): string {
   let out = "";
@@ -16,8 +37,13 @@ function percentEncode(value: string): string {
 export function serializeLinkDestination(value: string): string {
   let output = "";
   for (let index = 0; index < value.length;) {
-    if (value[index] === "%" && index + 2 < value.length && HEX.test(value.slice(index + 1, index + 3))) {
-      output += value.slice(index, index + 3);
+    if (
+      value.charCodeAt(index) === 0x25 &&
+      index + 2 < value.length &&
+      isHexCodeUnit(value.charCodeAt(index + 1)) &&
+      isHexCodeUnit(value.charCodeAt(index + 2))
+    ) {
+      output += value[index]! + value[index + 1]! + value[index + 2]!;
       index += 3;
       continue;
     }
@@ -25,7 +51,7 @@ export function serializeLinkDestination(value: string): string {
     const codePoint = value.codePointAt(index)!;
     const char = String.fromCodePoint(codePoint);
     index += char.length;
-    if (char.length === 1 && SAFE_DESTINATION_ASCII.test(char)) output += char;
+    if (isSafeDestinationAscii(char)) output += char;
     else output += percentEncode(char);
   }
   return output;

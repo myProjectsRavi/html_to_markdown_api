@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "interactive-us033-artifact-20261007T1450Z",
+  "state": "released",
+  "owner": null,
   "story_id": "US033",
   "base_head": "750234db8a10c73734f60606631af676e6f2fce8",
   "acquired_at": "2026-10-07T14:50:00Z",
   "lease_minutes": 20,
-  "note": "Fix US033 machine-readable artifact retention path after three benchmark processes passed."
+  "note": "Released after moving US033 benchmark artifacts from hidden .bench to visible bench-results."
 }

@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "interactive-us033-dependency-recovery-20261007T1440Z",
+  "state": "released",
+  "owner": null,
   "story_id": "US033",
   "base_head": "eef32664253ec47e9d6c4d8b7d379469d903d585",
   "acquired_at": "2026-10-07T14:40:00Z",
   "lease_minutes": 20,
-  "note": "Fix US033 link corpus bound and refresh audited sharp transitive dependency."
+  "note": "Released after US033 link-corpus fix, sharp 0.35.5 override, and temporary lock-refresh workflow. Await lock refresh evidence before finalizing US033."
 }

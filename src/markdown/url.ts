@@ -37,6 +37,24 @@ const RAW_SCHEME = /^([A-Za-z][A-Za-z0-9+.-]*):/u;
 const ASCII_CONTROL = /[\u0000-\u001F\u007F-\u009F]/u;
 const ASCII_WHITESPACE = /[\t\n\f\r ]/u;
 
+function isHexCodeUnit(code: number): boolean {
+  return (
+    (code >= 0x30 && code <= 0x39) ||
+    (code >= 0x41 && code <= 0x46) ||
+    (code >= 0x61 && code <= 0x66)
+  );
+}
+
+function exceedsUrlByteLimit(value: string): boolean {
+  if (value.length > LIMITS.urlBytes) return true;
+  for (let index = 0; index < value.length; index += 1) {
+    if (value.charCodeAt(index) > 0x7f) {
+      return UTF8.encode(value).byteLength > LIMITS.urlBytes;
+    }
+  }
+  return false;
+}
+
 function result(safe: boolean, reason: TargetReason): TargetClassification {
   return { safe, reason };
 }
@@ -52,7 +70,8 @@ function inspectPercentObfuscatedPrefix(value: string): TargetReason | null {
     if (
       current === "%" &&
       index + 2 < prefix.length &&
-      /^[0-9A-Fa-f]{2}$/u.test(prefix.slice(index + 1, index + 3))
+      isHexCodeUnit(prefix.charCodeAt(index + 1)) &&
+      isHexCodeUnit(prefix.charCodeAt(index + 2))
     ) {
       sawEncoded = true;
       const code = Number.parseInt(prefix.slice(index + 1, index + 3), 16);
@@ -72,7 +91,10 @@ function inspectPercentObfuscatedPrefix(value: string): TargetReason | null {
 }
 
 function classifyHttp(value: string, scheme: "http" | "https"): TargetClassification {
-  if (!new RegExp(`^${scheme}:\\/\\/`, "iu").test(value)) return result(false, "invalid_http");
+  const expectedPrefix = scheme + "://";
+  if (value.slice(0, expectedPrefix.length).toLowerCase() !== expectedPrefix) {
+    return result(false, "invalid_http");
+  }
 
   try {
     const parsed = new URL(value);
@@ -103,7 +125,7 @@ function classifyMailto(value: string, use: TargetUse): TargetClassification {
  */
 export function classifyTarget(value: string, use: TargetUse = "link"): TargetClassification {
   if (value.length === 0) return result(false, "empty");
-  if (UTF8.encode(value).byteLength > LIMITS.urlBytes) return result(false, "too_long");
+  if (exceedsUrlByteLimit(value)) return result(false, "too_long");
   if (value.trim() !== value) return result(false, "boundary_whitespace");
   if (ASCII_CONTROL.test(value)) return result(false, "control_character");
   if (value.includes("\\")) return result(false, "backslash");

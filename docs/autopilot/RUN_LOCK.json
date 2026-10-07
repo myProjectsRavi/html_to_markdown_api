@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "interactive-us033-recovery-20261007T1430Z",
+  "state": "released",
+  "owner": null,
   "story_id": "US033",
   "base_head": "786d1fc0f8a22383270b590b14259636f8437446",
   "acquired_at": "2026-10-07T14:30:00Z",
   "lease_minutes": 20,
-  "note": "Fix US033 benchmark corpus overshoot and complete authoritative benchmark evidence."
+  "note": "Released after US033 corpus-size fix; authoritative validation and benchmark workflows are running for 582fbcb0961d9e51a1613d023b5d8f69cc3aeae5."
 }

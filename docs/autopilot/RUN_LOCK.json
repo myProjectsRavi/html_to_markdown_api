@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "interactive-us037-openapi-20261007T1538Z",
+  "state": "released",
+  "owner": null,
   "story_id": "US037",
   "base_head": "22b9f953205ea70a14e2a626eefab712d2993242",
   "acquired_at": "2026-10-07T15:38:00Z",
   "lease_minutes": 30,
-  "note": "Complete marketplace-compatible OpenAPI 3.0.3 contract, real validator, examples and route-to-spec checks."
+  "note": "Released after US037 OpenAPI 3.0.3 implementation and executable contract checkpoint; validate before closeout."
 }

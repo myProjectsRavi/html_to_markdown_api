@@ -12,4 +12,4 @@
 - US037 compatibility decision: public spec is OpenAPI 3.0.3 because current RapidAPI Requests import guidance identifies an OpenAPI 3.0.3 importer.
 - US037 validator: exact pinned `@apidevtools/swagger-parser@13.1.0`; generated dependency graph passed a high-severity npm audit before adoption.
 - OpenAPI checkpoint records all three paths, all runtime limits, validation precedence, all fixed errors, factual examples, customer-facing RapidAPI auth context, router 404/405 behavior and the no-URL-fetch boundary.
-- Exact next action: run `test:openapi` plus full current/audited validation; repair any validator or route/spec mismatch without weakening runtime behavior, then close US037.
+- Recovery: strict dependency verification exposed the validator peer requirement; `openapi-types@12.1.3` is now pinned exactly, and the regenerated lock passed `npm ci`, `npm ls --all`, and the high-severity audit before adoption.\n- Exact next action: run `test:openapi` plus full current/audited validation on the repaired dependency graph, then close US037 only if all gates pass.

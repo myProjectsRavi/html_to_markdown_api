@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "interactive-us033-lockfile-20261007T1445Z",
+  "state": "released",
+  "owner": null,
   "story_id": "US033",
   "base_head": "4d02a8ab6b9041636915ab0710d4c3311cdccb87",
   "acquired_at": "2026-10-07T14:45:00Z",
   "lease_minutes": 20,
-  "note": "Apply CI-generated audited lockfile and remove temporary refresh workflow."
+  "note": "Released after applying CI-generated package-lock with sharp 0.35.5 and removing temporary lock refresh workflow. Revalidate US033 benchmark and full CI."
 }

@@ -1,0 +1,44 @@
+name: US037 peer lock refresh
+
+on:
+  push:
+    branches:
+      - autopilot/html-markdown-v1
+    paths:
+      - ".github/workflows/us037-peer-lock.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout exact revision
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Setup Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22.22.2
+          cache: npm
+      - name: Pin validator peer
+        run: npm install --package-lock-only --ignore-scripts --audit=false --fund=false --save-dev --save-exact openapi-types@12.1.3
+      - name: Install generated lockfile
+        run: npm ci
+      - name: Verify complete dependency graph
+        run: npm ls --all
+      - name: Audit generated dependency graph
+        run: npm audit --audit-level=high
+      - name: Emit generated package metadata
+        run: |
+          echo "PACKAGE_JSON_BASE64_BEGIN"
+          base64 -w0 package.json
+          echo
+          echo "PACKAGE_JSON_BASE64_END"
+          echo "PACKAGE_LOCK_BASE64_BEGIN"
+          base64 -w0 package-lock.json
+          echo
+          echo "PACKAGE_LOCK_BASE64_END"

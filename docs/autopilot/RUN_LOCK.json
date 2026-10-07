@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
+  "state": "active",
+  "owner": "interactive-us033-closeout-20261007T1452Z",
   "story_id": "US033",
-  "base_head": "750234db8a10c73734f60606631af676e6f2fce8",
-  "acquired_at": "2026-10-07T14:50:00Z",
+  "base_head": "06bda0e160e4264e0e399b89236773db17847bc2",
+  "acquired_at": "2026-10-07T14:52:00Z",
   "lease_minutes": 20,
-  "note": "Released after moving US033 benchmark artifacts from hidden .bench to visible bench-results."
+  "note": "Finalize US033 after green benchmark artifact and exact-head validation."
 }

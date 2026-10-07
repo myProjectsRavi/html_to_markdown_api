@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": "US033",
-  "base_head": "06bda0e160e4264e0e399b89236773db17847bc2",
-  "acquired_at": "2026-10-07T14:52:00Z",
+  "state": "active",
+  "owner": "interactive-us034-optimize-20261007T1455Z",
+  "story_id": "US034",
+  "base_head": "b530918175a52106b04aa2140f5d075cb3ad25f5",
+  "acquired_at": "2026-10-07T14:55:00Z",
   "lease_minutes": 20,
-  "note": "Released after US033 DONE checkpoint; US034 is next."
+  "note": "Optimize measured link-heavy Markdown serialization hotspot with comparable before/after benchmarks."
 }

@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "interactive-us033-closeout-20261007T1452Z",
+  "state": "released",
+  "owner": null,
   "story_id": "US033",
   "base_head": "06bda0e160e4264e0e399b89236773db17847bc2",
   "acquired_at": "2026-10-07T14:52:00Z",
   "lease_minutes": 20,
-  "note": "Finalize US033 after green benchmark artifact and exact-head validation."
+  "note": "Released after US033 DONE checkpoint; US034 is next."
 }

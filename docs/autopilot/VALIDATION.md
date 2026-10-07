@@ -443,3 +443,15 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Evidence: `docs/autopilot/evidence/US034.md`.
 - Conclusion: US034 passes; US035 is next.
 
+
+## US035 - Define the free account capacity envelope
+
+- Status: DONE.
+- Tested implementation SHA: `e97988e0f584e7a95bfc56141163284128e66a3c`.
+- Official 2026-10-07 platform snapshot records Cloudflare Workers Free at 100,000 account-wide requests/day, 10 ms CPU/invocation and 128 MB memory; RapidAPI hard quota and second/minute/hour rate-limit controls are documented.
+- Machine worksheet preserves unknown account-wide commitments as null, computes no fictitious spare capacity, includes rejected/direct-origin traffic, and blocks paid launch pending real aggregate usage.
+- Monthly planning scenarios record both 30-day average demand and full-quota worst-day bursts.
+- Exact CI: checkpoint run `37641768400` success; Autopilot Validation run `37641755612` success.
+- Evidence: `docs/autopilot/evidence/US035.md`.
+- Conclusion: US035 passes; US036 is next.
+

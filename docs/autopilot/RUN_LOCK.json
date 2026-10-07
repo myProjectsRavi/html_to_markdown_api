@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "recovery-watchdog-20261007-retention",
+  "state": "released",
+  "owner": null,
   "story_id": "US033",
   "base_head": "fac3fff2925f29e2d0ce7c3d04ff0a559063fef3",
   "acquired_at": "2026-10-07T03:50:00Z",
   "lease_minutes": 20,
-  "note": "Recover US033 CI retention-policy failure."
+  "note": "Released after US033 retention correction; validate the new checkpoint next."
 }

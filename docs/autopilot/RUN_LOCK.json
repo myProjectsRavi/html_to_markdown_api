@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "interactive-us039-approval-handoff-20261009",
+  "state": "released",
+  "owner": null,
   "story_id": "US039",
   "base_head": "dfd6e19841d03ee6bf02ffa411eb983c3b9c913d",
   "acquired_at": "2026-10-09T12:00:09.680Z",
   "lease_minutes": 20,
-  "note": "Refresh stale PR handoff, create owner approval checklist and keep US039 blocked until verified inputs."
+  "note": "US039 remains BLOCKED. Owner approval issue #2 and current PR #1 linked in durable state; no publication or plan activation. Handoff checkpoint b7f6ef96."
 }

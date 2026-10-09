@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "interactive-us039-evidence-20261009",
+  "state": "released",
+  "owner": null,
   "story_id": "US039",
   "base_head": "33af1cbb07bedb776c0481cdb03fd9bf8bd09529",
   "acquired_at": "2026-10-09T11:02:09.301Z",
   "lease_minutes": 20,
-  "note": "Record validated listing evidence and concrete external acceptance blockers."
+  "note": "US039 draft and CI evidence checkpointed. Story remains BLOCKED until owner confirms monitored support contact and real RapidAPI category; no paid launch."
 }

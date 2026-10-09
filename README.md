@@ -1,7 +1,24 @@
 # HTML to Markdown and Clean Text API
 
-Greenfield implementation seed for the production blueprint, version 1.0 (27 September 2026).
+Stateless, deterministic HTML conversion on Cloudflare Workers. Routes: `POST /v1/html/markdown`, `POST /v1/html/text` and `GET /health`. No URL fetching, browser scripting, external storage or AI inference is part of conversion.
 
-Production target: a stateless Cloudflare Worker exposing `POST /v1/html/markdown`, `POST /v1/html/text`, and `GET /health` with no runtime network access, storage, AI, browser execution, or paid infrastructure dependencies.
+## RapidAPI customer quickstart
 
-Development is tracked under `docs/autopilot/` and proceeds one ordered user story per run, US001 through US044.
+Obtain your actual gateway base URL, host header and subscription key from the RapidAPI dashboard. These are **customer** credentials, not the Worker's private gateway-to-origin secret.
+
+```bash
+export RAPIDAPI_BASE_URL="https://YOUR_RAPIDAPI_GATEWAY_BASE_URL"
+export RAPIDAPI_HOST="YOUR_RAPIDAPI_HOST"
+export RAPIDAPI_KEY="YOUR_SUBSCRIPTION_KEY"
+bash examples/curl.sh markdown
+```
+
+The script sends `{"html":"<article><h1>Hello</h1><p>World</p></article>"}`. Its exact success body is:
+
+```json
+{"markdown":"# Hello\n\nWorld","stats":{"input_bytes":45,"output_chars":14}}
+```
+
+Use `bash examples/curl.sh text`, `node examples/fetch.mjs markdown`, or `python3 examples/python.py text` for other variants. See [integration guide](docs/integration/US038_QUICKSTART.md) for supported limits, 4xx errors, safe rendering, and retry policy.
+
+Run `npm run test:examples` for a **synthetic loopback-only** test against a locally running Worker through a gateway shim. This does **not** prove the RapidAPI marketplace listing has been published. Development progress is tracked in `docs/autopilot/` on `autopilot/html-markdown-v1`.

@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
+  "state": "active",
+  "owner": "interactive-us039-evidence-20261009",
   "story_id": "US039",
-  "base_head": "d37a25888e63dbda7d83b81e1165749743203284",
-  "acquired_at": "2026-10-09T10:57:44.544Z",
+  "base_head": "33af1cbb07bedb776c0481cdb03fd9bf8bd09529",
+  "acquired_at": "2026-10-09T11:02:09.301Z",
   "lease_minutes": 20,
-  "note": "US039 listing draft checkpoint 1b9e7af; full CI validating. Resume US039 and keep publication/plan activation blocked."
+  "note": "Record validated listing evidence and concrete external acceptance blockers."
 }

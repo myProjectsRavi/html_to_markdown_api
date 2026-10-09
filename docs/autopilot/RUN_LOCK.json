@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
+  "state": "active",
+  "owner": "interactive-us038-closeout-20261009T0949Z",
   "story_id": "US038",
-  "base_head": "7ce0dc8f9ee3a1a59944c95c388cace08880fbd1",
-  "acquired_at": "2026-10-09T09:40:00Z",
+  "base_head": "b06764c7feefb16097136460514110c1ab9a8819",
+  "acquired_at": "2026-10-09T09:49:00Z",
   "lease_minutes": 20,
-  "note": "US038 implementation checkpoint 0a490967; full CI validating; resume US038 on terminal Actions result."
+  "note": "Finalize US038 after successful examples and full exact-head audited validation."
 }

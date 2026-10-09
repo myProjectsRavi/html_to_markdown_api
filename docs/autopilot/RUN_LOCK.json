@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
+  "state": "active",
+  "owner": "interactive-us039-approval-handoff-20261009",
   "story_id": "US039",
-  "base_head": "33af1cbb07bedb776c0481cdb03fd9bf8bd09529",
-  "acquired_at": "2026-10-09T11:02:09.301Z",
+  "base_head": "dfd6e19841d03ee6bf02ffa411eb983c3b9c913d",
+  "acquired_at": "2026-10-09T12:00:09.680Z",
   "lease_minutes": 20,
-  "note": "US039 draft and CI evidence checkpointed. Story remains BLOCKED until owner confirms monitored support contact and real RapidAPI category; no paid launch."
+  "note": "Refresh stale PR handoff, create owner approval checklist and keep US039 blocked until verified inputs."
 }

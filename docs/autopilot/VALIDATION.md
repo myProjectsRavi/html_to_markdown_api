@@ -483,3 +483,15 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Evidence: `docs/autopilot/evidence/US037.md`.
 - Conclusion: US037 passes; US038 is next.
 
+
+## US038 - Write and execute integration examples
+
+- Status: DONE.
+- Exact tested SHA: `b06764c7feefb16097136460514110c1ab9a8819`.
+- Real curl, JavaScript fetch and Python clients executed against the local Worker behind a synthetic loopback gateway for both endpoints: 6/6 exact JSON comparisons passed.
+- Negative checks: direct-origin missing secret 403, incorrect customer key 403, invalid shape 400, Unicode fixture input bytes 11/output scalars 1, no-store header.
+- PR checkpoint run `37913415888` succeeded; logged machine-readable `US038_EXAMPLE_RESULTS`.
+- Push checkpoint run `37913408535` and audited Autopilot Validation run `37913408644` succeeded.
+- README quickstart and integration guide document exact outputs, customer-only marketplace credentials, fixed errors and safe rendering. No URL-fetch or browser-equivalent claims.
+- Evidence: `docs/autopilot/evidence/US038.md`.
+- Conclusion: US038 passes; US039 is next.

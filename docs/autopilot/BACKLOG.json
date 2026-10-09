@@ -526,10 +526,10 @@
       "depends_on": [
         "US037"
       ],
-      "status": "TODO",
+      "status": "DONE",
       "blocked_from": null,
-      "tested_code_sha": null,
-      "evidence_path": null,
+      "tested_code_sha": "b06764c7feefb16097136460514110c1ab9a8819",
+      "evidence_path": "docs/autopilot/evidence/US038.md",
       "blocker": null
     },
     {

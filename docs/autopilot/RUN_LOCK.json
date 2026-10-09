@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "interactive-us038-closeout-20261009T0949Z",
+  "state": "released",
+  "owner": null,
   "story_id": "US038",
   "base_head": "b06764c7feefb16097136460514110c1ab9a8819",
   "acquired_at": "2026-10-09T09:49:00Z",
   "lease_minutes": 20,
-  "note": "Finalize US038 after successful examples and full exact-head audited validation."
+  "note": "Released after US038 DONE checkpoint; next eligible story US039."
 }

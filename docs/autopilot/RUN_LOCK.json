@@ -3,10 +3,10 @@
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
   "state": "active",
-  "owner": "recovery-watchdog-20261007T1916Z",
+  "owner": "interactive-us038-20261009T0940Z",
   "story_id": "US038",
-  "base_head": "f870e14574d4937c59b837cf3c2cd6413a07d029",
-  "acquired_at": "2026-10-07T19:16:35Z",
+  "base_head": "7ce0dc8f9ee3a1a59944c95c388cace08880fbd1",
+  "acquired_at": "2026-10-09T09:40:00Z",
   "lease_minutes": 20,
-  "note": "Recover US038: implement and execute integration examples."
+  "note": "Reclaim expired lease and implement US038 local integration examples."
 }

@@ -506,3 +506,5 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - US035 account-wide capacity remains unknown; no paid plan, rate limit or publication has been activated.
 - Evidence: `docs/autopilot/evidence/US039.md`.
 - Resume US039, not US040, when confirmations are available.
+
+US039 owner acceptance handoff: Issue #2 (https://github.com/myProjectsRavi/html_to_markdown_api/issues/2) opened; PR #1 description refreshed. These are coordination checkpoints, not additional performance/production validation. Story remains BLOCKED until owner confirms support and category.

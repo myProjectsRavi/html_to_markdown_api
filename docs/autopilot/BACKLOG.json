@@ -547,7 +547,7 @@
       "blocker": {
         "category": "external_owner_confirmation",
         "message": "US039 listing draft and automated validation pass, but an owner-confirmed monitored support contact and exact RapidAPI Studio category are not available. Price activation, published category and support details cannot be invented. Record confirmations before DONE.",
-        "next_action": "Confirm support contact and one actual RapidAPI Studio category, approve/adjust the pricing experiment, then revalidate draft and close US039 before starting US040."
+        "next_action": "Owner: respond in https://github.com/myProjectsRavi/html_to_markdown_api/issues/2 with a monitored public support channel, one exact RapidAPI Studio category and draft pricing decision. Verify inputs, rerun gates and close US039 before US040. No publication or activation."
       }
     },
     {

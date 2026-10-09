@@ -16,3 +16,4 @@
 - US035 launch gate remains `BLOCKED_PENDING_ACCOUNT_WIDE_USAGE`, in addition to the US039 confirmation gate.
 - Next executable step: once category and support contact are verified, update draft and machine record (no actual publishing), rerun `npm run test:listing` plus full audited regression, mark US039 DONE only if evidence passes, then start US040 separately.
 - Never skip to US040, publish a listing, or enable paid plans while US039 is BLOCKED.
+- US039 owner-decision handoff is tracked in GitHub Issue #2: https://github.com/myProjectsRavi/html_to_markdown_api/issues/2. PR #1 was refreshed to the current blocked state: https://github.com/myProjectsRavi/html_to_markdown_api/pull/1. No owner decisions have been inferred from issue creation.

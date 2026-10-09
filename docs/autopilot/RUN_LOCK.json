@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
-  "story_id": "US038",
-  "base_head": "b06764c7feefb16097136460514110c1ab9a8819",
-  "acquired_at": "2026-10-09T09:49:00Z",
+  "state": "active",
+  "owner": "interactive-us039-20261009",
+  "story_id": "US039",
+  "base_head": "d37a25888e63dbda7d83b81e1165749743203284",
+  "acquired_at": "2026-10-09T10:57:44.544Z",
   "lease_minutes": 20,
-  "note": "Released after US038 DONE checkpoint; next eligible story US039."
+  "note": "Create evidence-backed unactivated listing, plan stress checks, and explicit owner-confirmation gates."
 }

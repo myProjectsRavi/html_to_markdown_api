@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "interactive-us038-20261009T0940Z",
+  "state": "released",
+  "owner": null,
   "story_id": "US038",
   "base_head": "7ce0dc8f9ee3a1a59944c95c388cace08880fbd1",
   "acquired_at": "2026-10-09T09:40:00Z",
   "lease_minutes": 20,
-  "note": "Reclaim expired lease and implement US038 local integration examples."
+  "note": "US038 implementation checkpoint 0a490967; full CI validating; resume US038 on terminal Actions result."
 }

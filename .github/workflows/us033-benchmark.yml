@@ -1,0 +1,58 @@
+name: US033 benchmark evidence
+
+on:
+  push:
+    branches:
+      - autopilot/html-markdown-v1
+    paths:
+      - ".github/workflows/us033-benchmark.yml"
+      - "tests/performance-benchmark.test.ts"
+      - "vitest.performance.config.ts"
+      - "BENCHMARKS.md"
+      - "package.json"
+      - "package-lock.json"
+      - "src/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: us033-benchmark-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout exact revision
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Setup Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22.22.2
+          cache: npm
+      - name: Install reviewed lockfile
+        run: npm ci
+      - name: Build exact revision
+        run: npm run build
+      - name: Run three independent benchmark processes
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p bench-results
+          for run in 1 2 3; do
+            BENCH_RUN_INDEX="$run" BENCH_OUTPUT="bench-results/run-$run.json" GITHUB_SHA="${GITHUB_SHA}" npm run benchmark
+          done
+          node -e 'const fs=require("fs"); for (const n of [1,2,3]) { const p="bench-results/run-"+n+".json"; const x=JSON.parse(fs.readFileSync(p,"utf8")); if (x.story!=="US033" || x.revision!==process.env.GITHUB_SHA || x.run_index!==n || !Array.isArray(x.records) || x.records.length===0) process.exit(1); }'
+      - name: Retain machine-readable benchmark evidence
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: us033-benchmark-${{ github.sha }}
+          path: bench-results/run-*.json
+          if-no-files-found: error
+          retention-days: 7

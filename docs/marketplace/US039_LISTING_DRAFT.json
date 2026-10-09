@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "story": "US039",
+  "record_type": "unpublished_review_draft",
+  "published": false,
+  "plans_activated": false,
+  "owner_approved": false,
+  "product": {
+    "title": "HTML to Markdown and Clean Text API",
+    "short_description": "Convert submitted HTML into readable Markdown or clean text with predictable JSON responses.",
+    "long_description": "Send UTF-8 HTML in a small JSON request and receive Markdown or clean text plus input-byte and output-character statistics. Includes bounded input/output, fixed error codes, and runnable curl, JavaScript and Python examples. This service converts supplied HTML only. It does not fetch URLs, execute scripts, render a browser page, provide AI summaries or guarantee pixel-perfect fidelity.",
+    "category": {
+      "status": "REQUIRES_OWNER_VERIFICATION",
+      "value": null,
+      "candidates": [
+        "Developer Tools",
+        "Data"
+      ],
+      "instruction": "Select exactly one category from the current RapidAPI Studio dropdown; record the exact supported name before approval."
+    },
+    "tags": {
+      "status": "SUGGESTIONS_UNCONFIRMED",
+      "suggestions": [
+        "html",
+        "markdown",
+        "plain-text",
+        "text-conversion",
+        "developer-tools"
+      ]
+    },
+    "support": {
+      "status": "REQUIRES_OWNER_CONFIRMATION",
+      "contact": null,
+      "instruction": "Provide a monitored public support email or approved issue tracker before approval; do not publish a placeholder."
+    },
+    "site": {
+      "status": "OPTIONAL_NO_SITE_REQUIRED",
+      "url": null
+    },
+    "endpoint_base_url": {
+      "status": "NOT_CONFIGURED",
+      "value": null
+    },
+    "privacy_notice": "The application does not intentionally persist submitted HTML or conversion output, and Worker response headers use no-store. Marketplace, network, and cloud providers may retain operational metadata under their own policies.",
+    "limitations": [
+      "Submitted HTML only; no remote URL retrieval.",
+      "Not a browser-equivalent HTML/CSS renderer.",
+      "Unsupported structures may use readable text fallback.",
+      "Strict byte, complexity, and output limits.",
+      "Relative links may remain relative; unsafe URLs are restricted.",
+      "No production availability, CPU, SLA or earnings guarantees."
+    ],
+    "auth": "RapidAPI subscribers use marketplace-provided X-RapidAPI-Key and X-RapidAPI-Host; the gateway-to-origin secret is never customer-facing."
+  },
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/health",
+      "sample_response": {
+        "status": "ok"
+      },
+      "evidence": "docs/autopilot/evidence/US037.md"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/html/markdown",
+      "sample_request": {
+        "html": "<article><h1>Hello</h1><p>World</p></article>"
+      },
+      "sample_response": {
+        "markdown": "# Hello\n\nWorld",
+        "stats": {
+          "input_bytes": 45,
+          "output_chars": 14
+        }
+      },
+      "evidence": "docs/autopilot/evidence/US038.md"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/html/text",
+      "sample_request": {
+        "html": "<article><h1>Hello</h1><p>World</p></article>"
+      },
+      "sample_response": {
+        "text": "Hello\n\nWorld",
+        "stats": {
+          "input_bytes": 45,
+          "output_chars": 12
+        }
+      },
+      "evidence": "docs/autopilot/evidence/US038.md"
+    }
+  ],
+  "limits": {
+    "raw_json_bytes": 800000,
+    "decoded_html_utf8_bytes": 131072,
+    "output_scalars": 262144,
+    "output_bytes": 1048576
+  },
+  "verified_claims": [
+    {
+      "claim": "Both conversion endpoints and liveness path",
+      "evidence": "docs/autopilot/evidence/US037.md",
+      "kind": "tested"
+    },
+    {
+      "claim": "Exact example responses and error behavior",
+      "evidence": "docs/autopilot/evidence/US038.md",
+      "kind": "tested"
+    },
+    {
+      "claim": "Input and complexity guardrails",
+      "evidence": "docs/autopilot/evidence/US031.md",
+      "kind": "tested"
+    },
+    {
+      "claim": "No application logging and production Workers Logs disabled",
+      "evidence": "docs/autopilot/evidence/US036.md",
+      "kind": "tested_configuration_only"
+    },
+    {
+      "claim": "Free-tier capacity remains unconfirmed pending other Worker traffic",
+      "evidence": "docs/autopilot/evidence/US035.md",
+      "kind": "capacity_block"
+    }
+  ],
+  "price_experiment": {
+    "status": "DRAFT_NOT_APPROVED",
+    "currency": "USD",
+    "billing_period": "month",
+    "request_object": "Requests",
+    "hard_monthly_quota": true,
+    "overage_allowed": false,
+    "subscription_activation": false,
+    "proposed_plans": [
+      {
+        "name": "FREE",
+        "monthly_usd": 0,
+        "requests_per_month": 1000,
+        "avg_per_day_30d": 33.34,
+        "worst_case_requests_one_day": 1000
+      },
+      {
+        "name": "PRO",
+        "monthly_usd": 4.99,
+        "requests_per_month": 25000,
+        "avg_per_day_30d": 833.34,
+        "worst_case_requests_one_day": 25000
+      },
+      {
+        "name": "ULTRA",
+        "monthly_usd": 14.99,
+        "requests_per_month": 100000,
+        "avg_per_day_30d": 3333.34,
+        "worst_case_requests_one_day": 100000
+      },
+      {
+        "name": "MEGA",
+        "monthly_usd": 39.99,
+        "requests_per_month": 500000,
+        "avg_per_day_30d": 16666.67,
+        "worst_case_requests_one_day": 500000
+      }
+    ],
+    "rate_limits": {
+      "status": "NOT_CONFIGURED",
+      "rule": "A monthly hard quota alone cannot prevent a one-day burst. Configure account-safe per-plan second/minute/hour controls only after confirming aggregate capacity."
+    },
+    "caveat": "These are blueprint pricing hypotheses, not an offer, capacity promise, published plan or projected income."
+  },
+  "capacity_gate": {
+    "worker_free_account_requests_per_day": 100000,
+    "candidate_api_reserved_per_day": 20000,
+    "safety_reserved_per_day": 10000,
+    "other_worker_usage_verified": false,
+    "available_requests_per_day": null,
+    "mega_exceeds_entire_free_day": true,
+    "paid_launch": "BLOCKED_PENDING_ACCOUNT_WIDE_USAGE",
+    "reason": "US035 lacks measured account-wide reserved load and staging telemetry. No tier can be activated on an assumption that the entire Cloudflare free quota is available."
+  },
+  "approval_gates": {
+    "owner_support_contact": "BLOCKED",
+    "exact_marketplace_category": "BLOCKED",
+    "owner_plan_prices": "BLOCKED",
+    "aggregate_account_capacity": "BLOCKED",
+    "rate_limits_and_daily_bursts": "BLOCKED",
+    "approved_marketplace_origin": "BLOCKED",
+    "final_release_decision": "BLOCKED",
+    "product_visibility": "PRIVATE_DRAFT_ONLY"
+  },
+  "references": [
+    {
+      "title": "OpenAPI product contract",
+      "path": "openapi.yaml"
+    },
+    {
+      "title": "Integration quickstart",
+      "path": "docs/integration/US038_QUICKSTART.md"
+    },
+    {
+      "title": "Capacity worksheet",
+      "path": "docs/capacity/free-account-envelope.json"
+    },
+    {
+      "title": "RapidAPI Hub General",
+      "url": "https://docs.rapidapi.com/docs/hub-listing-general-tab"
+    },
+    {
+      "title": "RapidAPI Hub Monetize",
+      "url": "https://docs.rapidapi.com/v2.0/docs/hub-listing-monetize-tab"
+    },
+    {
+      "title": "Cloudflare Workers limits",
+      "url": "https://developers.cloudflare.com/workers/platform/limits/"
+    }
+  ]
+}

@@ -540,11 +540,15 @@
       "depends_on": [
         "US038"
       ],
-      "status": "TODO",
-      "blocked_from": null,
-      "tested_code_sha": null,
-      "evidence_path": null,
-      "blocker": null
+      "status": "BLOCKED",
+      "blocked_from": "VALIDATING",
+      "tested_code_sha": "1b9e7af07da9bcccaa3ca6e6f50b3c5f35d93c0c",
+      "evidence_path": "docs/autopilot/evidence/US039.md",
+      "blocker": {
+        "category": "external_owner_confirmation",
+        "message": "US039 listing draft and automated validation pass, but an owner-confirmed monitored support contact and exact RapidAPI Studio category are not available. Price activation, published category and support details cannot be invented. Record confirmations before DONE.",
+        "next_action": "Confirm support contact and one actual RapidAPI Studio category, approve/adjust the pricing experiment, then revalidate draft and close US039 before starting US040."
+      }
     },
     {
       "id": "US040",

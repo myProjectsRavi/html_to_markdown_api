@@ -495,3 +495,14 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - README quickstart and integration guide document exact outputs, customer-only marketplace credentials, fixed errors and safe rendering. No URL-fetch or browser-equivalent claims.
 - Evidence: `docs/autopilot/evidence/US038.md`.
 - Conclusion: US038 passes; US039 is next.
+
+## US039 - Prepare the RapidAPI product draft
+
+- Status: BLOCKED by external owner confirmation; drafted implementation and validation gates passed.
+- Tested SHA: `1b9e7af07da9bcccaa3ca6e6f50b3c5f35d93c0c`.
+- `npm run test:listing` checks 3 OpenAPI paths, 5 substantiated capabilities, four exact blueprint plan quotas and prices, hard monthly no-overage defaults and explicit private/unpublished status.
+- PR checkpoint run `37920999451`, push checkpoint run `37920994535` and audited run `37920994509` succeeded.
+- Owner must confirm the monitored support contact and exact marketplace category; no external defaults are fabricated.
+- US035 account-wide capacity remains unknown; no paid plan, rate limit or publication has been activated.
+- Evidence: `docs/autopilot/evidence/US039.md`.
+- Resume US039, not US040, when confirmations are available.

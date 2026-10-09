@@ -7,11 +7,12 @@
 - Current Epic: E09 Marketplace integration and documentation
 - Current Feature: F20 RapidAPI product draft
 - Current Story: US039 Prepare the RapidAPI product draft
-- Phase: VALIDATING
-- Completed US037: DONE, tested SHA `3946aa18dce6769ea04cda915ec697b88976fc89`.
+- Phase: BLOCKED
 - Completed US038: DONE, tested SHA `b06764c7feefb16097136460514110c1ab9a8819`.
-- US038 CI: PR run `37913415888`, push run `37913408535` and audited validation run `37913408644` all succeeded.
-- US038 acceptance: all 6 curl/Node/Python endpoint examples matched exact local Worker output; synthetic origin/client rejection, malformed request, Unicode stats and no-store checks passed.
-- US035 paid-launch gate remains `BLOCKED_PENDING_ACCOUNT_WIDE_USAGE`.
-- US039 checkpoint: unpublished listing copy and machine-readable 4-plan experiment prepared, with category/support unconfirmed and paid launch capacity blocked by US035. Static verifier cross-checks all advertised endpoints, example JSON, prices, security claims and release gates.
-- Exact next action: inspect full authoritative CI on this US039 documentation commit; if validation passes, record evidence and leave US039 BLOCKED pending verified support contact/category and owner plan approval; never activate plans or publish.
+- US039 implementation SHA: `1b9e7af07da9bcccaa3ca6e6f50b3c5f35d93c0c`; full audited run `37920994509`, push run `37920994535`, PR run `37920999451` succeeded.
+- Durable draft: `docs/marketplace/US039_RAPIDAPI_LISTING.md`, machine plan/config: `docs/marketplace/US039_LISTING_DRAFT.json`, executable gate `npm run test:listing`.
+- Exact external blocker: owner-confirmed publicly usable monitored support contact and one exact actual RapidAPI Studio marketplace category are missing. No category or support identity was invented.
+- Price hypothesis ($0/1k, $4.99/25k, $14.99/100k, $39.99/500k monthly) remains unapproved and not configured.
+- US035 launch gate remains `BLOCKED_PENDING_ACCOUNT_WIDE_USAGE`, in addition to the US039 confirmation gate.
+- Next executable step: once category and support contact are verified, update draft and machine record (no actual publishing), rerun `npm run test:listing` plus full audited regression, mark US039 DONE only if evidence passes, then start US040 separately.
+- Never skip to US040, publish a listing, or enable paid plans while US039 is BLOCKED.

@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import SwaggerParser from "@apidevtools/swagger-parser";
-import { evaluateOwnerConfirmations } from "./lib/us039-approval.mjs";
+import { evaluateOwnerConfirmations, assertListingCopyMatchesConfirmations } from "./lib/us039-approval.mjs";
 
 const data = JSON.parse(readFileSync("docs/marketplace/US039_LISTING_DRAFT.json", "utf8"));
 const md = readFileSync("docs/marketplace/US039_RAPIDAPI_LISTING.md", "utf8");
@@ -15,6 +15,7 @@ assert.equal(data.plans_activated, false);
 assert.equal(data.owner_approved, false);
 assert.equal(data.approval_gates.product_visibility, "PRIVATE_DRAFT_ONLY");
 const approval = evaluateOwnerConfirmations(data);
+assertListingCopyMatchesConfirmations(data, md);
 assert.equal(approval.canAutomaticallyCloseStory, false);
 assert.equal(approval.authorizesPublication, false);
 assert.equal(approval.authorizesPaidPlans, false);

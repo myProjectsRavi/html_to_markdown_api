@@ -508,3 +508,14 @@ Blueprint: HTML to Markdown and Clean Text API Implementation Blueprint v1.0, 27
 - Resume US039, not US040, when confirmations are available.
 
 US039 owner acceptance handoff: Issue #2 (https://github.com/myProjectsRavi/html_to_markdown_api/issues/2) opened; PR #1 description refreshed. These are coordination checkpoints, not additional performance/production validation. Story remains BLOCKED until owner confirms support and category.
+
+## 2026-10-11 approval-gate hardening
+
+- Tested implementation SHA: `9e78e3283dc4cdf3403130a2f4fe1ab98f3ee163` (lock-only successor to hardened approval code).
+- New pure validator `scripts/lib/us039-approval.mjs` validates category/support confirmation metadata independently without treating a GitHub issue permalink as authenticated evidence.
+- `scripts/test-us039-approval.mjs` covers unconfirmed, partially recorded, synthetically recorded, invalid provenance, unapproved support, credential-bearing URLs, non-HTTPS URLs and other malformed cases. The 11 negative cases passed.
+- First exact-SHA CI run exposed a real risk: a permissive email regex accepted an HTTPS URL containing a username/password. Commit `3d0a0a48ea1f5d7ec5988398b71ea44396b43285` repaired scheme-first URL handling and a strictly constrained email pattern; added three adversarial cases.
+- `docs/marketplace/US039_OWNER_CONFIRMATION.md` defines the required live owner-comment and actual RapidAPI Studio category verification before completion. The automated gate cannot independently authenticate the owner or Studio UI; it cannot close US039.
+- CI success: audited `38139642035`, push checkpoint `38139642052`, PR checkpoint `38139645013`, all terminal SUCCESS at implementation SHA `9e78e3283dc4cdf3403130a2f4fe1ab98f3ee163`.
+- CI output: `US039_APPROVAL_GATE_RESULT` baseline BLOCKED, synthetic recorded state requires live source review, 11 negative cases, auto-close false, publishing false and paid activation false. Full and production dependency audits reported zero vulnerabilities.
+- Actual Issue #2 comments at this checkpoint: none. Owner support and exact Studio category are still unconfirmed. US039 remains BLOCKED; US040 remains TODO. Main untouched; no marketplace activation.

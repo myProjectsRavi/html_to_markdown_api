@@ -8,11 +8,11 @@ const listingMarkdown = readFileSync("docs/marketplace/US039_RAPIDAPI_LISTING.md
 assertListingCopyMatchesConfirmations(base, listingMarkdown);
 function replaceListingField(markdown, label, value) {
   const prefix = `**${label}:** `;
-  const lines = markdown.split("\\n");
+  const lines = markdown.split("\n");
   const index = lines.findIndex(line => line.startsWith(prefix));
   assert.ok(index >= 0, `${label} must exist in the fixture`);
   lines[index] = prefix + value;
-  return lines.join("\\n");
+  return lines.join("\n");
 }
 
 const proof = {
@@ -65,7 +65,7 @@ rejectsCopy(both, supportCopy); // category confirmation missing from copy
 rejectsCopy(base, replaceListingField(listingMarkdown, "Category", "Unverified category"));
 rejectsCopy(both, replaceListingField(consistentCopy, "Support contact", "https://example.com/wrong"));
 rejectsCopy(base, listingMarkdown.replace("**Category:** ", "**Category removed:** "));
-rejectsCopy(base, listingMarkdown + "\\n**Support contact:** OWNER ACTION REQUIRED. Duplicate.\\n");
+rejectsCopy(base, listingMarkdown + "\n**Support contact:** OWNER ACTION REQUIRED. Duplicate.\n");
 
 function rejects(mutator) {
   const input = copy(); mutator(input);

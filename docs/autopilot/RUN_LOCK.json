@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "interactive-us039-contact-validation-fix-20261011",
+  "state": "released",
+  "owner": null,
   "story_id": "US039",
   "base_head": "72adb03ab43d43c07c8b2b09655000c52e6211df",
   "acquired_at": "2026-10-11T12:31:23.866Z",
   "lease_minutes": 20,
-  "note": "Correct confirmed support contact validation: URLs with credentials must never pass as email."
+  "note": "Contact validator fixed to reject credential URLs; 11 negative cases; CI revalidating. US039 remains blocked by absent owner support and exact category."
 }

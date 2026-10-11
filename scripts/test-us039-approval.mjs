@@ -47,8 +47,11 @@ rejects(d=>{d.product.support.contact="fake@example.com";});
 rejects(d=>{support(d);d.product.support.confirmation.approved_for_public_listing=false;});
 rejects(d=>{support(d);d.product.support.contact="http://insecure.example/";});
 rejects(d=>{support(d);d.product.support.contact="https://user:password@example.com/";});
+rejects(d=>{support(d);d.product.support.contact="https://example.com/?key=secret";});
+rejects(d=>{support(d);d.product.support.contact="https://user@example.com";});
+rejects(d=>{support(d);d.product.support.contact="email@example.com/path";});
 console.log("US039_APPROVAL_GATE_RESULT=" + JSON.stringify({
-  baseline:first.status, synthetic_recorded:reviewed.status, negative_cases:8,
+  baseline:first.status, synthetic_recorded:reviewed.status, negative_cases:11,
   recorded_inputs_are_not_authenticated: true, automatic_closure:false,
   publication:false, paid_activation:false
 }));

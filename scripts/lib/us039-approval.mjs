@@ -16,12 +16,14 @@ function commentProof(proof) {
 function publicContact(value) {
   if (typeof value !== "string" || value.length < 5 || value.length > 200) return false;
   if (/[\s<>"'\\]/u.test(value) || value.includes(String.fromCharCode(96))) return false;
-  if (/^[^@\s]+@[^@\s]+\.[^@\s]+$/u.test(value)) return true;
-  try {
-    const url = new URL(value);
-    return url.protocol === "https:" && url.hostname.length > 3 &&
-      !url.username && !url.password && !url.search && !url.hash;
-  } catch { return false; }
+  if (value.includes("://")) {
+    try {
+      const url = new URL(value);
+      return url.protocol === "https:" && url.hostname.length > 3 &&
+        !url.username && !url.password && !url.search && !url.hash;
+    } catch { return false; }
+  }
+  return /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/u.test(value);
 }
 // Shape validation does not authenticate the referenced GitHub comment. The
 // operator must independently verify its author and the actual Studio category.

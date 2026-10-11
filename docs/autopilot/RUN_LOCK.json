@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "active",
-  "owner": "interactive-us039-approval-gate-20261011",
+  "state": "released",
+  "owner": null,
   "story_id": "US039",
   "base_head": "a337e9c0cf3f1d66835b4238661fb93db0baf212",
   "acquired_at": "2026-10-11T12:25:52.271Z",
   "lease_minutes": 20,
-  "note": "Implement fail-closed owner confirmation validation and synthetic self-tests; keep marketplace/publication gated."
+  "note": "US039 approval validator hardened; awaiting exact-SHA CI and authentic Issue #2 owner contact and Studio category. US040 not started."
 }

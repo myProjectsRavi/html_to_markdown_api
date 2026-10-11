@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
+  "state": "active",
+  "owner": "chatgpt-us039-public-marketplace-evidence-20261011",
   "story_id": "US039",
-  "base_head": "cf1f3475c2e22793bf3fd6c4fb1ef1d4f0e8267a",
-  "acquired_at": "2026-10-11T13:24:23.514Z",
+  "base_head": "69a1a4952b0c0976dba0f1444a9e697de274670c",
+  "acquired_at": "2026-10-11T14:23:00.120Z",
   "lease_minutes": 20,
-  "note": "US039 consistency assertions and tests committed, owner category/support still missing. Recheck terminal exact-head CI. US040 not started."
+  "note": "Record current public RapidAPI category evidence; issue owner single-step confirmation handoff. Never infer Studio UI/owner consent."
 }

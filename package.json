@@ -50,7 +50,7 @@
     "test:observability": "vitest run tests/observability.test.ts && node scripts/validate-observability.mjs",
     "test:openapi": "vitest run --config vitest.openapi.config.ts tests/openapi-contract.test.ts --reporter=default",
     "test:examples": "node scripts/test-us038-examples.mjs",
-    "test:listing": "node scripts/validate-us039-listing.mjs"
+    "test:listing": "node scripts/validate-us039-listing.mjs && node scripts/test-us039-approval.mjs"
   },
   "engines": {
     "node": "22.22.2",

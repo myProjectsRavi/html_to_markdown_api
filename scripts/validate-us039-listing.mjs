@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import SwaggerParser from "@apidevtools/swagger-parser";
+import { evaluateOwnerConfirmations } from "./lib/us039-approval.mjs";
 
 const data = JSON.parse(readFileSync("docs/marketplace/US039_LISTING_DRAFT.json", "utf8"));
 const md = readFileSync("docs/marketplace/US039_RAPIDAPI_LISTING.md", "utf8");
@@ -13,10 +14,10 @@ assert.equal(data.published, false);
 assert.equal(data.plans_activated, false);
 assert.equal(data.owner_approved, false);
 assert.equal(data.approval_gates.product_visibility, "PRIVATE_DRAFT_ONLY");
-assert.equal(data.product.category.status, "REQUIRES_OWNER_VERIFICATION");
-assert.equal(data.product.category.value, null);
-assert.equal(data.product.support.status, "REQUIRES_OWNER_CONFIRMATION");
-assert.equal(data.product.support.contact, null);
+const approval = evaluateOwnerConfirmations(data);
+assert.equal(approval.canAutomaticallyCloseStory, false);
+assert.equal(approval.authorizesPublication, false);
+assert.equal(approval.authorizesPaidPlans, false);
 for (const [gate, state] of Object.entries(data.approval_gates)) {
   if (gate !== "product_visibility") assert.equal(state, "BLOCKED", gate);
 }
@@ -68,9 +69,9 @@ const prohibited = /\b(zero[- ]bug|guaranteed earnings|fastest|unlimited request
 assert.ok(!prohibited.test(data.product.long_description+" "+data.product.short_description+" "+md));
 for (const entry of data.references) if (entry.path) assert.ok(existsSync(entry.path), entry.path);
 console.log("US039_LISTING_RESULT=" + JSON.stringify({
-  status:"DRAFT_VALIDATED_PENDING_OWNER_CONFIRMATIONS",
+  status:approval.status, unresolved_owner_inputs:approval.unresolved,
   endpoints_checked:data.endpoints.length,claims_checked:data.verified_claims.length,
   plans_checked:data.price_experiment.proposed_plans.length,
   hard_monthly_quotas:true,overages:false,activated:false,paid_launch:data.capacity_gate.paid_launch,
-  support_contact:"NOT_CONFIRMED",category:"NOT_CONFIRMED",published:false
+  support_contact:approval.supportRecorded ? "RECORDED_NOT_SOURCE_VERIFIED" : "NOT_CONFIRMED",category:approval.categoryRecorded ? "RECORDED_NOT_SOURCE_VERIFIED" : "NOT_CONFIRMED",published:false
 }));

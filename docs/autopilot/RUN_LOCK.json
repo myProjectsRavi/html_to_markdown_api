@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
+  "state": "active",
+  "owner": "interactive-us039-approval-gate-20261011",
   "story_id": "US039",
-  "base_head": "dfd6e19841d03ee6bf02ffa411eb983c3b9c913d",
-  "acquired_at": "2026-10-09T12:00:09.680Z",
+  "base_head": "a337e9c0cf3f1d66835b4238661fb93db0baf212",
+  "acquired_at": "2026-10-11T12:25:52.271Z",
   "lease_minutes": 20,
-  "note": "US039 remains BLOCKED. Owner approval issue #2 and current PR #1 linked in durable state; no publication or plan activation. Handoff checkpoint b7f6ef96."
+  "note": "Implement fail-closed owner confirmation validation and synthetic self-tests; keep marketplace/publication gated."
 }

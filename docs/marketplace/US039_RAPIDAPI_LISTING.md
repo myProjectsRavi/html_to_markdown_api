@@ -12,11 +12,11 @@
 
 > Send UTF-8 HTML in a JSON request and receive Markdown or clean text with simple input-byte and output-character statistics. The API includes bounded input/output, fixed error codes and working curl, JavaScript and Python examples. It converts submitted HTML only; it does not fetch URLs, execute scripts or reproduce browser CSS layout. Designed for developer workflows that need a predictable text representation of HTML.
 
-**Category:** OWNER ACTION REQUIRED. Pick one category actually present in the current Studio dropdown. Candidate areas to evaluate: Developer Tools or Data; neither has been confirmed to be an available category.
+**Category:** OWNER ACTION REQUIRED. Recommended choice: **Tools**. Public RapidAPI Hub currently lists Tools, Text Analysis and Data as category filters, but this is not confirmation of the owner's Studio dropdown. Confirm the exact selectable category in Studio before copying a value here.
 
-**Suggested tags (verify availability):** html, markdown, plain-text, text-conversion, developer-tools.
+**Suggested tags (verify availability):** html, markdown, plain-text, text-conversion, tools.
 
-**Support contact:** OWNER ACTION REQUIRED. Enter a monitored public email address or a deliberately approved issue tracker. Never publish the placeholder. No support response-time commitment is assumed.
+**Support contact:** OWNER ACTION REQUIRED. Suggested public support channel: https://github.com/myProjectsRavi/html_to_markdown_api/issues . The owner must explicitly approve this URL for public use and confirm that incoming issues will be monitored before it replaces this placeholder. No response-time commitment is assumed.
 
 **Website:** Optional; no website is required or provided by this draft.
 
@@ -84,6 +84,8 @@ Workers Free is capped at **100,000 requests/day account-wide**. The candidate A
 | Conversion security and safe URL handling | `docs/autopilot/evidence/US031.md` |
 | Application logging disabled in production configuration | `docs/autopilot/evidence/US036.md` |
 | Free account planning constraint and missing aggregate capacity | `docs/capacity/free-account-envelope.json`, `docs/autopilot/evidence/US035.md` |
+
+Public category existence independently checked 2026-10-11 in the [RapidAPI Hub category filter](https://rapidapi.com/search/live). This does not verify private Studio selectability, owner consent or support monitoring.
 
 Platform docs reviewed 2026-10-09: [RapidAPI General](https://docs.rapidapi.com/docs/hub-listing-general-tab), [RapidAPI Monetize](https://docs.rapidapi.com/v2.0/docs/hub-listing-monetize-tab), [Cloudflare Worker limits](https://developers.cloudflare.com/workers/platform/limits/).
 

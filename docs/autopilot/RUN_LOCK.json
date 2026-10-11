@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
+  "state": "active",
+  "owner": "interactive-us039-ci-closeout-20261011",
   "story_id": "US039",
-  "base_head": "72adb03ab43d43c07c8b2b09655000c52e6211df",
-  "acquired_at": "2026-10-11T12:31:23.866Z",
+  "base_head": "9e78e3283dc4cdf3403130a2f4fe1ab98f3ee163",
+  "acquired_at": "2026-10-11T12:35:29.869Z",
   "lease_minutes": 20,
-  "note": "Contact validator fixed to reject credential URLs; 11 negative cases; CI revalidating. US039 remains blocked by absent owner support and exact category."
+  "note": "Record green audited, push and PR validation for hardened listing approval gate; US039 remains BLOCKED on Issue #2 owner inputs."
 }

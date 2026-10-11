@@ -65,3 +65,29 @@ export function evaluateOwnerConfirmations(listing) {
     authorizesPaidPlans: false
   };
 }
+
+/**
+ * Verify that the review-facing listing agrees with the machine-recorded
+ * category/support decisions. This checks representation consistency only:
+ * authenticated GitHub owner comments and the actual RapidAPI Studio dropdown
+ * must still be independently reviewed before US039 may close.
+ */
+export function assertListingCopyMatchesConfirmations(listing, markdown) {
+  assert.equal(typeof markdown, "string", "listing Markdown is required");
+  const fields = [
+    ["Category", listing.product.category, "value", "CONFIRMED_BY_OWNER"],
+    ["Support contact", listing.product.support, "contact", "CONFIRMED_BY_OWNER"]
+  ];
+  for (const [label, recorded, key, confirmedState] of fields) {
+    const prefix = `**${label}:** `;
+    const rows = markdown.split(/\r?\n/u).filter(row => row.startsWith(prefix));
+    assert.equal(rows.length, 1, `${label} must have exactly one listing field`);
+    const shown = rows[0].slice(prefix.length).trim();
+    if (recorded.status === confirmedState) {
+      assert.equal(shown, recorded[key], `${label} in listing differs from approved record`);
+    } else {
+      assert.ok(shown.startsWith("OWNER ACTION REQUIRED."),
+        `${label} must show an explicit pending-decision placeholder`);
+    }
+  }
+}

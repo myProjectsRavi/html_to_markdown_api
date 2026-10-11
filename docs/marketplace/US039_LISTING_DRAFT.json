@@ -13,10 +13,15 @@
       "status": "REQUIRES_OWNER_VERIFICATION",
       "value": null,
       "candidates": [
-        "Developer Tools",
+        "Tools",
+        "Text Analysis",
         "Data"
       ],
-      "instruction": "Select exactly one category from the current RapidAPI Studio dropdown; record the exact supported name before approval."
+      "instruction": "Tools is an observed public RapidAPI Hub category, not a confirmed private Studio selection. Owner must verify the exact category from Studio before approval.",
+      "recommended_public_hub_category": "Tools",
+      "public_hub_verified_at": "2026-10-11",
+      "public_hub_source_url": "https://rapidapi.com/search/live",
+      "studio_selectability_verified": false
     },
     "tags": {
       "status": "SUGGESTIONS_UNCONFIRMED",
@@ -31,7 +36,9 @@
     "support": {
       "status": "REQUIRES_OWNER_CONFIRMATION",
       "contact": null,
-      "instruction": "Provide a monitored public support email or approved issue tracker before approval; do not publish a placeholder."
+      "instruction": "GitHub Issues exists and is public, but owner must confirm it is monitored and explicitly authorize its use as public support before approval.",
+      "suggested_public_issue_tracker": "https://github.com/myProjectsRavi/html_to_markdown_api/issues",
+      "monitoring_owner_confirmed": false
     },
     "site": {
       "status": "OPTIONAL_NO_SITE_REQUIRED",

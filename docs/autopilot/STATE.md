@@ -1,0 +1,25 @@
+# Autopilot state
+
+- Blueprint: v1.0, 27 September 2026
+- Target repository: `myProjectsRavi/html_to_markdown_api`
+- Allowed implementation branch: `autopilot/html-markdown-v1`
+- Approved starting revision (`main`): `51497790a365b9465e35bb8dd2b06adb4ac38d4c`
+- Current Epic: E09 Marketplace integration and documentation
+- Current Feature: F20 RapidAPI product draft
+- Current Story: US039 Prepare the RapidAPI product draft
+- Phase: BLOCKED
+- Completed US038: DONE, tested SHA `b06764c7feefb16097136460514110c1ab9a8819`.
+- US039 implementation SHA: `1b9e7af07da9bcccaa3ca6e6f50b3c5f35d93c0c`; full audited run `37920994509`, push run `37920994535`, PR run `37920999451` succeeded.
+- Durable draft: `docs/marketplace/US039_RAPIDAPI_LISTING.md`, machine plan/config: `docs/marketplace/US039_LISTING_DRAFT.json`, executable gate `npm run test:listing`.
+- Exact external blocker: owner-confirmed publicly usable monitored support contact and one exact actual RapidAPI Studio marketplace category are missing. No category or support identity was invented.
+- Price hypothesis ($0/1k, $4.99/25k, $14.99/100k, $39.99/500k monthly) remains unapproved and not configured.
+- US035 launch gate remains `BLOCKED_PENDING_ACCOUNT_WIDE_USAGE`, in addition to the US039 confirmation gate.
+- Next executable step: once category and support contact are verified, update draft and machine record (no actual publishing), rerun `npm run test:listing` plus full audited regression, mark US039 DONE only if evidence passes, then start US040 separately.
+- Never skip to US040, publish a listing, or enable paid plans while US039 is BLOCKED.
+- US039 owner-decision handoff is tracked in GitHub Issue #2: https://github.com/myProjectsRavi/html_to_markdown_api/issues/2. PR #1 was refreshed to the current blocked state: https://github.com/myProjectsRavi/html_to_markdown_api/pull/1. No owner decisions have been inferred from issue creation.
+- US039 approval gate strengthened: `npm run test:listing` now accepts well-formed individually recorded owner decisions but requires independent live confirmation of the Issue #2 comment author and RapidAPI Studio category. Synthetic positive/negative cases prevent inconsistent or forged-shaped input, and no recorded state automatically publishes, closes the story, or enables plans.
+- Exact next action: inspect new exact-SHA validation of owner-approval gate. Issue #2 had no owner responses at checkpoint; US039 remains BLOCKED, US040 TODO.
+- US039 approval-gate tested SHA `9e78e3283dc4cdf3403130a2f4fe1ab98f3ee163`: audited `38139642035`, push `38139642052`, and PR `38139645013` all succeeded; 11 negative confirmation tests pass. Issue #2 still has no owner comment; remain BLOCKED.
+- 2026-10-11 US039 follow-up: hardened machine-record/listing-copy agreement for category and public support, with eight new negative copy checks and synthetic positive cases. Implementation SHA `5aee957da2e34ae995411d217193f974867727ae`; push checkpoint `38143166021` passed. Audited `38143163298` and PR `38143163214` were still running at documentation time; recheck terminal exact-head CI. No Issue #2 owner comments. US039 BLOCKED, US040 TODO, no marketplace or main changes.
+
+- 2026-10-11 category/support handoff: independently checked public RapidAPI Hub names `Tools`, `Text Analysis`, `Data`; recommended `Tools` for the API. Suggested existing public support URL is `https://github.com/myProjectsRavi/html_to_markdown_api/issues`. Updated draft and Issue #2 with one-comment approval instructions. Neither actual owner-specific Studio dropdown selection nor owner intent to monitor/publish support is verified; US039 remains BLOCKED. Do not infer owner consent from a connector-authored comment. US040 still TODO; no publishing, staging or paid plans.

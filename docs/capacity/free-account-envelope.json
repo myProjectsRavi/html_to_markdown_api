@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "story": "US035",
+  "snapshot_date": "2026-10-07",
+  "verified_platform_limits": {
+    "cloudflare_workers_free": {
+      "requests_per_account_per_day": 100000,
+      "cpu_ms_per_invocation": 10,
+      "memory_mb_per_isolate": 128,
+      "source": "Cloudflare Workers Limits, retrieved 2026-10-07"
+    },
+    "rapidapi": {
+      "request_object_quota_periods": [
+        "day",
+        "month"
+      ],
+      "hard_limit_supported": true,
+      "plan_rate_limit_units": [
+        "second",
+        "minute",
+        "hour"
+      ],
+      "non_5xx_default_quota_increment": true,
+      "five_xx_default_quota_increment": false,
+      "source": "RapidAPI Hub Listing Monetize / Rate Limiting docs, retrieved 2026-10-07"
+    }
+  },
+  "account_wide_inputs": {
+    "other_workers_reserved_requests_per_day": null,
+    "staging_reserved_requests_per_day": null,
+    "health_check_requests_per_day": null,
+    "expected_customer_requests_per_day": null,
+    "rejected_or_unauthenticated_requests_per_day": null
+  },
+  "proposal": {
+    "api_candidate_reserve_requests_per_day": 20000,
+    "safety_reserve_requests_per_day": 10000,
+    "status": "NOT_APPROVED_UNTIL_ACCOUNT_USAGE_IS_KNOWN"
+  },
+  "monthly_plan_stress_scenarios": [
+    {
+      "label": "candidate-1",
+      "monthly_requests": 1000,
+      "average_daily_requests": 33.34,
+      "worst_case_single_day_requests": 1000
+    },
+    {
+      "label": "candidate-2",
+      "monthly_requests": 10000,
+      "average_daily_requests": 333.34,
+      "worst_case_single_day_requests": 10000
+    },
+    {
+      "label": "candidate-3",
+      "monthly_requests": 30000,
+      "average_daily_requests": 1000,
+      "worst_case_single_day_requests": 30000
+    },
+    {
+      "label": "candidate-4",
+      "monthly_requests": 60000,
+      "average_daily_requests": 2000,
+      "worst_case_single_day_requests": 60000
+    }
+  ],
+  "capacity_accounting": {
+    "all_worker_invocations_consume_cloudflare_daily_request_budget": true,
+    "direct_origin_403_requests_consume_cloudflare_daily_request_budget": true,
+    "rapidapi_non_5xx_responses_can_consume_plan_quota": true,
+    "computed_available_requests_per_day": null
+  },
+  "launch_decision": {
+    "paid_launch": "BLOCKED_PENDING_ACCOUNT_WIDE_USAGE",
+    "reason": "GitHub-only engineering evidence does not expose aggregate Cloudflare account usage or existing Worker commitments. Do not infer unused capacity."
+  }
+}

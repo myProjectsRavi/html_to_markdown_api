@@ -1,0 +1,67 @@
+name: US009 Parser Selection Evidence
+
+on:
+  push:
+    branches:
+      - autopilot/html-markdown-v1
+    paths:
+      - ".github/workflows/us009-parser-selection.yml"
+      - "scripts/parser-spike.mjs"
+      - "scripts/parser-candidate-*-worker.mjs"
+      - "tests/parser-selection.worker.test.mjs"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: html-markdown-us009-parser-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout exact revision
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+
+      - name: Use Node 22.22.2
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22.22.2
+          cache: npm
+
+      - name: Install reviewed project lockfile
+        run: npm ci
+
+      - name: Install exact parser candidates without changing repository manifests
+        run: npm install --no-save --package-lock=false --ignore-scripts --audit=false --fund=false htmlparser2@12.0.0 parse5@8.0.1
+
+      - name: Print candidate licenses and versions
+        run: |
+          node -e 'for (const p of ["htmlparser2","parse5"]) { const x=JSON.parse(require("fs").readFileSync("node_modules/"+p+"/package.json","utf8")); console.log(p, x.version, x.license); }'
+
+      - name: Run Node measurement harness
+        run: node scripts/parser-spike.mjs
+
+      - name: Run candidates inside pinned Cloudflare workerd test runtime
+        run: npx vitest run tests/parser-selection.worker.test.mjs
+
+      - name: Bundle htmlparser2 candidate for Workers
+        run: npx wrangler deploy scripts/parser-candidate-htmlparser2-worker.mjs --dry-run --outdir .us009/htmlparser2
+
+      - name: Bundle parse5 candidate for Workers
+        run: npx wrangler deploy scripts/parser-candidate-parse5-worker.mjs --dry-run --outdir .us009/parse5
+
+      - name: Inspect generated bundle files
+        run: find .us009 -type f -maxdepth 3 -print -exec wc -c {} \;
+
+      - name: Audit exact candidate dependency graphs
+        run: |
+          mkdir -p .us009-audit
+          printf '%s\n' '{"private":true,"dependencies":{"htmlparser2":"12.0.0","parse5":"8.0.1"}}' > .us009-audit/package.json
+          npm install --prefix .us009-audit --package-lock-only --ignore-scripts --audit=false --fund=false
+          npm audit --prefix .us009-audit --omit=dev --audit-level=moderate

@@ -2,11 +2,11 @@
   "schema_version": 1,
   "repository": "myProjectsRavi/html_to_markdown_api",
   "branch": "autopilot/html-markdown-v1",
-  "state": "released",
-  "owner": null,
+  "state": "active",
+  "owner": "chatgpt-us039-listing-consistency-20261011",
   "story_id": "US039",
-  "base_head": "9e78e3283dc4cdf3403130a2f4fe1ab98f3ee163",
-  "acquired_at": "2026-10-11T12:35:29.869Z",
+  "base_head": "cf1f3475c2e22793bf3fd6c4fb1ef1d4f0e8267a",
+  "acquired_at": "2026-10-11T13:24:23.514Z",
   "lease_minutes": 20,
-  "note": "US039 approval security fix validated on SHA 9e78e328; three CI runs green. US039 still BLOCKED until verified Issue #2 owner support and exact RapidAPI Studio category; US040 not started."
+  "note": "Validate machine/listing copy consistency in US039; no publication or owner decisions implied."
 }
